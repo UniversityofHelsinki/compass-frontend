@@ -33,9 +33,9 @@ setup_stage:
   script:
     - CI=false npm run build
   artifacts:
-  name: compass-build
-  paths:
-    - build
+    name: compass-build
+    paths:
+      - build
 
 build_image:
   stage: build
