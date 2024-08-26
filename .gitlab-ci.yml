@@ -30,6 +30,7 @@ setup_stage:
   stage: setup
   tags:
     - ohtu-build-4
+  image: node:20-alpine
   script:
     - CI=false npm run build
   artifacts:
