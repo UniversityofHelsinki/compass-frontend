@@ -1,24 +1,18 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import CourseList from "./components/CourseList";
+import {Provider} from "react-redux";
+import {applyMiddleware, createStore} from "redux";
+import {thunk} from "redux-thunk";
+import courseReducer from './reducers';
+
+const store = createStore(courseReducer, applyMiddleware(thunk));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <Provider store={store}>
+            <CourseList />
+        </Provider>
   );
 }
 
