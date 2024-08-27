@@ -1,0 +1,15 @@
+.form-select:focus-visible {
+    outline: 2px solid var(--hy-blue);
+    border-radius: 0;
+    box-shadow: initial;
+    transition: none;
+}
+
+.form-select {
+    border-radius: 0;
+}
+
+/*.label {
+    padding-right: 10px;
+    font-size: large;
+}*/
