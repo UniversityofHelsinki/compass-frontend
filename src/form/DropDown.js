@@ -4,7 +4,7 @@ import './DropDown.css';
 
 const DropDown = ({ options, selectedOption, ...rest }) => {
     return (
-            <Form.Select { ...rest } value={rest.value || ''} defaultValue={selectedOption}>
+            <Form.Select { ...rest } value={selectedOption || ''} >
                 {options && options.map((option, i) =>
                     <option key={option.value || i} value={option.value}>{option.label}</option>
                 )}
