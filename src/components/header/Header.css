@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100%;
+
+    border-bottom: 1px solid var(--hy-black);
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.header-center {
+    display: flex;
+    justify-content: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-left > * {
+    margin-right: 8px;
+}
+
+.header-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+
+.header-right > * {
+    margin-left: 8px;
+}
+
+
+@media (max-width: 992px) {
+    .header-crisis-banner {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+}

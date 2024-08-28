@@ -1,0 +1,84 @@
+.crisis-banner {
+    width: 100%;
+    height: calc(var(--header-height) - 20px);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(white 75%, var(--huds-grayscale-light));
+}
+
+.crisis-banner-warning {
+    background-color: var(--huds-additional-yellow);
+    align-self: stretch;
+
+    display: flex;
+    align-items: center;
+
+    padding: 8px;
+}
+
+.crisis-banner-warning svg {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.crisis-banner-warning svg * {
+    fill: var(--huds-grayscale-white);
+}
+
+.crisis-banner-content {
+    flex-basis: 100%;
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.crisis-banner-heading {
+    font-weight: 600;
+}
+
+.crisis-banner-explanation {
+}
+
+.crisis-banner-trailer {
+    min-width: max-content;
+    align-self: center;
+}
+
+.crisis-banner-follow-link > a {
+    text-decoration: unset;
+    font-weight: 600;
+    font-size: 0.9em;
+    min-width: max-content;
+    display: flex;
+    align-items: stretch;
+}
+
+.crisis-banner-follow-link > a svg {
+    display: inline-block;
+    margin-left: 4px;
+    width: 1em;
+    height: 1em;
+}
+
+.crisis-banner-follow-link > a:hover {
+    text-decoration: underline;
+}
+
+.crisis-banner-follow-link > a > span {
+    display: flex;
+    align-items: center;
+}
+
+.crisis-banner-close {
+    font-size: 0.6em;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.crisis-banner-container {
+    position: relative;
+}
