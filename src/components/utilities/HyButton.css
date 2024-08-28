@@ -1,0 +1,36 @@
+.hy-button {
+    background-color: unset;
+    border: unset;
+    padding: unset;
+
+    box-sizing: border-box;
+
+    --hy-button-y-padding: 8px;
+    --hy-button-x-padding: 8px;
+    --hy-button-border: 2px;
+    min-width: max-content;
+}
+
+.hy-button-primary {
+    --hy-button-background-color: var(--huds-brand-main);
+    --hy-button-text-color: var(--hy-white);
+    --hy-button-border-color: var(--huds-brand-main);
+    --hy-button-bottom-color: var(--huds-additional-skyblue);
+    --hy-button-icon-separator-color: var(--huds-additional-skyblue);
+}
+
+.hy-button-primary:disabled {
+    --hy-button-background-color: var(--huds-grayscale-medium);
+    --hy-button-text-color: var(--huds-grayscale-dark);
+    --hy-button-border-color: var(--huds-grayscale-medium);
+    --hy-button-bottom-color: var(--huds-grayscale-medium-dark);
+}
+
+.hy-button-primary:enabled:hover {
+    --hy-button-background-color: var(--huds-brand-main-active);
+    --hy-button-border-color: var(--huds-brand-main-active);
+}
+
+.hy-button-primary:enabled:active {
+    --hy-button-background-color: var(--huds-brand-main-dark);
+}

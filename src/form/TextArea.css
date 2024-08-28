@@ -1,0 +1,11 @@
+textarea.form-control {
+    border-radius: 0;
+    padding: 10px;
+}
+
+textarea.form-control:focus-visible {
+    outline: 2px solid var(--hy-blue);
+    border-radius: 0;
+    box-shadow: initial;
+    transition: none;
+}

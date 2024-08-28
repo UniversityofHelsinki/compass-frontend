@@ -6,7 +6,9 @@ import Row from 'react-bootstrap/esm/Row';
 import './AnswerForm.css';
 import Form from "react-bootstrap/Form";
 import { useTranslation } from "react-i18next";
-import {Button} from "react-bootstrap";
+import FormSubjectSelection from "./FormSubjectSelection";
+import FormFreeAnswer from "./FormFreeAnswer";
+import HyButton from "../components/utilities/HyButton";
 
 
 const AnswerForm = () => {
@@ -15,30 +17,24 @@ const AnswerForm = () => {
 
     return (
         <Container className="answer-form-container">
-            <Row>
-                <Col>
-                    <h1>Welcome to using the Self-Reflection Compass</h1>
+            <Row className="answer-form-row">
+                <Col className="answer-form-welcome-col">
+                    <h1>Welcome to using the Self-Reflection Compass!</h1>
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="answer-form-description-col">
                     <p>You have dealt with research ethics and integrity topics independently or have participated in a training to develop your research ethics and integrity competencies. To reflect on your learning, think back at your previous activity, evaluate your ethical competence, and receive feedback. </p>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor="form-question-1" column="sm">Which activity/topic are you reflecting on?</Form.Label>
-                        <Form.Control className="form-question-1" id="form-question-1" type="text"/>
-                    </Form.Group>
+                    <FormSubjectSelection value={true}/>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <Form.Group className="mb-3">
-                        <Form.Label htmlFor="form-question-2" column="sm">Please describe what you have been learning about research ethics in relation to the abovementioned activity/topic. You can provide examples.</Form.Label>
-                        <Form.Control id="form-question-2" as="textarea" rows={5} />
-                    </Form.Group>
+                    <FormFreeAnswer value={true} />
                 </Col>
             </Row>
             <Row>
@@ -69,9 +65,9 @@ const AnswerForm = () => {
             </Row>
             <Row>
                 <Col>
-                    <Button>
-                        Send
-                    </Button>
+                    <HyButton variant="primary" type="submit" className="answer-form-send-button">
+                        Send answers
+                    </HyButton>
                 </Col>
             </Row>
         </Container>

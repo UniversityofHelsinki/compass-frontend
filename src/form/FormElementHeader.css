@@ -1,0 +1,16 @@
+.form-element-header {
+    display: flex;
+    justify-content: space-between;
+    align-content: start;
+    word-break: break-all;
+}
+
+.form-element-header h2 {
+    font-size: 1.1rem;
+}
+
+
+.form-element-header svg {
+    min-width: 1.5em;
+    min-height: 1.5em;
+}

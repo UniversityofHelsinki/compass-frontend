@@ -1,0 +1,18 @@
+input[type="text"] {
+    width: 100%;
+    border-radius: 0;
+    padding: 10px;
+}
+
+input[type="text"]:focus-visible {
+    outline: 2px solid var(--hy-blue);
+    border-radius: 0;
+    box-shadow: initial;
+    transition: none;
+}
+
+.form-text {
+    width: 100%;
+    display: inline-block;
+}
+
