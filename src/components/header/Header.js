@@ -1,7 +1,7 @@
 import React from 'react';
 import Languages from './Languages';
 import Logo from './Logo';
-//import User from './User';
+import User from './User';
 import {useTranslation} from 'react-i18next';
 import './Header.css';
 //import HeaderMenu from "./HeaderMenu";
@@ -25,7 +25,7 @@ const Header = () => {
             </div>
             <div className="header-right">
                 <Languages />
-                {/* <User /> */}
+                <User />
             </div>
         </div>
     );
