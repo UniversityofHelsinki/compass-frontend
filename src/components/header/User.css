@@ -1,0 +1,26 @@
+.user {
+    display: flex;
+}
+
+
+.user-logout {
+    padding: unset;
+    border: unset;
+    background-color: unset;
+}
+
+.user svg circle {
+    fill: var(--hy-black);
+}
+
+.user:hover svg circle {
+    fill: var(--huds-brand-main);
+}
+
+.user svg path {
+    fill: var(--hy-black);
+}
+
+.user:hover svg path {
+    fill: var(--huds-brand-main);
+}

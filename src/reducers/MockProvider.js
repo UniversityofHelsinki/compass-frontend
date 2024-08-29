@@ -18,6 +18,13 @@ const mockCourses =  [{
         label: "Kurssi3",
     }];
 
+const mockUser = {
+    eppn: 'baabenom',
+    hyGroupCn: ['hy-employees', 'hyad-employees'],
+    preferredLanguage: '',
+    displayName: 'Baabe Nomypeevo'
+};
+
 const defaultMockReducers = {
     location: {
         path: '/',
@@ -26,7 +33,9 @@ const defaultMockReducers = {
     courses: {
         allCourses: mockCourses
     },
-
+    users: {
+        user: mockUser
+    },
     visibilities: {
         left: true,
         right: true

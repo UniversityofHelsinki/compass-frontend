@@ -14,6 +14,7 @@ import {Col, Container, Row} from "react-bootstrap";
 import Header from "./components/header/Header";
 import {DEFAULT_LANGUAGE} from "./Constants";
 import AnswerForm from "./form/AnswerForm";
+import Compass from "./Compass";
 
 const store = createStore(courseReducer, applyMiddleware(thunk));
 
@@ -42,21 +43,10 @@ i18n
 
 //listenForBreakpointChanges();
 
-
-function App() {
+const App = () => {
   return (
         <Provider store={store}>
-            <Container className="root mx-0">
-                <Row className="header-row mb-2">
-                    <Col as="header" role="banner" className="px-0">
-                        <Header />
-                    </Col>
-                </Row>
-                <Row className="root-main-row">
-                    <CourseList />
-                    <AnswerForm />
-                </Row>
-            </Container>
+           <Compass />
         </Provider>
   );
 }
