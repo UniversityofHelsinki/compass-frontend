@@ -5,15 +5,11 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import translations from './translations';
 import './App.css';
-import CourseList from "./components/CourseList";
 import {Provider} from "react-redux";
 import {applyMiddleware, createStore} from "redux";
 import {thunk} from "redux-thunk";
 import courseReducer from './reducers';
-import {Col, Container, Row} from "react-bootstrap";
-import Header from "./components/header/Header";
 import {DEFAULT_LANGUAGE} from "./Constants";
-import AnswerForm from "./form/AnswerForm";
 import Compass from "./Compass";
 
 const store = createStore(courseReducer, applyMiddleware(thunk));

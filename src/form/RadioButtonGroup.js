@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import './RadioButtonGroup.css';
 import {useTranslation} from "react-i18next";
 
-
 const RadioButtonGroup = ({ options, onChange, value, ...rest }) => {
     const { t } = useTranslation();
     const id = useId();

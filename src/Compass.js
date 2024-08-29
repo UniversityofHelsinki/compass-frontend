@@ -1,4 +1,3 @@
-import {Provider} from "react-redux";
 import {Col, Container, Row} from "react-bootstrap";
 import Header from "./components/header/Header";
 import CourseList from "./components/CourseList";
@@ -6,7 +5,7 @@ import React, {useEffect, useState} from "react";
 import useUser from "./hooks/useUser";
 import useLocalStorage from "./hooks/useLocalStorage";
 import {useTranslation} from "react-i18next";
-
+import AnswerForm from "./form/AnswerForm";
 
 const Compass = () => {
 
@@ -35,6 +34,7 @@ const Compass = () => {
                 </Row>
                 <Row className="root-main-row">
                     <CourseList />
+                    <AnswerForm />
                 </Row>
             </Container>
     );
