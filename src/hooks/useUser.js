@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
+const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
+
 const login = (url = process.env.REACT_APP_LATAAMO_LOGIN) => {
     window.location.replace(url);
 };
@@ -10,7 +12,7 @@ const logout = (url = "/Shibboleth.sso/Logout") => {
 
 
 const getUser = async () => {
-    const URL = `${process.env.REACT_APP_COMPASS_BACKEND_SERVER}/api/user`;
+    const URL = `${COMPASS_BACKEND_SERVER}/api/user`;
     try {
         const response = await fetch(URL);
         if (response.ok) {
