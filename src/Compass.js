@@ -6,6 +6,7 @@ import useUser from "./hooks/useUser";
 import useLocalStorage from "./hooks/useLocalStorage";
 import {useTranslation} from "react-i18next";
 import AnswerForm from "./form/AnswerForm";
+import {LEVELS} from "./Constants";
 
 const Compass = () => {
 
@@ -13,9 +14,6 @@ const Compass = () => {
     const [userLoadingInitiated, setUserLoadingInitiated] = useState(false);
     const [localStorageGet] = useLocalStorage();
     const { i18n } = useTranslation();
-    //const [location, setLocation] = useLocation();
-    //const breakpoint = useBreakpoint('xl');
-    //const belowBreakpoint = breakpoint?.matches;
 
     useEffect(() => {
         if (!user && !userLoadingInitiated) {
@@ -34,7 +32,7 @@ const Compass = () => {
                 </Row>
                 <Row className="root-main-row">
                     <CourseList />
-                    <AnswerForm />
+                    <AnswerForm levelOptions={LEVELS} />
                 </Row>
             </Container>
     );

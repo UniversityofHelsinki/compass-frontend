@@ -9,11 +9,16 @@ import { useTranslation } from "react-i18next";
 import FormSubjectSelection from "./FormSubjectSelection";
 import FormFreeAnswer from "./FormFreeAnswer";
 import HyButton from "../components/utilities/HyButton";
+import RadioButtonGroup from "./RadioButtonGroup";
 
 
-const AnswerForm = () => {
+const AnswerForm = (levelOptions) => {
     const { t } = useTranslation();
-
+    const [value, setValue] = useState('');
+    const changeLevel = (level) => {
+        console.info("moi", level)
+        setValue(level);
+    };
 
     return (
         <Container className="answer-form-container">
@@ -41,7 +46,8 @@ const AnswerForm = () => {
                 <Col>
                     <Form>
                         <Form.Label> Choose the phrase that you think best describes your current level of understanding:</Form.Label>
-                        {['radio'].map((type) => (
+                                <RadioButtonGroup options={levelOptions} onChange={changeLevel} value={value} aria-required />
+                        {/*  {['radio'].map((type) => (
                             <div key={type} className="mb-3">
                                 <Form.Check
                                     type={type}
@@ -59,7 +65,7 @@ const AnswerForm = () => {
                                     label="333333333333"
                                 />
                             </div>
-                        ))}
+                        ))} */}
                     </Form>
                 </Col>
             </Row>
