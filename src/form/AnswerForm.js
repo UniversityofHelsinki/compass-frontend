@@ -39,34 +39,12 @@ const AnswerForm = () => {
             </Row>
             <Row>
                 <Col>
-                    <Form>
-                        <Form.Label> Choose the phrase that you think best describes your current level of understanding:</Form.Label>
-                        {['radio'].map((type) => (
-                            <div key={type} className="mb-3">
-                                <Form.Check
-                                    type={type}
-                                    id="option-1"
-                                    label="11111"
-                                />
-                                <Form.Check
-                                    type={type}
-                                    id="option-2"
-                                    label="2222"
-                                />
-                                <Form.Check
-                                    type={type}
-                                    id="option-3"
-                                    label="333333333333"
-                                />
-                            </div>
-                        ))}
-                    </Form>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <HyButton variant="primary" type="submit" className="answer-form-send-button">
-                        Send answers
+                    <HyButton variant="primary" type="submit" className="answer-form-send-button" >
+                        Submit answers
                     </HyButton>
                 </Col>
             </Row>

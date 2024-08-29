@@ -12,7 +12,6 @@ const store = createStore(courseReducer, applyMiddleware(thunk));
 function App() {
   return (
         <Provider store={store}>
-            <CourseList />
             <AnswerForm />
         </Provider>
   );
