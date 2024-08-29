@@ -3,17 +3,19 @@
     flex-direction: column;
     align-items: start;
     justify-content: start;
-    outline: 1px solid grey;
+    outline: 2px solid var(--huds-grayscale-medium-dark);
     margin: 0 auto;
     padding: 0 20px;
     width: 80%;
-    box-shadow: 1px 2px 4px var(--hy-dark-gray);
+    box-shadow: 1px 2px 4px var(--huds-grayscale-black);
 }
 
 .answer-form-welcome-col h1 {
     padding: 0.5em 0 0.5em;
-    margin-block-end: 0.5em;
+    margin-bottom: 0.5em;
     font-weight: 700;
+    border-bottom: 1px solid var(--huds-grayscale-medium);
+    width: 100%;
 }
 
 .answer-form-description-col {
