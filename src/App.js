@@ -13,6 +13,7 @@ import courseReducer from './reducers';
 import {Col, Container, Row} from "react-bootstrap";
 import Header from "./components/header/Header";
 import {DEFAULT_LANGUAGE} from "./Constants";
+import Footer from "./components/footer/Footer";
 
 const store = createStore(courseReducer, applyMiddleware(thunk));
 
@@ -53,6 +54,11 @@ function App() {
                 </Row>
                 <Row className="root-main-row">
                     <CourseList />
+                </Row>
+                <Row>
+                    <Col as="footer" role="contentinfo" className="px-0">
+                        <Footer />
+                    </Col>
                 </Row>
             </Container>
         </Provider>
