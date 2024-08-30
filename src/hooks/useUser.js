@@ -19,18 +19,18 @@ const getUser = async () => {
         } else if (response.status === 401) {
             if (process.env.NODE_ENV === 'development') {
                 console.log('401 Unauthorized: Redirect to login page avoided in development mode.');
-                return null; // Or handle as needed for local development
+                return null; // Handle as needed for local development
             } else {
-                login();
+                login(); // Redirect to login in production
             }
         } else if (response.status === 403) {
             console.log('403 Forbidden: Access denied.');
-            return null; // Or handle as needed for different user roles
+            return null; // Handle as needed for different user roles
         } else {
             throw new Error(`Unexpected status code ${response.status} from ${URL}`);
         }
     } catch (error) {
-        console.log(error.message);
+        console.error(`Error occurred while fetching user from ${URL}`, error);
         throw new Error(`Error occurred while fetching user from ${URL}`, {
             cause: error
         });
@@ -41,15 +41,19 @@ const useUser = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.users.user);
 
-    const load = async () => {
+    const loadUser = async () => {
         dispatch({ type: 'SET_LOADING_USER', payload: true });
-        //(async () => {
-            dispatch({ type: 'SET_USER', payload: await getUser()});
-        //})();
+        try {
+            const userData = await getUser();
+            dispatch({ type: 'SET_USER', payload: userData });
+        } catch (error) {
+            console.error("Failed to load user:", error);
+        } finally {
+            dispatch({ type: 'SET_LOADING_USER', payload: false });
+        }
     };
 
-    return [user, load, logout];
-
+    return [user, loadUser, logout];
 };
 
 export default useUser;

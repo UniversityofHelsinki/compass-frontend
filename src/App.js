@@ -1,17 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import PropTypes from 'prop-types';
 import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import {initReactI18next} from 'react-i18next';
 import translations from './translations';
 import './App.css';
 import {Provider} from "react-redux";
 import {applyMiddleware, createStore} from "redux";
-import {thunk} from "redux-thunk";
+import {thunk} from 'redux-thunk';
 import courseReducer from './reducers';
 import {DEFAULT_LANGUAGE} from "./Constants";
-import Footer from "./components/footer/Footer";
 import Compass from "./Compass";
+import {AuthProvider} from './AuthContext';
+import ProtectedRoute from './ProtectedRoute';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 const store = createStore(courseReducer, applyMiddleware(thunk));
 
@@ -38,17 +39,21 @@ i18n
         supportedLngs: ['fi', 'en', 'sv']
     });
 
-//listenForBreakpointChanges();
-
 const App = () => {
-  return (
+    return (
         <Provider store={store}>
-           <Compass />
+            <AuthProvider>
+                <Router>
+                    <Routes>
+                        <Route path="/" element={<ProtectedRoute component={Compass} />} />
+                        {/* Other routes can go here */}
+                    </Routes>
+                </Router>
+            </AuthProvider>
         </Provider>
-  );
-}
-
-App.propTypes = {
+    );
 };
+
+App.propTypes = {};
 
 export default App;
