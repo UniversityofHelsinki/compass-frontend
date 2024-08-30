@@ -1,30 +1,36 @@
-import {Col, Container, Row} from "react-bootstrap";
-import Header from "./components/header/Header";
-import CourseList from "./components/CourseList";
-import React, {useEffect, useState} from "react";
+import { Col, Container, Row } from 'react-bootstrap';
+import Header from './components/header/Header';
+import CourseList from './components/CourseList';
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import Footer from './components/footer/Footer';
+import { useAuth } from './AuthContext';
 import useUser from "./hooks/useUser";
 import useLocalStorage from "./hooks/useLocalStorage";
-import {useTranslation} from "react-i18next";
 import AnswerForm from "./form/AnswerForm";
 import {LEVELS} from "./Constants";
-import Footer from "./components/footer/Footer";
 import './Compass.css';
 
 
 const Compass = () => {
-
-    const [user, loadUser] = useUser();
-    const [userLoadingInitiated, setUserLoadingInitiated] = useState(false);
-    const [localStorageGet] = useLocalStorage();
+    const { user, loading } = useAuth();
     const { i18n } = useTranslation();
 
     useEffect(() => {
-        if (!user && !userLoadingInitiated) {
-            loadUser();
+        if (loading) {
+            console.log('Loading user data...');
+        } else if (!user) {
+            console.log('User not authenticated');
         }
+    }, [user, loading]);
 
-        return () => setUserLoadingInitiated(true);
-    }, []);
+    if (loading) {
+        return <div>Loading...</div>; // Render a loading spinner or similar component
+    }
+
+    if (!user) {
+        return <div>User not authenticated</div>; // Development mode fallback
+    }
 
     return (
             <Container className="root mx-0">
@@ -46,11 +52,6 @@ const Compass = () => {
                 </Row>
             </Container>
     );
-
-
-}
-
-Compass.propTypes = {
-}
+};
 
 export default Compass;
