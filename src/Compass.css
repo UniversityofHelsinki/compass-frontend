@@ -1,0 +1,24 @@
+.root {
+}
+
+.root-main-row {
+    min-height: calc(100dvh - var(--header-height));
+}
+
+.header-row {
+    box-sizing: border-box;
+    height: var(--header-height);
+}
+
+.root-main-row > aside {
+    padding-right: 0px;
+}
+
+.width-transition {
+    transition: width 0.25s, opacity 0.25s;
+}
+
+.hide-after-slide {
+    width: 400px;
+    opacity: 0%;
+}

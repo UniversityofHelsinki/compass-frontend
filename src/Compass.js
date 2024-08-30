@@ -8,6 +8,7 @@ import {useTranslation} from "react-i18next";
 import AnswerForm from "./form/AnswerForm";
 import {LEVELS} from "./Constants";
 import Footer from "./components/footer/Footer";
+import './Compass.css';
 
 
 const Compass = () => {
@@ -32,8 +33,10 @@ const Compass = () => {
                         <Header />
                     </Col>
                 </Row>
-                <Row className="root-main-row">
+                <Row>
                     <CourseList />
+                </Row>
+                <Row>
                     <AnswerForm levelOptions={LEVELS} />
                 </Row>
                 <Row>
