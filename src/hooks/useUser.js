@@ -2,14 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
 
-const login = (url = process.env.REACT_APP_COMPASS_LOGIN) => {
-    window.location.replace(url);
-};
-
-const logout = (url = "/Shibboleth.sso/Logout") => {
-    window.location.replace(url);
-};
-
 const getUser = async () => {
     const URL = `${COMPASS_BACKEND_SERVER}/api/user`;
     try {
@@ -17,15 +9,11 @@ const getUser = async () => {
         if (response.ok) {
             return await response.json();
         } else if (response.status === 401) {
-            if (process.env.NODE_ENV === 'development') {
-                console.log('401 Unauthorized: Redirect to login page avoided in development mode.');
-                return null; // Handle as needed for local development
-            } else {
-                login(); // Redirect to login in production
-            }
+            console.log('401 Unauthorized: Returning null user.');
+            return null; // Handle 401 by returning null user
         } else if (response.status === 403) {
             console.log('403 Forbidden: Access denied.');
-            return null; // Handle as needed for different user roles
+            return null; // Handle 403 by returning null user
         } else {
             throw new Error(`Unexpected status code ${response.status} from ${URL}`);
         }
@@ -35,6 +23,10 @@ const getUser = async () => {
             cause: error
         });
     }
+};
+
+const logout = (url = "/Shibboleth.sso/Logout") => {
+    window.location.replace(url);
 };
 
 const useUser = () => {
