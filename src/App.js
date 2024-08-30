@@ -10,6 +10,7 @@ import {applyMiddleware, createStore} from "redux";
 import {thunk} from "redux-thunk";
 import courseReducer from './reducers';
 import {DEFAULT_LANGUAGE} from "./Constants";
+import Footer from "./components/footer/Footer";
 import Compass from "./Compass";
 
 const store = createStore(courseReducer, applyMiddleware(thunk));

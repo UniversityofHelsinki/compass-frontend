@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 
-const login = (url = process.env.REACT_APP_LATAAMO_LOGIN) => {
+const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
+
+const login = (url = process.env.REACT_APP_COMPASS_LOGIN) => {
     window.location.replace(url);
 };
 
@@ -8,15 +10,22 @@ const logout = (url = "/Shibboleth.sso/Logout") => {
     window.location.replace(url);
 };
 
-
 const getUser = async () => {
-    const URL = `${process.env.REACT_APP_COMPASS_BACKEND_SERVER}/api/user`;
+    const URL = `${COMPASS_BACKEND_SERVER}/api/user`;
     try {
         const response = await fetch(URL);
         if (response.ok) {
             return await response.json();
         } else if (response.status === 401) {
-            login();
+            if (process.env.NODE_ENV === 'development') {
+                console.log('401 Unauthorized: Redirect to login page avoided in development mode.');
+                return null; // Or handle as needed for local development
+            } else {
+                login();
+            }
+        } else if (response.status === 403) {
+            console.log('403 Forbidden: Access denied.');
+            return null; // Or handle as needed for different user roles
         } else {
             throw new Error(`Unexpected status code ${response.status} from ${URL}`);
         }
