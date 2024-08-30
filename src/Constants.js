@@ -1,5 +1,5 @@
 export const DEFAULT_LANGUAGE = 'fi';
-export const LANGUAGES = ['fi', 'sv', 'en'];
+export const LANGUAGES = ['fi', 'sv', 'en', 'ee'];
 
 export const LEVELS = [
     {
