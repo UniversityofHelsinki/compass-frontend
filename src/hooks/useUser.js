@@ -10,7 +10,6 @@ const logout = (url = "/Shibboleth.sso/Logout") => {
     window.location.replace(url);
 };
 
-
 const getUser = async () => {
     const URL = `${COMPASS_BACKEND_SERVER}/api/user`;
     try {
@@ -18,7 +17,15 @@ const getUser = async () => {
         if (response.ok) {
             return await response.json();
         } else if (response.status === 401) {
-            login();
+            if (process.env.NODE_ENV === 'development') {
+                console.log('401 Unauthorized: Redirect to login page avoided in development mode.');
+                return null; // Or handle as needed for local development
+            } else {
+                login();
+            }
+        } else if (response.status === 403) {
+            console.log('403 Forbidden: Access denied.');
+            return null; // Or handle as needed for different user roles
         } else {
             throw new Error(`Unexpected status code ${response.status} from ${URL}`);
         }
