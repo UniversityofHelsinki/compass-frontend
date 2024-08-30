@@ -10,7 +10,7 @@ const RadioButtonGroup = ({ options, onChange, value, ...rest }) => {
 
     return (
         <>
-            {options?.levelOptions.map(option =>
+            {options && options.levelOptions.map(option =>
                 <Form.Check
                     className="radio-button-group"
                     type="radio"
