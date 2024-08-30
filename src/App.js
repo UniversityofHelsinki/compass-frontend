@@ -5,15 +5,13 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import translations from './translations';
 import './App.css';
-import CourseList from "./components/CourseList";
 import {Provider} from "react-redux";
 import {applyMiddleware, createStore} from "redux";
 import {thunk} from "redux-thunk";
 import courseReducer from './reducers';
-import {Col, Container, Row} from "react-bootstrap";
-import Header from "./components/header/Header";
 import {DEFAULT_LANGUAGE} from "./Constants";
 import Footer from "./components/footer/Footer";
+import Compass from "./Compass";
 
 const store = createStore(courseReducer, applyMiddleware(thunk));
 
@@ -42,25 +40,10 @@ i18n
 
 //listenForBreakpointChanges();
 
-
-function App() {
+const App = () => {
   return (
         <Provider store={store}>
-            <Container className="root mx-0">
-                <Row className="header-row mb-2">
-                    <Col as="header" role="banner" className="px-0">
-                        <Header />
-                    </Col>
-                </Row>
-                <Row className="root-main-row">
-                    <CourseList />
-                </Row>
-                <Row>
-                    <Col as="footer" role="contentinfo" className="px-0">
-                        <Footer />
-                    </Col>
-                </Row>
-            </Container>
+           <Compass />
         </Provider>
   );
 }

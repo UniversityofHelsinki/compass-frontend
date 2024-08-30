@@ -5,6 +5,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 ## Usage
+Create .env.development.local file to host environment variables
+REACT_APP_COMPASS_BACKEND_SERVER=http://localhost:5000
+
+## Usage
 Create .env file to host environment variables
 REACT_APP_COMPASS_BACKEND_SERVER=http://localhost:5000
 
