@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
 
-const login = (url = process.env.REACT_APP_LATAAMO_LOGIN) => {
+const login = (url = process.env.REACT_APP_COMPASS_LOGIN) => {
     window.location.replace(url);
 };
 
