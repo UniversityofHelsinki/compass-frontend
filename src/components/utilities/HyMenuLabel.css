@@ -1,0 +1,60 @@
+.hy-menu-label {
+    display: flex;
+    align-items: center;
+}
+
+.hy-menu-label-icon {
+    display: flex;
+}
+
+.hy-menu-label-caret {
+    display: flex;
+}
+
+.hy-menu-label:hover {
+    color: var(--huds-brand-main);
+}
+
+.hy-menu-label:hover svg {
+    fill: var(--huds-brand-main);
+}
+
+.hy-menu-label-content {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.hy-menu-label-icon svg {
+    width: 1em;
+    height: 1em;
+}
+
+.hy-menu-label-caret svg {
+    width: 0.6em;
+    height: 0.6em;
+}
+
+.hy-menu-label svg polygon {
+    fill: var(--hy-black);
+}
+
+.hy-menu-label:hover svg polygon {
+    fill: var(--huds-brand-main);
+}
+
+@media (max-width: 768px) {
+    .hy-menu-label-content {
+        display: none;
+    }
+
+    .hy-menu-label-icon svg {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+    .hy-menu-label-caret svg {
+        width: 1.5em;
+        height: 1.5em;
+    }
+
+}

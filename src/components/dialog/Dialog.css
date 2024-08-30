@@ -1,0 +1,11 @@
+.modal-content {
+    border-radius: 0px;
+}
+
+.modal-content .modal-header {
+    border-bottom: 1px solid var(--hy-dark-gray);
+}
+
+.modal-content .modal-footer {
+    border-top: 1px solid var(--hy-dark-gray);
+}

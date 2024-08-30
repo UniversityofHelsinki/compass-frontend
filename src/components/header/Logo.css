@@ -1,0 +1,30 @@
+.logo {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.logo svg {
+    margin-right: 8px;
+}
+
+.logo > a {
+    text-decoration: unset;
+    color: unset;
+}
+
+.logo h1 {
+    margin: 0px;
+    font-weight: 600;
+    font-size: 1.6em;
+}
+
+.logo:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--huds-brand-main);
+}
+
+.logo:hover svg path {
+    fill: var(--huds-brand-main);
+}

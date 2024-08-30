@@ -28,11 +28,14 @@ services:
 
 setup_stage:
   stage: setup
+  only:
+    - main
   tags:
     - ohtu-build-4
   image: node:20-alpine
   script:
     - npm ci
+    - yes | cp -f -v .env.test .env.production || true
     - CI=false npm run build
   artifacts:
     name: compass-build
@@ -41,13 +44,14 @@ setup_stage:
 
 build_image:
   stage: build
+  only:
+    - main
   tags:
     - ohtu-build-4
   script:
     - echo "Logging into quay..."
     - echo $QUAY_PASSWORD | docker login -u $QUAY_USERNAME --password-stdin quay.io
     - echo "Building image..."
-    - mv nginx-test.conf nginx.conf
     - docker build -t compass-frontend .
     - echo "Tagging main image..."
     - docker tag compass-frontend quay.io/tike/compass-frontend:test
@@ -58,6 +62,8 @@ deploy_azure:
   tags:
     - ohtu-build-4
   stage: deploy
+  only:
+    - main
   when: manual
   image: mcr.microsoft.com/azure-cli
   before_script:
