@@ -4,5 +4,11 @@
   "language_select_sv": "Svenska",
   "language_select_ee": "Eesti",
   "log_out": "Kirjaudu ulos",
-  "courses": "Kurssit"
+  "courses": "Kurssit",
+  "option_header": "Valitse väite, joka mielestäsi kuvaa parhaiten nykyistä ymmärrystäsi:",
+  "option_one": "Minulla on vaikeuksia tunnistaa, onko kysymys luonteeltaan eettinen, ja minusta on vaikeaa aloittaa analysoimaan, mistä on oikeastaan kyse.",
+  "option_two": "Osaan yleensä vastata selkeään kysymykseen ja tunnistan ainakin yhden eettisen, asiaan liittyvän teemaan.",
+  "option_three": "Osaan vastata asiakysymyksiin etiikasta ja tunnistan useita aiheeseen liittyviä seikkoja.",
+  "option_four": "Pystyn ajattelemaan eettisiä kysymyksiä useasta näkökulmasta ja perustelemaan kantani sekä havainnollistamaan niitä esimerkein.",
+  "option_five": "Ymmärrän eettisiä kysymyksiä monipuolisesti ja tunnistan eettisten ulottuvuuksien välisiä yhteyksiä. Osaan soveltaa tietojani erilaisissa tilanteissa omassa tutkimusprosessissani sekä auttaa muita heidän eettisissä kysymyksissään."
 }

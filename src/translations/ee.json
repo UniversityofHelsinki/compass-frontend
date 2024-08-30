@@ -2,7 +2,13 @@
   "language_select_fi": "Suomi",
   "language_select_en": "English",
   "language_select_sv": "Svenska",
-  "language_select_ee": "language_select_ee",
+  "language_select_ee": "Eesti",
   "log_out": "log_out",
-  "courses": "courses"
+  "courses": "Kursus",
+  "option_header": "Vali üks väide oma arusaamise kohta:",
+  "option_one": "Mul on raske tuvastada, kas teema on eetilise iseloomuga, ning mul on raske alustada küsimuse lahendamist.",
+  "option_two": "Ma suudan tavaliselt vastata otsestele faktiküsimustele. Ma suudan tavaliselt mõelda ühele-kahele asjale, mida öelda eetiliste aspektide kohta.",
+  "option_three": "Ma suudan vastata otsestele faktiküsimustele ja tavaliselt suudan öelda kolm või enam teema eetiliste aspektidega seotud mõtet.",
+  "option_four": "Ma suudan mõelda mitmele antud küsimuse eetilisele aspektile, oma selgitusi põhjendada ning tuua näiteid, et näidata oma arusaamist.",
+  "option_five": "Ma saan aru eetiliste küsimuste eri aspektidest, näen nendevahelisi seoseid, suudan oma teadmisi rakendada mitmesugustes olukordades oma uurimisprotsessis ning aidata teisi nende eetiliste küsimustega."
 }

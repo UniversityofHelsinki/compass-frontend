@@ -34,7 +34,7 @@ i18n
         resources: translations,
         lng: defaultLanguage(),
         fallbackLng: 'cimode',
-        supportedLngs: ['fi', 'en', 'sv']
+        supportedLngs: ['fi', 'en', 'sv', 'ee']
     });
 
 //listenForBreakpointChanges();

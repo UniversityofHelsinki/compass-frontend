@@ -1,6 +1,7 @@
 import fi from './fi.json';
 import en from './en.json';
 import sv from './sv.json';
+import ee from './ee.json';
 
 const translations = {
     'fi': {
@@ -11,6 +12,9 @@ const translations = {
     },
     'sv': {
         translation: sv
+    },
+    'ee': {
+        translation: ee
     }
 };
 

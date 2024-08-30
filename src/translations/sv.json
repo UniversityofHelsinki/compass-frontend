@@ -4,5 +4,11 @@
   "language_select_sv": "Svenska",
   "language_select_ee": "Estniska",
   "log_out": "Logga ut",
-  "courses": "Kurser"
+  "courses": "Kurser",
+  "option_header": "Välj det påstående som bäst beskriver din förståelse av forskningsetik:",
+  "option_one": "Jag har svårt att identifiera om en fråga är etisk till sin natur, och jag har svårt att börja reda ut frågan.",
+  "option_two": "Jag kan oftast ge ett svar på en direkt sakfråga. Jag kan vanligtvis tänka på en-två saker att säga.",
+  "option_three": "Jag kan ge ett svar på direkta faktafrågor och jag kan vanligtvis säga tre eller fler synpunkter relaterade till ämnet.",
+  "option_four": "Jag förstår olika aspekter av etiska frågor, jag ser samband mellan dem och kan tillämpa mina kunskaper i olika situationer i min egen forskningsprocess samt hjälpa andra med deras etiska frågor.",
+  "option_five": "Beskriv vad du har lärt dig om forskningsetik i relation till ovan nämnda aktivitet/ämne. Stöd påståendet du valde ovan. Du kan ge exempel."
 }

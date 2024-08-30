@@ -45,27 +45,8 @@ const AnswerForm = (levelOptions) => {
             <Row>
                 <Col>
                     <Form>
-                        <Form.Label> Choose the phrase that you think best describes your current level of understanding:</Form.Label>
+                        <Form.Label> {t('option_header')}</Form.Label>
                                 <RadioButtonGroup options={levelOptions} onChange={changeLevel} value={value} aria-required />
-                        {/*  {['radio'].map((type) => (
-                            <div key={type} className="mb-3">
-                                <Form.Check
-                                    type={type}
-                                    id="option-1"
-                                    label="11111"
-                                />
-                                <Form.Check
-                                    type={type}
-                                    id="option-2"
-                                    label="2222"
-                                />
-                                <Form.Check
-                                    type={type}
-                                    id="option-3"
-                                    label="333333333333"
-                                />
-                            </div>
-                        ))} */}
                     </Form>
                 </Col>
             </Row>
