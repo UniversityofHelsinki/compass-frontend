@@ -6,6 +6,7 @@ import React, {useEffect, useState} from "react";
 import useUser from "./hooks/useUser";
 import useLocalStorage from "./hooks/useLocalStorage";
 import {useTranslation} from "react-i18next";
+import Footer from "./components/footer/Footer";
 
 
 const Compass = () => {
@@ -35,6 +36,11 @@ const Compass = () => {
                 </Row>
                 <Row className="root-main-row">
                     <CourseList />
+                </Row>
+                <Row>
+                    <Col as="footer" role="contentinfo" className="px-0">
+                        <Footer />
+                    </Col>
                 </Row>
             </Container>
     );
