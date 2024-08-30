@@ -21,7 +21,7 @@ const FormFreeAnswer = ({ answer, onChange, message, disabled }) => {
                 <Row>
                     <Col>
                         <FormElementHeader id={id}>
-                            Please describe what you have been learning about research ethics in relation to the aforementioned activity/topic. You can provide examples.
+                            {t('form_free_answer')}
                         </FormElementHeader>
                     </Col>
                 </Row>

@@ -4,5 +4,11 @@
   "language_select_sv": "Svenska",
   "language_select_ee": "language_select_ee",
   "log_out": "Log out",
-  "courses": "Courses"
+  "courses": "Courses",
+  "form_welcome": "Welcome to using the Self-Reflection Compass!",
+  "form_description": "You have dealt with research ethics and integrity topics independently or have participated in a training to develop your research ethics and integrity competencies. To reflect on your learning, think back at your previous activity, evaluate your ethical competence, and receive feedback.",
+  "form_subject_select": "Which activity/topic are you reflecting on?",
+  "form_free_answer": "Please describe what you have been learning about research ethics in relation to the aforementioned activity/topic. You can provide examples.",
+  "form_submit": "Submit answers"
+
 }

@@ -4,7 +4,6 @@ import Col from 'react-bootstrap/esm/Col';
 import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/esm/Row';
 import './AnswerForm.css';
-import Form from "react-bootstrap/Form";
 import { useTranslation } from "react-i18next";
 import FormSubjectSelection from "./FormSubjectSelection";
 import FormFreeAnswer from "./FormFreeAnswer";
@@ -19,12 +18,12 @@ const AnswerForm = () => {
         <Container className="answer-form-container">
             <Row className="answer-form-row">
                 <Col className="answer-form-welcome-col">
-                    <h1>Welcome to using the Self-Reflection Compass!</h1>
+                    <h1>{t('form_welcome')}</h1>
                 </Col>
             </Row>
             <Row>
                 <Col className="answer-form-description-col">
-                    <p>You have dealt with research ethics and integrity topics independently or have participated in a training to develop your research ethics and integrity competencies. To reflect on your learning, think back at your previous activity, evaluate your ethical competence, and receive feedback. </p>
+                    <p>{t('form_description')} </p>
                 </Col>
             </Row>
             <Row>
@@ -44,7 +43,7 @@ const AnswerForm = () => {
             <Row>
                 <Col>
                     <HyButton variant="primary" type="submit" className="answer-form-send-button" >
-                        Submit answers
+                        {t('form_submit')}
                     </HyButton>
                 </Col>
             </Row>
