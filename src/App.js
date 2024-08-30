@@ -4,7 +4,6 @@ import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import translations from './translations';
 import './App.css';
-import CourseList from "./components/CourseList";
 import {Provider} from "react-redux";
 import {applyMiddleware, createStore} from "redux";
 import {thunk} from "redux-thunk";
@@ -14,7 +13,6 @@ import Compass from "./Compass";
 import {AuthProvider} from './AuthContext';
 import ProtectedRoute from './ProtectedRoute';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import AnswerForm from "./form/AnswerForm";
 
 const store = createStore(courseReducer, applyMiddleware(thunk));
 
@@ -38,7 +36,7 @@ i18n
         resources: translations,
         lng: defaultLanguage(),
         fallbackLng: 'cimode',
-        supportedLngs: ['fi', 'en', 'sv']
+        supportedLngs: ['fi', 'en', 'sv', 'ee']
     });
 
 const App = () => {
