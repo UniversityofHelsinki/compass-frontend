@@ -39,7 +39,7 @@ const Compass = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <CourseList />
+                    {/*<CourseList />*/}
                 </Row>
                 <Row>
                     <AnswerForm levelOptions={LEVELS} />
