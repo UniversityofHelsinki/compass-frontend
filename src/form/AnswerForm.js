@@ -16,7 +16,6 @@ const AnswerForm = (levelOptions) => {
     const { t } = useTranslation();
     const [value, setValue] = useState('');
     const changeLevel = (level) => {
-        console.info("moi", level)
         setValue(level);
     };
 
