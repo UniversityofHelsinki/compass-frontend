@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Footer from './components/footer/Footer';
 import { useAuth } from './AuthContext';
+import AnswerForm from "./form/AnswerForm";
 
 const Compass = () => {
     const { user, loading } = useAuth();
@@ -34,7 +35,8 @@ const Compass = () => {
                 </Col>
             </Row>
             <Row className="root-main-row">
-                <CourseList />
+                <AnswerForm />
+                {/*<CourseList />*/}
             </Row>
             <Row>
                 <Col as="footer" role="contentinfo" className="px-0">

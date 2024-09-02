@@ -6,7 +6,7 @@ import translations from './translations';
 import './App.css';
 import {Provider} from "react-redux";
 import {applyMiddleware, createStore} from "redux";
-import {thunk} from 'redux-thunk';
+import {thunk} from "redux-thunk";
 import courseReducer from './reducers';
 import {DEFAULT_LANGUAGE} from "./Constants";
 import Compass from "./Compass";
@@ -36,7 +36,7 @@ i18n
         resources: translations,
         lng: defaultLanguage(),
         fallbackLng: 'cimode',
-        supportedLngs: ['fi', 'en', 'sv']
+        supportedLngs: ['fi', 'en', 'sv', 'ee']
     });
 
 const App = () => {
