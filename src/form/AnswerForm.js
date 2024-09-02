@@ -8,11 +8,17 @@ import { useTranslation } from "react-i18next";
 import FormSubjectSelection from "./FormSubjectSelection";
 import FormFreeAnswer from "./FormFreeAnswer";
 import HyButton from "../components/utilities/HyButton";
+import RadioButtonGroup from "./RadioButtonGroup";
+import Form from "react-bootstrap/Form";
 
 
-const AnswerForm = () => {
+const AnswerForm = (levelOptions) => {
     const { t } = useTranslation();
-
+    const [value, setValue] = useState('');
+    const changeLevel = (level) => {
+        console.info("moi", level)
+        setValue(level);
+    };
 
     return (
         <Container className="answer-form-container">
@@ -38,6 +44,10 @@ const AnswerForm = () => {
             </Row>
             <Row>
                 <Col>
+                    <Form>
+                        <Form.Label> {t('option_header')}</Form.Label>
+                                <RadioButtonGroup options={levelOptions} onChange={changeLevel} value={value} aria-required />
+                    </Form>
                 </Col>
             </Row>
             <Row>

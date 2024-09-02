@@ -5,7 +5,11 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Footer from './components/footer/Footer';
 import { useAuth } from './AuthContext';
+import useUser from "./hooks/useUser";
+import useLocalStorage from "./hooks/useLocalStorage";
 import AnswerForm from "./form/AnswerForm";
+import {LEVELS} from "./Constants";
+import './Compass.css';
 
 const Compass = () => {
     const { user, loading } = useAuth();
@@ -28,22 +32,24 @@ const Compass = () => {
     }
 
     return (
-        <Container className="root mx-0">
-            <Row className="header-row mb-2">
-                <Col as="header" role="banner" className="px-0">
-                    <Header />
-                </Col>
-            </Row>
-            <Row className="root-main-row">
-                <AnswerForm />
-                {/*<CourseList />*/}
-            </Row>
-            <Row>
-                <Col as="footer" role="contentinfo" className="px-0">
-                    <Footer />
-                </Col>
-            </Row>
-        </Container>
+            <Container className="root mx-0">
+                <Row className="header-row mb-2">
+                    <Col as="header" role="banner" className="px-0">
+                        <Header />
+                    </Col>
+                </Row>
+                <Row>
+                    <CourseList />
+                </Row>
+                <Row>
+                    <AnswerForm levelOptions={LEVELS} />
+                </Row>
+                <Row>
+                    <Col as="footer" role="contentinfo" className="px-0">
+                        <Footer />
+                    </Col>
+                </Row>
+            </Container>
     );
 };
 
