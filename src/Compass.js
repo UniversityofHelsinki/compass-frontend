@@ -11,7 +11,6 @@ import AnswerForm from "./form/AnswerForm";
 import {LEVELS} from "./Constants";
 import './Compass.css';
 
-
 const Compass = () => {
     const { user, loading } = useAuth();
     const { i18n } = useTranslation();

@@ -20,7 +20,7 @@ const FormSubjectSelection = ({ subject, onChange, message, disabled }) => {
                 <Row>
                     <Col>
                         <FormElementHeader id={id}>
-                            Which activity/topic are you reflecting on?
+                            {t('form_subject_select')}
                         </FormElementHeader>
                     </Col>
                 </Row>

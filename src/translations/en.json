@@ -10,5 +10,11 @@
   "option_two": "I can usually provide an answer to a direct factual question. I can usually think of one-two things to say.",
   "option_three": "I can provide an answer to direct factual questions and I can usually say three or more items related to the topic.",
   "option_four": "I can think of several aspects about an ethical issue and I can justify my explanations and provide examples to illustrate my understanding.",
-  "option_five": "I understand various aspects of ethical issues, I see connections between them and can apply my knowledge in different situations within my own research process as well as help others with their ethical questions.\n"
+  "option_five": "I understand various aspects of ethical issues, I see connections between them and can apply my knowledge in different situations within my own research process as well as help others with their ethical questions.\n",
+  "form_welcome": "Welcome to using the Self-Reflection Compass!",
+  "form_description": "You have dealt with research ethics and integrity topics independently or have participated in a training to develop your research ethics and integrity competencies. To reflect on your learning, think back at your previous activity, evaluate your ethical competence, and receive feedback.",
+  "form_subject_select": "Which activity/topic are you reflecting on?",
+  "form_free_answer": "Please describe what you have been learning about research ethics in relation to the aforementioned activity/topic. You can provide examples.",
+  "form_submit": "Submit answers"
+
 }

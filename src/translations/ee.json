@@ -10,5 +10,10 @@
   "option_two": "Ma suudan tavaliselt vastata otsestele faktiküsimustele. Ma suudan tavaliselt mõelda ühele-kahele asjale, mida öelda eetiliste aspektide kohta.",
   "option_three": "Ma suudan vastata otsestele faktiküsimustele ja tavaliselt suudan öelda kolm või enam teema eetiliste aspektidega seotud mõtet.",
   "option_four": "Ma suudan mõelda mitmele antud küsimuse eetilisele aspektile, oma selgitusi põhjendada ning tuua näiteid, et näidata oma arusaamist.",
-  "option_five": "Ma saan aru eetiliste küsimuste eri aspektidest, näen nendevahelisi seoseid, suudan oma teadmisi rakendada mitmesugustes olukordades oma uurimisprotsessis ning aidata teisi nende eetiliste küsimustega."
+  "option_five": "Ma saan aru eetiliste küsimuste eri aspektidest, näen nendevahelisi seoseid, suudan oma teadmisi rakendada mitmesugustes olukordades oma uurimisprotsessis ning aidata teisi nende eetiliste küsimustega.",
+  "form_welcome": "Welcome to using the Self-Reflection Compass!",
+  "form_description": "You have dealt with research ethics and integrity topics independently or have participated in a training to develop your research ethics and integrity competencies. To reflect on your learning, think back at your previous activity, evaluate your ethical competence, and receive feedback.",
+  "form_subject_select": "Which activity/topic are you reflecting on?",
+  "form_free_answer": "Please describe what you have been learning about research ethics in relation to the aforementioned activity/topic. You can provide examples.",
+  "form_submit": "Submit answers"
 }
