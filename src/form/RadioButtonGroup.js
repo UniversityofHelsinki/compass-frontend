@@ -4,13 +4,13 @@ import PropTypes from "prop-types";
 import './RadioButtonGroup.css';
 import {useTranslation} from "react-i18next";
 
-const RadioButtonGroup = ({ options, onChange, value, ...rest }) => {
+const RadioButtonGroup = ({ options = [], onChange, value = "0", ...rest }) => {
     const { t } = useTranslation();
     const id = useId();
 
     return (
         <>
-            {options && options.levelOptions.map(option =>
+            {options && options.map(option =>
                 <Form.Check
                     className="radio-button-group"
                     type="radio"
@@ -18,7 +18,7 @@ const RadioButtonGroup = ({ options, onChange, value, ...rest }) => {
                     key={option.value} value={option.value}
                     id={`compass-${option.value}-${id}`}
                     label={t(option.label)}
-                    onChange={(e) => onChange(e.target.value)}
+                    onChange={(e) => onChange('multiple_choise_answer' ,e.target.value)}
                     { ...rest } />
             )}
         </>

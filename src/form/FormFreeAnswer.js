@@ -12,7 +12,7 @@ const FormFreeAnswer = ({ answer, onChange, message, disabled }) => {
     const id = useId();
 
     const changeFreeAnswerTextValue = (event) => {
-        onChange(event.target.value);
+        onChange('second_answer', event.target.value);
     };
 
     return (
@@ -27,7 +27,7 @@ const FormFreeAnswer = ({ answer, onChange, message, disabled }) => {
                 </Row>
                 <Row>
                     <Col>
-                        <TextArea aria-labelledby={id} value={answer} label={answer} aria-required />
+                        <TextArea aria-labelledby={id}  onChange={changeFreeAnswerTextValue} value={answer} label={answer} aria-required />
                     </Col>
                 </Row>
             </Form.Group>

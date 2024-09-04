@@ -8,8 +8,8 @@ import { useAuth } from './AuthContext';
 import useUser from "./hooks/useUser";
 import useLocalStorage from "./hooks/useLocalStorage";
 import AnswerForm from "./form/AnswerForm";
-import {LEVELS} from "./Constants";
 import './Compass.css';
+import {LEVELS} from "./Constants";
 
 const Compass = () => {
     const { user, loading } = useAuth();
@@ -42,7 +42,7 @@ const Compass = () => {
                     {/*<CourseList />*/}
                 </Row>
                 <Row>
-                    <AnswerForm levelOptions={LEVELS} />
+                    <AnswerForm levels={LEVELS} />
                 </Row>
                 <Row>
                     <Col as="footer" role="contentinfo" className="px-0">

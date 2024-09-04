@@ -10,9 +10,9 @@ const FormSubjectSelection = ({ subject, onChange, message, disabled }) => {
     const { t } = useTranslation();
     const id = useId();
 
-/*    const changeSubjectValue = (event) => {
-        onChange(event.target.value);
-    };*/
+    const changeSubjectValue = (event) => {
+        onChange('first_answer', event.target.value);
+    };
 
     return (
         <Container className="ps-0">
@@ -26,7 +26,8 @@ const FormSubjectSelection = ({ subject, onChange, message, disabled }) => {
                 </Row>
                 <Row>
                     <Col>
-                        <InputField aria-labelledby={id} label={subject} value={subject} aria-required />
+                        <InputField aria-labelledby={id} label={subject} value={subject}
+                                    onChange={changeSubjectValue} aria-required />
                     </Col>
                 </Row>
             </Form.Group>

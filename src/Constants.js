@@ -4,22 +4,22 @@ export const LANGUAGES = ['fi', 'sv', 'en', 'ee'];
 export const LEVELS = [
     {
         label: 'option_one',
-        value: 'compass_radio_1',
+        value: '1',
     },
     {
         label: 'option_two',
-        value: 'compass_radio_2',
+        value: '2',
     },
     {
         label: 'option_three',
-        value: 'compass_radio_3',
+        value: '3',
     },
     {
         label: 'option_four',
-        value: 'compass_radio_4',
+        value: '4',
     },
     {
         label: 'option_five',
-        value: 'compass_radio_5',
+        value: '5',
     },
 ];
