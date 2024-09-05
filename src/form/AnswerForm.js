@@ -55,7 +55,7 @@ const AnswerForm = ({levels}) => {
                     <Form>
                         <Form.Label> {t('option_header')}</Form.Label>
                                 <RadioButtonGroup options={levels ? levels : []} onChange={changeValue} value={
-                                    (modifiedObject && modifiedObject.multiple_choise_answer) ? modifiedObject.multiple_choise_answer :  "0"} aria-required />
+                                    (modifiedObject && modifiedObject.multiple_choice_answer) ? modifiedObject.multiple_choice_answer :  "0"} aria-required />
                     </Form>
                 </Col>
             </Row>

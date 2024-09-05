@@ -18,7 +18,7 @@ const RadioButtonGroup = ({ options = [], onChange, value = "0", ...rest }) => {
                     key={option.value} value={option.value}
                     id={`compass-${option.value}-${id}`}
                     label={t(option.label)}
-                    onChange={(e) => onChange('multiple_choise_answer' ,e.target.value)}
+                    onChange={(e) => onChange('multiple_choice_answer' ,e.target.value)}
                     { ...rest } />
             )}
         </>
