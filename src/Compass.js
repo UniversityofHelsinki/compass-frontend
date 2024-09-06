@@ -5,8 +5,6 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Footer from './components/footer/Footer';
 import { useAuth } from './AuthContext';
-import useUser from "./hooks/useUser";
-import useLocalStorage from "./hooks/useLocalStorage";
 import AnswerForm from "./form/AnswerForm";
 import './Compass.css';
 import {LEVELS} from "./Constants";

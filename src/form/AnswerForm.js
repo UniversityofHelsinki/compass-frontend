@@ -21,8 +21,7 @@ const AnswerForm = ({levels}) => {
 
     const handleAddAnswer = async () => {
         const newUser = {...modifiedObject};
-        const success = await addAnswer(newUser, true);
-        //setNotupdated(true);
+        await addAnswer(newUser, true);
     }
 
     const changeValue = (name, value) => {

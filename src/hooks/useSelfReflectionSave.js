@@ -23,6 +23,7 @@ const post = async (answer) => {
 
 const useSelfReflectionSave = () => {
     const dispatch = useDispatch();
+    const { answer, message }  = useSelector((state) => state.addedAnswer);
 
     const findValue = (arr, field) => {
         return arr?.find(
@@ -37,8 +38,6 @@ const useSelfReflectionSave = () => {
             dispatch({ type: 'HIDE_ADD_NOTIFICATION' });
         }, 3000);
     }
-
-    const { answer, message }  = useSelector((state) => state.addedAnswer);
 
     return [answer, message, addAnswer];
 };
