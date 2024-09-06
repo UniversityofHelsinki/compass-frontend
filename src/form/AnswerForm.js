@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/esm/Col';
 import Container from 'react-bootstrap/esm/Container';
 import Row from 'react-bootstrap/esm/Row';
+import Notification from "../components/notes/Notification";
 import './AnswerForm.css';
 import { useTranslation } from "react-i18next";
 import FormSubjectSelection from "./FormSubjectSelection";
@@ -66,9 +67,8 @@ const AnswerForm = ({levels}) => {
                     </HyButton>
                 </Col>
             </Row>
-            <Row className="mt-2" >
-                <> message={ message }
-                </>
+            <Row className="mb-2" >
+                <Notification msg={ message }/>
             </Row>
         </Container>
     );

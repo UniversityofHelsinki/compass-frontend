@@ -4,6 +4,8 @@ const selfReflectionReducer = (state = {
     switch (action.type) {
         case 'ADD_ANSWER':
             return { ...state, answer: action.payload, message: action.responseMessage.message };
+        case 'HIDE_ADD_NOTIFICATION':
+            return { ...state,  message: null };
         default:
             return state;
     }
