@@ -13,10 +13,21 @@ import RadioButtonGroup from "./RadioButtonGroup";
 import Form from "react-bootstrap/Form";
 import useSelfReflectionModification from "../hooks/useSelfReflectionModification";
 import useSelfReflectionSave from "../hooks/useSelfReflectionSave";
+import useAnswerValidation from "../hooks/validation/answers/useAnswerValidation";
 const AnswerForm = ({levels}) => {
+
+    const emptyAnswer = {
+        id: '',
+        first_answer: '',
+        second_answer: '',
+        multiple_choice_answer: '',
+    };
     const { t } = useTranslation();
     const [value, setValue] = useState('');
-    const [modifiedObject, onChange, modified] = useSelfReflectionModification();
+    const [isValid, messages, validate] = useAnswerValidation([
+        'first_answer', 'second_answer'
+    ], emptyAnswer);
+    const [modifiedObject, onChange, modified] = useSelfReflectionModification({...emptyAnswer}, validate);
     const [answer, message, addAnswer] = useSelfReflectionSave();
 
     const handleAddAnswer = async () => {
