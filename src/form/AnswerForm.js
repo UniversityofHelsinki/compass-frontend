@@ -61,7 +61,7 @@ const AnswerForm = ({levels}) => {
             </Row>
             <Row>
                 <Col>
-                    <HyButton variant="primary" onClick={ () => handleAddAnswer() } className="answer-form-send-button" >
+                    <HyButton variant="primary" modified={modified} onClick={ () => handleAddAnswer() } className="answer-form-send-button" >
                         {t('form_submit')}
                     </HyButton>
                 </Col>

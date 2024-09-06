@@ -10,6 +10,7 @@ const useSelfReflectionModification = () => {
             [what]: value
         };
         setModifiedObject(newModifiedObject);
+        setModified(true);
     };
 
     return [modifiedObject, onChange, modified];
