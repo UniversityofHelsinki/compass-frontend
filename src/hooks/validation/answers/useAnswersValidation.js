@@ -1,4 +1,4 @@
-import useValidation from "../useValidation";
+/*import useValidation from "../useValidation";
 import validateFirstAnswer from "./firstAnswerValidation";
 import validateSecondAnswer from "./secondAnswerValidation";
 
@@ -16,4 +16,4 @@ const useAnswersValidation = (fields, answers = []) => {
     return [isValids, messages, validate];
 };
 
-export default useAnswersValidation;
+export default useAnswersValidation;*/

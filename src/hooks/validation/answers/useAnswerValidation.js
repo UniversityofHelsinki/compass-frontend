@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+/*import PropTypes from 'prop-types';
 import useAnswersValidation from "./useAnswersValidation";
 
 const useAnswerValidation = (fields, answer) => {
@@ -19,5 +19,5 @@ useAnswerValidation.propTypes = {
     fields: PropTypes.array
 };
 
-export default useAnswerValidation;
+export default useAnswerValidation;*/
 

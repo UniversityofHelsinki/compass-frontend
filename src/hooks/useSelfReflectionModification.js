@@ -34,7 +34,7 @@ const useSelfReflectionModification = (object, validate) => {
             return true;
         })();
 
-        /* TÄMÄ EI TOIMI
+        /* TÄMÄ EI OLE VALMIS
         if (validate) {
             const previousObject = modifiedObject;
             validate(newModifiedObject, previousObject);
