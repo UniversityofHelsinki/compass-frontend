@@ -1,4 +1,4 @@
-/*import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { FIELD_IS_VALID } from '../../../Constants';
 
 const validateSecondAnswer = (secondAnswer) => {
@@ -14,4 +14,4 @@ validateSecondAnswer.PropTypes = {
     secondAnswer: PropTypes.string,
 };
 
-export default validateSecondAnswer;*/
+export default validateSecondAnswer;

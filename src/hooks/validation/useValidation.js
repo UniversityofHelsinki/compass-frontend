@@ -1,4 +1,4 @@
-/*import { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const useValidation = (validationFunctions, fields) => {
@@ -60,4 +60,4 @@ const useValidation = (validationFunctions, fields) => {
     return [isValids, messages, validate];
 };
 
-export default useValidation;*/
+export default useValidation;

@@ -1,4 +1,4 @@
-/*import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { FIELD_IS_VALID } from '../../../Constants';
 
 const validateFirstAnswer = (firstAnswer) => {
@@ -14,4 +14,4 @@ validateFirstAnswer.PropTypes = {
     record: PropTypes.object
 };
 
-export default validateFirstAnswer;*/
+export default validateFirstAnswer;

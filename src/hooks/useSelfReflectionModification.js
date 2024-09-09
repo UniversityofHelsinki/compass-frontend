@@ -34,16 +34,30 @@ const useSelfReflectionModification = (object, validate) => {
             return true;
         })();
 
-        /* TÄMÄ EI OLE VALMIS
         if (validate) {
             const previousObject = modifiedObject;
             validate(newModifiedObject, previousObject);
-        }*/
+        }
 
         setModifiedObject(newModifiedObject);
+        setTouchedFields(newTouchedFields);
         setModified(!equalsOriginal);
-
     };
+
+    if (modifiedObject?.id !== object?.id) {
+        const objectHasChanged = modifiedObject?.id && object?.id;
+
+        const validateFunctionIsPresent = Boolean(validate);
+        if (object && validateFunctionIsPresent) {
+            const validateAllFieldsAtFirst = () => validate(object, {}, true);
+            validateAllFieldsAtFirst();
+        }
+
+        setModifiedObject({...object});
+        setTouchedFields([]);
+        setModified(false);
+        return [{...object}, onChange, false];
+    }
 
     return [modifiedObject, onChange, modified];
 };
