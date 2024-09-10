@@ -1,10 +1,12 @@
 import useValidation from "../useValidation";
 import validateFirstAnswer from "./firstAnswerValidation";
 import validateSecondAnswer from "./secondAnswerValidation";
+import validateLevel from "./levelValidation";
 
 const validationFunctions = () => ({
     first_answer: validateFirstAnswer,
     second_answer: validateSecondAnswer,
+    multiple_choice_answer: validateLevel
 });
 
 const useAnswersValidation = (fields, answers = []) => {

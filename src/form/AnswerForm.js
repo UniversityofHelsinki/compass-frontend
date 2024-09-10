@@ -25,7 +25,7 @@ const AnswerForm = ({levels}) => {
     const { t } = useTranslation();
     const [value, setValue] = useState('');
     const [isValid, messages, validate] = useAnswerValidation([
-        'first_answer', 'second_answer'
+        'first_answer', 'second_answer', 'multiple_choice_answer'
     ], emptyAnswer);
     const [modifiedObject, onChange, modified] = useSelfReflectionModification({...emptyAnswer}, validate);
     const [answer, message, addAnswer] = useSelfReflectionSave();
@@ -53,26 +53,26 @@ const AnswerForm = ({levels}) => {
             </Row>
             <Row>
                 <Col>
-                    <FormSubjectSelection onChange={changeValue} value={true}/>
+                    <FormSubjectSelection onChange={changeValue} value={true} validationMessage={messages?.first_answer}/>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <FormFreeAnswer onChange={changeValue} value={true} />
+                    <FormFreeAnswer onChange={changeValue} value={true} validationMessage={messages?.second_answer}/>
                 </Col>
             </Row>
             <Row>
                 <Col>
                     <Form>
                         <Form.Label> {t('option_header')}</Form.Label>
-                                <RadioButtonGroup options={levels ? levels : []} onChange={changeValue} value={
+                                <RadioButtonGroup options={levels ? levels : []} validationMessage={messages?.multiple_choice_answer} onChange={changeValue} value={
                                     (modifiedObject && modifiedObject.multiple_choice_answer) ? modifiedObject.multiple_choice_answer :  "0"} aria-required />
                     </Form>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <HyButton variant="primary" modified={modified} onClick={ () => handleAddAnswer() } className="answer-form-send-button" >
+                    <HyButton variant="primary" modified={modified} isValid={isValid} onClick={ () => handleAddAnswer() } className="answer-form-send-button" >
                         {t('form_submit')}
                     </HyButton>
                 </Col>

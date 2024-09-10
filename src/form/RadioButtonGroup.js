@@ -3,8 +3,9 @@ import Form from 'react-bootstrap/Form';
 import PropTypes from "prop-types";
 import './RadioButtonGroup.css';
 import {useTranslation} from "react-i18next";
+import Message from "./Message";
 
-const RadioButtonGroup = ({ options = [], onChange, value = "0", ...rest }) => {
+const RadioButtonGroup = ({ options = [], validationMessage, onChange, value = "0", ...rest }) => {
     const { t } = useTranslation();
     const id = useId();
 
@@ -21,6 +22,9 @@ const RadioButtonGroup = ({ options = [], onChange, value = "0", ...rest }) => {
                     onChange={(e) => onChange('multiple_choice_answer' ,e.target.value)}
                     { ...rest } />
             )}
+            <Message type={validationMessage?.type}>
+                {validationMessage?.content}
+            </Message>
         </>
     );
 }

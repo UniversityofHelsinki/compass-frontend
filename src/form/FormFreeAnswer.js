@@ -7,7 +7,7 @@ import TextArea from './TextArea';
 import FormElementHeader from './FormElementHeader';
 //import HelpDialog from '../../dialog/HelpDialog';
 
-const FormFreeAnswer = ({ answer, onChange, message, disabled }) => {
+const FormFreeAnswer = ({ answer, onChange, validationMessage, disabled }) => {
     const { t } = useTranslation();
     const id = useId();
 
@@ -27,7 +27,7 @@ const FormFreeAnswer = ({ answer, onChange, message, disabled }) => {
                 </Row>
                 <Row>
                     <Col>
-                        <TextArea aria-labelledby={id}  onChange={changeFreeAnswerTextValue} value={answer} label={answer} aria-required />
+                        <TextArea aria-labelledby={id}  onChange={changeFreeAnswerTextValue} value={answer} message={validationMessage} label={answer} aria-required />
                     </Col>
                 </Row>
             </Form.Group>

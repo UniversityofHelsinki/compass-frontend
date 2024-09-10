@@ -11,6 +11,7 @@ const HyButton = ({
                       mini = false,
                       onClick,
                       modified,
+                      isValid,
                       ...rest
                   }) => {
 
@@ -24,7 +25,7 @@ const HyButton = ({
     };
 
     return (
-        <button className={`hy-button ${miniClass} hy-button-${variant} ${className}`} disabled={!modified} onClick={onButtonClick} { ...rest }>
+        <button className={`hy-button ${miniClass} hy-button-${variant} ${className}`} disabled={!modified || !isValid } onClick={onButtonClick} { ...rest }>
             <div className="hy-button-content">
                 {leftIcon && <div className="hy-button-icon">
                     {leftIcon}

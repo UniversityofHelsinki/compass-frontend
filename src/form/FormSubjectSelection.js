@@ -6,7 +6,7 @@ import {useTranslation} from "react-i18next";
 import InputField from './InputField';
 import FormElementHeader from "./FormElementHeader";
 
-const FormSubjectSelection = ({ subject, onChange, message, disabled }) => {
+const FormSubjectSelection = ({ subject, onChange, validationMessage, disabled }) => {
     const { t } = useTranslation();
     const id = useId();
 
@@ -26,7 +26,7 @@ const FormSubjectSelection = ({ subject, onChange, message, disabled }) => {
                 </Row>
                 <Row>
                     <Col>
-                        <InputField aria-labelledby={id} label={subject} value={subject}
+                        <InputField aria-labelledby={id} label={subject} value={subject} message={validationMessage}
                                     onChange={changeSubjectValue} aria-required />
                     </Col>
                 </Row>
