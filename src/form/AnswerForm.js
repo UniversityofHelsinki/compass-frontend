@@ -14,6 +14,8 @@ import Form from "react-bootstrap/Form";
 import useSelfReflectionModification from "../hooks/useSelfReflectionModification";
 import useSelfReflectionSave from "../hooks/useSelfReflectionSave";
 import useAnswerValidation from "../hooks/validation/answers/useAnswerValidation";
+import ButtonRow from "../components/actions/ButtornRow";
+import CourseEvaluation from "../components/course/CourseEvaluation";
 const AnswerForm = ({levels}) => {
 
     const emptyAnswer = {
@@ -72,9 +74,10 @@ const AnswerForm = ({levels}) => {
             </Row>
             <Row>
                 <Col>
-                    <HyButton variant="primary" modified={modified} isValid={isValid} onClick={ () => handleAddAnswer() } className="answer-form-send-button" >
-                        {t('form_submit')}
-                    </HyButton>
+                    <ButtonRow>
+                        <CourseEvaluation modified={modified} isValid={isValid} handleAddAnswer={handleAddAnswer}>
+                        </CourseEvaluation>
+                    </ButtonRow>
                 </Col>
             </Row>
             <Row className="mb-2" >
