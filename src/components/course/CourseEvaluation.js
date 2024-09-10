@@ -1,21 +1,67 @@
 import HyButton from "../utilities/HyButton";
-import React from "react";
+import React, {useState} from "react";
 import {t} from "i18next";
+import { Button, Col, Container, Form, Modal, Row } from 'react-bootstrap';
+import useUser from "../../hooks/useUser";
+import {useTranslation} from "react-i18next";
+import FormDialog from "../dialog/FormDialog";
+import CourseEvaluationFooter from "./CourseEvaluationFooter";
 
 const CourseEvaluation = ({modified, isValid, handleAddAnswer}) => {
 
+    const closeButton = { closeButton: true };
+    const { t } = useTranslation();
+    const [user] = useUser();
+    const [showForm, setShowForm] = useState(false);
+
+    const hide = () => {
+        setShowForm(false);
+    };
 
     const onButtonClick = (event) => {
         event.preventDefault();
-        handleAddAnswer();
+        setShowForm(true);
+        //handleAddAnswer();
     };
 
+    const theButton = (
+        <HyButton
+            variant="primary" modified={modified} isValid={isValid} onClick={onButtonClick}
+            className="answer-form-send-button" >
+            {t('form_submit')}
+        </HyButton>
+    );
+    /*const onSubmit = async (event) => {
+        event.preventDefault();
+        //await save(collection);
+    };*/
+
     return (
-        <>
-    <HyButton variant="primary" modified={modified} isValid={isValid} onClick={onButtonClick} className="answer-form-send-button" >
-        {t('form_submit')}
-    </HyButton>
-        </>)
+        <FormDialog
+            hide={hide}
+            showComponent={theButton}
+            show={showForm}
+            size="xl"
+            //touched={modified && progress.status !== ProgressStatus.NEW_COLLECTION.DONE}
+        >
+            <Modal.Header { ...closeButton }>{t('answer_evaluation_form_header')}</Modal.Header>
+            <Form className="new-collection-form ms-3 me-3"> {/* onSubmit={onSubmit}> */}
+                <Modal.Body>
+                    <Container>
+                        <Row>
+                            <Col lg>
+                                 Dialog avattu
+                            </Col>
+                        </Row>
+                    </Container>
+                </Modal.Body>
+                <Modal.Footer className="ps-0 pe-0">
+                    <CourseEvaluationFooter isValid={isValid}></CourseEvaluationFooter>
+                </Modal.Footer>
+            </Form>
+        </FormDialog>
+    );
+
 }
 
 export default CourseEvaluation;

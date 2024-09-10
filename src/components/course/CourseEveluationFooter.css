@@ -1,0 +1,18 @@
+.new-collection-footer-progress-row {
+    max-width: 80%;
+}
+
+.new-collection-footer {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+.new-collection-footer-progress-bar {
+    flex-grow: 1;
+}
+
+.new-collection-footer-buttons button {
+    margin-left: 8px;
+}
