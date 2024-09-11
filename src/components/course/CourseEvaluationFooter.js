@@ -13,11 +13,11 @@ const CourseEveluationFooter = () => {
     return (
         <div className="new-collection-footer">
             <div className="new-collection-footer-buttons">
-                <HyButton variant="secondary" onClick={null}>
-                    t('course_evaluation_form_footer_report')
+                <HyButton variant="secondary" onClick={null} type="submit" disabled={submitButtonDisabled}>
+                    {t('answer_evaluation_form_footer_report')}
                 </HyButton>
                 <HyButton variant="primary" type="submit" disabled={submitButtonDisabled}>
-                    t('course_evaluation_form_footer_close')
+                    {t('answer_evaluation_form_footer_close')}
                 </HyButton>
             </div>
         </div>

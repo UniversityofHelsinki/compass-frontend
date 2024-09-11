@@ -75,7 +75,7 @@ const AnswerForm = ({levels}) => {
             <Row>
                 <Col>
                     <ButtonRow>
-                        <CourseEvaluation modified={modified} isValid={isValid} handleAddAnswer={handleAddAnswer}>
+                        <CourseEvaluation modified={modified} isValid={isValid} handleAddAnswer={handleAddAnswer} multiple_choice_answer={modifiedObject.multiple_choice_answer}>
                         </CourseEvaluation>
                     </ButtonRow>
                 </Col>

@@ -7,13 +7,13 @@ import {useTranslation} from "react-i18next";
 import FormDialog from "../dialog/FormDialog";
 import CourseEvaluationFooter from "./CourseEvaluationFooter";
 
-const CourseEvaluation = ({modified, isValid, handleAddAnswer}) => {
+const CourseEvaluation = ({modified, isValid, handleAddAnswer, multiple_choice_answer}) => {
 
     const closeButton = { closeButton: true };
     const { t } = useTranslation();
     const [user] = useUser();
     const [showForm, setShowForm] = useState(false);
-
+    let number = 3;
     const hide = () => {
         setShowForm(false);
     };
@@ -35,7 +35,8 @@ const CourseEvaluation = ({modified, isValid, handleAddAnswer}) => {
         event.preventDefault();
         //await save(collection);
     };*/
-
+    let answer_evaluation_form_header =  'answer_evaluation_form_header_' + multiple_choice_answer;
+    let answer_evaluation_form_text =  'answer_evaluation_form_text_' + multiple_choice_answer;
     return (
         <FormDialog
             hide={hide}
@@ -44,13 +45,13 @@ const CourseEvaluation = ({modified, isValid, handleAddAnswer}) => {
             size="xl"
             //touched={modified && progress.status !== ProgressStatus.NEW_COLLECTION.DONE}
         >
-            <Modal.Header { ...closeButton }>{t('answer_evaluation_form_header')}</Modal.Header>
+            <Modal.Header { ...closeButton }>{t(answer_evaluation_form_header)}</Modal.Header>
             <Form className="new-collection-form ms-3 me-3"> {/* onSubmit={onSubmit}> */}
                 <Modal.Body>
                     <Container>
                         <Row>
                             <Col lg>
-                                 Dialog avattu
+                                {t(answer_evaluation_form_text)}
                             </Col>
                         </Row>
                     </Container>
