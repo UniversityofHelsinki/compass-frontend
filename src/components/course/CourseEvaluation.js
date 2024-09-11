@@ -6,7 +6,7 @@ import {useTranslation} from "react-i18next";
 import FormDialog from "../dialog/FormDialog";
 import CourseEvaluationFooter from "./CourseEvaluationFooter";
 
-const CourseEvaluation = ({modified, isValid, handleAddAnswer, multiple_choice_answer}) => {
+const CourseEvaluation = ({modified, isValid, handleAddAnswer, msg, multiple_choice_answer}) => {
 
     const closeButton = { closeButton: true };
     const { t } = useTranslation();
@@ -55,7 +55,7 @@ const CourseEvaluation = ({modified, isValid, handleAddAnswer, multiple_choice_a
                     </Container>
                 </Modal.Body>
                 <Modal.Footer className="ps-0 pe-0">
-                    <CourseEvaluationFooter isValid={isValid}></CourseEvaluationFooter>
+                    <CourseEvaluationFooter isValid={isValid} message={msg}></CourseEvaluationFooter>
                 </Modal.Footer>
             </Form>
         </FormDialog>

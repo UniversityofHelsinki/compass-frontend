@@ -80,13 +80,10 @@ const AnswerForm = ({levels}) => {
             <Row>
                 <Col>
                     <ButtonRow>
-                        <CourseEvaluation modified={modified} isValid={isValid} handleAddAnswer={handleAddAnswer} multiple_choice_answer={modifiedObject.multiple_choice_answer}>
+                        <CourseEvaluation modified={modified} isValid={isValid} handleAddAnswer={handleAddAnswer} msg={message} multiple_choice_answer={modifiedObject.multiple_choice_answer}>
                         </CourseEvaluation>
                     </ButtonRow>
                 </Col>
-            </Row>
-            <Row className="mb-2" >
-                <Notification msg={ message }/>
             </Row>
         </Container>
     );

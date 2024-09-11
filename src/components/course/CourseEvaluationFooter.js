@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './CourseEveluationFooter.css';
-import { Button, Col, Container, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import HyButton from '../utilities/HyButton';
+import Notification from "../notes/Notification";
 
-const CourseEveluationFooter = () => {
+const CourseEveluationFooter = ({message}) => {
     const { t } = useTranslation();
 
     const submitButtonDisabled = false;
 
     return (
         <div className="new-collection-footer">
+            <Notification msg={ message }/>
             <div className="new-collection-footer-buttons">
                 <HyButton variant="secondary" onClick={null} type="submit" disabled={submitButtonDisabled}>
                     {t('answer_evaluation_form_footer_report')}

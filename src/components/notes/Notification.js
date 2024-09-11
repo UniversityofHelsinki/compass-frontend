@@ -1,4 +1,5 @@
 import React from "react";
+import './Notification.css';
 
 const Notification = ({ msg }) => {
     if (!msg) {
@@ -6,7 +7,7 @@ const Notification = ({ msg }) => {
     }
 
     return (
-        <div className={"fw-bolder text-success"}>
+        <div className="notifications">
             { (msg) ? msg : <span>&nbsp;&nbsp;</span>}
         </div>
     )
