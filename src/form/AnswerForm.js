@@ -8,7 +8,6 @@ import './AnswerForm.css';
 import { useTranslation } from "react-i18next";
 import FormSubjectSelection from "./FormSubjectSelection";
 import FormFreeAnswer from "./FormFreeAnswer";
-import HyButton from "../components/utilities/HyButton";
 import RadioButtonGroup from "./RadioButtonGroup";
 import Form from "react-bootstrap/Form";
 import useSelfReflectionModification from "../hooks/useSelfReflectionModification";
@@ -21,7 +20,7 @@ import useUser from "../hooks/useUser";
 const AnswerForm = ({levels}) => {
 
     const [user] = useUser();
-    const studentId = [user.eppn];
+    const studentId = user.eppn;
 
     const emptyAnswer = {
         id: '',
