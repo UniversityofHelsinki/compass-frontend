@@ -25,8 +25,6 @@ const CourseEveluationFooter = () => {
 };
 
 CourseEveluationFooter.propTypes = {
-    onCancel: PropTypes.func,
-    isValid: PropTypes.bool,
 };
 
 export default CourseEveluationFooter;

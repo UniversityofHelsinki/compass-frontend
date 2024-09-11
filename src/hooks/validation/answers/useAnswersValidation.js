@@ -1,11 +1,11 @@
 import useValidation from "../useValidation";
-import validateFirstAnswer from "./firstAnswerValidation";
-import validateSecondAnswer from "./secondAnswerValidation";
+import validateDescriptionAnswer from "./descriptionAnswerValidation";
 import validateLevel from "./levelValidation";
+import validateTopicAnswer from "./topicAnswerValidation";
 
 const validationFunctions = () => ({
-    first_answer: validateFirstAnswer,
-    second_answer: validateSecondAnswer,
+    topic_answer: validateTopicAnswer,
+    description_answer: validateDescriptionAnswer,
     multiple_choice_answer: validateLevel
 });
 

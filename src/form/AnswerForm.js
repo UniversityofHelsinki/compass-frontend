@@ -16,18 +16,24 @@ import useSelfReflectionSave from "../hooks/useSelfReflectionSave";
 import useAnswerValidation from "../hooks/validation/answers/useAnswerValidation";
 import ButtonRow from "../components/actions/ButtornRow";
 import CourseEvaluation from "../components/course/CourseEvaluation";
+import useUser from "../hooks/useUser";
+
 const AnswerForm = ({levels}) => {
+
+    const [user] = useUser();
+    const studentId = [user.eppn];
 
     const emptyAnswer = {
         id: '',
-        first_answer: '',
-        second_answer: '',
+        studentid: studentId,
+        topic_answer: '',
+        description_answer: '',
         multiple_choice_answer: '',
     };
     const { t } = useTranslation();
     const [value, setValue] = useState('');
     const [isValid, messages, validate] = useAnswerValidation([
-        'first_answer', 'second_answer', 'multiple_choice_answer'
+        'topic_answer', 'description_answer', 'multiple_choice_answer'
     ], emptyAnswer);
     const [modifiedObject, onChange, modified] = useSelfReflectionModification({...emptyAnswer}, validate);
     const [answer, message, addAnswer] = useSelfReflectionSave();
@@ -55,12 +61,12 @@ const AnswerForm = ({levels}) => {
             </Row>
             <Row>
                 <Col>
-                    <FormSubjectSelection onChange={changeValue} value={true} validationMessage={messages?.first_answer}/>
+                    <FormSubjectSelection onChange={changeValue} value={true} validationMessage={messages?.topic_answer}/>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <FormFreeAnswer onChange={changeValue} value={true} validationMessage={messages?.second_answer}/>
+                    <FormFreeAnswer onChange={changeValue} value={true} validationMessage={messages?.description_answer}/>
                 </Col>
             </Row>
             <Row>

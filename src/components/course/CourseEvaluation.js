@@ -2,7 +2,6 @@ import HyButton from "../utilities/HyButton";
 import React, {useState} from "react";
 import {t} from "i18next";
 import { Button, Col, Container, Form, Modal, Row } from 'react-bootstrap';
-import useUser from "../../hooks/useUser";
 import {useTranslation} from "react-i18next";
 import FormDialog from "../dialog/FormDialog";
 import CourseEvaluationFooter from "./CourseEvaluationFooter";
@@ -11,7 +10,6 @@ const CourseEvaluation = ({modified, isValid, handleAddAnswer, multiple_choice_a
 
     const closeButton = { closeButton: true };
     const { t } = useTranslation();
-    const [user] = useUser();
     const [showForm, setShowForm] = useState(false);
     let number = 3;
     const hide = () => {
@@ -21,7 +19,7 @@ const CourseEvaluation = ({modified, isValid, handleAddAnswer, multiple_choice_a
     const onButtonClick = (event) => {
         event.preventDefault();
         setShowForm(true);
-        //handleAddAnswer();
+        handleAddAnswer();
     };
 
     const theButton = (

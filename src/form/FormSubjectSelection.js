@@ -11,7 +11,7 @@ const FormSubjectSelection = ({ subject, onChange, validationMessage, disabled }
     const id = useId();
 
     const changeSubjectValue = (event) => {
-        onChange('first_answer', event.target.value);
+        onChange('topic_answer', event.target.value);
     };
 
     return (

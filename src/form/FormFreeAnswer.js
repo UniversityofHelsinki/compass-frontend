@@ -12,7 +12,7 @@ const FormFreeAnswer = ({ answer, onChange, validationMessage, disabled }) => {
     const id = useId();
 
     const changeFreeAnswerTextValue = (event) => {
-        onChange('second_answer', event.target.value);
+        onChange('description_answer', event.target.value);
     };
 
     return (
