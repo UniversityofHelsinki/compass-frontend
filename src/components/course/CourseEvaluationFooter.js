@@ -11,9 +11,9 @@ const CourseEveluationFooter = ({message}) => {
     const submitButtonDisabled = false;
 
     return (
-        <div className="new-collection-footer">
+        <div className="cource-evaluation-footer">
             <Notification msg={ message }/>
-            <div className="new-collection-footer-buttons">
+            <div className="cource-evaluation-footer-buttons">
                 <HyButton variant="secondary" onClick={null} type="submit" disabled={submitButtonDisabled}>
                     {t('answer_evaluation_form_footer_report')}
                 </HyButton>
