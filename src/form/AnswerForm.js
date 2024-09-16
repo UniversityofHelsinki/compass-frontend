@@ -35,7 +35,7 @@ const AnswerForm = ({levels}) => {
         'topic_answer', 'description_answer', 'multiple_choice_answer'
     ], emptyAnswer);
     const [modifiedObject, onChange, modified] = useSelfReflectionModification({...emptyAnswer}, validate);
-    const [answer, message, addAnswer] = useSelfReflectionSave();
+    const [answer, message, messageStyle, addAnswer] = useSelfReflectionSave();
 
     const handleAddAnswer = async () => {
         const newUser = {...modifiedObject};
@@ -80,7 +80,7 @@ const AnswerForm = ({levels}) => {
             <Row>
                 <Col>
                     <ButtonRow>
-                        <CourseEvaluation modified={modified} isValid={isValid} handleAddAnswer={handleAddAnswer} msg={message} multiple_choice_answer={modifiedObject.multiple_choice_answer}>
+                        <CourseEvaluation modified={modified} isValid={isValid} handleAddAnswer={handleAddAnswer} msg={message} msgStyle={messageStyle} multiple_choice_answer={modifiedObject.multiple_choice_answer}>
                         </CourseEvaluation>
                     </ButtonRow>
                 </Col>

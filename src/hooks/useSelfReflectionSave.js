@@ -1,5 +1,7 @@
 import {useDispatch, useSelector} from "react-redux";
 
+let style = '';
+
 const post = async (answer) => {
     const URL = `${process.env.REACT_APP_COMPASS_BACKEND_SERVER}/api/saveanswer`;
     try {
@@ -11,8 +13,10 @@ const post = async (answer) => {
             body: JSON.stringify(answer),
         });
         if (response.status === 200) {
+            style = 'neutral';
             return await response.json();
         } else if (response.status === 500) {
+            style = 'warning';
             return await response.json();
         }
     } catch (error) {
@@ -41,7 +45,7 @@ const useSelfReflectionSave = () => {
         }, 3000);
     }
 
-    return [answer, message, addAnswer];
+    return [answer, message, style, addAnswer];
 };
 
 export default useSelfReflectionSave;
