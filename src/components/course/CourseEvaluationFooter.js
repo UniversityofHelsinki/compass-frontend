@@ -12,7 +12,7 @@ const CourseEveluationFooter = ({message}) => {
 
     return (
         <div className="cource-evaluation-footer">
-            <Notification msg={ message }/>
+            <Notification msg={t(message)}/>
             <div className="cource-evaluation-footer-buttons">
                 <HyButton variant="secondary" onClick={null} type="submit" disabled={submitButtonDisabled}>
                     {t('answer_evaluation_form_footer_report')}

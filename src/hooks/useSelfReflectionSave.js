@@ -12,6 +12,8 @@ const post = async (answer) => {
         });
         if (response.status === 200) {
             return await response.json();
+        } else if (response.status === 500) {
+            return await response.json();
         }
     } catch (error) {
         console.error(error);
