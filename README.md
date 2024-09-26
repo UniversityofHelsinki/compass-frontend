@@ -6,14 +6,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Usage
 Mock headers in local development with some browser plugin
-Required headers : 
-eppn
-Optional headers : 
-hyGroupCn
-preferredLanguage
-eduPersonAffiliation
-displayName
-Use .env.development.local file to host environment variables
+Required headers:\
+eppn\
+Optional headers:\
+hyGroupCn\
+preferredLanguage\
+eduPersonAffiliation\
+displayName\
+\
+Use .env.development.local file to host environment variables\
 REACT_APP_COMPASS_BACKEND_SERVER=http://localhost:5000
 
 In the project directory, you can run:
