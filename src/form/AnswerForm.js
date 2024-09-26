@@ -25,6 +25,7 @@ const AnswerForm = ({levels}) => {
     const emptyAnswer = {
         id: '',
         studentid: studentId,
+        courseid: 1,
         topic_answer: '',
         description_answer: '',
         multiple_choice_answer: '',
@@ -90,6 +91,7 @@ const AnswerForm = ({levels}) => {
 };
 
 AnswerForm.propTypes = {
+    levels: PropTypes.array.isRequired
 };
 
 export default AnswerForm;

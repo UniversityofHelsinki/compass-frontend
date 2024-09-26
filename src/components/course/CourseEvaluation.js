@@ -4,6 +4,7 @@ import { Col, Container, Form, Modal, Row } from 'react-bootstrap';
 import {useTranslation} from "react-i18next";
 import FormDialog from "../dialog/FormDialog";
 import CourseEvaluationFooter from "./CourseEvaluationFooter";
+import PropTypes from "prop-types";
 
 const CourseEvaluation = ({modified, isValid, handleAddAnswer, msg, msgStyle, multiple_choice_answer}) => {
 
@@ -59,6 +60,15 @@ const CourseEvaluation = ({modified, isValid, handleAddAnswer, msg, msgStyle, mu
         </FormDialog>
     );
 
+}
+
+CourseEvaluation.protoTypes = {
+    modified: PropTypes.bool,
+    isValid: PropTypes.bool,
+    handleAddAnswer: PropTypes.func.isRequired,
+    msg: PropTypes.string,
+    msgStyle: PropTypes.string,
+    multiple_choice_answer: PropTypes.string
 }
 
 export default CourseEvaluation;

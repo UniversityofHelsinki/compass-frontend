@@ -26,6 +26,8 @@ const CourseEveluationFooter = ({message, msgStyle}) => {
 };
 
 CourseEveluationFooter.propTypes = {
+    message: PropTypes.string,
+    msgStyle: PropTypes.string
 };
 
 export default CourseEveluationFooter;
