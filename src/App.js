@@ -13,6 +13,7 @@ import Compass from "./Compass";
 import {AuthProvider} from './AuthContext';
 import ProtectedRoute from './ProtectedRoute';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import SummaryPage from "./components/reflectionSummary/SummaryPage";
 
 const store = createStore(courseReducer, applyMiddleware(thunk));
 
@@ -46,7 +47,7 @@ const App = () => {
                 <Router>
                     <Routes>
                         <Route path="/" element={<ProtectedRoute component={Compass} />} />
-                        {/* Other routes can go here */}
+                        <Route path="/reflectionSummary" element={<ProtectedRoute component={SummaryPage} />} />
                     </Routes>
                 </Router>
             </AuthProvider>

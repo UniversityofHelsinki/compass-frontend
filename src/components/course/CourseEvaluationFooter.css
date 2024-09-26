@@ -1,10 +1,10 @@
-.cource-evaluation-footer {
+.course-evaluation-footer {
     display: flex;
     width: 100%;
     justify-content: flex-end;
     align-content: center;
 }
 
-.cource-evaluation-footer-buttons button {
+.course-evaluation-footer-buttons button {
     margin-left: 8px;
 }

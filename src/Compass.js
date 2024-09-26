@@ -37,9 +37,6 @@ const Compass = () => {
                     </Col>
                 </Row>
                 <Row>
-                    {/*<CourseList />*/}
-                </Row>
-                <Row>
                     <AnswerForm levels={LEVELS} />
                 </Row>
                 <Row>

@@ -13,7 +13,7 @@ import Form from "react-bootstrap/Form";
 import useSelfReflectionModification from "../hooks/useSelfReflectionModification";
 import useSelfReflectionSave from "../hooks/useSelfReflectionSave";
 import useAnswerValidation from "../hooks/validation/answers/useAnswerValidation";
-import ButtonRow from "../components/actions/ButtornRow";
+import ButtonRow from "../components/actions/ButtonRow";
 import CourseEvaluation from "../components/course/CourseEvaluation";
 import useUser from "../hooks/useUser";
 
@@ -60,12 +60,12 @@ const AnswerForm = ({levels}) => {
             </Row>
             <Row>
                 <Col>
-                    <FormSubjectSelection onChange={changeValue} value={true} validationMessage={messages?.topic_answer}/>
+                    <FormSubjectSelection onChange={changeValue} validationMessage={messages?.topic_answer}/>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <FormFreeAnswer onChange={changeValue} value={true} validationMessage={messages?.description_answer}/>
+                    <FormFreeAnswer onChange={changeValue} validationMessage={messages?.description_answer}/>
                 </Col>
             </Row>
             <Row>
