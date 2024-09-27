@@ -12,7 +12,10 @@ import {DEFAULT_LANGUAGE} from "./Constants";
 import Compass from "./Compass";
 import {AuthProvider} from './AuthContext';
 import ProtectedRoute from './ProtectedRoute';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
+import Teacher from './components/teacher/Teacher';
+import Student from './components/student/Student';
+import Error from './Error';
 
 const store = createStore(courseReducer, applyMiddleware(thunk));
 
@@ -40,15 +43,24 @@ i18n
     });
 
 const App = () => {
+
+    const router = createBrowserRouter(
+      createRoutesFromElements(
+        <Route path="/" element={<Compass />} errorElement={<Error />}>
+          <Route path="teacher" element={<Teacher />}>
+          </Route>
+          <Route path="student" element={<Student />}>
+          </Route>
+        </Route>
+      )
+    );
+
     return (
         <Provider store={store}>
             <AuthProvider>
-                <Router>
-                    <Routes>
-                        <Route path="/" element={<ProtectedRoute component={Compass} />} />
-                        {/* Other routes can go here */}
-                    </Routes>
-                </Router>
+              <ProtectedRoute>
+                <RouterProvider router={router} />
+              </ProtectedRoute>
             </AuthProvider>
         </Provider>
     );

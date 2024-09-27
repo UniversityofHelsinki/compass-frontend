@@ -30,5 +30,7 @@
   "answer_evaluation_form_text_4": "Vaikka tutkimuseettiset ohjeistukset varmaan ovat sinulle tuttuja, kannattaa säännöllisesti omaa osaamistaan päivittää. Pohdi tutkimuseettisiä kysymyksiä omaa tutkimustasi laajemmin ja löydä tapoja soveltaa tietojasi erilaisissa yhteyksissä. Tarjoa osaamistasi muille ja nosta esille tutkimuseettisiä näkökulmia keskusteluissa muiden tutkijoiden kanssa, esimerkiksi pohtimalla sitä, miten jokaisen tutkijan eettiset valinnat vaikuttavat muihin tutkijoihin, ja millaiset käytännöt tukevat eettistä tutkimusta.",
   "answer_evaluation_form_text_5": "Hallitset tutkimusetiikan omassa tutkimuksessasi ja pystyt auttamaan muita ratkaisemaan tutkimuseettisiä kysymyksiä. Saatat olla tutkimusprojektin johtaja tai olet pohtinut paljon tutkimusetiikkaa, ehkä juuri tutkimusaiheesi seurauksena. Sinulla on luultavasti kyky tunnistaa tutkimuksen eettisiä kysymyksiä ja käsitellä niitä ennen kuin ne muuttuvat ongelmiksi. Olet ehkä miettinyt omaa toimintaasi roolimallina muille ja pohtinut sitä, miten voit edistää hyvää tieteellistä käytäntöä tutkimusyhteisössäsi laajemmin ja sitä kautta olla mukana rakentamassa eettisesti kestävää toimintakulttuuria tutkimuksessa.",
   "error-failed-to-save-answer": "Vastauksen tallennus epäonnistui",
-  "answer-saved": "Vastaus tallennettu"
+  "answer-saved": "Vastaus tallennettu",
+  "navigation_teacher": "Opettaja",
+  "navigation_student": "Opiskelija"
 }

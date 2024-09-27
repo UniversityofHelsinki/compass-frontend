@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import { useAuth } from './AuthContext';
 
-const ProtectedRoute = ({ component: Component }) => {
+const ProtectedRoute = ({ children }) => {
     const { user, loading } = useAuth();
+  console.log('user:', user);
 
     useEffect(() => {
-        if (!loading && !user) {
-            window.location.replace('/Shibboleth.sso/Login');
+        const loginPath = '/Shibboleth.sso/Login';
+        if (!loading && !user && window.location.pathname !== loginPath) {
+            window.location.replace(loginPath);
         }
     }, [loading, user]);
 
@@ -14,7 +16,11 @@ const ProtectedRoute = ({ component: Component }) => {
         return <div>Loading...</div>; // or a loading spinner
     }
 
-    return user ? <Component /> : null;
+    if (user) {
+      return children;
+    }
+
+    return null;
 };
 
 export default ProtectedRoute;

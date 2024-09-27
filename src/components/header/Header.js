@@ -4,12 +4,13 @@ import Logo from './Logo';
 import User from './User';
 import {useTranslation} from 'react-i18next';
 import './Header.css';
-//import HeaderMenu from "./HeaderMenu";
-//import CrisisBanner from './CrisisBanner';
+import Navigation from './navigation/Navigation';
 import ConditionalCrisisBanner from './ConditionalCrisisBanner';
+import { useAuth } from '../../AuthContext';
 
 const Header = () => {
     const { t } = useTranslation();
+    const { user: { isTeacher } } = useAuth();
 
     return (
         <div className="header">
@@ -19,9 +20,9 @@ const Header = () => {
                 </div>
             </div>
             <div className="header-center">
-                <div className="header-crisis-banner">
-                    <ConditionalCrisisBanner />
-                </div>
+              <div className="header-navigation">
+                {isTeacher && <Navigation />}
+              </div>
             </div>
             <div className="header-right">
                 <Languages />
