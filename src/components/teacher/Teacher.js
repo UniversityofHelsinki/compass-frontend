@@ -13,6 +13,7 @@ const Teacher = () => {
 
   return (
     <>
+      <p>opettaja</p>
       <Outlet />
     </>
   );
