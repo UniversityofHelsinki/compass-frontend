@@ -26,8 +26,11 @@ export const AuthProvider = ({ children }) => {
         fetchUser();
     }, []);
 
+    // replace the value with the real deal when it's relevant
+    const isTeacher = true;
+
     return (
-        <AuthContext.Provider value={{ user, loading }}>
+        <AuthContext.Provider value={{ user: user && { ...user, isTeacher } || null, loading }}>
             {children}
         </AuthContext.Provider>
     );

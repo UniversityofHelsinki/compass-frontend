@@ -1,12 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render } from '../../test/render.js';
 import Logo from './Logo';
-import { MockProvider } from '../../reducers/MockProvider';
 
 it('renders', () => {
     render(
-        <MockProvider>
-            <Logo />
-        </MockProvider>
+      <Logo />
     );
 });
