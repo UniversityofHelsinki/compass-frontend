@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import useUser from './hooks/useUser'; // Assuming your hook fetches and handles user logic
 
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
 export const useAuth = () => {
     return useContext(AuthContext);

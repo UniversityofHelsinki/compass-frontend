@@ -16,6 +16,8 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } 
 import Teacher from './components/teacher/Teacher';
 import Student from './components/student/Student';
 import Error from './Error';
+import TeacherForms from './components/teacher/TeacherForms';
+import StudentCourses from './components/student/StudentCourses';
 
 const store = createStore(courseReducer, applyMiddleware(thunk));
 
@@ -48,8 +50,12 @@ const App = () => {
       createRoutesFromElements(
         <Route path="/" element={<Compass />} errorElement={<Error />}>
           <Route path="teacher" element={<Teacher />}>
+            <Route path="forms" element={<TeacherForms />}>
+            </Route>
           </Route>
           <Route path="student" element={<Student />}>
+            <Route path="courses" element={<StudentCourses />}>
+            </Route>
           </Route>
         </Route>
       )
