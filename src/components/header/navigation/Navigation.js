@@ -21,7 +21,7 @@ const Navigation = () => {
   return (
     <nav className="navigation">
       <ol>
-        {['teacher', 'student'].map((link, i, links) => 
+        {['teacher/forms', 'student/courses'].map((link, i, links) => 
           <li key={link}>
             <NavigationLink to={link} />
           </li>

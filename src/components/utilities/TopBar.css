@@ -1,0 +1,17 @@
+.top-bar {
+  display: flex;
+}
+
+.top-bar-back-btn {
+  flex-grow: 1;
+  flex-basis: 100%;
+}
+
+.top-bar-heading {
+  flex-grow: 0;
+}
+
+.top-bar-children {
+  flex-grow: 1;
+  flex-basis: 100%;
+}

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Teacher.css';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
 
 const Teacher = () => {
@@ -13,7 +13,6 @@ const Teacher = () => {
 
   return (
     <>
-      <p>opettaja</p>
       <Outlet />
     </>
   );

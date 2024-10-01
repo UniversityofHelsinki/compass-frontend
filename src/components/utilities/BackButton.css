@@ -1,0 +1,42 @@
+.back-button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: max-content;
+
+  background-color: inherit;
+  color: inherit;
+
+  text-decoration: none;
+  border: unset;
+}
+
+.back-button-margin-block {
+  margin: 4px;
+}
+
+.back-button-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.back-button-label-primary {
+  font-size: 1.2em;
+}
+
+.back-button-label-secondary {
+  font-size: 0.8em;
+}
+
+.back-button .back-button-icon svg {
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  max-height: calc(2 * 1em);
+}
+
+.back-button .back-button-icon svg polygon {
+  fill: var(--huds-grayscale-black);
+}

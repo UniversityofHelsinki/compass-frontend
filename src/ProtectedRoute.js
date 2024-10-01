@@ -3,7 +3,6 @@ import { useAuth } from './AuthContext';
 
 const ProtectedRoute = ({ children }) => {
     const { user, loading } = useAuth();
-  console.log('user:', user);
 
     useEffect(() => {
         const loginPath = '/Shibboleth.sso/Login';
