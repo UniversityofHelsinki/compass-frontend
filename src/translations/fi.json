@@ -34,5 +34,6 @@
   "navigation_teacher/forms": "Opettaja",
   "navigation_student/courses": "Opiskelija",
   "teacher_forms_heading": "Lomakkeet",
-  "student_courses_heading": "Kurssit"
+  "student_courses_heading": "Kurssit",
+  "student_no_courses": "Ei kursseja vielä... kysy opettajalta lisätietota tai käytä sovellusta opettajan tunnuksilla"
 }

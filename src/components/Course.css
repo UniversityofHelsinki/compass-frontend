@@ -1,0 +1,11 @@
+.student-course {
+   padding: 5px;
+}
+
+.student-course-title {
+   font-weight: bold;
+}
+
+.student-course-description {
+   padding-left: 10px;
+}

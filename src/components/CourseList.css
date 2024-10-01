@@ -1,5 +1,22 @@
 
-.label {
-    padding-left: 10px;
-    font-size: large;
+.course-list {
+    list-style-type: none;
 }
+
+.course-row {
+    display: flex;
+    margin-bottom: 15px;
+    border: 2px solid var(--hy-blue);
+}
+
+.no-courses {
+    margin-bottom: 15px;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--hy-light-silver);
+    text-align: center;
+}
+
+
