@@ -12,13 +12,29 @@
 
 .assignment-form-row {
     /*padding: 0.5em 0 0.5em;*/
-    padding-bottom: 1.0em;
+    /*padding-bottom: 1.0em;*/
     /*font-weight: 700;
     border-bottom: 1px solid var(--huds-grayscale-medium);*/
+    display: flex;
     width: 100%;
+    padding-bottom: 1.0em;
 }
 
-.assignment-form-description-col {
+/*.assignment-form-col {
+    padding: 0.5em 0 0.5em;
+    padding-bottom: 1.0em;
+    font-weight: 700;
+    border-bottom: 1px solid var(--huds-grayscale-medium);
+    width: 20%;
+}*/
+.assignment-form-back-col {
+    width: 15%;
+}
+.assignment-form-assignment-col {
+    width: 85%;
+}
+
+/*.assignment-form-description-col {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5em;
@@ -27,7 +43,7 @@
     box-sizing: border-box;
     margin-block-end: 1em;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
-}
+}*/
 
 .assignment-form-send-button {
     margin-bottom: 1em;

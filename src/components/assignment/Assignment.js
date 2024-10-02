@@ -15,8 +15,9 @@ import useAnswerValidation from "../../hooks/validation/answers/useAnswerValidat
 import ButtonRow from "../actions/ButtornRow";
 import CourseEvaluation from "../course/CourseEvaluation";
 import useUser from "../../hooks/useUser";
+import BackButton from "../utilities/BackButton";
 
-const Assignment = ({levels, assignment, course}) => {
+const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", levels, assignment, course}) => {
 
     const [user] = useUser();
     const studentId = user.eppn;
@@ -25,14 +26,13 @@ const Assignment = ({levels, assignment, course}) => {
         id: '',
         studentid: studentId,
         courseid: 1,
-        topic_answer: '',
         description_answer: '',
-        multiple_choice_answer: '',
+        radio_button_answer: '',
     };
     const { t } = useTranslation();
     const [value, setValue] = useState('');
     const [isValid, messages, validate] = useAnswerValidation([
-        'topic_answer', 'description_answer', 'multiple_choice_answer'
+        'description_answer', 'radio_button_answer'
     ], emptyAnswer);
     const [modifiedObject, onChange, modified] = useSelfReflectionModification({...emptyAnswer}, validate);
     const [answer, message, messageStyle, addAnswer] = useSelfReflectionSave();
@@ -49,10 +49,13 @@ const Assignment = ({levels, assignment, course}) => {
     return (
         <Container className="assignment-form-container">
             <Row className="assignment-form-row">
-                <Col className="assignment-form-welcome-col">
+                <div className="assignment-form-back-col">
+                    {showBackBtn && <BackButton labels={backBtnLabels} href={backBtnHref}/>}
+                </div>
+                <div className="assignment-form-assignment-col">
                     <h3>{assignment}</h3>
                     <div>{course}</div>
-                </Col>
+                </div>
             </Row>
             <Row>
                 <Col>
@@ -63,15 +66,15 @@ const Assignment = ({levels, assignment, course}) => {
                 <Col>
                     <Form>
                         <Form.Label> {t('option_header')}</Form.Label>
-                                <RadioButtonGroup options={levels ? levels : []} validationMessage={messages?.multiple_choice_answer} onChange={changeValue} value={
-                                    (modifiedObject && modifiedObject.multiple_choice_answer) ? modifiedObject.multiple_choice_answer :  "0"} aria-required />
+                                <RadioButtonGroup options={levels ? levels : []} validationMessage={messages?.radio_button_answer} onChange={changeValue} value={
+                                    (modifiedObject && modifiedObject.radio_button_answer) ? modifiedObject.radio_button_answer :  "0"} aria-required />
                     </Form>
                 </Col>
             </Row>
             <Row>
                 <Col>
                     <ButtonRow>
-                        <CourseEvaluation modified={modified} isValid={isValid} handleAddAnswer={handleAddAnswer} msg={message} msgStyle={messageStyle} multiple_choice_answer={modifiedObject.multiple_choice_answer}>
+                        <CourseEvaluation modified={modified} isValid={isValid} handleAddAnswer={handleAddAnswer} msg={message} msgStyle={messageStyle} radio_button_answer={modifiedObject.radio_button_answer}>
                         </CourseEvaluation>
                     </ButtonRow>
                 </Col>

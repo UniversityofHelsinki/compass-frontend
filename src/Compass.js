@@ -15,6 +15,10 @@ const Compass = () => {
     const { i18n } = useTranslation();
     const assignment_number = "Assignment 1";
     const course = "Ohjelmoinnin perusteet 2024"
+    const backBtnLabels={
+        primary: 'Back',
+        secondary: ''
+    };
 
     if (loading) {
         return <div>Loading...</div>; // Render a loading spinner or similar component
@@ -33,8 +37,8 @@ const Compass = () => {
           </Col>
         </Row>
         <Row>
-          <Col role="main">
-            <Assignment levels={LEVELS} assignment={assignment_number} course={course}/>
+          <Col role="assignment">
+            <Assignment levels={LEVELS} assignment={assignment_number} course={course} backBtnLabels={backBtnLabels}/>
           </Col>
         </Row>
         <Row>
