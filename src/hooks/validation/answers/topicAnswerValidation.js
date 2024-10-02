@@ -3,9 +3,9 @@ import { FIELD_IS_VALID } from '../../../Constants';
 
 const validateTopicAnswer = (topicAnswer) => {
     if (topicAnswer.length === 0) {
-        return 'validation_topic_answer_is_empty';
+        return 'validation_topic_assignment_is_empty';
     } else if (topicAnswer.length > 50) {
-        return 'validation_topic_answer_is_too_long';
+        return 'validation_topic_assignment_is_too_long';
     }
     return FIELD_IS_VALID;
 };

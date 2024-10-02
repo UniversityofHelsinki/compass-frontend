@@ -3,21 +3,20 @@ import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Notification from "../components/notes/Notification";
-import './AnswerForm.css';
+import Notification from "../notes/Notification";
+import './Assignment.css';
 import { useTranslation } from "react-i18next";
-import FormSubjectSelection from "./FormSubjectSelection";
-import FormFreeAnswer from "./FormFreeAnswer";
-import RadioButtonGroup from "./RadioButtonGroup";
+import FormFreeAnswer from "../../form/FormFreeAnswer";
+import RadioButtonGroup from "../../form/RadioButtonGroup";
 import Form from "react-bootstrap/Form";
-import useSelfReflectionModification from "../hooks/useSelfReflectionModification";
-import useSelfReflectionSave from "../hooks/useSelfReflectionSave";
-import useAnswerValidation from "../hooks/validation/answers/useAnswerValidation";
-import ButtonRow from "../components/actions/ButtornRow";
-import CourseEvaluation from "../components/course/CourseEvaluation";
-import useUser from "../hooks/useUser";
+import useSelfReflectionModification from "../../hooks/useSelfReflectionModification";
+import useSelfReflectionSave from "../../hooks/useSelfReflectionSave";
+import useAnswerValidation from "../../hooks/validation/answers/useAnswerValidation";
+import ButtonRow from "../actions/ButtornRow";
+import CourseEvaluation from "../course/CourseEvaluation";
+import useUser from "../../hooks/useUser";
 
-const AnswerForm = ({levels}) => {
+const Assignment = ({levels, assignment, course}) => {
 
     const [user] = useUser();
     const studentId = user.eppn;
@@ -48,20 +47,11 @@ const AnswerForm = ({levels}) => {
     }
 
     return (
-        <Container className="answer-form-container">
-            <Row className="answer-form-row">
-                <Col className="answer-form-welcome-col">
-                    <h1>{t('form_welcome')}</h1>
-                </Col>
-            </Row>
-            <Row>
-                <Col className="answer-form-description-col">
-                    <p>{t('form_description')} </p>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <FormSubjectSelection onChange={changeValue} value={true} validationMessage={messages?.topic_answer}/>
+        <Container className="assignment-form-container">
+            <Row className="assignment-form-row">
+                <Col className="assignment-form-welcome-col">
+                    <h3>{assignment}</h3>
+                    <div>{course}</div>
                 </Col>
             </Row>
             <Row>
@@ -90,8 +80,8 @@ const AnswerForm = ({levels}) => {
     );
 };
 
-AnswerForm.propTypes = {
+Assignment.propTypes = {
     levels: PropTypes.array.isRequired
 };
 
-export default AnswerForm;
+export default Assignment;

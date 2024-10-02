@@ -5,13 +5,16 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Footer from './components/footer/Footer';
 import { useAuth } from './AuthContext';
-import AnswerForm from "./form/AnswerForm";
+import Assignment from "./components/assignment/Assignment";
 import { Outlet } from 'react-router-dom';
 import './Compass.css';
+import {LEVELS} from "./Constants";
 
 const Compass = () => {
     const { user, loading } = useAuth();
     const { i18n } = useTranslation();
+    const assignment_number = "Assignment 1";
+    const course = "Ohjelmoinnin perusteet 2024"
 
     if (loading) {
         return <div>Loading...</div>; // Render a loading spinner or similar component
@@ -27,6 +30,11 @@ const Compass = () => {
         <Row>
           <Col role="main">
             <Outlet />
+          </Col>
+        </Row>
+        <Row>
+          <Col role="main">
+            <Assignment levels={LEVELS} assignment={assignment_number} course={course}/>
           </Col>
         </Row>
         <Row>

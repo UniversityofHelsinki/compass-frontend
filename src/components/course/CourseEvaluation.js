@@ -24,7 +24,7 @@ const CourseEvaluation = ({modified, isValid, handleAddAnswer, msg, msgStyle, mu
     const theButton = (
         <HyButton
             variant="primary" modified={modified} isValid={isValid} onClick={onButtonClick}
-            className="answer-form-send-button" >
+            className="assignment-form-send-button" >
             {t('form_submit')}
         </HyButton>
     );
