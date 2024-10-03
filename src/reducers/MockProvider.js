@@ -25,6 +25,17 @@ const mockUser = {
     displayName: 'Baabe Nomypeevo'
 };
 
+const mockUserCourseAnswers = {
+    id: 1,
+    assignment_id: 3,
+    course_id: 1234,
+    user_name: 'User',
+    value: 'Assignment answer',
+    order_nbr: 3,
+    created: 11111111,
+    edited: 22222222,
+};
+
 const defaultMockReducers = {
     location: {
         path: '/',
@@ -36,9 +47,8 @@ const defaultMockReducers = {
     users: {
         user: mockUser
     },
-    visibilities: {
-        left: true,
-        right: true
+    userCourseAnswers: {
+        userCourseAnswers: [mockUserCourseAnswers]
     }
 };
 

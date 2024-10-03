@@ -2,12 +2,12 @@ import { combineReducers } from 'redux';
 
 import coursesReducer from './coursesReducer';
 import userReducer from "./userReducer";
-import selfReflectionReducer from "./selfReflectionReducer";
+import answersReducer from "./answersReducer";
 
 const reducers = {
     users: userReducer,
     courses: coursesReducer,
-    addedAnswer: selfReflectionReducer
+    addedAnswer: answersReducer
 };
 
 export default combineReducers(reducers);
