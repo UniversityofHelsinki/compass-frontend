@@ -25,7 +25,7 @@ const mockUser = {
     displayName: 'Baabe Nomypeevo'
 };
 
-const mockUserCourseAnswers = {
+const mockUserCourseAnswer = {
     id: 1,
     assignment_id: 3,
     course_id: 1234,
@@ -48,7 +48,7 @@ const defaultMockReducers = {
         user: mockUser
     },
     userCourseAnswers: {
-        userCourseAnswers: [mockUserCourseAnswers]
+        userCourseAnswers: [mockUserCourseAnswer]
     }
 };
 
