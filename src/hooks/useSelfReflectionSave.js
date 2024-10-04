@@ -30,19 +30,23 @@ const post = async (answer) => {
 const useSelfReflectionSave = () => {
     const dispatch = useDispatch();
     const { answer, message }  = useSelector((state) => state.addedAnswer);
-
     const findValue = (arr, field) => {
-        return arr?.find(
-            o => { if (o?.[field]?.length > 0) return o });
+        if (arr instanceof Array) {
+            return arr?.find(
+                o => {
+                    if (o?.[field]?.length > 0) return o
+                });
+        }
+        return arr[field];
     }
 
     const addAnswer = async (record) => {
         const addedRecord = await post(record);
         let message = findValue(addedRecord, "message");
         dispatch({type: 'ADD_ANSWER', payload: addedRecord, responseMessage: message});
-        setTimeout(() => {
+        /*setTimeout(() => {
             dispatch({ type: 'HIDE_ADD_NOTIFICATION' });
-        }, 3000);
+        }, 3000);*/
     }
 
     return [answer, message, style, addAnswer];

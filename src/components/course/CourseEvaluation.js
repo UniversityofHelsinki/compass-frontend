@@ -6,7 +6,7 @@ import FormDialog from "../dialog/FormDialog";
 import CourseEvaluationFooter from "./CourseEvaluationFooter";
 import PropTypes from "prop-types";
 
-const CourseEvaluation = ({modified, isValid, handleAddAnswer, msg, msgStyle, radio_button_answer}) => {
+const CourseEvaluation = ({modified, isValid, handleAddAnswer, msg, msgStyle, order_nbr}) => {
 
     const closeButton = { closeButton: true };
     const { t } = useTranslation();
@@ -32,8 +32,8 @@ const CourseEvaluation = ({modified, isValid, handleAddAnswer, msg, msgStyle, ra
         event.preventDefault();
         //await save(collection);
     };*/
-    let answer_evaluation_form_header =  'answer_evaluation_form_header_' + radio_button_answer;
-    let answer_evaluation_form_text =  'answer_evaluation_form_text_' + radio_button_answer;
+    let answer_evaluation_form_header =  'answer_evaluation_form_header_' + order_nbr;
+    let answer_evaluation_form_text =  'answer_evaluation_form_text_' + order_nbr;
     return (
         <FormDialog
             hide={hide}
@@ -68,7 +68,7 @@ CourseEvaluation.protoTypes = {
     handleAddAnswer: PropTypes.func.isRequired,
     msg: PropTypes.string,
     msgStyle: PropTypes.string,
-    radio_button_answer: PropTypes.string
+    order_nbr: PropTypes.string
 }
 
 export default CourseEvaluation;

@@ -28,9 +28,12 @@
     width: 20%;
 }*/
 .assignment-form-back-col {
-    width: 15%;
+    flex: 0;
+
 }
 .assignment-form-assignment-col {
+    flex: 0;
+    flex-basis: auto;
     width: 85%;
 }
 
@@ -46,6 +49,12 @@
 }*/
 
 .assignment-form-send-button {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.assignment-form-button-clear {
+    padding-right: 5px;
     margin-bottom: 1em;
     margin-top: 1em;
 }

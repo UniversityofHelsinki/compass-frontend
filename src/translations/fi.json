@@ -13,7 +13,8 @@
   "option_five": "Ymmärrän eettisiä kysymyksiä monipuolisesti ja tunnistan eettisten ulottuvuuksien välisiä yhteyksiä. Osaan soveltaa tietojani erilaisissa tilanteissa omassa tutkimusprosessissani sekä auttaa muita heidän eettisissä kysymyksissään.",
   "form_welcome": "Welcome to using the Self-Reflection Compass!",
   "form_free_answer": "Kuvaile, mitä olet oppinut aiheesta edellä mainitusta toiminnasta/aiheesta. Voit antaa esimerkkejä.",
-  "form_submit": "Submit answers",
+  "form_submit": "Tallenna",
+  "form_clear": "Tyhjennä",
   "validation_level_invalid": "Valitse väite",
   "answer_evaluation_form_footer_report": "Raportti",
   "answer_evaluation_form_footer_close": "Sulje",
@@ -32,5 +33,10 @@
   "navigation_teacher/forms": "Opettaja",
   "navigation_student/courses": "Opiskelija",
   "teacher_forms_heading": "Lomakkeet",
-  "student_courses_heading": "Kurssit"
+  "student_courses_heading": "Kurssit",
+  "assignment_feedback_answer": "Vastaus",
+  "assignment_feedback_choice": "Valinta",
+  "assignment_feedback_edit": "Muuta vastausta",
+  "assignment_feedback_remove": "Poista vastaus",
+  "assignment_feedback_back": "Takaisin kurssille"
 }

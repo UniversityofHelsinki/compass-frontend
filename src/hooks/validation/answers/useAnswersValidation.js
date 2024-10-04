@@ -3,8 +3,8 @@ import validateDescriptionAnswer from "./descriptionAnswerValidation";
 import validateLevel from "./levelValidation";
 
 const validationFunctions = () => ({
-    description_answer: validateDescriptionAnswer,
-    radio_button_answer: validateLevel
+    value: validateDescriptionAnswer,
+    order_nbr: validateLevel
 });
 
 const useAnswersValidation = (fields, answers = []) => {
