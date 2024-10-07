@@ -131,7 +131,12 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
 };
 
 Assignment.propTypes = {
-    levels: PropTypes.array.isRequired
+    levels: PropTypes.array.isRequired,
+    showBackBtn: PropTypes.bool,
+    backBtnLabels: PropTypes.string,
+    backBtnHref: PropTypes.string,
+    assignment: PropTypes.string,
+    course: PropTypes.string
 };
 
 export default Assignment;

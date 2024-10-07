@@ -32,6 +32,7 @@ const FeedbackForEvaluationFooter = ({disabled, message, msgStyle}) => {
 };
 
 FeedbackForEvaluationFooter.propTypes = {
+    disabled: PropTypes.bool,
     message: PropTypes.string,
     msgStyle: PropTypes.string
 };

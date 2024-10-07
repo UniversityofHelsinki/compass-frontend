@@ -3,6 +3,8 @@ import React from "react";
 import {useTranslation} from "react-i18next";
 import FeedbackForEvaluationFooter from "./FeedbackForEvaluationFooter";
 import './FeedbackForEvaluation.css';
+import PropTypes from "prop-types";
+import Assignment from "../assignment/Assignment";
 
 const FeedbackForEvaluation = ({disabled, msg, msgStyle, value, order_nbr, assignment, course}) => {
     const { t } = useTranslation();
@@ -45,5 +47,15 @@ const FeedbackForEvaluation = ({disabled, msg, msgStyle, value, order_nbr, assig
     );
 
 }
+
+FeedbackForEvaluation.propTypes = {
+    disabled: PropTypes.bool,
+    msg: PropTypes.string,
+    msgStyle: PropTypes.string,
+    value: PropTypes.string,
+    order_nbr: PropTypes.string,
+    assignment: PropTypes.string,
+    course: PropTypes.string
+};
 
 export default FeedbackForEvaluation;
