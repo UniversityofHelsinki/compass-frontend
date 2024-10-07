@@ -6,17 +6,22 @@ import HyButton from '../utilities/HyButton';
 import Notification from "../notes/Notification";
 import {Container} from "react-bootstrap";
 
-const FeedbackForEvaluationFooter = ({disabled, message, msgStyle}) => {
+const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, onClick}) => {
     const { t } = useTranslation();
 
     const submitButtonDisabled = false;
-
+    const handleClick = (event) => {
+        event.preventDefault();
+        if (onClick) {
+            onClick();
+        }
+    };
     return (
         <Container>
         <div className="feedback-for-evaluation-footer">
             <Notification msg={t(message)} type={msgStyle}/>
             <div className="cource-evaluation-footer-buttons">
-                <HyButton variant="primary" onClick={null} type="submit" disabled={disabled}>
+                <HyButton variant="primary" onClick={null} type="submit" disabled={disabled}  onClick={handleClick}>
                     {t('assignment_feedback_edit')}
                 </HyButton>
                 <HyButton variant="primary" type="submit" disabled={disabled}>

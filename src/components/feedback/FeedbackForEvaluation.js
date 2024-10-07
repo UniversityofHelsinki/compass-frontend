@@ -1,5 +1,5 @@
 import {Col, Container, Form, Modal, Row} from "react-bootstrap";
-import React from "react";
+import React, {useState} from "react";
 import {useTranslation} from "react-i18next";
 import FeedbackForEvaluationFooter from "./FeedbackForEvaluationFooter";
 import './FeedbackForEvaluation.css';
@@ -10,6 +10,18 @@ const FeedbackForEvaluation = ({disabled, msg, msgStyle, value, order_nbr, assig
     const { t } = useTranslation();
     let answer_evaluation_form_header =  'answer_evaluation_form_header_' + order_nbr;
     let answer_evaluation_form_text =  'answer_evaluation_form_text_' + order_nbr;
+    const [assignmentPage, setAssignmentPage] = useState(false);
+
+    /*if (assignmentPage) {
+        return <Assignment disabled={disabled} value={modifiedObject.value} order_nbr={modifiedObject.order_nbr} assignment={assignment} course={course}></Assignment>;
+    } */
+
+    const onButtonClick = async (event) => {
+        event.preventDefault();
+        setAssignmentPage(true);
+    };
+
+
 
     return (
         <>
@@ -42,7 +54,7 @@ const FeedbackForEvaluation = ({disabled, msg, msgStyle, value, order_nbr, assig
                 </Row>
             </Container>
             <FeedbackForEvaluationFooter disabled={disabled} message={msg}
-                                         msgStyle={msgStyle}></FeedbackForEvaluationFooter>
+                                         msgStyle={msgStyle} onClick={onButtonClick}></FeedbackForEvaluationFooter>
         </>
     );
 
