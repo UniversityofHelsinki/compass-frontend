@@ -5,39 +5,37 @@ import {Component, useState} from "react";
 import {useTranslation} from "react-i18next";
 import * as PropTypes from "prop-types";
 import Course from "./Course";
+import React from "react";
+import useStudentCourses from "../hooks/student/useStudentCourses";
 
 const CourseList = () => {
-    const { t } = useTranslation();
-    const [courses,  _loading, _reload] = useAllCourses(
-        {load: true}
-    )
+  const { t } = useTranslation();
+  const [courses, error] = useStudentCourses();
 
-    const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState("");
 
-    const listCourses = () => {
-        return(
-            <div>
-                <ul className="course-list">
-                    {courses && courses?.length > 0 && courses?.map((course) =>
-                      <li className="course-row">
-                          <Course  course={course}/>
-                      </li>
-                    )}
-                </ul>
-            </div>)
-    }
+  const listCourses = () => {
+    return(
+      <div>
+        <ul className="course-list">
+          {courses.map((course) =>
+            <li key={course.course_id} className="course-row">
+              <Course course={course} />
+            </li>
+          )}
+        </ul>
+      </div>)
+  }
 
-    const noCoures = () => {
-        return(
-            <div className="no-courses"> {t('student_no_courses')}
-            </div>
-        )
-    }
+  if (courses) {
+    return listCourses();
+  }
 
-    if (courses) {
-        return listCourses();
-    }
-    return noCoures();
+  return (
+    <div className="student-no-courses">
+      {t('student_no_courses')}
+    </div>
+  );
 }
 
 CourseList.propTypes = {};

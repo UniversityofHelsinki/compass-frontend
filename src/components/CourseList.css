@@ -9,7 +9,7 @@
     border: 2px solid var(--hy-blue);
 }
 
-.no-courses {
+.student-no-courses {
     margin-bottom: 15px;
     font-size: large;
     display: flex;
