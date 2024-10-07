@@ -47,6 +47,9 @@ const defaultMockReducers = {
     users: {
         user: mockUser
     },
+    student: {
+      courses: []
+    },
     userCourseAnswers: {
         userCourseAnswers: [mockUserCourseAnswer]
     }

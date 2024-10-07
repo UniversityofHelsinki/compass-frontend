@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from './test/render.js';
 import Compass from "./Compass";
 import {MockProvider} from "./reducers/MockProvider";
 import React from "react";
@@ -35,8 +35,6 @@ const reducers = {
 
 it('renders', () => {
     render(
-        <MockProvider mockReducers={reducers}>
-            <Compass />
-        </MockProvider>
+      <Compass />
     );
 });

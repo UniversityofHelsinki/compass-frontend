@@ -7,15 +7,19 @@ import './App.css';
 import {Provider} from "react-redux";
 import {applyMiddleware, createStore} from "redux";
 import {thunk} from "redux-thunk";
-import courseReducer from './reducers';
+import reducer from './reducers';
 import {DEFAULT_LANGUAGE} from "./Constants";
 import Compass from "./Compass";
 import {AuthProvider} from './AuthContext';
 import ProtectedRoute from './ProtectedRoute';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import SummaryPage from "./components/reflectionSummary/SummaryPage";
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
+import Teacher from './components/teacher/Teacher';
+import Student from './components/student/Student';
+import Error from './Error';
+import TeacherForms from './components/teacher/TeacherForms';
+import StudentCourses from './components/student/StudentCourses';
 
-const store = createStore(courseReducer, applyMiddleware(thunk));
+const store = createStore(reducer, applyMiddleware(thunk));
 
 const defaultLanguage = () => {
     try {
@@ -41,15 +45,30 @@ i18n
     });
 
 const App = () => {
+
+    const router = createBrowserRouter(
+      createRoutesFromElements(
+        <Route path="/" element={<Compass />} errorElement={<Error />}>
+          <Route path="teacher" element={<Teacher />}>
+            <Route path="forms" element={<TeacherForms />}>
+            </Route>
+          </Route>
+          <Route path="student" element={<Student />}>
+            <Route path="courses" element={<StudentCourses />}>
+            <Route path="reflectionSummary" element={<SummaryPage />}>
+          </Route>
+            </Route>
+          </Route>
+        </Route>
+      )
+    );
+
     return (
         <Provider store={store}>
             <AuthProvider>
-                <Router>
-                    <Routes>
-                        <Route path="/" element={<ProtectedRoute component={Compass} />} />
-                        <Route path="/reflectionSummary" element={<ProtectedRoute component={SummaryPage} />} />
-                    </Routes>
-                </Router>
+              <ProtectedRoute>
+                <RouterProvider router={router} />
+              </ProtectedRoute>
             </AuthProvider>
         </Provider>
     );

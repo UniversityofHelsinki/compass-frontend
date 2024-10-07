@@ -7,12 +7,12 @@ import TextArea from './TextArea';
 import FormElementHeader from './FormElementHeader';
 //import HelpDialog from '../../dialog/HelpDialog';
 
-const FormFreeAnswer = ({ answer, onChange, validationMessage, disabled }) => {
+const FormFreeAnswer = ({ value, onChange, validationMessage, disabled }) => {
     const { t } = useTranslation();
     const id = useId();
 
     const changeFreeAnswerTextValue = (event) => {
-        onChange('description_answer', event.target.value);
+        onChange('value', event.target.value);
     };
 
     return (
@@ -27,7 +27,7 @@ const FormFreeAnswer = ({ answer, onChange, validationMessage, disabled }) => {
                 </Row>
                 <Row>
                     <Col>
-                        <TextArea aria-labelledby={id}  onChange={changeFreeAnswerTextValue} value={answer} message={validationMessage} label={answer} aria-required />
+                        <TextArea aria-labelledby={id}  onChange={changeFreeAnswerTextValue} value={value} message={validationMessage} label={value} aria-required />
                     </Col>
                 </Row>
             </Form.Group>

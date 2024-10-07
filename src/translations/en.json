@@ -12,11 +12,8 @@
   "option_four": "I can think of several aspects about an ethical issue and I can justify my explanations and provide examples to illustrate my understanding.",
   "option_five": "I understand various aspects of ethical issues, I see connections between them and can apply my knowledge in different situations within my own research process as well as help others with their ethical questions.\n",
   "form_welcome": "Welcome to using the Self-Reflection Compass!",
-  "form_description": "You have dealt with research ethics and integrity topics independently or have participated in a training to develop your research ethics and integrity competencies. To reflect on your learning, think back at your previous activity, evaluate your ethical competence, and receive feedback.",
-  "form_subject_select": "Which activity/topic are you reflecting on?",
-  "form_free_answer": "Please describe what you have been learning about research ethics in relation to the aforementioned activity/topic. You can provide examples.",
-  "form_submit": "Submit answers",
-  "validation_level_invalid": "",
+  "form_free_answer": "Please describe what you have been learning on the topic about the above mentioned activity/topic. You can provide examples.","form_submit": "Submit answers",
+  "validation_level_invalid": "Choose a statement",
   "answer_evaluation_form_footer_report": "Report",
   "answer_evaluation_form_footer_close": "Close",
   "answer_evaluation_form_header_1": "",
@@ -28,5 +25,7 @@
   "answer_evaluation_form_text_2": " ",
   "answer_evaluation_form_text_3":"  ",
   "answer_evaluation_form_text_4": " ",
-  "answer_evaluation_form_text_5": " "
+  "answer_evaluation_form_text_5": " ",
+  "student_no_courses": "No courses yet... ask your teacher for more information or use the application as a teacher"
+
 }

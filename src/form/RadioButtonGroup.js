@@ -19,7 +19,7 @@ const RadioButtonGroup = ({ options = [], validationMessage, onChange, value = "
                     key={option.value} value={option.value}
                     id={`compass-${option.value}-${id}`}
                     label={t(option.label)}
-                    onChange={(e) => onChange('multiple_choice_answer' ,e.target.value)}
+                    onChange={(e) => onChange('order_nbr' ,e.target.value)}
                     { ...rest } />
             )}
             <Message type={validationMessage?.type}>

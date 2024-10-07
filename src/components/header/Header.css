@@ -1,6 +1,5 @@
 .header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     min-height: 100%;
 
@@ -10,11 +9,15 @@
 }
 
 .header-center {
+    flex-grow: 0;
+
     display: flex;
     justify-content: center;
 }
 
 .header-left {
+    flex-basis: 100%;
+
     display: flex;
     align-items: center;
 }
@@ -24,6 +27,8 @@
 }
 
 .header-right {
+    flex-basis: 100%;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: end;

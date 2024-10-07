@@ -1,7 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render } from '../../test/render.js';
 import Header from './Header';
-import { MockProvider } from '../../reducers/MockProvider';
 
 const reducers = {
     users: {
@@ -14,8 +13,6 @@ const reducers = {
 
 it('renders', () => {
     render(
-        <MockProvider mockReducers={reducers}>
-            <Header />
-        </MockProvider>
+      <Header />
     );
 });

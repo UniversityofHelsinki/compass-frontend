@@ -4,12 +4,19 @@ const useSelfReflectionModification = (object, validate) => {
     const [modifiedObject, setModifiedObject] = useState(null);
     const [touchedFields, setTouchedFields] = useState([]);
     const [modified, setModified] = useState(false);
-
+    const [clearValues, setClearValues] = useState(false);
+    const clearFormValues = () => {
+        setClearValues(true);
+    }
     const onChange = (what, value) => {
         const newModifiedObject = {
             ...modifiedObject,
             [what]: value
         };
+
+        if (clearValues) {
+            setClearValues(false);
+        }
 
         const newTouchedFields = [
             ...touchedFields,
@@ -44,6 +51,14 @@ const useSelfReflectionModification = (object, validate) => {
         setModified(!equalsOriginal);
     };
 
+    if (clearValues) {
+        setModifiedObject({...object});
+        setTouchedFields([]);
+        setModified(false);
+        setClearValues(false);
+        return [{...object}, onChange, false];
+    }
+
     if (modifiedObject?.id !== object?.id) {
         const objectHasChanged = modifiedObject?.id && object?.id;
 
@@ -59,7 +74,7 @@ const useSelfReflectionModification = (object, validate) => {
         return [{...object}, onChange, false];
     }
 
-    return [modifiedObject, onChange, modified];
+    return [modifiedObject, onChange, modified, clearFormValues];
 };
 
 export default useSelfReflectionModification;

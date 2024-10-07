@@ -32,6 +32,8 @@ const CourseEvaluationFooter = ({message, msgStyle}) => {
 };
 
 CourseEvaluationFooter.propTypes = {
+    message: PropTypes.string,
+    msgStyle: PropTypes.string
 };
 
 export default CourseEvaluationFooter;

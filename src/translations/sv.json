@@ -12,8 +12,6 @@
   "option_four": "Jag förstår olika aspekter av etiska frågor, jag ser samband mellan dem och kan tillämpa mina kunskaper i olika situationer i min egen forskningsprocess samt hjälpa andra med deras etiska frågor.",
   "option_five": "Beskriv vad du har lärt dig om forskningsetik i relation till ovan nämnda aktivitet/ämne. Stöd påståendet du valde ovan. Du kan ge exempel.",
   "form_welcome": "",
-  "form_description": "",
-  "form_subject_select": "",
   "form_free_answer": "",
   "form_submit": "",
   "validation_level_invalid": "",
@@ -28,5 +26,6 @@
   "answer_evaluation_form_text_2": " ",
   "answer_evaluation_form_text_3":"  ",
   "answer_evaluation_form_text_4": " ",
-  "answer_evaluation_form_text_5": " "
+  "answer_evaluation_form_text_5": " ",
+  "student_no_courses": "Inga kurser än... fråga din läräre om mer information eller änvänd appen som lärare"
 }

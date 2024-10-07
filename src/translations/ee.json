@@ -12,8 +12,6 @@
   "option_four": "Ma suudan mõelda mitmele antud küsimuse eetilisele aspektile, oma selgitusi põhjendada ning tuua näiteid, et näidata oma arusaamist.",
   "option_five": "Ma saan aru eetiliste küsimuste eri aspektidest, näen nendevahelisi seoseid, suudan oma teadmisi rakendada mitmesugustes olukordades oma uurimisprotsessis ning aidata teisi nende eetiliste küsimustega.",
   "form_welcome": "",
-  "form_description": "",
-  "form_subject_select": "",
   "form_free_answer": ".",
   "form_submit": "",
   "validation_level_invalid": "",
@@ -28,5 +26,6 @@
   "answer_evaluation_form_text_2": " ",
   "answer_evaluation_form_text_3":"  ",
   "answer_evaluation_form_text_4": " ",
-  "answer_evaluation_form_text_5": " "
+  "answer_evaluation_form_text_5": " ",
+  "student_no_courses": "student_no_courses"
 }
