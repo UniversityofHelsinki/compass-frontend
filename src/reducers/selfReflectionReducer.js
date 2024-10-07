@@ -3,7 +3,7 @@ const selfReflectionReducer = (state = {
 }, action) => {
     switch (action.type) {
         case 'ADD_ANSWER':
-            return { ...state, answer: action.payload, message: action.responseMessage.message };
+            return { ...state, answer: action.payload, message: action.responseMessage };
         case 'HIDE_ADD_NOTIFICATION':
             return { ...state,  message: null };
         default:

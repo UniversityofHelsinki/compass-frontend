@@ -12,10 +12,9 @@
   "option_four": "Pystyn ajattelemaan eettisiä kysymyksiä useasta näkökulmasta ja perustelemaan kantani sekä havainnollistamaan niitä esimerkein.",
   "option_five": "Ymmärrän eettisiä kysymyksiä monipuolisesti ja tunnistan eettisten ulottuvuuksien välisiä yhteyksiä. Osaan soveltaa tietojani erilaisissa tilanteissa omassa tutkimusprosessissani sekä auttaa muita heidän eettisissä kysymyksissään.",
   "form_welcome": "Welcome to using the Self-Reflection Compass!",
-  "form_description": "You have dealt with research ethics and integrity topics independently or have participated in a training to develop your research ethics and integrity competencies. To reflect on your learning, think back at your previous activity, evaluate your ethical competence, and receive feedback.",
-  "form_subject_select": "Which activity/topic are you reflecting on?",
-  "form_free_answer": "Please describe what you have been learning about research ethics in relation to the aforementioned activity/topic. You can provide examples.",
-  "form_submit": "Submit answers",
+  "form_free_answer": "Kuvaile, mitä olet oppinut aiheesta edellä mainitusta toiminnasta/aiheesta. Voit antaa esimerkkejä.",
+  "form_submit": "Tallenna",
+  "form_clear": "Tyhjennä",
   "validation_level_invalid": "Valitse väite",
   "answer_evaluation_form_footer_report": "Raportti",
   "answer_evaluation_form_footer_close": "Sulje",
@@ -34,6 +33,11 @@
   "navigation_teacher/forms": "Opettaja",
   "navigation_student/courses": "Opiskelija",
   "teacher_forms_heading": "Lomakkeet",
+  "student_no_courses": "Ei kursseja vielä... kysy opettajalta lisätietota tai käytä sovellusta opettajan tunnuksilla",
   "student_courses_heading": "Kurssit",
-  "student_no_courses": "Ei kursseja vielä... kysy opettajalta lisätietota tai käytä sovellusta opettajan tunnuksilla"
+  "assignment_feedback_answer": "Vastaus",
+  "assignment_feedback_choice": "Valinta",
+  "assignment_feedback_edit": "Muuta vastausta",
+  "assignment_feedback_remove": "Poista vastaus",
+  "assignment_feedback_back": "Takaisin kurssille"
 }

@@ -6,7 +6,7 @@ import FormDialog from "../dialog/FormDialog";
 import CourseEvaluationFooter from "./CourseEvaluationFooter";
 import PropTypes from "prop-types";
 
-const CourseEvaluation = ({modified, isValid, handleAddAnswer, msg, msgStyle, multiple_choice_answer}) => {
+const CourseEvaluation = ({modified, isValid, handleAddAnswer, msg, msgStyle, order_nbr}) => {
 
     const closeButton = { closeButton: true };
     const { t } = useTranslation();
@@ -24,7 +24,7 @@ const CourseEvaluation = ({modified, isValid, handleAddAnswer, msg, msgStyle, mu
     const theButton = (
         <HyButton
             variant="primary" modified={modified} isValid={isValid} onClick={onButtonClick}
-            className="answer-form-send-button" >
+            className="assignment-form-send-button" >
             {t('form_submit')}
         </HyButton>
     );
@@ -32,8 +32,8 @@ const CourseEvaluation = ({modified, isValid, handleAddAnswer, msg, msgStyle, mu
         event.preventDefault();
         //await save(collection);
     };*/
-    let answer_evaluation_form_header =  'answer_evaluation_form_header_' + multiple_choice_answer;
-    let answer_evaluation_form_text =  'answer_evaluation_form_text_' + multiple_choice_answer;
+    let answer_evaluation_form_header =  'answer_evaluation_form_header_' + order_nbr;
+    let answer_evaluation_form_text =  'answer_evaluation_form_text_' + order_nbr;
     return (
         <FormDialog
             hide={hide}
@@ -68,7 +68,7 @@ CourseEvaluation.protoTypes = {
     handleAddAnswer: PropTypes.func.isRequired,
     msg: PropTypes.string,
     msgStyle: PropTypes.string,
-    multiple_choice_answer: PropTypes.string
+    order_nbr: PropTypes.string
 }
 
 export default CourseEvaluation;
