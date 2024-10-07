@@ -8,11 +8,11 @@ import Assignment from "../assignment/Assignment";
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
-const FeedbackForEvaluation = ({disabled, msg, msgStyle, value, order_nbr, assignment, course}) => {
-    const location = useLocation();
+const FeedbackForEvaluation = () => {
+    const assignment = useLocation().state;
     const { t } = useTranslation();
-    let answer_evaluation_form_header =  'answer_evaluation_form_header_' + order_nbr;
-    let answer_evaluation_form_text =  'answer_evaluation_form_text_' + order_nbr;
+    let answer_evaluation_form_header =  'answer_evaluation_form_header_' + assignment.order_nbr;
+    let answer_evaluation_form_text =  'answer_evaluation_form_text_' + assignment.order_nbr;
     const [assignmentPage, setAssignmentPage] = useState(false);
 
     /*if (assignmentPage) {
@@ -29,18 +29,18 @@ const FeedbackForEvaluation = ({disabled, msg, msgStyle, value, order_nbr, assig
             <Container>
                 <Row >
                     <Col className="feedback-for-evaluation-assignment">
-                        {assignment}
+                        {assignment.assignment_name}
                     </Col>
                     <Col>
-                        {t('assignment_feedback_answer')}: {value}
+                        {t('assignment_feedback_answer')}: {assignment.value}
                     </Col>
                 </Row>
                 <Row className="feedback-for-evaluation-course">
                     <Col>
-                        {course}
+                        {assignment.course}
                     </Col>
                     <Col>
-                        {t('assignment_feedback_choice')}: {order_nbr}
+                        {t('assignment_feedback_choice')}: {assignment.order_nbr}
                     </Col>
                 </Row>
                 <Row>
@@ -54,21 +54,21 @@ const FeedbackForEvaluation = ({disabled, msg, msgStyle, value, order_nbr, assig
                     </Col>
                 </Row>
             </Container>
-            <FeedbackForEvaluationFooter disabled={disabled} message={msg}
-                                         msgStyle={msgStyle} onClick={onButtonClick}></FeedbackForEvaluationFooter>
+            <FeedbackForEvaluationFooter disabled={assignment.disabled} message={assignment.msg}
+                                         msgStyle={assignment.msgStyle} onClick={onButtonClick}></FeedbackForEvaluationFooter>
         </>
     );
 
 }
 
 FeedbackForEvaluation.propTypes = {
-    disabled: PropTypes.bool,
+    /*disabled: PropTypes.bool,
     msg: PropTypes.string,
     msgStyle: PropTypes.string,
     value: PropTypes.string,
     order_nbr: PropTypes.string,
     assignment: PropTypes.string,
-    course: PropTypes.string
+    course: PropTypes.string*/
 };
 
 export default FeedbackForEvaluation;

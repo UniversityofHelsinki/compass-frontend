@@ -42,23 +42,25 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
     const [modifiedObject, onChange, modified, clearFormValues] = useSelfReflectionModification({...emptyAnswer}, validate);
     const [answer, message, messageStyle, addAnswer] = useSelfReflectionSave();
     const formRef = useRef();
-    const [feedbackPage, setFeedbackPage] = useState(false);
     const disabled = false;
 
-    /*if (feedbackPage) {
-        return <FeedbackForEvaluation disabled={disabled} msg={message} msgStyle={messageStyle} value={modifiedObject.value} order_nbr={modifiedObject.order_nbr} assignment={assignment} course={course}></FeedbackForEvaluation>;
-    }*/
     const resetFileFields = () => {
         if (formRef.current) {
             formRef.current.reset();
         }
     };
-
+    let assignment_values = {
+        disabled:disabled,
+        msg: message,
+        value:modifiedObject.value,
+        order_nbr:modifiedObject.order_nbr,
+        assignment_name:assignment,
+        course:course
+    };
     const handleAddAnswer = async () => {
         const newUser = {...modifiedObject};
         await addAnswer(newUser, true);
-        //setFeedbackPage(true);
-        navigate('/student/feedback', { state: { 'value':'huuhaa' } });
+        navigate('/student/feedback', {state: assignment_values});
     }
 
     const changeValue = (name, value) => {
@@ -70,8 +72,6 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
         clearFormValues();
         validate(emptyAnswer);
         resetFileFields();
-        //onChange('value', '');
-        //onChange('order_nbr', null);
     };
 
     const onButtonClick = async (event) => {
