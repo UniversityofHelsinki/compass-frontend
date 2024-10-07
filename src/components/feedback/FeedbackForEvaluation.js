@@ -5,23 +5,24 @@ import FeedbackForEvaluationFooter from "./FeedbackForEvaluationFooter";
 import './FeedbackForEvaluation.css';
 import PropTypes from "prop-types";
 import Assignment from "../assignment/Assignment";
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const FeedbackForEvaluation = ({disabled, msg, msgStyle, value, order_nbr, assignment, course}) => {
+    const location = useLocation();
     const { t } = useTranslation();
     let answer_evaluation_form_header =  'answer_evaluation_form_header_' + order_nbr;
     let answer_evaluation_form_text =  'answer_evaluation_form_text_' + order_nbr;
     const [assignmentPage, setAssignmentPage] = useState(false);
 
     /*if (assignmentPage) {
-        return <Assignment disabled={disabled} value={modifiedObject.value} order_nbr={modifiedObject.order_nbr} assignment={assignment} course={course}></Assignment>;
-    } */
+        return <Assignment disabled={disabled} value={value} order_nbr={order_nbr} assignment={assignment} course={course}></Assignment>;
+    }*/
 
     const onButtonClick = async (event) => {
-        event.preventDefault();
+        //event.preventDefault();
         setAssignmentPage(true);
     };
-
-
 
     return (
         <>

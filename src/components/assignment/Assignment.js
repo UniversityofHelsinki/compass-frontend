@@ -18,9 +18,11 @@ import useUser from "../../hooks/useUser";
 import BackButton from "../utilities/BackButton";
 import HyButton from "../utilities/HyButton";
 import FeedbackForEvaluation from "../feedback/FeedbackForEvaluation";
+import { useNavigate } from 'react-router-dom';
 
 const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", levels, assignment, course}) => {
 
+    const navigate = useNavigate();
     const [user] = useUser();
     const userid = user.eppn;
 
@@ -43,9 +45,9 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
     const [feedbackPage, setFeedbackPage] = useState(false);
     const disabled = false;
 
-    if (feedbackPage) {
+    /*if (feedbackPage) {
         return <FeedbackForEvaluation disabled={disabled} msg={message} msgStyle={messageStyle} value={modifiedObject.value} order_nbr={modifiedObject.order_nbr} assignment={assignment} course={course}></FeedbackForEvaluation>;
-    }
+    }*/
     const resetFileFields = () => {
         if (formRef.current) {
             formRef.current.reset();
@@ -55,7 +57,8 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
     const handleAddAnswer = async () => {
         const newUser = {...modifiedObject};
         await addAnswer(newUser, true);
-        setFeedbackPage(true);
+        //setFeedbackPage(true);
+        navigate('/student/feedback', { state: { 'value':'huuhaa' } });
     }
 
     const changeValue = (name, value) => {

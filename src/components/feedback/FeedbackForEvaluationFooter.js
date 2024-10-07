@@ -12,9 +12,9 @@ const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, onClick}) => 
     const submitButtonDisabled = false;
     const handleClick = (event) => {
         event.preventDefault();
-        if (onClick) {
+        //if (onClick) {
             onClick();
-        }
+        //}
     };
     return (
         <Container>

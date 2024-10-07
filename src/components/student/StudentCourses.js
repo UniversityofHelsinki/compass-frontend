@@ -14,6 +14,7 @@ const StudentCourses = () => {
         heading={t('student_courses_heading')}
       >
       </TopBar>
+        <h4>Korvaa '/courses' polku '/assignment', jos haluat lähettää palautteen </h4>
     </div>
   );
 };
