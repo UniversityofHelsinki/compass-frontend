@@ -7,7 +7,7 @@ import './App.css';
 import {Provider} from "react-redux";
 import {applyMiddleware, createStore} from "redux";
 import {thunk} from "redux-thunk";
-import courseReducer from './reducers';
+import reducer from './reducers';
 import {DEFAULT_LANGUAGE} from "./Constants";
 import Compass from "./Compass";
 import {AuthProvider} from './AuthContext';
@@ -19,7 +19,7 @@ import Error from './Error';
 import TeacherForms from './components/teacher/TeacherForms';
 import StudentCourses from './components/student/StudentCourses';
 
-const store = createStore(courseReducer, applyMiddleware(thunk));
+const store = createStore(reducer, applyMiddleware(thunk));
 
 const defaultLanguage = () => {
     try {

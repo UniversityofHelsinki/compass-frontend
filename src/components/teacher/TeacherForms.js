@@ -10,7 +10,7 @@ const TeacherForms = () => {
     <div className="teacher-forms">
       <TopBar 
         heading={t('teacher_forms_heading')}
-        showBackBtn={true}
+        showBackBtn={false}
         backBtnHref="/teacher"
         backBtnLabels={{
           primary: 'asdf',

@@ -3,16 +3,22 @@ import { useEffect } from "react";
 
 const get = async () => {
     const response = [{
-        value: "eka",
-        label: "Kurssi1"
+        course_id: "A1234",
+        user_name: "opiskelija@helsinki.fi",
+        title: "Ohjelmoinnin perusteet 2024",
+        description: "Kurssilla käsitellään ..."
     },
     {
-        value: "toka",
-        label: "Kurssi2",
+        course_id: "B4321",
+        user_name: "opiskelija@helsinki.fi",
+        title: "Ohjelmoinnin jatkokurssi 2024",
+        description: "Jatkoa perusteille ..."
     },
     {
-        value: "kolmas",
-        label: "Kurssi3",
+        course_id: "C5476",
+        user_name: "opiskelija@helsinki.fi",
+        title: "Tietokantojen perusteet 2024",
+        description: "SQL, ym. asiaa ..."
     }];
     try {
         return response;

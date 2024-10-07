@@ -36,9 +36,8 @@ const defaultMockReducers = {
     users: {
         user: mockUser
     },
-    visibilities: {
-        left: true,
-        right: true
+    student: {
+      courses: [] 
     }
 };
 
