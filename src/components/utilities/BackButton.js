@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './BackButton.css';
 import { ReactComponent as BackArrow } from './icons/arrow-left.svg';
+import { Link } from 'react-router-dom';
 
 const BackButton = ({
   labels: {
@@ -15,7 +16,7 @@ const BackButton = ({
 }) => {
 
   return (
-    <a className="back-button" href={href}>
+    <Link className="back-button" to={href}>
       <div className="back-button-icon" aria-hidden={true}>
         <BackArrow />
       </div>
@@ -28,7 +29,7 @@ const BackButton = ({
           <span>{secondaryLabel}</span>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 
