@@ -4,25 +4,18 @@ import {useTranslation} from "react-i18next";
 import FeedbackForEvaluationFooter from "./FeedbackForEvaluationFooter";
 import './FeedbackForEvaluation.css';
 import PropTypes from "prop-types";
-import Assignment from "../assignment/Assignment";
-import { useLocation } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+import { useLocation, Link } from 'react-router-dom';
 
 const FeedbackForEvaluation = () => {
     const assignment = useLocation().state;
     const { t } = useTranslation();
     let answer_evaluation_form_header =  'answer_evaluation_form_header_' + assignment.order_nbr;
     let answer_evaluation_form_text =  'answer_evaluation_form_text_' + assignment.order_nbr;
-    const [assignmentPage, setAssignmentPage] = useState(false);
 
-    /*if (assignmentPage) {
-        return <Assignment disabled={disabled} value={value} order_nbr={order_nbr} assignment={assignment} course={course}></Assignment>;
-    }*/
-
-    const onButtonClick = async (event) => {
+    /*const editAssignment = async (event) => {
         //event.preventDefault();
-        setAssignmentPage(true);
-    };
+        //<Link to="/assignment"></Link>
+    };*/
 
     return (
         <>
@@ -55,7 +48,7 @@ const FeedbackForEvaluation = () => {
                 </Row>
             </Container>
             <FeedbackForEvaluationFooter disabled={assignment.disabled} message={assignment.msg}
-                                         msgStyle={assignment.msgStyle} onClick={onButtonClick}></FeedbackForEvaluationFooter>
+                                         msgStyle={assignment.msgStyle} onClick={null}></FeedbackForEvaluationFooter>
         </>
     );
 

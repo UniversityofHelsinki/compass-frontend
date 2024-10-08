@@ -18,10 +18,14 @@ import useUser from "../../hooks/useUser";
 import BackButton from "../utilities/BackButton";
 import HyButton from "../utilities/HyButton";
 import FeedbackForEvaluation from "../feedback/FeedbackForEvaluation";
-import { useNavigate } from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 
 const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", levels, assignment, course}) => {
 
+    let { state } = useLocation();
+    if (state?.loadAssignment) {
+        console.log('load assignment from dataBase');
+    }
     const navigate = useNavigate();
     const [user] = useUser();
     const userid = user.eppn;
