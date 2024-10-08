@@ -140,7 +140,7 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
 Assignment.propTypes = {
     levels: PropTypes.array.isRequired,
     showBackBtn: PropTypes.bool,
-    backBtnLabels: PropTypes.string,
+    backBtnLabels: PropTypes.object,
     backBtnHref: PropTypes.string,
     assignment: PropTypes.string,
     course: PropTypes.string

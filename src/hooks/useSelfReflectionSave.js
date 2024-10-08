@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 let style = '';
 
 const post = async (answer) => {
-    const URL = `${process.env.REACT_APP_COMPASS_BACKEND_SERVER}/api/saveanswer`;
+    const URL = `${process.env.REACT_APP_COMPASS_BACKEND_SERVER}/api/saveAnswer`;
     try {
         const response = await fetch(URL, {
             method: 'POST',
