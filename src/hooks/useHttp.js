@@ -15,10 +15,12 @@ const cache = (() => {
   };
 
   const set = (tag, value) => {
-    content[tag] = {
-      response: value,
-      invalidated: false
-    };
+    if (tag) {
+      content[tag] = {
+        response: value,
+        invalidated: false
+      };
+    }
   };
 
   const has = (tag) => {
@@ -46,7 +48,7 @@ const client = async (
 ) => {
 
   if (!cache.has(tag)) {
-    cache.set(tag, await fetch(`${baseUrl}${path}`, options));
+    cache.set(tag, fetch(`${baseUrl}${path}`, options));
   }
 
   const response = (await cache.get(tag).response).clone();
