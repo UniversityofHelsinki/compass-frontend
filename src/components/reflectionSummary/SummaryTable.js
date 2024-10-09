@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Table from 'react-bootstrap/Table';
 import './SummaryTable.css';
 import {Col, Container, Row} from "react-bootstrap";
 
+const SummaryRow = ({ assignment }) => {
+    return (<tr>
+        <td>{assignment.answer?.created}</td>
+        <td>{assignment.topic}</td>
+        <td>{assignment.answer?.order_nbr}</td>
+        <td>View</td>
+    </tr>);
 
-const SummaryTable = () => {
+};
+
+const SummaryTable = ({ assignments }) => {
+
+    console.log('asdf', assignments)
+
     return (
         <Container className="table-container">
             <Row className="table-row">
@@ -19,12 +31,9 @@ const SummaryTable = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1.11.2024</td>
-                            <td>fsfdshhhdfhdfhdhfhdffhhfdhfhf</td>
-                            <td>Very normal</td>
-                            <td>View</td>
-                        </tr>
+                        {(assignments || []).map((assignment) => (
+                            <SummaryRow assignment={assignment} key={assignment.id} />
+                        ))}
                         <tr>
                             <td>4</td>
                             <td>5</td>

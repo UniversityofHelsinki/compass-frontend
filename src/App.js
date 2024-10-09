@@ -12,12 +12,13 @@ import {DEFAULT_LANGUAGE} from "./Constants";
 import Compass from "./Compass";
 import {AuthProvider} from './AuthContext';
 import ProtectedRoute from './ProtectedRoute';
-import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
+import {createBrowserRouter, createRoutesFromElements, RouterProvider, Route, Outlet} from 'react-router-dom';
 import Teacher from './components/teacher/Teacher';
 import Student from './components/student/Student';
 import Error from './Error';
 import TeacherForms from './components/teacher/TeacherForms';
 import StudentCourses from './components/student/StudentCourses';
+import SummaryPage from './components/reflectionSummary/SummaryPage';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -55,9 +56,11 @@ const App = () => {
           </Route>
           <Route path="student" element={<Student />}>
             <Route path="courses" element={<StudentCourses />}>
-            <Route path="reflectionSummary" element={<SummaryPage />}>
-          </Route>
             </Route>
+              <Route path="courses/:course" element={<Outlet />}>
+                  <Route path="summary" element={<SummaryPage />}>
+                  </Route>
+              </Route>
           </Route>
         </Route>
       )

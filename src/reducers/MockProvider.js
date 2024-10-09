@@ -36,6 +36,16 @@ const mockUserCourseAnswer = {
     edited: 22222222,
 };
 
+const mockAssignments = {
+    id: 1,
+    assignment_id: 3,
+    course_id: 1234,
+    topic: "Assignment topic",
+    start_date: 12121212,
+    end_date: 1313131313,
+    created: 1111111111
+};
+
 const defaultMockReducers = {
     location: {
         path: '/',
@@ -52,6 +62,9 @@ const defaultMockReducers = {
     },
     userCourseAnswers: {
         userCourseAnswers: [mockUserCourseAnswer]
+    },
+    assignments: {
+        assignments: [mockAssignments]
     }
 };
 

@@ -2,26 +2,14 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const getUserAnswersForCourse = async (course_id) => {
-    const URL = `${process.env.REACT_APP_COMPASS_BACKEND_SERVER}/api/getUserAnswersForCourseId/${course_id}`;
-    try {
-        const response = await fetch(URL);
-        if (response.ok) {
-            return await response.json();
-        }
-        throw new Error(`Unexpected status code from ${URL}`, {
-            cause: { status: response.status }
-        });
-    } catch (error) {
-        console.error(error);
-        throw error;
-    }
+    return []
 };
 
 const useUserAnswersForCourse = (load = false) => {
     const dispatch = useDispatch();
     const userCourseAnswers = useSelector(
         (state) => {
-            return state.userCourseAnswers.userCourseAnswers
+            return state.addedAnswer.studentAnswers
         }
     );
 
@@ -31,7 +19,7 @@ const useUserAnswersForCourse = (load = false) => {
                 const getUserCourseAnswers = await getUserAnswersForCourse();
                 if (getUserCourseAnswers) {
                     dispatch({
-                        type: 'GET_USER_ANSWERS_SUCCESS',
+                        type: 'SET_STUDENT_ANSWERS',
                         payload: getUserCourseAnswers,
                     });
                 }

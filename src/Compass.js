@@ -1,14 +1,11 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import Header from './components/header/Header';
-import CourseList from './components/CourseList';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Footer from './components/footer/Footer';
 import { useAuth } from './AuthContext';
-import Assignment from "./components/assignment/Assignment";
 import { Outlet } from 'react-router-dom';
 import './Compass.css';
-import {LEVELS} from "./Constants";
 
 const Compass = () => {
     const { user, loading } = useAuth();
@@ -38,7 +35,6 @@ const Compass = () => {
         </Row>
         <Row>
           <Col role="assignment">
-            <Assignment levels={LEVELS} assignment={assignment_number} course={course} backBtnLabels={backBtnLabels}/>
           </Col>
         </Row>
         <Row>

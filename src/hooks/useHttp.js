@@ -54,7 +54,6 @@ const client = async (
     cache.remove(tag);
   }
 
-  const hasBody = response.headers.get('Content-Length');
   if (!response.ok) {
     throw new Error(
       `Unexpected status code ${response.status} from ${path}`, 
@@ -67,11 +66,18 @@ const client = async (
     );
   }
 
-  return {
-    ok: response.ok,
-    status: response.status,
-    body: hasBody ? await response.json() : null
-  };
+  try {
+    return {
+      ok: response.ok,
+      status: response.status,
+      body: await response.json()
+    };
+  } catch (error) {
+    return {
+      ok: response.ok,
+      status: response.status
+    };
+  }
 };
 
 export const useGET = ({ path, tag }) => {

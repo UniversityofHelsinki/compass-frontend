@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import SummaryChart from "./SummaryChart";
 import SummaryTable from "./SummaryTable";
 import { useTranslation } from "react-i18next";
+import processUserAnswers from "./processUserAnswers";
 
 const UserAnswersComponent = ({ chartData, tableData }) => (
     <>
@@ -14,27 +15,18 @@ const UserAnswersComponent = ({ chartData, tableData }) => (
 const UserAnswers = () => {
     const { t } = useTranslation();
     const userAnswersList = useSelector((state) => state.userCourseAnswers.userCourseAnswers);
+    const assignmentsList = useSelector((state) => state.assignments.assignments);
     const [processedUserAnswers, setProcessedUserAnswers] = useState({
         chartData: null,
         tableData: null,
     });
 
     useEffect(() => {
-        if (userAnswersList) {
-            const { chartData, tableData } = processUserAnswers(userAnswersList);
+        if (userAnswersList && assignmentsList) {
+            const { chartData, tableData } = processUserAnswers(userAnswersList, assignmentsList);
             setProcessedUserAnswers({ chartData, tableData });
         }
-    }, []);
-
-    const processUserAnswers = (userAnswersList) => {
-        const chartData = userAnswersList.map(answer => ({
-
-        }));
-        const tableData = userAnswersList.map(answer => ({
-
-        }));
-        return { chartData, tableData };
-    };
+    }, [userAnswersList, assignmentsList]);
 
     if (!processedUserAnswers.chartData || !processedUserAnswers.tableData) {
         return <div>{t('loading_data')}</div>;
