@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const baseUrl = process.env.REACT_APP_COMPASS_BACKEND_SERVER;
+const baseUrl = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
 const cache = (() => {
   const content = {};
   const tags = {};
@@ -24,7 +24,7 @@ const cache = (() => {
   };
 
   const has = (tag) => {
-    return Object.hasOwn(content, tag) 
+    return Object.hasOwn(content, tag)
       && !content[tag].invalidated;
   };
 
@@ -59,7 +59,7 @@ const client = async (
   const hasBody = response.headers.get('Content-Length');
   if (!response.ok) {
     throw new Error(
-      `Unexpected status code ${response.status} from ${path}`, 
+      `Unexpected status code ${response.status} from ${path}`,
       {
         cause: {
           ok: response.ok,
