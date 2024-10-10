@@ -20,3 +20,17 @@ test('teacher forms heading is shown', () => {
   );
   expect(screen.queryByRole('heading')).toHaveTextContent('Lomakkeet');
 });
+
+test('No courses disclaimer is shown', () => {
+  render(
+    <TeacherForms />,
+    {},
+    {
+      teacher: {
+        courses: []
+      }
+    }
+  );
+
+  expect(document.querySelector('.teacher-forms-no-forms')).toBeDefined();
+});

@@ -20,7 +20,7 @@ const useTeacherForms = () => {
         payload: response
       });
     }
-  }, [teacherForms]);
+  }, [response]);
 
   return teacherForms;
 };
