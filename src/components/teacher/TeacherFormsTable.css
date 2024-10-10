@@ -1,0 +1,84 @@
+
+.table-heading-column {
+  display: flex;
+  min-width: max-content;
+  align-content: center;
+}
+
+.table-heading-column button {
+  background-color: unset;
+  border: unset;
+  display: flex;
+  padding: unset;
+
+  font-weight: bold;
+}
+
+.table-heading-column-caret-container {
+  display: flex;
+  align-content: center;
+}
+
+.table-heading-column button svg {
+  min-width: 1.2em;
+  min-height: 1.2em;
+}
+
+.table-heading-column button svg polygon {
+  fill: var(--huds-grayscale-black);
+}
+
+.teacher-forms-table-row {
+  max-width: 20em;
+  border-bottom: 1px solid var(--huds-grayscale-black);
+}
+
+.teacher-forms-table tbody > :nth-child(even) {
+  background-color: var(--huds-grayscale-light);
+}
+
+.teacher-forms-table caption {
+  display: table-caption;
+}
+
+.teacher-forms-table-row td {
+  max-width: inherit;
+  word-break: break-all;
+  padding: 0.7em;
+  padding-left: unset;
+}
+
+.teacher-forms-table-row-course-id {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 8em !important;
+}
+
+.teacher-forms-table-row-period span {
+  display: flex;
+  justify-content: space-between;
+}
+
+.teacher-forms-table-actions-column {
+  padding-right: 0 !important;
+}
+
+.teacher-forms-table-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.teacher-forms-table-action button {
+  border: unset;
+  padding: unset;
+  background-color: unset;
+}
+
+.teacher-forms-table-action button svg {
+  fill: var(--huds-grayscale-black);
+  min-width: 1.2em;
+  max-width: 1.2em;
+  width: 1.2em;
+  max-height: 1.2em;
+}

@@ -27,6 +27,7 @@ const TopBar = ({
 };
 
 export const propTypes = {
+  children: PropTypes.node,
   showBackBtn: PropTypes.bool,
   backBtnLabels: BackButtonPropTypes.labels,
   backButtonHref: BackButtonPropTypes.href
