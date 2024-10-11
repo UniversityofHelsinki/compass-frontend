@@ -4,10 +4,8 @@ import { useGET } from "../useHttp";
 import useUser from "../useUser";
 
 const useTeacherForms = () => {
-  const [user] = useUser();
-
   const [response, error] = useGET({
-    path: `/api/teacher/courses/${user.eppn}`,
+    path: `/api/teacher/courses`,
     tag: 'TEACHER_COURSES'
   });
   const teacherForms = useSelector(state => state.teacher.courses);
