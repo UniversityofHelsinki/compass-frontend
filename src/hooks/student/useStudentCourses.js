@@ -4,9 +4,8 @@ import { useGET } from "../useHttp";
 import useUser from "../useUser";
 
 const useStudentCourses = () => {
-  const [user] = useUser();
   const [response, error] = useGET({
-    path: `/api/student/courses/${user.eppn}`,
+    path: `/api/student/courses`,
     tag: 'STUDENT_COURSES'
   });
   const dispatch = useDispatch();
