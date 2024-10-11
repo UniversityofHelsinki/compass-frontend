@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -13,38 +13,35 @@ import useSelfReflectionModification from "../../hooks/useSelfReflectionModifica
 import useSelfReflectionSave from "../../hooks/useSelfReflectionSave";
 import useAnswerValidation from "../../hooks/validation/answers/useAnswerValidation";
 import ButtonRow from "../actions/ButtornRow";
-import CourseEvaluation from "../course/CourseEvaluation";
 import useUser from "../../hooks/useUser";
 import BackButton from "../utilities/BackButton";
 import HyButton from "../utilities/HyButton";
-import FeedbackForEvaluation from "../feedback/FeedbackForEvaluation";
-import {useLocation, useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate, useParams} from 'react-router-dom';
+import useStudentAnswer from "../../hooks/useStudentAnswer";
+//import useStudentCourse from "../../hooks/useStudentCourse";
+import useStudentAssignmentCourse from "../../hooks/useStudentAssignmentCourse";
+//import useStudentAssignmentAnswer from "../../hooks/useStudentAssignmentAnswer";
 
-const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", levels, assignment, course}) => {
+const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", levels, assignment_name, course}) => {
 
-    let { state } = useLocation();
-    if (state?.loadAssignment) {
-        console.log('load assignment from dataBase');
-    }
-    const navigate = useNavigate();
+    const { assignment } = useParams();
     const [user] = useUser();
-    const userid = user.eppn;
 
-    const emptyAnswer = {
-        id: '',
-        assignmentid: 1,
-        userid: userid,
-        courseid: 'A1234',
-        value: '',
-        order_nbr: '',
-    };
+    //const studentAnswer = useStudentAnswer(assignment, user.eppn, false);
+    //const studentCourse = useStudentCourse(course_id);
+    const studentAnswer = useStudentAssignmentCourse(assignment, false);
+    //tarttee tehdä viel uus, useStudentAssignmentAnswer käytetään feedback sivulla
+    //tähän se, joka hakee db projektin assignmentCourse.sql datan tähän
+    let course_id = 'A1234'
+    const navigate = useNavigate();
+
     const { t } = useTranslation();
     const [value, setValue] = useState('');
     const [isValid, messages, validate] = useAnswerValidation([
         'value', 'order_nbr'
-    ], emptyAnswer);
-    const [modifiedObject, onChange, modified, clearFormValues] = useSelfReflectionModification({...emptyAnswer}, validate);
-    const [answer, message, messageStyle, addAnswer] = useSelfReflectionSave();
+    ], studentAnswer);
+    const [modifiedObject, onChange, modified, clearFormValues, updateModObj] = useSelfReflectionModification(studentAnswer, validate);
+    const [_answer, _message, _messageStyle, addAnswer] = useSelfReflectionSave();
     const formRef = useRef();
     const disabled = false;
 
@@ -53,18 +50,12 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
             formRef.current.reset();
         }
     };
-    let assignment_values = {
-        disabled:disabled,
-        msg: message,
-        value:modifiedObject.value,
-        order_nbr:modifiedObject.order_nbr,
-        assignment_name:assignment,
-        course:course
-    };
+
     const handleAddAnswer = async () => {
         const newUser = {...modifiedObject};
-        await addAnswer(newUser, true);
-        navigate('/student/feedback', {state: assignment_values});
+        const answer = await addAnswer(newUser, true);
+        //const addedAnswer = {...studentAnswer};
+        navigate(`/student/feedback/${answer}`);
     }
 
     const changeValue = (name, value) => {
@@ -74,7 +65,6 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
     const clearForm = (event) => {
         //event.preventDefault();
         clearFormValues();
-        validate(emptyAnswer);
         resetFileFields();
     };
 
@@ -105,7 +95,7 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
                     {showBackBtn && <BackButton labels={backBtnLabels} href={backBtnHref}/>}
                 </div>
                 <div className="assignment-form-assignment-col">
-                    <h3>{assignment}</h3>
+                    <h3>{assignment_name}</h3>
                     <div>{course}</div>
                 </div>
             </Row>
@@ -142,7 +132,7 @@ Assignment.propTypes = {
     showBackBtn: PropTypes.bool,
     backBtnLabels: PropTypes.object,
     backBtnHref: PropTypes.string,
-    assignment: PropTypes.string,
+    assignment_name: PropTypes.string,
     course: PropTypes.string
 };
 

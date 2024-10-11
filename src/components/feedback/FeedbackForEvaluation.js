@@ -4,51 +4,69 @@ import {useTranslation} from "react-i18next";
 import FeedbackForEvaluationFooter from "./FeedbackForEvaluationFooter";
 import './FeedbackForEvaluation.css';
 import PropTypes from "prop-types";
-import { useLocation, Link } from 'react-router-dom';
+import {useLocation, Link, useParams} from 'react-router-dom';
+import useStudentAnswer from "../../hooks/useStudentAnswer";
+import useUser from "../../hooks/useUser";
 
 const FeedbackForEvaluation = () => {
-    const assignment = useLocation().state;
+    //const id = useParams();
+    //
+    const { answer } = useParams();
+    const [user] = useUser();
+    const feedbackEvaluationPage = true;
+
+    const studentAnswer = useStudentAnswer(answer, user.eppn, feedbackEvaluationPage);
+
     const { t } = useTranslation();
-    let answer_evaluation_form_header =  'answer_evaluation_form_header_' + assignment.order_nbr;
-    let answer_evaluation_form_text =  'answer_evaluation_form_text_' + assignment.order_nbr;
+    let answer_evaluation_form_header =  'answer_evaluation_form_header_';
+    let answer_evaluation_form_text =  'answer_evaluation_form_text_';
 
     /*const editAssignment = async (event) => {
         //event.preventDefault();
         //<Link to="/assignment"></Link>
     };*/
 
-    return (
-        <>
+    const showFeedback = () => {
+        return (
             <Container>
                 <Row >
                     <Col className="feedback-for-evaluation-assignment">
-                        {assignment.assignment_name}
+                        hae nimi tähän
                     </Col>
                     <Col>
-                        {t('assignment_feedback_answer')}: {assignment.value}
+                        {t('assignment_feedback_answer')}: {studentAnswer.value}
                     </Col>
                 </Row>
                 <Row className="feedback-for-evaluation-course">
                     <Col>
-                        {assignment.course}
+                        kurssi tähän
                     </Col>
                     <Col>
-                        {t('assignment_feedback_choice')}: {assignment.order_nbr}
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <h4 className="feedback-for-evaluation-header">{t(answer_evaluation_form_header)}</h4>
+                        {t('assignment_feedback_choice')}: {studentAnswer.order_nbr}
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        {t(answer_evaluation_form_text)}
+                        <h4 className="feedback-for-evaluation-header">{t(answer_evaluation_form_header + studentAnswer.order_nbr)}</h4>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        {t(answer_evaluation_form_text + studentAnswer.order_nbr)}
                     </Col>
                 </Row>
             </Container>
-            <FeedbackForEvaluationFooter disabled={assignment.disabled} message={assignment.msg}
-                                         msgStyle={assignment.msgStyle} onClick={null}></FeedbackForEvaluationFooter>
+        )
+    }
+
+    if (studentAnswer === undefined || studentAnswer === null)
+        return '';
+
+    return (
+        <>
+            {showFeedback()}
+            <FeedbackForEvaluationFooter disabled={false} message={''} assignment_id={1}
+                                         msgStyle={'assignment.msgStyle'} onClick={null}></FeedbackForEvaluationFooter>
         </>
     );
 

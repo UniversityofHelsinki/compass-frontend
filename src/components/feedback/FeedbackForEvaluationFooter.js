@@ -7,7 +7,7 @@ import Notification from "../notes/Notification";
 import {Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
-const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, onClick}) => {
+const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, assignment_id, onClick}) => {
     const { t } = useTranslation();
 
     const submitButtonDisabled = false;
@@ -22,7 +22,7 @@ const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, onClick}) => 
         <div className="feedback-for-evaluation-footer">
             <Notification msg={t(message)} type={msgStyle}/>
             <div className="cource-evaluation-footer-buttons">
-                <Link to="/student/assignment" state={{ loadAssignment: true }} >
+                <Link to={`/student/assignments/${1}`} >
                     <HyButton variant="primary" onClick={null} type="submit" disabled={disabled}>
                         {t('assignment_feedback_edit')}
                     </HyButton>

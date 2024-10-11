@@ -29,8 +29,8 @@ const post = async (answer) => {
 
 const useSelfReflectionSave = () => {
     const dispatch = useDispatch();
-    const { answer, message }  = useSelector((state) => state.addedAnswer);
-    const findValue = (arr, field) => {
+    const answer  = useSelector((state) => state.student.answer);
+    /*const findValue = (arr, field) => {
         if (arr instanceof Array) {
             return arr?.find(
                 o => {
@@ -38,18 +38,19 @@ const useSelfReflectionSave = () => {
                 });
         }
         return arr[field];
-    }
+    }*/
 
     const addAnswer = async (record) => {
         const addedRecord = await post(record);
-        let message = findValue(addedRecord, "message");
-        dispatch({type: 'ADD_ANSWER', payload: addedRecord, responseMessage: message});
+        //let message = findValue(addedRecord, "message");
+        dispatch({type: 'SET_STUDENT_ANSWER', payload: addedRecord});
         /*setTimeout(() => {
             dispatch({ type: 'HIDE_ADD_NOTIFICATION' });
         }, 3000);*/
+        return addedRecord.assignment_id;
     }
 
-    return [answer, message, style, addAnswer];
+    return [answer, null, style, addAnswer];
 };
 
 export default useSelfReflectionSave;

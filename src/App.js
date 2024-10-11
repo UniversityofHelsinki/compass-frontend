@@ -23,7 +23,7 @@ import Assignment from "./components/assignment/Assignment";
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
-const assignment_number = "Assignment 1";
+const assignment_name = "Assignment 1";
 const course = "Ohjelmoinnin perusteet 2024"
 const backBtnLabels={
     primary: 'Back',
@@ -65,9 +65,9 @@ const App = () => {
           <Route path="student" element={<Student />}>
             <Route path="courses" element={<StudentCourses />}>
             </Route>
-            <Route path="assignment" element={<Assignment levels={LEVELS} assignment={assignment_number} course={course} backBtnLabels={backBtnLabels}/>}>
+            <Route path="assignments/:assignment" element={<Assignment levels={LEVELS} assignment_name={assignment_name} course={course} backBtnLabels={backBtnLabels}/>}>
             </Route>
-            <Route path="feedback" element={<FeedbackForEvaluation />}>
+            <Route path="feedback/:answer" element={<FeedbackForEvaluation />}>
             </Route>
           </Route>
         </Route>
