@@ -17,8 +17,6 @@ import useUser from "../../hooks/useUser";
 import BackButton from "../utilities/BackButton";
 import HyButton from "../utilities/HyButton";
 import {useLocation, useNavigate, useParams} from 'react-router-dom';
-import useStudentAnswer from "../../hooks/useStudentAnswer";
-//import useStudentCourse from "../../hooks/useStudentCourse";
 import useStudentAssignmentCourse from "../../hooks/useStudentAssignmentCourse";
 //import useStudentAssignmentAnswer from "../../hooks/useStudentAssignmentAnswer";
 
@@ -27,11 +25,7 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
     const { assignment } = useParams();
     const [user] = useUser();
 
-    //const studentAnswer = useStudentAnswer(assignment, user.eppn, false);
-    //const studentCourse = useStudentCourse(course_id);
     const studentAnswer = useStudentAssignmentCourse(assignment, false);
-    //tarttee tehdä viel uus, useStudentAssignmentAnswer käytetään feedback sivulla
-    //tähän se, joka hakee db projektin assignmentCourse.sql datan tähän
     let course_id = 'A1234'
     const navigate = useNavigate();
 
@@ -53,6 +47,7 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
 
     const handleAddAnswer = async () => {
         const newUser = {...modifiedObject};
+        newUser["course_id"] = studentAnswer.course_id;
         const answer = await addAnswer(newUser, true);
         //const addedAnswer = {...studentAnswer};
         navigate(`/student/feedback/${answer}`);
@@ -88,6 +83,10 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
         </HyButton>
     );
 
+    /*if (studentAnswer?.title === undefined || studentAnswer.title === null) {
+        return '';
+    }*/
+
     return (
         <Container className="assignment-form-container">
             <Row className="assignment-form-row">
@@ -95,8 +94,8 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
                     {showBackBtn && <BackButton labels={backBtnLabels} href={backBtnHref}/>}
                 </div>
                 <div className="assignment-form-assignment-col">
-                    <h3>{assignment_name}</h3>
-                    <div>{course}</div>
+                    <h3>{studentAnswer.topic}</h3>
+                    <div>{studentAnswer.title}</div>
                 </div>
             </Row>
             <Row>

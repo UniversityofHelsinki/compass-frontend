@@ -11,7 +11,7 @@ const emptyAnswer = {
     order_nbr: '',
 };
 
-const useStudentAssignmentAnswer = (assignmentId, feedbackEvaluationPage) => {
+const useStudentAssignmentAnswer = (assignmentId) => {
     const dispatch = useDispatch();
     const answer = useSelector((state) => state.student.course_assignment_answer);
 
@@ -27,7 +27,7 @@ const useStudentAssignmentAnswer = (assignmentId, feedbackEvaluationPage) => {
             });
         }
     }, [response]);
-    if (!feedbackEvaluationPage && (!answer || answer.length === 0 || error)) {
+    if (!answer || answer.length === 0 || error) {
         return emptyAnswer;
     }
     return answer;

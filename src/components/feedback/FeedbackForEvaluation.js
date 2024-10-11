@@ -5,17 +5,15 @@ import FeedbackForEvaluationFooter from "./FeedbackForEvaluationFooter";
 import './FeedbackForEvaluation.css';
 import PropTypes from "prop-types";
 import {useLocation, Link, useParams} from 'react-router-dom';
-import useStudentAnswer from "../../hooks/useStudentAnswer";
+import useStudentAssignmentAnswer from "../../hooks/useStudentAssignmentAnswer";
+
 import useUser from "../../hooks/useUser";
 
 const FeedbackForEvaluation = () => {
-    //const id = useParams();
-    //
     const { answer } = useParams();
     const [user] = useUser();
-    const feedbackEvaluationPage = true;
 
-    const studentAnswer = useStudentAnswer(answer, user.eppn, feedbackEvaluationPage);
+    const studentAnswer = useStudentAssignmentAnswer(answer, user.eppn);
 
     const { t } = useTranslation();
     let answer_evaluation_form_header =  'answer_evaluation_form_header_';
@@ -31,7 +29,7 @@ const FeedbackForEvaluation = () => {
             <Container>
                 <Row >
                     <Col className="feedback-for-evaluation-assignment">
-                        hae nimi tähän
+                        {studentAnswer.topic}
                     </Col>
                     <Col>
                         {t('assignment_feedback_answer')}: {studentAnswer.value}
@@ -39,7 +37,7 @@ const FeedbackForEvaluation = () => {
                 </Row>
                 <Row className="feedback-for-evaluation-course">
                     <Col>
-                        kurssi tähän
+                        {studentAnswer.title}
                     </Col>
                     <Col>
                         {t('assignment_feedback_choice')}: {studentAnswer.order_nbr}
