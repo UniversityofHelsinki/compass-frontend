@@ -1,5 +1,4 @@
 import useUser from "./useUser";
-import {useGET} from "./useHttp";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 
@@ -19,18 +18,26 @@ const useStudentAssignmentCourse = (assignmentId) => {
     const dispatch = useDispatch();
     const assignment_course = useSelector((state) => state.student.assignment_course);
 
-    const [response, error] = useGET({
-        path: `/api/student/assignment/course/${assignmentId}`
-    });
+    const get = async () => {
+        const URL = `${process.env.REACT_APP_COMPASS_BACKEND_SERVER}/api/student/assignment/course/${assignmentId}`;
+        try {
+            const response = await fetch(URL);
+            if (response.ok) {
+                return await response.json();
+            }
+            throw new Error(`Unexpected status code ${response.status} while fetching all courses from ${URL}`);
+        } catch (error) {
+            console.error(error.message);
+        }
+    };
 
     useEffect(() => {
-        if (response !== assignment_course) {
-            dispatch({
-                type: 'GET_STUDENT_ASSIGNMENT_COURSE',
-                payload: response
-            });
+        if (!assignment_course) {
+            (async () => {
+                dispatch({ type: 'GET_STUDENT_ASSIGNMENT_COURSE', payload: await get() })
+            })();
         }
-    }, [response]);
+    }, [assignment_course, dispatch]);
 
     if (assignment_course) {
         emptyAnswer.topic = assignment_course.topic;
