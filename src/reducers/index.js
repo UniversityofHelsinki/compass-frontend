@@ -9,7 +9,7 @@ const reducers = {
     users: userReducer,
     courses: coursesReducer,
     addedAnswer: selfReflectionReducer,
-    student: studentReducer,
+    student: studentReducer
 };
 
 export default combineReducers(reducers);
