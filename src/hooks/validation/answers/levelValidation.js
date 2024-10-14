@@ -7,6 +7,9 @@ const levels = [
 ];
 const validateLevel = (level) => {
 
+    if (Number.isInteger(level)) {
+        level = level.toString();
+    }
     const found = levels.map(t => t.value).includes(level);
     if (!found) {
         return 'validation_level_invalid';
