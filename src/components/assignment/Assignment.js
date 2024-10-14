@@ -18,15 +18,14 @@ import BackButton from "../utilities/BackButton";
 import HyButton from "../utilities/HyButton";
 import {useLocation, useNavigate, useParams} from 'react-router-dom';
 import useStudentAssignmentCourse from "../../hooks/useStudentAssignmentCourse";
-//import useStudentAssignmentAnswer from "../../hooks/useStudentAssignmentAnswer";
+import useStudentAssignmentAnswer from "../../hooks/useStudentAssignmentAnswer";
 
-const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", levels, assignment_name, course}) => {
-
+const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", levels}) => {
     const { assignment } = useParams();
     const [user] = useUser();
-
-    const studentAnswer = useStudentAssignmentCourse(assignment, false);
-    let course_id = 'A1234'
+    const studentAnswerData = useStudentAssignmentCourse(assignment);
+    let studentAssignmentAnswer = useStudentAssignmentAnswer(assignment);
+    const studentAnswer = { ...studentAnswerData, value: studentAssignmentAnswer?.value, order_nbr: studentAssignmentAnswer?.order_nbr};
     const navigate = useNavigate();
 
     const { t } = useTranslation();
@@ -49,7 +48,6 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
         const newUser = {...modifiedObject};
         newUser["course_id"] = studentAnswer.course_id;
         const answer = await addAnswer(newUser, true);
-        //const addedAnswer = {...studentAnswer};
         navigate(`/student/feedback/${answer}`);
     }
 
@@ -82,10 +80,6 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
             {t('form_submit')}
         </HyButton>
     );
-
-    /*if (studentAnswer?.title === undefined || studentAnswer.title === null) {
-        return '';
-    }*/
 
     return (
         <Container className="assignment-form-container">
@@ -131,8 +125,6 @@ Assignment.propTypes = {
     showBackBtn: PropTypes.bool,
     backBtnLabels: PropTypes.object,
     backBtnHref: PropTypes.string,
-    assignment_name: PropTypes.string,
-    course: PropTypes.string
 };
 
 export default Assignment;

@@ -13,7 +13,7 @@ const emptyAnswer = {
     value: '',
     order_nbr: ''
 };
-const useStudentAssignmentCourse = (assignmentId, feedbackEvaluationPage = false) => {
+const useStudentAssignmentCourse = (assignmentId) => {
     const [user] = useUser();
     emptyAnswer.user_name = user.eppn;
     const dispatch = useDispatch();
@@ -32,9 +32,6 @@ const useStudentAssignmentCourse = (assignmentId, feedbackEvaluationPage = false
         }
     }, [response]);
 
-    /*if (!feedbackEvaluationPage && (!assignment_course || assignment_course.length === 0 || error)) {
-        return emptyAnswer;
-    }*/
     if (assignment_course) {
         emptyAnswer.topic = assignment_course.topic;
         emptyAnswer.title = assignment_course.title;
