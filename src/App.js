@@ -65,7 +65,7 @@ const App = () => {
           <Route path="student" element={<Student />}>
             <Route path="courses" element={<StudentCourses />}>
             </Route>
-            <Route path="assignments/:assignment" element={<Assignment levels={LEVELS} assignment_name={assignment_name} course={course} backBtnLabels={backBtnLabels}/>}>
+            <Route path="assignments/:assignment" element={<Assignment levels={LEVELS} backBtnLabels={backBtnLabels}/>}>
             </Route>
             <Route path="feedback/:answer" element={<FeedbackForEvaluation />}>
             </Route>
