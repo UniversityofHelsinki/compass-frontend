@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const baseUrl = process.env.REACT_APP_COMPASS_BACKEND_SERVER;
+const baseUrl = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
 const cache = (() => {
   const content = {};
   const tags = {};
@@ -15,14 +15,16 @@ const cache = (() => {
   };
 
   const set = (tag, value) => {
-    content[tag] = {
-      response: value,
-      invalidated: false
-    };
+    if (tag) {
+      content[tag] = {
+        response: value,
+        invalidated: false
+      };
+    }
   };
 
   const has = (tag) => {
-    return Object.hasOwn(content, tag) 
+    return Object.hasOwn(content, tag)
       && !content[tag].invalidated;
   };
 
@@ -46,7 +48,7 @@ const client = async (
 ) => {
 
   if (!cache.has(tag)) {
-    cache.set(tag, await fetch(`${baseUrl}${path}`, options));
+    cache.set(tag, fetch(`${baseUrl}${path}`, options));
   }
 
   const response = (await cache.get(tag).response).clone();
@@ -54,10 +56,9 @@ const client = async (
     cache.remove(tag);
   }
 
-  const hasBody = response.headers.get('Content-Length');
   if (!response.ok) {
     throw new Error(
-      `Unexpected status code ${response.status} from ${path}`, 
+      `Unexpected status code ${response.status} from ${path}`,
       {
         cause: {
           ok: response.ok,
@@ -67,11 +68,19 @@ const client = async (
     );
   }
 
-  return {
-    ok: response.ok,
-    status: response.status,
-    body: hasBody ? await response.json() : null
-  };
+  try {
+    return {
+      ok: response.ok,
+      status: response.status,
+      body: await response.json()
+    };
+  } catch (error) {
+    console.error(error.message);
+    return {
+      ok: response.ok,
+      status: response.status
+    };
+  }
 };
 
 export const useGET = ({ path, tag }) => {

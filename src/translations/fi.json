@@ -39,5 +39,21 @@
   "assignment_feedback_choice": "Valinta",
   "assignment_feedback_edit": "Muuta vastausta",
   "assignment_feedback_remove": "Poista vastaus",
-  "assignment_feedback_back": "Takaisin kurssille"
+  "assignment_feedback_back": "Takaisin kurssille",
+  "teacher_forms_no_forms": "Ei kursseja. Luo uusi kurssi Uusi kurssi -painikkeella.",
+  "teacher_forms_new_course": "Uusi kurssi",
+  "teacher_forms_back_to_forms": "Kurssit",
+  "teacher_forms_back_to_forms_secondary": "Takaisin kurssilistaan",
+  "teacher_form_new": "Uusi kurssi",
+  "teacher_forms_table_title": "Kurssi",
+  "teacher_forms_table_course_id": "Tunniste",
+  "teacher_forms_table_period": "Aikaväli",
+  "teacher_forms_table_row_copy": "Kopioi kurssin {{title}} tunniste leikepöydälle",
+  "teacher_forms_table_row_edit": "Muokkaa kurssia {{title}}",
+  "teacher_forms_table_row_delete": "Poista kurssi {{title}}",
+  "teacher_forms_table_description": "Opettajan kurssit",
+  "teacher_forms_table_actions": "Toiminnot",
+  "teacher_forms_table_sort_1": "Järjestetty nousevasti",
+  "teacher_forms_table_sort_-1": "Järjestetty laskevasti"
+
 }

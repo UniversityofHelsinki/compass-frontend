@@ -1,7 +1,9 @@
 import {useEffect, useState} from "react";
 
+const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
+
 const getReleaseNotes = async () => {
-    const URL = `${process.env.REACT_APP_COMPASS_BACKEND_SERVER}/api/releaseNotes`;
+    const URL = `${COMPASS_BACKEND_SERVER}/api/releaseNotes`;
     try {
         const response = await fetch(URL);
         if (response.ok) {

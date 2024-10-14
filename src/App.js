@@ -18,6 +18,7 @@ import Student from './components/student/Student';
 import Error from './Error';
 import TeacherForms from './components/teacher/TeacherForms';
 import StudentCourses from './components/student/StudentCourses';
+import TeacherFormNew from './components/teacher/TeacherFormNew';
 import FeedbackForEvaluation from "./components/feedback/FeedbackForEvaluation";
 import Assignment from "./components/assignment/Assignment";
 
@@ -60,6 +61,8 @@ const App = () => {
         <Route path="/" element={<Compass />} errorElement={<Error />}>
           <Route path="teacher" element={<Teacher />}>
             <Route path="forms" element={<TeacherForms />}>
+            </Route>
+            <Route path="forms/new" element={<TeacherFormNew />}>
             </Route>
           </Route>
           <Route path="student" element={<Student />}>
