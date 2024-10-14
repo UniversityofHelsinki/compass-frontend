@@ -13,16 +13,11 @@ const FeedbackForEvaluation = () => {
     const { answer } = useParams();
     const [user] = useUser();
 
-    const studentAnswer = useStudentAssignmentAnswer(answer, user.eppn);
+    const studentAnswer = useStudentAssignmentAnswer(answer);
 
     const { t } = useTranslation();
     let answer_evaluation_form_header =  'answer_evaluation_form_header_';
     let answer_evaluation_form_text =  'answer_evaluation_form_text_';
-
-    /*const editAssignment = async (event) => {
-        //event.preventDefault();
-        //<Link to="/assignment"></Link>
-    };*/
 
     const showFeedback = () => {
         return (
@@ -57,27 +52,21 @@ const FeedbackForEvaluation = () => {
         )
     }
 
-    if (studentAnswer === undefined || studentAnswer === null)
+    if (studentAnswer === undefined || studentAnswer === null || studentAnswer.value === undefined) {
         return '';
+    }
 
     return (
         <>
             {showFeedback()}
-            <FeedbackForEvaluationFooter disabled={false} message={''} assignment_id={1}
-                                         msgStyle={'assignment.msgStyle'} onClick={null}></FeedbackForEvaluationFooter>
+            <FeedbackForEvaluationFooter disabled={false} message={''} assignment={studentAnswer.assignment_id}
+                                         msgStyle={'assignment.msgStyle'}></FeedbackForEvaluationFooter>
         </>
     );
 
 }
 
 FeedbackForEvaluation.propTypes = {
-    /*disabled: PropTypes.bool,
-    msg: PropTypes.string,
-    msgStyle: PropTypes.string,
-    value: PropTypes.string,
-    order_nbr: PropTypes.string,
-    assignment: PropTypes.string,
-    course: PropTypes.string*/
 };
 
 export default FeedbackForEvaluation;
