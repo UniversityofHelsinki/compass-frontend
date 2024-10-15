@@ -11,7 +11,7 @@ import './Compass.css';
 import {LEVELS} from "./Constants";
 
 const Compass = () => {
-    const { user, loading } = useAuth();
+    const { loading } = useAuth();
     const { i18n } = useTranslation();
 
     if (loading) {
