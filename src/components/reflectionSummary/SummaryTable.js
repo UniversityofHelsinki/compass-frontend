@@ -2,20 +2,27 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 import './SummaryTable.css';
 import {Col, Container, Row} from "react-bootstrap";
+import {useTranslation} from "react-i18next";
+import PropTypes from "prop-types";
+
 
 const SummaryRow = ({ assignment }) => {
+    const { t } = useTranslation();
+    const date = new Date(assignment.answer?.created);
+    const formattedTime = date.toLocaleTimeString(['fi-FI'], { hour: '2-digit', minute: '2-digit' });
+
     return (<tr>
-        <td>{assignment.answer?.created}</td>
+        <td>{formattedTime}</td>
         <td>{assignment.topic}</td>
         <td>{assignment.answer?.order_nbr}</td>
-        <td>View</td>
+        <td>{t('summary_description_link')}</td>
     </tr>);
 
 };
 
 const SummaryTable = ({ assignments }) => {
+    const {t} = useTranslation();
 
-    console.log('asdf', assignments)
 
     return (
         <Container className="table-container">
@@ -24,34 +31,26 @@ const SummaryTable = ({ assignments }) => {
                     <Table striped>
                         <thead>
                         <tr>
-                            <th>Time</th>
-                            <th>Topic</th>
-                            <th>Level</th>
-                            <th>Description</th>
+                            <th>{t('summary_time')}</th>
+                            <th>{t('summary_topic')}</th>
+                            <th>{t('summary_level')}</th>
+                            <th>{t('summary_description')}</th>
                         </tr>
                         </thead>
                         <tbody>
                         {(assignments || []).map((assignment) => (
                             <SummaryRow assignment={assignment} key={assignment.id} />
                         ))}
-                        <tr>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>View</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>8</td>
-                            <td>999</td>
-                            <td>View</td>
-                        </tr>
                         </tbody>
                     </Table>
                 </Col>
             </Row>
         </Container>
     );
+};
+
+SummaryTable.propTypes = {
+    assignments: PropTypes.any.isRequired
 };
 
 export default SummaryTable;

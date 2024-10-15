@@ -27,5 +27,12 @@
   "answer_evaluation_form_text_3":"  ",
   "answer_evaluation_form_text_4": " ",
   "answer_evaluation_form_text_5": " ",
-  "student_no_courses": "student_no_courses"
+  "student_no_courses": "student_no_courses",
+  "summary_time": "Answer saved at",
+  "summary_topic": "Topic",
+  "summary_level": "Level",
+  "summary_description": "Description",
+  "summary_description_link": "View",
+  "chart_x_axis_label": "Assignment",
+  "chart_y_axis_label": "Level"
 }
