@@ -25,9 +25,9 @@ const Title = ({ onChange, value, disabled }) => {
   const id = useId();
   return (
     <FormField field="title" fieldId={id}>
-      <InputField 
+      <InputField
         id={id}
-        onChange={onChange} 
+        onChange={onChange}
         value={value}
         placeholder={t('teacher_form_title_placeholder')}
       />
@@ -40,10 +40,10 @@ const Identifier = ({ onChange, value }) => {
   const id = useId();
   return (
     <FormField field="course_id" fieldId={id}>
-      <InputField 
+      <InputField
         id={id}
-        onChange={onChange} 
-        value={value} 
+        onChange={onChange}
+        value={value}
         placeholder={t('teacher_form_course_id_placeholder')}
       />
     </FormField>
@@ -97,9 +97,9 @@ const Assignment = ({ onChange, assignment, ordinal }) => {
         />
       </div>
       <div className="m-1"></div>
-      <label 
-        className="screenreader-only" 
-        for={`assignment-start-date-${ordinal}`}>
+      <label
+        className="screenreader-only"
+        htmlFor={`assignment-start-date-${ordinal}`}>
           {t('teacher_form_assignment_start_label')}
       </label>
       <DatePicker
@@ -109,8 +109,8 @@ const Assignment = ({ onChange, assignment, ordinal }) => {
         onChange={(date) => handleChange('start_date', date)}
       />
       <div className="m-1"></div>
-      <label 
-        className="screenreader-only" 
+      <label
+        className="screenreader-only"
         for={`assignment-end-date-${ordinal}`}>
           {t('teacher_form_assignment_end_label')}
       </label>
@@ -137,7 +137,7 @@ const createAssignment = () => {
   };
 };
 
-const TeacherForm = ({ 
+const TeacherForm = ({
   teacherForm,
   onSave
 }) => {
@@ -165,7 +165,7 @@ const TeacherForm = ({
   const addAssignment = (event) => {
     event.preventDefault();
     const assignments = [ createAssignment() ];
-    onChange('assignments', modified.assignments 
+    onChange('assignments', modified.assignments
         ? [ ...modified.assignments, ...assignments ]
         : assignments
     );
@@ -191,7 +191,7 @@ const TeacherForm = ({
   return (
     <div className="teacher-form">
       <form onSubmit={submit}>
-        <Title 
+        <Title
           onChange={(event) => onChange('title', event.target.value)}
           value={modified.title}
         />
@@ -214,7 +214,7 @@ const TeacherForm = ({
           <ol>
             {(modified.assignments || []).map((assignment, i) => (
               <li key={`assignment-${i}`}>
-                <Assignment 
+                <Assignment
                   ordinal={i}
                   assignment={modified.assignments[i]}
                   onChange={(assignment) => onAssignmentChange(assignment, i)}
@@ -227,9 +227,9 @@ const TeacherForm = ({
           </button>
         </div>
         <div className="teacher-form-buttons">
-          <input 
-            type="submit" 
-            value={t('teacher_form_save_button')} 
+          <input
+            type="submit"
+            value={t('teacher_form_save_button')}
             disabled={false}
           />
         </div>
