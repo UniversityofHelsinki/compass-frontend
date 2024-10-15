@@ -22,7 +22,7 @@ const DeleteStudentAnswerFooter = ({disabled, message, msgStyle, assignment}) =>
                     </Link>
                     <Link to={`/student/assignments/${assignment}`} >
                         <HyButton variant="primary" type="submit" disabled={disabled}>
-                            {t('assignment_answer_do_not_remove')}
+                            {t('assignment_answer_remove')}
                         </HyButton>
                     </Link>
                 </div>

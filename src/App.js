@@ -21,6 +21,7 @@ import StudentCourses from './components/student/StudentCourses';
 import TeacherFormNew from './components/teacher/TeacherFormNew';
 import FeedbackForEvaluation from "./components/feedback/FeedbackForEvaluation";
 import Assignment from "./components/assignment/Assignment";
+import DeleteStudentAnswer from "./components/delete/DeleteStudentAnswer";
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -71,6 +72,8 @@ const App = () => {
             <Route path="assignments/:assignment" element={<Assignment levels={LEVELS} backBtnLabels={backBtnLabels}/>}>
             </Route>
             <Route path="feedback/:answer" element={<FeedbackForEvaluation />}>
+            </Route>
+            <Route path="delete/:answer" element={<DeleteStudentAnswer />}>
             </Route>
           </Route>
         </Route>

@@ -22,7 +22,7 @@ const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, assignment}) 
                         {t('assignment_feedback_edit')}
                     </HyButton>
                 </Link>
-                <Link to={`/student/assignments/${assignment}`} >
+                <Link to={`/student/delete/${assignment}`} >
                     <HyButton variant="primary" type="submit" disabled={disabled}>
                         {t('assignment_feedback_remove')}
                     </HyButton>
