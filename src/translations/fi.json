@@ -39,6 +39,8 @@
   "assignment_feedback_choice": "Valinta",
   "assignment_feedback_edit": "Muuta vastausta",
   "assignment_feedback_remove": "Poista vastaus",
+  "assignment_answer_remove": "Kyllä",
+  "assignment_answer_do_not_remove": "Ei",
   "assignment_feedback_back": "Takaisin kurssille",
   "teacher_forms_no_forms": "Ei kursseja. Luo uusi kurssi Uusi kurssi -painikkeella.",
   "teacher_forms_new_course": "Uusi kurssi",
