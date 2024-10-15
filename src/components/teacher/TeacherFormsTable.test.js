@@ -107,9 +107,14 @@ describe('Teacher has courses', () => {
 
   test('Action buttons are present', () => {
     const rows = screen.queryAllByRole('row');
-    expect(rows.length).toBeGreaterThan(0);
-    rows.forEach(row => {
-      expect(row.querySelectorAll("button").length).toBeGreaterThan(2);
+    expect(rows.length).toBeGreaterThan(1);
+    rows.forEach((row, i) => {
+      if (i === 0) {
+        // skip header row
+        return;
+      }
+      expect(row.querySelectorAll("button").length).toBe(2);
+      expect(row.querySelectorAll("a").length).toBe(1);
     });
   });
 
