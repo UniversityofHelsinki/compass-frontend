@@ -18,9 +18,9 @@ const TeacherFormNew = () => {
     "course_id": "",
     "user_name": user.eppn,
     "title": "",
-    "description": "AAAAAA",
-    "start_date": "2024-07-09T00:00:00.000Z",
-    "end_date": "2025-01-11T00:00:00.000Z"
+    "description": "",
+    "start_date": new Date().toISOString(),
+    "end_date": new Date().toISOString()
   };
 
   const handleSave = async (teacherForm) => {
