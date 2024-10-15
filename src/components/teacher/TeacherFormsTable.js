@@ -7,6 +7,7 @@ import { ReactComponent as CopyIcon } from '../utilities/icons/copy.svg';
 import { ReactComponent as EditIcon } from '../utilities/icons/edit.svg';
 import { ReactComponent as TrashIcon } from '../utilities/icons/trash.svg';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const HeadingColumn = ({ 
   children, 
@@ -38,7 +39,7 @@ const Row = ({ teacherForm }) => {
 
   const Copy = () => (
     <div className="teacher-forms-table-row-copy-action">
-      <button>
+      <button title={t('teacher_forms_table_copy_title')}>
         <span className="screenreader-only">
           {t('teacher_forms_table_row_copy', { title: teacherForm.title })}
         </span>
@@ -49,18 +50,18 @@ const Row = ({ teacherForm }) => {
 
   const Edit = () => (
     <div className="teacher-forms-table-row-edit-action">
-      <button>
+      <Link to={`/teacher/forms/edit/${teacherForm.id}`} title={t('teacher_forms_table_edit_title')}>
         <span className="screenreader-only">
           {t('teacher_forms_table_row_edit', { title: teacherForm.title })}
         </span>
         <EditIcon aria-hidden />
-      </button>
+      </Link>
     </div>
   );
 
   const Delete = () => (
     <div className="teacher-forms-table-row-delete-action">
-      <button>
+      <button title={t('teacher_forms_table_delete_title')}>
         <span className="screenreader-only">
           {t('teacher_forms_table_row_delete', { title: teacherForm.title })}
         </span>
