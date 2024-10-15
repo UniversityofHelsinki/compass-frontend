@@ -9,6 +9,7 @@
 
 .top-bar-heading {
   flex-grow: 0;
+  min-width: fit-content;
 }
 
 .top-bar-children {

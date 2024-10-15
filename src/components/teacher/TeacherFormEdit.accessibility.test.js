@@ -1,15 +1,12 @@
-import { render } from '../../test/render.js';
-import BackButton from "./BackButton.js";
+import TeacherFormEdit from "./TeacherFormEdit.js";
 import React from "react";
 import { axe } from "jest-axe";
+import { render } from "../../test/render.js";
 
-describe('BackButton', () => {
+describe('', () => {
   it('has no accessibility violations', async () => {
         const { container, rerender } = render(
-          <BackButton labels={{ 
-            primary: 'back to back', 
-            secondary: 'backing back' 
-          }}/>
+            <TeacherFormEdit />
         );
         const results = await axe(container);
         expect(results).toHaveNoViolations();

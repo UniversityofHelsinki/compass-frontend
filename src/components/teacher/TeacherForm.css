@@ -1,0 +1,47 @@
+.teacher-form-dates {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.teacher-form-dates > .teacher-form-field {
+  width: 100%;
+}
+
+.teacher-form-dates .react-datepicker-wrapper {
+  width: 100%;
+}
+
+.teacher-form-assignment {
+  display: flex;
+}
+
+.teacher-form-assignment-topic {
+  width: 100%;
+}
+
+.teacher-form-assignments ol {
+  display: flex;
+  flex-direction: column;
+}
+
+.teacher-form-assignments ol > li {
+  margin: 10px;
+}
+
+.teacher-form-assignment-delete {
+  align-self: center;
+}
+
+.teacher-form-assignment-delete svg {
+  fill: var(--huds-grayscale-black);
+  min-width: 1.2em;
+  max-width: 1.2em;
+  width: 1.2em;
+  max-height: 1.2em;
+}
+
+.teacher-form-assignment-delete button {
+  border: unset;
+  background-color: unset;
+}

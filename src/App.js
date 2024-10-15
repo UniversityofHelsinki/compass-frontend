@@ -18,7 +18,9 @@ import Student from './components/student/Student';
 import Error from './Error';
 import TeacherForms from './components/teacher/TeacherForms';
 import StudentCourses from './components/student/StudentCourses';
-import SummaryPage from './components/reflectionSummary/SummaryPage';
+import SummaryPage from "./components/reflectionSummary/SummaryPage";
+import TeacherFormNew from './components/teacher/TeacherFormNew';
+import TeacherFormEdit from './components/teacher/TeacherFormEdit';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -52,6 +54,10 @@ const App = () => {
         <Route path="/" element={<Compass />} errorElement={<Error />}>
           <Route path="teacher" element={<Teacher />}>
             <Route path="forms" element={<TeacherForms />}>
+            </Route>
+            <Route path="forms/new" element={<TeacherFormNew />}>
+            </Route>
+            <Route path="forms/edit/:course" element={<TeacherFormEdit />}>
             </Route>
           </Route>
           <Route path="student" element={<Student />}>

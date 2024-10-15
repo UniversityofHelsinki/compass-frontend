@@ -1,0 +1,35 @@
+
+.teacher-forms {
+}
+
+.teacher-forms-content {
+  display: flex;
+  justify-content: center;
+}
+
+.teacher-forms-new-form {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.teacher-forms-no-forms {
+  display: flex;
+  justify-content: center;
+  background-color: var(--huds-grayscale-light);
+}
+
+.teacher-form-buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 10px;
+}
+
+.teacher-form-assignments-add-button::before {
+  content: "+ ";
+}
+
+.teacher-form-assignments-add-button {
+  background-color: unset;
+  border: unset;
+  font-size: 1.1em;
+}

@@ -4,7 +4,12 @@ import BackButton from './BackButton';
 
 test('renders', () => {
   render(
-    <BackButton />
+    <BackButton 
+      labels={{
+        primary: 'teacher_forms',
+        secondary: 'back to teacher forms'
+      }}
+    />
   );
 });
 

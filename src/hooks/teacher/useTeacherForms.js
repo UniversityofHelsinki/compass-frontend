@@ -3,24 +3,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { useGET } from "../useHttp";
 import useUser from "../useUser";
 
-const useStudentCourses = () => {
+const useTeacherForms = () => {
   const [response, error] = useGET({
-    path: `/api/student/courses`,
-    tag: 'STUDENT_COURSES'
+    path: `/api/teacher/courses`,
+    tag: 'TEACHER_COURSES'
   });
+  const teacherForms = useSelector(state => state.teacher.courses);
   const dispatch = useDispatch();
-  const courses = useSelector((state) => state.student.courses);
 
   useEffect(() => {
-    if (courses !== response) {
+    if (teacherForms !== response) {
       dispatch({
-        type: 'SET_STUDENT_COURSES',
+        type: 'SET_TEACHER_COURSES',
         payload: response
       });
     }
   }, [response]);
 
-  return [courses, error];
+  return teacherForms;
 };
 
-export default useStudentCourses;
+export default useTeacherForms;

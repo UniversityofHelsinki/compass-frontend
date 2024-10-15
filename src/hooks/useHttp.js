@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const baseUrl = process.env.REACT_APP_COMPASS_BACKEND_SERVER;
+const baseUrl = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
 const cache = (() => {
   const content = {};
   const tags = {};
@@ -15,14 +15,16 @@ const cache = (() => {
   };
 
   const set = (tag, value) => {
-    content[tag] = {
-      response: value,
-      invalidated: false
-    };
+    if (tag) {
+      content[tag] = {
+        response: value,
+        invalidated: false
+      };
+    }
   };
 
   const has = (tag) => {
-    return Object.hasOwn(content, tag) 
+    return Object.hasOwn(content, tag)
       && !content[tag].invalidated;
   };
 
@@ -46,7 +48,7 @@ const client = async (
 ) => {
 
   if (!cache.has(tag)) {
-    cache.set(tag, await fetch(`${baseUrl}${path}`, options));
+    cache.set(tag, fetch(`${baseUrl}${path}`, options));
   }
 
   const response = (await cache.get(tag).response).clone();
@@ -56,7 +58,7 @@ const client = async (
 
   if (!response.ok) {
     throw new Error(
-      `Unexpected status code ${response.status} from ${path}`, 
+      `Unexpected status code ${response.status} from ${path}`,
       {
         cause: {
           ok: response.ok,
@@ -73,6 +75,7 @@ const client = async (
       body: await response.json()
     };
   } catch (error) {
+    console.error(error.message);
     return {
       ok: response.ok,
       status: response.status
@@ -131,5 +134,30 @@ export const usePOST = ({ path, invalidates = [] }) => {
   };
 
   return post;
+};
+
+export const usePUT = ({ path, invalidates = [] }) => {
+  const put = async (body) => {
+    try {
+      const response = await fetch(`${baseUrl}${path}`, {
+        method: 'PUT',
+        body: JSON.stringify(body),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      if (response.ok) {
+        invalidates.forEach(tag => {
+          cache.invalidate(tag);
+        });
+      }
+      return response;
+    } catch (error) {
+      console.error(error.message);
+      return error;
+    }
+  };
+
+  return put;
 };
 

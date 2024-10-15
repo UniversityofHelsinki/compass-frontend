@@ -17,7 +17,7 @@ const TopBar = ({
         {showBackBtn && <BackButton labels={backBtnLabels} href={backBtnHref} />}
       </div>
       <div className="top-bar-heading">
-        <h1>{heading}</h1>
+        <h2>{heading}</h2>
       </div>
       <div className="top-bar-children">
         {children}
@@ -27,6 +27,7 @@ const TopBar = ({
 };
 
 export const propTypes = {
+  children: PropTypes.node,
   showBackBtn: PropTypes.bool,
   backBtnLabels: BackButtonPropTypes.labels,
   backButtonHref: BackButtonPropTypes.href
