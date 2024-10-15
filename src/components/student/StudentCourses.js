@@ -16,7 +16,7 @@ const StudentCourses = () => {
       >
       </TopBar>
       <CourseList />
-        <h4>Korvaa '/courses' polku '/assignment', jos haluat lähettää palautteen </h4>
+        <h4>Korvaa '/courses' polku '/assignments/1', jos haluat lähettää palautteen </h4>
     </div>
   );
 };
