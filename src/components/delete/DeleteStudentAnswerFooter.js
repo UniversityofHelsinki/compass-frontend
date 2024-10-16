@@ -3,25 +3,23 @@ import PropTypes from 'prop-types';
 import './DeleteStudentAnswerFooter.css';
 import { useTranslation } from 'react-i18next';
 import HyButton from '../utilities/HyButton';
-import Notification from "../notes/Notification";
 import {Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
-const DeleteStudentAnswerFooter = ({disabled, message, msgStyle, assignment}) => {
+const DeleteStudentAnswerFooter = ({disabled, assignment, deleteAnswer}) => {
     const { t } = useTranslation();
 
     return (
         <Container>
-            <div className="feedback-for-evaluation-footer">
-                <Notification msg={t(message)} type={msgStyle}/>
-                <div className="feedback-for-evaluation-footer-buttons">
+            <div className="delete-student-answer-footer">
+                <div className="delete-student-answer-footer-buttons">
                     <Link to={`/student/feedback/${assignment}`} >
                         <HyButton variant="primary" onClick={null} type="submit" disabled={disabled}>
                             {t('assignment_answer_do_not_remove')}
                         </HyButton>
                     </Link>
                     <Link to={`/student/assignments/${assignment}`} >
-                        <HyButton variant="primary" type="submit" disabled={disabled}>
+                        <HyButton variant="primary" type="submit" onClick={deleteAnswer} disabled={disabled}>
                             {t('assignment_answer_remove')}
                         </HyButton>
                     </Link>
@@ -33,9 +31,8 @@ const DeleteStudentAnswerFooter = ({disabled, message, msgStyle, assignment}) =>
 
 DeleteStudentAnswerFooter.propTypes = {
     disabled: PropTypes.bool,
-    message: PropTypes.string,
-    msgStyle: PropTypes.string,
     assignment: PropTypes.string,
+    deleteAnswer: PropTypes.func
 };
 
 export default DeleteStudentAnswerFooter;

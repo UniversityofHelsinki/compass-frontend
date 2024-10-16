@@ -60,7 +60,7 @@ const FeedbackForEvaluation = () => {
         <>
             {showFeedback()}
             <FeedbackForEvaluationFooter disabled={false} message={''} assignment={studentAnswer.assignment_id}
-                                         msgStyle={'assignment.msgStyle'}></FeedbackForEvaluationFooter>
+                                         msgStyle={'assignment.msgStyle'} studentAnswer={studentAnswer}></FeedbackForEvaluationFooter>
         </>
     );
 

@@ -73,7 +73,7 @@ const App = () => {
             </Route>
             <Route path="feedback/:answer" element={<FeedbackForEvaluation />}>
             </Route>
-            <Route path="delete/:answer" element={<DeleteStudentAnswer />}>
+            <Route path="delete" element={<DeleteStudentAnswer />}>
             </Route>
           </Route>
         </Route>
