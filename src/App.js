@@ -19,6 +19,7 @@ import Error from './Error';
 import TeacherForms from './components/teacher/TeacherForms';
 import StudentCourses from './components/student/StudentCourses';
 import TeacherFormNew from './components/teacher/TeacherFormNew';
+import TeacherFormEdit from './components/teacher/TeacherFormEdit';
 import FeedbackForEvaluation from "./components/feedback/FeedbackForEvaluation";
 import Assignment from "./components/assignment/Assignment";
 import DeleteStudentAnswer from "./components/delete/DeleteStudentAnswer";
@@ -64,6 +65,8 @@ const App = () => {
             <Route path="forms" element={<TeacherForms />}>
             </Route>
             <Route path="forms/new" element={<TeacherFormNew />}>
+            </Route>
+            <Route path="forms/edit/:course" element={<TeacherFormEdit />}>
             </Route>
           </Route>
           <Route path="student" element={<Student />}>

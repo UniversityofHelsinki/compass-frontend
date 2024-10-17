@@ -6,9 +6,9 @@ const FormElementHeader = ({ children, id, ...rest }) => {
 
     return (
         <div className="form-element-header">
-            <h2 { ...rest } id={id}>
+            <h3 { ...rest } id={id}>
                 {children}
-            </h2>
+            </h3>
         </div>
     );
 };

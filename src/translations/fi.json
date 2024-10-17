@@ -58,6 +58,21 @@
   "teacher_forms_table_description": "Opettajan kurssit",
   "teacher_forms_table_actions": "Toiminnot",
   "teacher_forms_table_sort_1": "Järjestetty nousevasti",
-  "teacher_forms_table_sort_-1": "Järjestetty laskevasti"
-
+  "teacher_forms_table_sort_-1": "Järjestetty laskevasti",
+  "teacher_form_edit": "Muokkaa kurssia",
+  "teacher_forms_table_copy_title": "Kopioi mitä tässä edes pitäisi kopioida ja miksi??",
+  "teacher_forms_table_edit_title": "Muokkaa",
+  "teacher_forms_table_delete_title": "Poista",
+  "teacher_form_title": "Nimi",
+  "teacher_form_title_placeholder": "Syötä nimi",
+  "teacher_form_course_id": "Tunniste",
+  "teacher_form_course_id_placeholder": "Syötä tunniste",
+  "teacher_form_start_date": "Kurssin aloituspäivämäärä",
+  "teacher_form_end_date": "Kurssin lopetuspäivämäärä",
+  "teacher_form_assignment_topic_placeholder": "Aihe",
+  "teacher_form_add_assignment": "Lisää aihe",
+  "teacher_form_save_button": "Tallenna",
+  "teacher_form_assignment_topic_label": "Aihe",
+  "teacher_form_assignment_start_label": "Alkupäivämäärä",
+  "teacher_form_assignment_end_label": "Loppupäivämäärä"
 }
