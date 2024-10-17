@@ -1,4 +1,4 @@
-import useUser from "./useUser";
+/*import useUser from "./useUser";
 import {useGET} from "./useHttp";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
@@ -40,3 +40,4 @@ const useStudentAnswer = (assignmentId, userId, feedbackEvaluationPage) => {
 };
 
 export default useStudentAnswer;
+*/

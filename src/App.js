@@ -71,7 +71,7 @@ const App = () => {
             </Route>
             <Route path="assignments/:assignment" element={<Assignment levels={LEVELS} backBtnLabels={backBtnLabels}/>}>
             </Route>
-            <Route path="feedback/:answer" element={<FeedbackForEvaluation />}>
+            <Route path="feedback/:answer/:course" element={<FeedbackForEvaluation />}>
             </Route>
             <Route path="delete" element={<DeleteStudentAnswer />}>
             </Route>
