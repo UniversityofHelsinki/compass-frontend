@@ -7,7 +7,7 @@ const useStudentAnswers = ({ course }) => {
 
     const [user] = useUser();
     const [response, error] = useGET({
-        path: `/api/student/courses/${course}/answers/${user.eppn}`,
+        path: `/api/student/courses/${course}/answers`,
         tag: 'STUDENT_ANSWERS'
     });
     const answers = useSelector(state => state.addedAnswer.studentAnswers);

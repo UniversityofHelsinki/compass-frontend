@@ -7,7 +7,7 @@ import processUserAnswers from "./processUserAnswers";
 
 const UserAnswersComponent = ({ chartData, tableData }) => (
     <>
-        <SummaryChart data={chartData} />
+        <SummaryChart data={chartData}  />
         <SummaryTable data={tableData} />
     </>
 );

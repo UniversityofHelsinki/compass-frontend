@@ -1,12 +1,10 @@
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import useUser from "../useUser";
 import {useGET} from "../useHttp";
 
 const useStudentAssignments = ({ course }) => {
-    const [user] = useUser();
     const [response] = useGET({
-        path: `/api/student/courses/${course}/assignments/${user.eppn}`,
+        path: `/api/student/courses/${course}/assignments`,
         tag: 'STUDENT_ASSIGNMENTS'
     });
     const dispatch = useDispatch();

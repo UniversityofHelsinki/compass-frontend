@@ -23,7 +23,6 @@ const SummaryRow = ({ assignment }) => {
 const SummaryTable = ({ assignments }) => {
     const {t} = useTranslation();
 
-
     return (
         <Container className="table-container">
             <Row className="table-row">

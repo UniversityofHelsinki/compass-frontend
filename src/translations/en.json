@@ -33,6 +33,9 @@
   "summary_description": "Description",
   "summary_description_link": "View",
   "chart_x_axis_label": "Assignment",
-  "chart_y_axis_label": "Level"
+  "chart_y_axis_label": "Level",
+  "summary_heading": "Answer summary",
+  "summary_back_to_forms": "Courses",
+  "summary_back_to_forms_secondary": "Back to course list"
 
 }

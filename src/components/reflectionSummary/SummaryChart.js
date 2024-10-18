@@ -6,27 +6,20 @@ import {Col, Container, Row} from "react-bootstrap";
 import PropTypes from "prop-types";
 
 
-const mapChartData = (assignments) => {
-    return assignments.map((assignment) => ({
-        assignment_id: assignment.assignment_id,
-        order_nbr: assignment.answer.order_nbr,
-    }));
-};
-
 const SummaryChart = ({ assignments }) => {
     const { t } = useTranslation();
-    const processedData = mapChartData(assignments);
 
     return (
         <Container>
             <Row className="chart-row">
                 <Col className="chart-col">
                     <ResponsiveContainer width="100%" height={300}>
-                        <LineChart data={processedData} width={730} height={250} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                        <LineChart data={assignments} width={730} height={250} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                             <CartesianGrid strokeDasharray="1 1" />
                             <XAxis dataKey="assignment_id"
                                    label={{
-                                       value: t('chart_x_axis_label')
+                                       value: t('chart_x_axis_label'),
+                                       dy: 5
                                    }}
                             />
                             <YAxis dataKey="order_nbr"
@@ -50,7 +43,7 @@ const SummaryChart = ({ assignments }) => {
 };
 
 SummaryChart.propTypes = {
-    assignments: PropTypes.object.isRequired
+    assignments: PropTypes.array.isRequired
 };
 
 

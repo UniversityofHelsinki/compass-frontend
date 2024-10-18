@@ -77,5 +77,8 @@
   "teacher_form_save_button": "Tallenna",
   "teacher_form_assignment_topic_label": "Aihe",
   "teacher_form_assignment_start_label": "Alkupäivämäärä",
-  "teacher_form_assignment_end_label": "Loppupäivämäärä"
+  "teacher_form_assignment_end_label": "Loppupäivämäärä",
+  "summary_heading": "Vastausten yhteenveto",
+  "summary_back_to_forms": "Kurssit",
+  "summary_back_to_forms_secondary": "Takaisin kurssilistaan"
 }
