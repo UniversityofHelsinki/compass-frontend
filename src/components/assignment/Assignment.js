@@ -17,13 +17,11 @@ import useUser from "../../hooks/useUser";
 import BackButton from "../utilities/BackButton";
 import HyButton from "../utilities/HyButton";
 import {useLocation, useNavigate, useParams} from 'react-router-dom';
-import useStudentAssignmentCourse from "../../hooks/useStudentAssignmentCourse";
 import useStudentAssignmentAnswer from "../../hooks/useStudentAssignmentAnswer";
 
 const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", levels}) => {
     const {assignment} = useParams();
     const [user] = useUser();
-    //const studentAnswerData = useStudentAssignmentCourse(assignment);
     const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
     const studentAnswer = {...studentAnswerData, value: studentAssignmentAnswer?.value, order_nbr: studentAssignmentAnswer?.order_nbr, id: studentAssignmentAnswer?.id};
     const navigate = useNavigate();
@@ -57,7 +55,6 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
     }
 
     const clearForm = (event) => {
-        //event.preventDefault();
         clearFormValues();
         resetFileFields();
     };

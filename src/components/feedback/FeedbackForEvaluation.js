@@ -8,13 +8,14 @@ import {useLocation, Link, useParams} from 'react-router-dom';
 
 import useUser from "../../hooks/useUser";
 import useStudentFeedback from "../../hooks/useStudentFeedback";
-import course from "../Course";
+import useAssignment from "../../hooks/useAssignment";
 
 const FeedbackForEvaluation = () => {
     const { answer, course } = useParams();
     const [user] = useUser();
 
     const studentAnswer = useStudentFeedback(answer, course);
+    const editable = useAssignment(answer);
 
     const { t } = useTranslation();
     let answer_evaluation_form_header =  'answer_evaluation_form_header_';
@@ -60,7 +61,7 @@ const FeedbackForEvaluation = () => {
     return (
         <>
             {showFeedback()}
-            <FeedbackForEvaluationFooter disabled={false} message={''} assignment={studentAnswer.assignment_id}
+            <FeedbackForEvaluationFooter disabled={editable} message={''} assignment={studentAnswer.assignment_id}
                                          msgStyle={'assignment.msgStyle'} studentAnswer={studentAnswer}></FeedbackForEvaluationFooter>
         </>
     );
