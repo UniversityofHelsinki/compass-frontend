@@ -51,7 +51,7 @@ const DeleteStudentAnswer = () => {
     return (
         <>
             {showAssignment()}
-            <DeleteStudentAnswerFooter disabled={false} assignment={studentAnswer.assignment_id} deleteAnswer={removeStudentAnswer}></DeleteStudentAnswerFooter>
+            <DeleteStudentAnswerFooter disabled={false} assignment={studentAnswer.assignment_id} course={studentAnswer.course_id} deleteAnswer={removeStudentAnswer}></DeleteStudentAnswerFooter>
             <Container><Notification msg={t(response?.message)} type={response?.style}/></Container>
         </>
     );
