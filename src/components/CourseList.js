@@ -27,7 +27,7 @@ const CourseList = () => {
       </div>)
   }
 
-  if (courses) {
+  if (courses && courses.length > 0) {
     return listCourses();
   }
 
