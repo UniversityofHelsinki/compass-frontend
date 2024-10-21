@@ -21,14 +21,14 @@ import useStudentAssignmentCourse from "../../hooks/useStudentAssignmentCourse";
 import useStudentAssignmentAnswer from "../../hooks/useStudentAssignmentAnswer";
 
 const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", levels}) => {
-    const { assignment } = useParams();
+    const {assignment} = useParams();
     const [user] = useUser();
-    const studentAnswerData = useStudentAssignmentCourse(assignment);
-    let studentAssignmentAnswer = useStudentAssignmentAnswer(assignment);
-    const studentAnswer = { ...studentAnswerData, value: studentAssignmentAnswer?.value, order_nbr: studentAssignmentAnswer?.order_nbr};
+    //const studentAnswerData = useStudentAssignmentCourse(assignment);
+    const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
+    const studentAnswer = {...studentAnswerData, value: studentAssignmentAnswer?.value, order_nbr: studentAssignmentAnswer?.order_nbr, id: studentAssignmentAnswer?.id};
     const navigate = useNavigate();
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const [value, setValue] = useState('');
     const [isValid, messages, validate] = useAnswerValidation([
         'value', 'order_nbr'
@@ -48,7 +48,8 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
         const newUser = {...modifiedObject};
         newUser["course_id"] = studentAnswer.course_id;
         const answer = await addAnswer(newUser, true);
-        navigate(`/student/feedback/${answer}`);
+        let course = studentAnswer.course_id;
+        navigate(`/student/feedback/${answer}/${course}`);
     }
 
     const changeValue = (name, value) => {

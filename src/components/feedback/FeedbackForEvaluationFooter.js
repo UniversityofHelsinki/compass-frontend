@@ -7,10 +7,8 @@ import Notification from "../notes/Notification";
 import {Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
-const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, assignment}) => {
+const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, assignment, studentAnswer}) => {
     const { t } = useTranslation();
-
-    const submitButtonDisabled = false;
 
     return (
         <Container>
@@ -22,12 +20,16 @@ const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, assignment}) 
                         {t('assignment_feedback_edit')}
                     </HyButton>
                 </Link>
-                <HyButton variant="primary" type="submit" disabled={disabled}>
-                    {t('assignment_feedback_remove')}
-                </HyButton>
-                <HyButton variant="primary" type="submit" disabled={false}>
-                    {t('assignment_feedback_back')}
-                </HyButton>
+                <Link to={`/student/delete`} state={{ studentAnswer: {...studentAnswer}}}>
+                    <HyButton variant="primary" type="submit" disabled={disabled}>
+                        {t('assignment_feedback_remove')}
+                    </HyButton>
+                </Link>
+                <Link to={`/student/courses`} >
+                    <HyButton variant="primary" type="submit" disabled={false}>
+                        {t('assignment_feedback_back')}
+                    </HyButton>
+                </Link>
             </div>
         </div>
         </Container>

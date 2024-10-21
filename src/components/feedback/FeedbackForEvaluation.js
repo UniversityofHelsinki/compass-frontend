@@ -5,15 +5,16 @@ import FeedbackForEvaluationFooter from "./FeedbackForEvaluationFooter";
 import './FeedbackForEvaluation.css';
 import PropTypes from "prop-types";
 import {useLocation, Link, useParams} from 'react-router-dom';
-import useStudentAssignmentAnswer from "../../hooks/useStudentAssignmentAnswer";
 
 import useUser from "../../hooks/useUser";
+import useStudentFeedback from "../../hooks/useStudentFeedback";
+import course from "../Course";
 
 const FeedbackForEvaluation = () => {
-    const { answer } = useParams();
+    const { answer, course } = useParams();
     const [user] = useUser();
 
-    const studentAnswer = useStudentAssignmentAnswer(answer);
+    const studentAnswer = useStudentFeedback(answer, course);
 
     const { t } = useTranslation();
     let answer_evaluation_form_header =  'answer_evaluation_form_header_';
@@ -60,7 +61,7 @@ const FeedbackForEvaluation = () => {
         <>
             {showFeedback()}
             <FeedbackForEvaluationFooter disabled={false} message={''} assignment={studentAnswer.assignment_id}
-                                         msgStyle={'assignment.msgStyle'}></FeedbackForEvaluationFooter>
+                                         msgStyle={'assignment.msgStyle'} studentAnswer={studentAnswer}></FeedbackForEvaluationFooter>
         </>
     );
 

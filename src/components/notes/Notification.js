@@ -16,7 +16,7 @@ const Notification = ({ msg, type }) => {
 
     return (
         <div className={`notifications ${messageType}`}>
-            { (msg) ? msg : <span>&nbsp;&nbsp;</span>}
+            { (msg) ? <span>{msg}&nbsp;</span> : <span>&nbsp;&nbsp;</span>}
         </div>
     )
 }
