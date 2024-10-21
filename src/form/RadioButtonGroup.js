@@ -15,7 +15,7 @@ const RadioButtonGroup = ({ options = [], validationMessage, onChange, value = "
                 <Form.Check
                     className="radio-button-group"
                     type="radio"
-                    checked={value === option.value}
+                    checked={value.toString() === option.value}
                     key={option.value} value={option.value}
                     id={`compass-${option.value}-${id}`}
                     label={t(option.label)}

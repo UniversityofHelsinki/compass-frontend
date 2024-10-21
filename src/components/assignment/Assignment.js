@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -13,39 +13,31 @@ import useSelfReflectionModification from "../../hooks/useSelfReflectionModifica
 import useSelfReflectionSave from "../../hooks/useSelfReflectionSave";
 import useAnswerValidation from "../../hooks/validation/answers/useAnswerValidation";
 import ButtonRow from "../actions/ButtornRow";
-import CourseEvaluation from "../course/CourseEvaluation";
 import useUser from "../../hooks/useUser";
 import BackButton from "../utilities/BackButton";
 import HyButton from "../utilities/HyButton";
-import FeedbackForEvaluation from "../feedback/FeedbackForEvaluation";
+import {useLocation, useNavigate, useParams} from 'react-router-dom';
+import useStudentAssignmentCourse from "../../hooks/useStudentAssignmentCourse";
+import useStudentAssignmentAnswer from "../../hooks/useStudentAssignmentAnswer";
 
-const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", levels, assignment, course}) => {
-
+const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", levels}) => {
+    const { assignment } = useParams();
     const [user] = useUser();
-    const userid = user.eppn;
+    const studentAnswerData = useStudentAssignmentCourse(assignment);
+    let studentAssignmentAnswer = useStudentAssignmentAnswer(assignment);
+    const studentAnswer = { ...studentAnswerData, value: studentAssignmentAnswer?.value, order_nbr: studentAssignmentAnswer?.order_nbr};
+    const navigate = useNavigate();
 
-    const emptyAnswer = {
-        id: '',
-        assignmentid: 1,
-        userid: userid,
-        courseid: 'A1234',
-        value: '',
-        order_nbr: '',
-    };
     const { t } = useTranslation();
     const [value, setValue] = useState('');
     const [isValid, messages, validate] = useAnswerValidation([
         'value', 'order_nbr'
-    ], emptyAnswer);
-    const [modifiedObject, onChange, modified, clearFormValues] = useSelfReflectionModification({...emptyAnswer}, validate);
-    const [answer, message, messageStyle, addAnswer] = useSelfReflectionSave();
+    ], studentAnswer);
+    const [modifiedObject, onChange, modified, clearFormValues, updateModObj] = useSelfReflectionModification(studentAnswer, validate);
+    const [_answer, _message, _messageStyle, addAnswer] = useSelfReflectionSave();
     const formRef = useRef();
-    const [feedbackPage, setFeedbackPage] = useState(false);
     const disabled = false;
 
-    if (feedbackPage) {
-        return <FeedbackForEvaluation disabled={disabled} msg={message} msgStyle={messageStyle} value={modifiedObject.value} order_nbr={modifiedObject.order_nbr} assignment={assignment} course={course}></FeedbackForEvaluation>;
-    }
     const resetFileFields = () => {
         if (formRef.current) {
             formRef.current.reset();
@@ -54,8 +46,9 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
 
     const handleAddAnswer = async () => {
         const newUser = {...modifiedObject};
-        await addAnswer(newUser, true);
-        setFeedbackPage(true);
+        newUser["course_id"] = studentAnswer.course_id;
+        const answer = await addAnswer(newUser, true);
+        navigate(`/student/feedback/${answer}`);
     }
 
     const changeValue = (name, value) => {
@@ -65,10 +58,7 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
     const clearForm = (event) => {
         //event.preventDefault();
         clearFormValues();
-        validate(emptyAnswer);
         resetFileFields();
-        //onChange('value', '');
-        //onChange('order_nbr', null);
     };
 
     const onButtonClick = async (event) => {
@@ -98,8 +88,8 @@ const Assignment = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher", 
                     {showBackBtn && <BackButton labels={backBtnLabels} href={backBtnHref}/>}
                 </div>
                 <div className="assignment-form-assignment-col">
-                    <h3>{assignment}</h3>
-                    <div>{course}</div>
+                    <h3>{studentAnswer.topic}</h3>
+                    <div>{studentAnswer.title}</div>
                 </div>
             </Row>
             <Row>
@@ -135,8 +125,6 @@ Assignment.propTypes = {
     showBackBtn: PropTypes.bool,
     backBtnLabels: PropTypes.object,
     backBtnHref: PropTypes.string,
-    assignment: PropTypes.string,
-    course: PropTypes.string
 };
 
 export default Assignment;

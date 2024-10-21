@@ -8,7 +8,7 @@ import {Provider} from "react-redux";
 import {applyMiddleware, createStore} from "redux";
 import {thunk} from "redux-thunk";
 import reducer from './reducers';
-import {DEFAULT_LANGUAGE} from "./Constants";
+import {DEFAULT_LANGUAGE, LEVELS} from "./Constants";
 import Compass from "./Compass";
 import {AuthProvider} from './AuthContext';
 import ProtectedRoute from './ProtectedRoute';
@@ -20,8 +20,17 @@ import TeacherForms from './components/teacher/TeacherForms';
 import StudentCourses from './components/student/StudentCourses';
 import TeacherFormNew from './components/teacher/TeacherFormNew';
 import TeacherFormEdit from './components/teacher/TeacherFormEdit';
+import FeedbackForEvaluation from "./components/feedback/FeedbackForEvaluation";
+import Assignment from "./components/assignment/Assignment";
 
 const store = createStore(reducer, applyMiddleware(thunk));
+
+const assignment_name = "Assignment 1";
+const course = "Ohjelmoinnin perusteet 2024"
+const backBtnLabels={
+    primary: 'Back',
+    secondary: ''
+};
 
 const defaultLanguage = () => {
     try {
@@ -61,6 +70,10 @@ const App = () => {
           </Route>
           <Route path="student" element={<Student />}>
             <Route path="courses" element={<StudentCourses />}>
+            </Route>
+            <Route path="assignments/:assignment" element={<Assignment levels={LEVELS} backBtnLabels={backBtnLabels}/>}>
+            </Route>
+            <Route path="feedback/:answer" element={<FeedbackForEvaluation />}>
             </Route>
           </Route>
         </Route>
