@@ -8,10 +8,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Mock headers in local development with some browser plugin\
 **Required headers**:\
 eppn\
+eduPersonAffiliation\
 **Optional headers**:\
 hyGroupCn\
 preferredLanguage\
-eduPersonAffiliation\
 displayName\
 \
 Use .env.development.local file to host environment variables\

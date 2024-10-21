@@ -136,3 +136,28 @@ export const usePOST = ({ path, invalidates = [] }) => {
   return post;
 };
 
+export const usePUT = ({ path, invalidates = [] }) => {
+  const put = async (body) => {
+    try {
+      const response = await fetch(`${baseUrl}${path}`, {
+        method: 'PUT',
+        body: JSON.stringify(body),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      if (response.ok) {
+        invalidates.forEach(tag => {
+          cache.invalidate(tag);
+        });
+      }
+      return response;
+    } catch (error) {
+      console.error(error.message);
+      return error;
+    }
+  };
+
+  return put;
+};
+

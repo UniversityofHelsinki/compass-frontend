@@ -75,7 +75,7 @@
   background-color: unset;
 }
 
-.teacher-forms-table-action button svg {
+.teacher-forms-table-action svg {
   fill: var(--huds-grayscale-black);
   min-width: 1.2em;
   max-width: 1.2em;
