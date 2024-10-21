@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import {validateDeletionDate} from "./validation/assignmentPeriodValidation";
+import {validatePeriod} from "./validation/assignmentPeriodValidation";
 
 
 const useAssignment = (assignmentId) => {
@@ -29,7 +29,7 @@ const useAssignment = (assignmentId) => {
         }
     }, [assignment, assignmentId, dispatch]);
 
-    const editable = validateDeletionDate(assignment);
+    const editable = validatePeriod(assignment);
 
     return editable;
 };
