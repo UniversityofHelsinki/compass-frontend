@@ -4,7 +4,7 @@ import BackButton from "../utilities/BackButton";
 import React from "react";
 import {Container} from "react-bootstrap";
 import {useTranslation} from "react-i18next";
-import {useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import useStudentCourseAssignmentAnswer from "../../hooks/useStudentCourseAssignmentAnswer";
 
 const Assignments = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher"}) => {
@@ -37,10 +37,12 @@ const Assignments = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher"}
                     </div>
                 </Row>
             </Container>
-            <Container className="assignments-summary-container">
-                <Row className="assignments-summary-row">
+            <Container className="assignments-valid-container">
+                <Row className="assignments-valid-row">
                         <div className="assignments-form-assignment-col">
-                            <div>{studentAnswer?.topic}</div>
+                            <Link to={`/student/assignment/${studentAnswer?.assignment_id}`} >
+                                <div>{studentAnswer?.topic}</div>
+                            </Link>
                         </div>
                 </Row>
             </Container>

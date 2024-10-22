@@ -48,12 +48,35 @@
     width: 80%;
     box-shadow: 1px 2px 4px var(--huds-grayscale-black);
 }
+
 .assignments-summary-row {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 80%;
     align-content: center;
     align-items: center;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+.assignments-valid-container  {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: left;
+    outline: 2px solid var(--huds-grayscale-medium-dark);
+    margin-bottom: 10px;
+    padding: 0 20px;
+    width: 80%;
+    box-shadow: 1px 2px 4px var(--huds-grayscale-black);
+}
+
+.assignments-valid-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-content: start;
+    align-items: start;
     padding-bottom: 0.5em;
     padding-top: 0.5em;
 }
