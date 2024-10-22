@@ -125,4 +125,4 @@ Assignment.propTypes = {
     backBtnHref: PropTypes.string,
 };
 
-export default Assignment;
+export default Assignment
