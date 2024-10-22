@@ -11,7 +11,7 @@ const Assignments = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher"}
     const location = useLocation();
     const {t} = useTranslation();
     let course = {...location.state.course};
-    const [studentAnswerData] = useStudentCourseAssignmentAnswer(course.course_id);
+    const [studentAnswer] = useStudentCourseAssignmentAnswer(course.course_id);
 
     return (
         <>
@@ -40,7 +40,7 @@ const Assignments = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher"}
             <Container className="assignments-summary-container">
                 <Row className="assignments-summary-row">
                         <div className="assignments-form-assignment-col">
-                            <div>{studentAnswerData?.topic}</div>
+                            <div>{studentAnswer?.topic}</div>
                         </div>
                 </Row>
             </Container>
