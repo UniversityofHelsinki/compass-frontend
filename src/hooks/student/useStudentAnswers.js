@@ -1,12 +1,10 @@
 import {useGET} from "../useHttp";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import useUser from "../useUser";
 
 const useStudentAnswers = ({ course }) => {
 
-    const [user] = useUser();
-    const [response, error] = useGET({
+    const [response] = useGET({
         path: `/api/student/courses/${course}/answers`,
         tag: 'STUDENT_ANSWERS'
     });

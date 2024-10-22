@@ -1,5 +1,7 @@
 const answersReducer = (state = {
-    answer: null
+    answer: null,
+    loading: false,
+    error: ''
 }, action) => {
     switch (action.type) {
         case 'ADD_ANSWER':
