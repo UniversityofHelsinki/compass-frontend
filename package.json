@@ -25,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky"
+    "prepare": "simple-git-hooks"
   },
   "eslintConfig": {
     "extends": [
@@ -54,7 +54,6 @@
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
     "cross-env": "^7.0.3",
-    "husky": "^9.1.6",
     "jest-axe": "^9.0.0",
     "prettier": "^3.3.3",
     "pretty-quick": "^4.0.0",
