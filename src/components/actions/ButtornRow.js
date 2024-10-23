@@ -6,20 +6,17 @@ import './ButtonRow.css';
 import { Col } from 'react-bootstrap';
 
 const ButtonRow = ({ children }) => {
-
     return (
         <Container>
             <Row>
-                <Col className="px-0">
-                    {children}
-                </Col>
+                <Col className="px-0">{children}</Col>
             </Row>
         </Container>
     );
 };
 
 ButtonRow.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
 };
 
 export default ButtonRow;
