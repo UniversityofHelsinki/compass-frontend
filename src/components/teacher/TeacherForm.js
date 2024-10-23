@@ -215,10 +215,12 @@ const TeacherForm = ({ teacherForm, onSave }) => {
 
     const [validationErrors] = useValidation({
       title: [
-        title => !title && 'teacher_form_title_can_not_be_empty'
+        title => !title && 'teacher_form_title_can_not_be_empty',
+        title => title.length > 50 && 'teacher_form_title_is_too_long'
       ],
       course_id: [
-        identifier => !identifier && 'teacher_form_course_id_can_not_be_empty'
+        identifier => !identifier && 'teacher_form_course_id_can_not_be_empty',
+        identifier => identifier.length > 20 && 'teacher_form_course_id_too_long'
       ],
       start_date: [
         startDate => !startDate && 'teacher_form_start_date_can_not_be_empty',
