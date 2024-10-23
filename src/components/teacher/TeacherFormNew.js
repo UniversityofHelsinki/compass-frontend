@@ -14,13 +14,16 @@ const TeacherFormNew = () => {
 
   const save = useTeacherFormSave();
 
+  const today = new Date();
+  const threeMonths = 3 * 31 * 24 * 60 * 60 * 1000;
+
   const empty = {
     "course_id": "",
     "user_name": user.eppn,
     "title": "",
     "description": "",
-    "start_date": new Date().toISOString(),
-    "end_date": new Date().toISOString()
+    "start_date": today.toISOString(),
+    "end_date": new Date(today.getTime() + threeMonths).toISOString()
   };
 
   const handleSave = async (teacherForm) => {

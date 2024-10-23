@@ -23,6 +23,11 @@
 .teacher-form-assignments ol {
   display: flex;
   flex-direction: column;
+  list-style: none;
+}
+
+.teacher-form-assignment-marker {
+  margin-right: 10px;
 }
 
 .teacher-form-assignments ol > li {
@@ -30,7 +35,6 @@
 }
 
 .teacher-form-assignment-delete {
-  align-self: center;
 }
 
 .teacher-form-assignment-delete svg {
@@ -44,4 +48,8 @@
 .teacher-form-assignment-delete button {
   border: unset;
   background-color: unset;
+}
+
+.validation-message {
+  color: var(--hy-red);
 }

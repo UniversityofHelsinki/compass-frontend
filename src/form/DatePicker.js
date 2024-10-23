@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactDatePicker, { getDefaultLocale, registerLocale, setDefaultLocale } from 'react-datepicker';
 import { fi }from 'date-fns/locale/fi';
@@ -8,28 +8,42 @@ import './DatePicker.css';
 registerLocale('fi', fi);
 setDefaultLocale('fi');
 
-const DatePicker = ({ 
+const DatePicker = React.forwardRef(({ 
   date, 
   onChange,
+  'aria-errormessage': ariaErrorMessage,
+  'aria-invalid': ariaInvalid,
   ...rest
-}) => {
+}, ref) => {
+  const [value, setValue] = useState(date);
 
-  const handleChange = (date) => {
-    onChange(date.toISOString());
+  if (ref.current) {
+    if (ariaErrorMessage && ariaInvalid) {
+      ref.current.input.setAttribute('aria-errormessage', ariaErrorMessage);
+      ref.current.input.setAttribute('aria-invalid', ariaInvalid);
+    } else {
+      ref.current.input.removeAttribute('aria-errormessage');
+      ref.current.input.removeAttribute('aria-invalid');
+    }
+  }
+
+  const handleChange = (date, event) => {
+    onChange(date?.toISOString() || '', event);
   };
 
   return (
     <div className="date-picker">
       <ReactDatePicker 
+        ref={ref}
         dateFormat="d.M.yyyy"
         locale="fi"
-        selected={new Date(date)} 
+        selected={date && new Date(date) || ''}
         onChange={handleChange}
         { ...rest }
       />
     </div>
   );
-};
+});
 
 DatePicker.propTypes = {
   date: PropTypes.string,
