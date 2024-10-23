@@ -8,8 +8,8 @@ export const validatePeriod = (assignment) => {
         return true;
     }
 
-    let startDate = assignment[0].start_date;
-    let endDate = assignment[0].end_date;
+    let startDate = assignment.start_date;
+    let endDate = assignment.end_date;
     const today = removeMillisecs(new Date().toISOString());
     if (!startDate) {
         return 'assignment_start_date_is_empty';

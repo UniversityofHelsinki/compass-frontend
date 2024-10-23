@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
-import useStudentAssignmentCourse from "./useStudentAssignmentCourse";
+import {validatePeriod} from "./validation/assignmentPeriodValidation";
 
 const emptyAnswer = {
     id: '',
@@ -14,7 +14,8 @@ const emptyAnswer = {
 const useStudentCourseAssignmentAnswer = (course_id) => {
     const dispatch = useDispatch();
 
-    const [answer, setAnswer] = useState(null);
+    const [assignments, setAssignments] = useState(null);
+    const [previousAssignments, setPreviousAssignments] = useState(null);
 
     const get = async (course_id) => {
         if(course_id.length > 0 ) {
@@ -32,18 +33,31 @@ const useStudentCourseAssignmentAnswer = (course_id) => {
     };
 
     useEffect(() => {
-        if (!answer) {
+        if (!assignments) {
             (async () => {
-                setAnswer( await get(course_id) );
+                setAssignments( await get(course_id) );
             })();
         }
-    }, [answer, course_id, dispatch]);
+    }, [assignments, course_id, dispatch]);
 
 
-    if (!answer || answer.length === 0) {
-        return [answer, emptyAnswer];
+    if (!assignments || assignments.length === 0) {
+        return [assignments, emptyAnswer];
     }
-    return [answer];
+    //
+    const newassignments = (due) => assignments.map(assignment => {
+        return { ...assignment };
+    }).filter(assignment => {
+        if (due) {
+            return !validatePeriod(assignment);
+        } else {
+            return validatePeriod(assignment);
+        }
+    });
+    const due_assignment = newassignments(true);
+    const previous_assignment = newassignments(false);
+
+    return [due_assignment, previous_assignment];
 };
 
 export default useStudentCourseAssignmentAnswer;

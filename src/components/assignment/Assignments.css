@@ -42,10 +42,10 @@
     flex-direction: row;
     align-items: center;
     justify-content: right;
-    outline: 2px solid var(--huds-grayscale-medium-dark);
     margin-bottom: 10px;
     padding: 0 20px;
     width: 80%;
+    border: 2px solid var(--hy-blue);
     box-shadow: 1px 2px 4px var(--huds-grayscale-black);
 }
 
@@ -71,14 +71,22 @@
     box-shadow: 1px 2px 4px var(--huds-grayscale-black);
 }
 
+.assignments-valid-list {
+    list-style-type: none;
+}
+
 .assignments-valid-row {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-content: start;
-    align-items: start;
+    width: 90%;
+    padding-left: 0.5em;
     padding-bottom: 0.5em;
     padding-top: 0.5em;
+    border: 2px solid var(--hy-blue);
+    box-shadow: 1px 2px 4px var(--huds-grayscale-black);
+}
+
+.ass-move {
+    padding-left: 90px;
 }
 
 
