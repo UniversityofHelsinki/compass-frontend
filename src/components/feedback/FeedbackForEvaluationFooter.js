@@ -15,7 +15,7 @@ const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, assignment, s
         <div className="feedback-for-evaluation-footer">
             <Notification msg={t(message)} type={msgStyle}/>
             <div className="feedback-for-evaluation-footer-buttons">
-                <Link to={`/student/assignments/${assignment}`} >
+                <Link to={`/student/assignment/${assignment}`} >
                     <HyButton variant="primary" onClick={null} type="submit" disabled={disabled}>
                         {t('assignment_feedback_edit')}
                     </HyButton>

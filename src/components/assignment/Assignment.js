@@ -22,12 +22,12 @@ const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/teacher
     const { assignment } = useParams();
     const [user] = useUser();
     const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
-    const studentAnswer = {
-        ...studentAnswerData,
+    const studentAnswer = {...studentAnswerData,
         value: studentAssignmentAnswer?.value,
         order_nbr: studentAssignmentAnswer?.order_nbr,
         id: studentAssignmentAnswer?.id,
-    };
+        topic: studentAssignmentAnswer?.topic,
+        assignment_id: studentAssignmentAnswer?.assignment_id};
     const navigate = useNavigate();
 
     const { t } = useTranslation();
@@ -51,6 +51,8 @@ const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/teacher
     const handleAddAnswer = async () => {
         const newUser = { ...modifiedObject };
         newUser['course_id'] = studentAnswer.course_id;
+        newUser["id"] = studentAnswer.id;
+        newUser["assignment_id"] = studentAnswer.assignment_id;
         const answer = await addAnswer(newUser, true);
         let course = studentAnswer.course_id;
         navigate(`/student/feedback/${answer}/${course}`);
