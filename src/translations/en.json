@@ -36,9 +36,7 @@
   "chart_y_axis_label": "Level",
   "summary_heading": "Answer summary",
   "summary_back_to_forms": "Courses",
-  "summary_back_to_forms_secondary": "Back to course list"
-
-  "student_no_courses": "No courses yet... ask your teacher for more information or use the application as a teacher",
+  "summary_back_to_forms_secondary": "Back to course list",
   "assignments_due": "Due Assignments",
   "assignments_previous": "Previous Assignments"
 }

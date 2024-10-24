@@ -45,9 +45,11 @@ const Assignments = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher"}
                     </Row>
                 </Container>
                 <Container className="assignments-summary-container">
-                    <Row className="assignments-summary-row">
-                        {t('assignments_summary')}
-                    </Row>
+                    <Link to={`/student/courses/${course.course_id}/summary`}>
+                        <Row className="assignments-summary-row">
+                            {t('assignments_summary')}
+                        </Row>
+                    </Link>
                 </Container>
                 <Container className="assignments-form-container">
                     <Row>
