@@ -27,6 +27,18 @@
   "answer_evaluation_form_text_4": " ",
   "answer_evaluation_form_text_5": " ",
   "student_no_courses": "No courses yet... ask your teacher for more information or use the application as a teacher",
+  "summary_time": "Answer saved at",
+  "summary_topic": "Topic",
+  "summary_level": "Level",
+  "summary_description": "Description",
+  "summary_description_link": "View",
+  "chart_x_axis_label": "Assignment",
+  "chart_y_axis_label": "Level",
+  "summary_heading": "Answer summary",
+  "summary_back_to_forms": "Courses",
+  "summary_back_to_forms_secondary": "Back to course list"
+
+  "student_no_courses": "No courses yet... ask your teacher for more information or use the application as a teacher",
   "assignments_due": "Due Assignments",
   "assignments_previous": "Previous Assignments"
 }

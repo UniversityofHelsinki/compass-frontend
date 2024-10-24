@@ -12,12 +12,13 @@ import {DEFAULT_LANGUAGE, LEVELS} from "./Constants";
 import Compass from "./Compass";
 import {AuthProvider} from './AuthContext';
 import ProtectedRoute from './ProtectedRoute';
-import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
+import {createBrowserRouter, createRoutesFromElements, RouterProvider, Route, Outlet} from 'react-router-dom';
 import Teacher from './components/teacher/Teacher';
 import Student from './components/student/Student';
 import Error from './Error';
 import TeacherForms from './components/teacher/TeacherForms';
 import StudentCourses from './components/student/StudentCourses';
+import SummaryPage from "./components/reflectionSummary/SummaryPage";
 import TeacherFormNew from './components/teacher/TeacherFormNew';
 import TeacherFormEdit from './components/teacher/TeacherFormEdit';
 import FeedbackForEvaluation from "./components/feedback/FeedbackForEvaluation";
@@ -27,8 +28,6 @@ import Assignments from "./components/assignment/Assignments";
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
-const assignment_name = "Assignment 1";
-const course = "Ohjelmoinnin perusteet 2024"
 const backBtnLabels={
     primary: 'Back',
     secondary: ''
@@ -73,6 +72,10 @@ const App = () => {
           <Route path="student" element={<Student />}>
             <Route path="courses" element={<StudentCourses />}>
             </Route>
+              <Route path="courses/:course" element={<Outlet />}>
+                  <Route path="summary" element={<SummaryPage />}>
+                  </Route>
+              </Route>
             <Route path="assignments/" element={<Assignments backBtnLabels={backBtnLabels}/>}>
             </Route>
             <Route path="assignment/:assignment" element={<Assignment levels={LEVELS} backBtnLabels={backBtnLabels}/>}>

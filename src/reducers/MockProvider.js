@@ -25,6 +25,27 @@ const mockUser = {
     displayName: 'Baabe Nomypeevo'
 };
 
+const mockUserCourseAnswer = {
+    id: 1,
+    assignment_id: 3,
+    course_id: 1234,
+    user_name: 'User',
+    value: 'Assignment answer',
+    order_nbr: 3,
+    created: 11111111,
+    edited: 22222222,
+};
+
+const mockAssignments = {
+    id: 1,
+    assignment_id: 3,
+    course_id: 1234,
+    topic: "Assignment topic",
+    start_date: 12121212,
+    end_date: 1313131313,
+    created: 1111111111
+};
+
 const defaultMockReducers = {
     location: {
         path: '/',
@@ -37,7 +58,13 @@ const defaultMockReducers = {
         user: mockUser
     },
     student: {
-      courses: [] 
+      courses: []
+    },
+    userCourseAnswers: {
+        userCourseAnswers: [mockUserCourseAnswer]
+    },
+    assignments: {
+        assignments: [mockAssignments]
     }
 };
 

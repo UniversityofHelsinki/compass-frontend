@@ -45,6 +45,13 @@
   "assignment_answer_remove": "Kyllä",
   "assignment_answer_do_not_remove": "Ei",
   "assignment_feedback_back": "Takaisin kurssille",
+  "summary_time": "Vastaus tallennettu",
+  "summary_topic": "Aihe",
+  "summary_level": "Taso",
+  "summary_description": "Kuvaus",
+  "summary_description_link": "Katso",
+  "chart_x_axis_label": "Tehtävä",
+  "chart_y_axis_label": "Taso",
   "assignment_answer_delete_confirmation": "Oletko varma ?",
   "assignment_answer_removed": "Vastaus poistettu",
   "teacher_forms_no_forms": "Ei kursseja. Luo uusi kurssi Uusi kurssi -painikkeella.",
@@ -77,5 +84,8 @@
   "teacher_form_save_button": "Tallenna",
   "teacher_form_assignment_topic_label": "Aihe",
   "teacher_form_assignment_start_label": "Alkupäivämäärä",
-  "teacher_form_assignment_end_label": "Loppupäivämäärä"
+  "teacher_form_assignment_end_label": "Loppupäivämäärä",
+  "summary_heading": "Vastausten yhteenveto",
+  "summary_back_to_forms": "Kurssit",
+  "summary_back_to_forms_secondary": "Takaisin kurssilistaan"
 }
