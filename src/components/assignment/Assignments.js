@@ -15,21 +15,22 @@ const Assignments = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher"}
 
     const dueAssignmentRow = (studentAssignment) => {
         return (
-            <li key={course.course_id} className="assignments-course-row">
-                            <Link to={`/student/assignment/${studentAssignment?.assignment_id}`}>
-                                <div>{studentAssignment?.topic}</div>
-                            </Link>
-            </li>
+            <span className="assignments-course-row">
+                <Link to={`/student/assignment/${studentAssignment?.assignment_id}`}>
+                    {studentAssignment?.topic}
+                </Link>
+            </span>
         );
     }
     const previousAssignmentRow = (studentAssignment) => {
         return (
-            <li key={course.course_id} className="assignments-course-row">
+            <span className="assignments-course-row">
                 <Link to={`/student/feedback/${studentAssignment?.assignment_id}/${course.course_id}`}>
-                    <div>{studentAssignment?.topic}</div>
+                    {studentAssignment?.topic}
                 </Link>
-            </li>
-        );
+            </span>
+    )
+        ;
     }
     const listStudentAssignments = () => {
         return(
@@ -59,14 +60,12 @@ const Assignments = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher"}
                     </Row>
                 </Container>
 
-                <ul className="assignments-course-list">
-                    <Container className="assignments-course-padding">
+                <Container className="assignments-course-list">
                         {due_assignment.map((assignment) => {
                                 return dueAssignmentRow(assignment);
                             }
                         )}
-                    </Container>
-                </ul>
+                </Container>
 
                 <Container className="assignments-form-container">
                     <Row>
@@ -75,14 +74,12 @@ const Assignments = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher"}
                         </div>
                     </Row>
                 </Container>
-                <ul className="assignments-course-list">
-                    <Container className="assignments-course-padding">
+                <Container className="assignments-course-list">
                         {previous_assignment.map((assignment) => {
                                 return previousAssignmentRow(assignment);
                             }
                         )}
-                    </Container>
-                </ul>
+                </Container>
 
             </div>)
     }

@@ -40,10 +40,9 @@
 .assignments-summary-container  {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: right;
+    justify-content: center;
     margin-bottom: 10px;
-    padding: 0 20px;
+    padding: 0 0px;
     width: 80%;
     border: 2px solid var(--hy-blue);
     box-shadow: 1px 2px 4px var(--huds-grayscale-black);
@@ -52,41 +51,28 @@
 .assignments-summary-row {
     display: flex;
     flex-direction: row;
-    width: 80%;
-    align-content: center;
-    align-items: center;
     padding-bottom: 0.5em;
     padding-top: 0.5em;
 }
 
-.assignments-course-container  {
+.assignments-course-list {
+    width: 80%;
     display: flex;
     flex-direction: row;
     align-items: start;
     justify-content: left;
-    outline: 2px solid var(--huds-grayscale-medium-dark);
     margin-bottom: 10px;
-    padding: 0 20px;
-    width: 80%;
-    box-shadow: 1px 2px 4px var(--huds-grayscale-black);
-}
-
-.assignments-course-list {
-    list-style-type: none;
-}
-
-.assignments-course-row {
-    display: flex;
-    width: 90%;
-    padding-left: 0.5em;
-    padding-bottom: 0.5em;
-    padding-top: 0.5em;
+    padding: 0 0px;
     border: 2px solid var(--hy-blue);
     box-shadow: 1px 2px 4px var(--huds-grayscale-black);
 }
 
-.assignments-course-padding {
-    padding-left: 105px;
+.assignments-course-row {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0.5em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
 }
 
 
