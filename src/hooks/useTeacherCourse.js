@@ -8,7 +8,7 @@ const useTeacherCourse = (id) => {
   const dispatch = useDispatch();
   const course = useSelector(state => state.teacher.course);
   const [response, error] = useGET({
-    path: `/api/teacher/courses/${user.eppn}/${id}`,
+    path: `/api/teacher/courses/${id}`,
     tag: `TEACHER_COURSE_${id}`
   });
 

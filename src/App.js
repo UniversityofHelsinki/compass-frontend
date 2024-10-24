@@ -8,7 +8,7 @@ import {Provider} from "react-redux";
 import {applyMiddleware, createStore} from "redux";
 import {thunk} from "redux-thunk";
 import reducer from './reducers';
-import {DEFAULT_LANGUAGE} from "./Constants";
+import {DEFAULT_LANGUAGE, LEVELS} from "./Constants";
 import Compass from "./Compass";
 import {AuthProvider} from './AuthContext';
 import ProtectedRoute from './ProtectedRoute';
@@ -21,8 +21,16 @@ import StudentCourses from './components/student/StudentCourses';
 import SummaryPage from "./components/reflectionSummary/SummaryPage";
 import TeacherFormNew from './components/teacher/TeacherFormNew';
 import TeacherFormEdit from './components/teacher/TeacherFormEdit';
+import FeedbackForEvaluation from "./components/feedback/FeedbackForEvaluation";
+import Assignment from "./components/assignment/Assignment";
+import DeleteStudentAnswer from "./components/delete/DeleteStudentAnswer";
 
 const store = createStore(reducer, applyMiddleware(thunk));
+
+const backBtnLabels={
+    primary: 'Back',
+    secondary: ''
+};
 
 const defaultLanguage = () => {
     try {
@@ -67,6 +75,12 @@ const App = () => {
                   <Route path="summary" element={<SummaryPage />}>
                   </Route>
               </Route>
+            <Route path="assignments/:assignment" element={<Assignment levels={LEVELS} backBtnLabels={backBtnLabels}/>}>
+            </Route>
+            <Route path="feedback/:answer/:course" element={<FeedbackForEvaluation />}>
+            </Route>
+            <Route path="delete" element={<DeleteStudentAnswer />}>
+            </Route>
           </Route>
         </Route>
       )

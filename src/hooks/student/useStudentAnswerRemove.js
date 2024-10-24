@@ -1,11 +1,9 @@
 import {useDispatch, useSelector} from "react-redux";
 
-let style = '';
-
 const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
 
 const post = async (answer) => {
-    const URL = `${COMPASS_BACKEND_SERVER}/api/saveAnswer`;
+    const URL = `${COMPASS_BACKEND_SERVER}/api/student/deleteAnswer`;
     try {
         const response = await fetch(URL, {
             method: 'POST',
@@ -15,11 +13,9 @@ const post = async (answer) => {
             body: JSON.stringify(answer),
         });
         if (response.status === 200) {
-            style = 'neutral';
-            return await response.json();
+            return {message: 'assignment_answer_removed', style: 'neutral'};
         } else if (response.status === 500) {
-            style = 'warning';
-            return await response.json();
+            return {message: 'assignment_answer_remove_failed', style: 'warning'};
         }
     } catch (error) {
         console.error(error);
@@ -29,21 +25,20 @@ const post = async (answer) => {
     }
 };
 
-const useSelfReflectionSave = () => {
+const useStudentAnswerRemove = () => {
     const dispatch = useDispatch();
-    const answer  = useSelector((state) => state.student.answer);
+    const response  = useSelector((state) => state.student.answer);
 
-    const addAnswer = async (record) => {
-        const addedRecord = await post(record);
+    const removeAnswer = async (answer) => {
+        const resp = await post(answer);
         //let message = findValue(addedRecord, "message");
-        dispatch({type: 'SET_STUDENT_ANSWER', payload: addedRecord});
+        dispatch({type: 'SET_STUDENT_ANSWER', payload: resp});
         /*setTimeout(() => {
-            dispatch({ type: 'HIDE_ADD_NOTIFICATION' });
+            dispatch({ type: 'HIDE_REMOVE_NOTIFICATION' });
         }, 3000);*/
-        return addedRecord.assignment_id;
     }
 
-    return [answer, null, style, addAnswer];
+    return [response, removeAnswer];
 };
 
-export default useSelfReflectionSave;
+export default useStudentAnswerRemove;

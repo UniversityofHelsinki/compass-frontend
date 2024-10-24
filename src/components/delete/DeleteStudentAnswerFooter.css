@@ -1,10 +1,11 @@
-.feedback-for-evaluation-footer {
+.delete-student-answer-footer {
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: large;
     font-weight: bold;
 }
 
-.feedback-for-evaluation-footer-buttons button {
+.delete-student-answer-footer-buttons button {
     padding-right: 8px;
+    width: 100px;
 }

@@ -59,6 +59,13 @@ const useSelfReflectionModification = (object, validate) => {
         return [{...object}, onChange, false];
     }
 
+    const updateModObj = (updatedObj) => {
+        if (updatedObj?.length > 0) {
+            setModifiedObject({...updatedObj[0]});
+        }
+        console.log('obj', updatedObj);
+    }
+
     if (modifiedObject?.id !== object?.id) {
         const objectHasChanged = modifiedObject?.id && object?.id;
 
@@ -71,10 +78,10 @@ const useSelfReflectionModification = (object, validate) => {
         setModifiedObject({...object});
         setTouchedFields([]);
         setModified(false);
-        return [{...object}, onChange, false];
+        return [{...object}, onChange, false, clearFormValues, updateModObj];
     }
 
-    return [modifiedObject, onChange, modified, clearFormValues];
+    return [modifiedObject, onChange, modified, clearFormValues, updateModObj];
 };
 
 export default useSelfReflectionModification;
