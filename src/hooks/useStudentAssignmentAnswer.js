@@ -1,6 +1,6 @@
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
-import useStudentAssignmentCourse from "./useStudentAssignmentCourse";
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import useStudentAssignmentCourse from './useStudentAssignmentCourse';
 
 const emptyAnswer = {
     id: '',
@@ -17,7 +17,7 @@ const useStudentAssignmentAnswer = (assignmentId) => {
     useEffect(() => {
         if (!answer) {
             (async () => {
-                dispatch({ type: 'GET_STUDENT_COURSE_ASSIGNMENT_ANSWER', payload: await get() })
+                dispatch({ type: 'GET_STUDENT_COURSE_ASSIGNMENT_ANSWER', payload: await get() });
             })();
         }
     }, [studentAnswerData, assignmentId, dispatch]);
@@ -26,14 +26,17 @@ const useStudentAssignmentAnswer = (assignmentId) => {
     //const answer = useSelector((state) => state.student.course_assignment_answer);
 
     const get = async () => {
-        if(studentAnswerData.course_id.length > 0 ) {
-            const URL = `${process.env.REACT_APP_COMPASS_BACKEND_SERVER}/api/student/course/assignment/answer/${assignmentId}/${studentAnswerData.course_id}`;
+        if (studentAnswerData.course_id.length > 0) {
+            const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
+            const URL = `${COMPASS_BACKEND_SERVER}/api/student/course/assignment/answer/${assignmentId}/${studentAnswerData.course_id}`;
             try {
                 const response = await fetch(URL);
                 if (response.ok) {
                     return await response.json();
                 }
-                throw new Error(`Unexpected status code ${response.status} while fetching student course assignment answer from ${URL}`);
+                throw new Error(
+                    `Unexpected status code ${response.status} while fetching student course assignment answer from ${URL}`,
+                );
             } catch (error) {
                 console.error(error.message);
             }
@@ -44,11 +47,10 @@ const useStudentAssignmentAnswer = (assignmentId) => {
         if (!answer) {
             (async () => {
                 //dispatch({ type: 'GET_STUDENT_COURSE_ASSIGNMENT_ANSWER', payload: await get() })
-                setAnswer( await get() );
+                setAnswer(await get());
             })();
         }
     }, [studentAnswerData, studentAnswerData.course_id, answer, assignmentId, dispatch]);
-
 
     if (!answer || answer.length === 0) {
         return [studentAnswerData, emptyAnswer];

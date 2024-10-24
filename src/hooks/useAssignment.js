@@ -1,21 +1,23 @@
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
-import {validatePeriod} from "./validation/assignmentPeriodValidation";
-
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { validatePeriod } from './validation/assignmentPeriodValidation';
 
 const useAssignment = (assignmentId) => {
-    const [assignment, setAssignment] = useState(null)
+    const [assignment, setAssignment] = useState(null);
 
     const dispatch = useDispatch();
 
     const get = async () => {
-        const URL = `${process.env.REACT_APP_COMPASS_BACKEND_SERVER}/api/student/course/assignment/${assignmentId}`;
+        const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
+        const URL = `${COMPASS_BACKEND_SERVER}/api/student/course/assignment/${assignmentId}`;
         try {
             const response = await fetch(URL);
             if (response.ok) {
                 return await response.json();
             }
-            throw new Error(`Unexpected status code ${response.status} while fetching student feedback from ${URL}`);
+            throw new Error(
+                `Unexpected status code ${response.status} while fetching student feedback from ${URL}`,
+            );
         } catch (error) {
             console.error(error.message);
         }
@@ -24,7 +26,7 @@ const useAssignment = (assignmentId) => {
     useEffect(() => {
         if (!assignment) {
             (async () => {
-                setAssignment( await get() );
+                setAssignment(await get());
             })();
         }
     }, [assignment, assignmentId, dispatch]);
