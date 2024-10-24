@@ -15,7 +15,7 @@ const Assignments = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher"}
 
     const dueAssignmentRow = (studentAssignment) => {
         return (
-            <li key={course.course_id} className="assignments-valid-row">
+            <li key={course.course_id} className="assignments-course-row">
                             <Link to={`/student/assignment/${studentAssignment?.assignment_id}`}>
                                 <div>{studentAssignment?.topic}</div>
                             </Link>
@@ -24,7 +24,7 @@ const Assignments = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher"}
     }
     const previousAssignmentRow = (studentAssignment) => {
         return (
-            <li key={course.course_id} className="assignments-valid-row">
+            <li key={course.course_id} className="assignments-course-row">
                 <Link to={`/student/feedback/${studentAssignment?.assignment_id}/${course.course_id}`}>
                     <div>{studentAssignment?.topic}</div>
                 </Link>
@@ -57,8 +57,8 @@ const Assignments = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher"}
                     </Row>
                 </Container>
 
-                <ul className="assignments-valid-list">
-                    <Container className="ass-move">
+                <ul className="assignments-course-list">
+                    <Container className="assignments-course-padding">
                         {due_assignment.map((assignment) => {
                                 return dueAssignmentRow(assignment);
                             }
@@ -73,8 +73,8 @@ const Assignments = ({showBackBtn = true, backBtnLabels, backBtnHref="/teacher"}
                         </div>
                     </Row>
                 </Container>
-                <ul className="assignments-valid-list">
-                    <Container className="ass-move">
+                <ul className="assignments-course-list">
+                    <Container className="assignments-course-padding">
                         {previous_assignment.map((assignment) => {
                                 return previousAssignmentRow(assignment);
                             }
