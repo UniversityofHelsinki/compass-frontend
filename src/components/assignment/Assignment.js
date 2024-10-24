@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Notification from '../notes/Notification';
 import './Assignment.css';
 import { useTranslation } from 'react-i18next';
 import FormFreeAnswer from '../../form/FormFreeAnswer';
@@ -12,7 +11,7 @@ import Form from 'react-bootstrap/Form';
 import useSelfReflectionModification from '../../hooks/useSelfReflectionModification';
 import useSelfReflectionSave from '../../hooks/useSelfReflectionSave';
 import useAnswerValidation from '../../hooks/validation/answers/useAnswerValidation';
-import ButtonRow from '../actions/ButtornRow';
+import ButtonRow from '../actions/ButtonRow';
 import useUser from '../../hooks/useUser';
 import BackButton from '../utilities/BackButton';
 import HyButton from '../utilities/HyButton';
@@ -23,12 +22,12 @@ const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/teacher
     const { assignment } = useParams();
     const [user] = useUser();
     const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
-    const studentAnswer = {
-        ...studentAnswerData,
+    const studentAnswer = {...studentAnswerData,
         value: studentAssignmentAnswer?.value,
         order_nbr: studentAssignmentAnswer?.order_nbr,
         id: studentAssignmentAnswer?.id,
-    };
+        topic: studentAssignmentAnswer?.topic,
+        assignment_id: studentAssignmentAnswer?.assignment_id};
     const navigate = useNavigate();
 
     const { t } = useTranslation();
@@ -52,6 +51,8 @@ const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/teacher
     const handleAddAnswer = async () => {
         const newUser = { ...modifiedObject };
         newUser['course_id'] = studentAnswer.course_id;
+        newUser["id"] = studentAnswer.id;
+        newUser["assignment_id"] = studentAnswer.assignment_id;
         const answer = await addAnswer(newUser, true);
         let course = studentAnswer.course_id;
         navigate(`/student/feedback/${answer}/${course}`);
@@ -137,8 +138,6 @@ const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/teacher
                     <ButtonRow>
                         {theButtonClear}
                         {theButtonSave}
-                        {/* <CourseEvaluation modified={modified} isValid={isValid} handleAddAnswer={handleAddAnswer} msg={message} msgStyle={messageStyle} order_nbr={modifiedObject.order_nbr}>
-                        </CourseEvaluation> */}
                     </ButtonRow>
                 </Col>
             </Row>

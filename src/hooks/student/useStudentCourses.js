@@ -5,7 +5,7 @@ import useUser from "../useUser";
 
 const useStudentCourses = () => {
   const [response, error] = useGET({
-    path: `/api/student/courses`,
+    path: `/api/student/studentCourses`,
     tag: 'STUDENT_COURSES'
   });
   const dispatch = useDispatch();
