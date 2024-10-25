@@ -15,6 +15,7 @@ import PropTypes from 'prop-types';
 
 const SummaryChart = ({ assignments }) => {
     const { t } = useTranslation();
+    const sortedAssignmentsData = assignments.sort((a, b) => a.id - b.id);
 
     return (
         <Container>
@@ -22,17 +23,17 @@ const SummaryChart = ({ assignments }) => {
                 <Col className="chart-col">
                     <ResponsiveContainer width="100%" height={300}>
                         <LineChart
-                            data={assignments}
+                            data={sortedAssignmentsData}
                             width={730}
                             height={250}
-                            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                            margin={{ top: 5, right: 30, left: 20, bottom: 10 }}
                         >
                             <CartesianGrid strokeDasharray="1 1" />
                             <XAxis
                                 dataKey="assignment_id"
                                 label={{
                                     value: t('chart_x_axis_label'),
-                                    dy: 5,
+                                    dy: 15,
                                 }}
                             />
                             <YAxis
