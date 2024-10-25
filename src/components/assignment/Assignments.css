@@ -58,7 +58,7 @@
 .assignments-course-list {
     width: 80%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: start;
     justify-content: left;
     margin-bottom: 10px;
@@ -69,10 +69,9 @@
 
 .assignments-course-row {
     display: flex;
-    flex-direction: row;
     padding-left: 0.5em;
-    padding-bottom: 0.5em;
-    padding-top: 0.5em;
+    padding-bottom: 0.20em;
+    padding-top: 0.20em;
 }
 
 
