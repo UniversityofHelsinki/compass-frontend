@@ -75,8 +75,7 @@ const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/teacher
     const theButtonClear = (
         <HyButton
             variant="primary"
-            modified={modified}
-            isValid={isValid}
+            disabled={!modified}
             onClick={clearForm}
             className="assignment-form-button-clear"
         >
@@ -86,8 +85,7 @@ const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/teacher
     const theButtonSave = (
         <HyButton
             variant="primary"
-            modified={modified}
-            isValid={isValid}
+            disabled={!modified || !isValid}
             onClick={onButtonClick}
             className="assignment-form-send-button"
         >
