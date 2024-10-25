@@ -6,22 +6,22 @@ export const ASSIGNMENT_VALID_FOR_EDIT = false;
 export const LEVELS = [
     {
         label: 'option_one',
-        value: '1',
+        value: '0',
     },
     {
         label: 'option_two',
-        value: '2',
+        value: '1',
     },
     {
         label: 'option_three',
-        value: '3',
+        value: '2',
     },
     {
         label: 'option_four',
-        value: '4',
+        value: '3',
     },
     {
         label: 'option_five',
-        value: '5',
+        value: '4',
     },
 ];
