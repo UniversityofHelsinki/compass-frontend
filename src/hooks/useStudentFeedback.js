@@ -1,5 +1,5 @@
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 const emptyAnswer = {
     id: '',
@@ -11,7 +11,7 @@ const emptyAnswer = {
 };
 
 const useStudentFeedback = (assignmentId, course) => {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState(null);
 
     const dispatch = useDispatch();
 
@@ -20,13 +20,17 @@ const useStudentFeedback = (assignmentId, course) => {
         setData(answer);
     }*/
     const get = async () => {
-        const URL = `${process.env.REACT_APP_COMPASS_BACKEND_SERVER}/api/student/course/assignment/answer/${assignmentId}/${course}`;
+        const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
+
+        const URL = `${COMPASS_BACKEND_SERVER}/api/student/course/assignment/answer/${assignmentId}/${course}`;
         try {
             const response = await fetch(URL);
             if (response.ok) {
                 return await response.json();
             }
-            throw new Error(`Unexpected status code ${response.status} while fetching student feedback from ${URL}`);
+            throw new Error(
+                `Unexpected status code ${response.status} while fetching student feedback from ${URL}`,
+            );
         } catch (error) {
             console.error(error.message);
         }
@@ -36,11 +40,10 @@ const useStudentFeedback = (assignmentId, course) => {
         if (!data) {
             (async () => {
                 //dispatch({ type: 'GET_STUDENT_FEEDBACK', payload: await get() })
-                setData( await get() );
+                setData(await get());
             })();
         }
     }, [data, assignmentId, dispatch]);
-
 
     if (!data || data.length === 0) {
         return emptyAnswer;
