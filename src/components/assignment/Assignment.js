@@ -18,8 +18,9 @@ import HyButton from '../utilities/HyButton';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import useStudentAssignmentAnswer from '../../hooks/useStudentAssignmentAnswer';
 
-const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/teacher', levels }) => {
-    const { assignment } = useParams();
+const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/student/assignments', levels }) => {
+    const { assignment, course_id } = useParams();
+    backBtnHref = backBtnHref + '/${course_id}';
     const [user] = useUser();
     const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
     const studentAnswer = {...studentAnswerData,

@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 
 const Course = ({course}) => {
         return(
-            <Link to={`/student/assignments`} state={{ course: {...course}}}>
+            <Link to={`/student/assignments/${course.id}`}>
               <div className="student-course">
                 <div className="student-course-title">
                   <span>
