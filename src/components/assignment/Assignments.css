@@ -15,7 +15,7 @@
     border-bottom: 1px solid var(--huds-grayscale-medium);*/
     display: flex;
     width: 100%;
-    padding-bottom: 1.0em;
+    padding-bottom: 0.5em;
 }
 
 .assignments-form-back-col {
@@ -44,8 +44,8 @@
     margin-bottom: 10px;
     padding: 0 0px;
     width: 80%;
-    border: 2px solid var(--hy-blue);
-    box-shadow: 1px 2px 4px var(--huds-grayscale-black);
+    /*border: 2px solid var(--hy-blue);
+    box-shadow: 1px 2px 4px var(--huds-grayscale-black);*/
 }
 
 .assignments-summary-row {
@@ -63,8 +63,8 @@
     justify-content: left;
     margin-bottom: 10px;
     padding: 0 0px;
-    border: 2px solid var(--hy-blue);
-    box-shadow: 1px 2px 4px var(--huds-grayscale-black);
+   /* border: 2px solid var(--hy-blue);
+    box-shadow: 1px 2px 4px var(--huds-grayscale-black); */
 }
 
 .assignments-course-row {
@@ -74,4 +74,15 @@
     padding-top: 0.20em;
 }
 
+.assignments-line-container  {
+    flex-direction: row;
+    width: 80%;
+}
+
+.line {
+    border: 0;
+    background-color: #000;
+    color: black;
+    height: 2px;
+}
 

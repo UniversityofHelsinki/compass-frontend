@@ -1,6 +1,6 @@
 import useUser from './useUser';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import {useEffect, useState} from 'react';
 
 const emptyAnswer = {
     id: '',
@@ -15,8 +15,10 @@ const emptyAnswer = {
 const useStudentAssignmentCourse = (assignmentId) => {
     const [user] = useUser();
     emptyAnswer.user_name = user.eppn;
+
     const dispatch = useDispatch();
-    const assignment_course = useSelector((state) => state.student.assignment_course);
+    const [assignment_course, setAssignment_course] = useState(null);
+    //const assignment_course = useSelector((state) => state.student.assignment_course);
 
     const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
 
@@ -38,7 +40,8 @@ const useStudentAssignmentCourse = (assignmentId) => {
     useEffect(() => {
         if (!assignment_course) {
             (async () => {
-                dispatch({ type: 'GET_STUDENT_ASSIGNMENT_COURSE', payload: await get() });
+                //dispatch({ type: 'GET_STUDENT_ASSIGNMENT_COURSE', payload: await get() });
+                setAssignment_course(await get());
             })();
         }
     }, [assignment_course, dispatch]);

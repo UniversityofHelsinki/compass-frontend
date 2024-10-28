@@ -76,7 +76,7 @@ const App = () => {
                   <Route path="summary" element={<SummaryPage />}>
                   </Route>
               </Route>
-            <Route path="assignments/" element={<Assignments backBtnLabels={backBtnLabels}/>}>
+            <Route path="assignments/:id" element={<Assignments backBtnLabels={backBtnLabels}/>}>
             </Route>
             <Route path="assignment/:assignment" element={<Assignment levels={LEVELS} backBtnLabels={backBtnLabels}/>}>
             </Route>
