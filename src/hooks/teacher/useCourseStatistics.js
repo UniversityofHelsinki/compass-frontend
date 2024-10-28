@@ -4,7 +4,8 @@ import { useGET } from '../useHttp'; // Adjust the path as needed
 
 const useCourseStatistics = (courseId) => {
     const dispatch = useDispatch();
-    const courses = useSelector((state) => state.courses.statistics);
+    const courses = useSelector((state) => state.courses.statistics || {}); // Ensure it defaults to an empty object
+    const [loading, setLoading] = useState(true);
     const [response, error] = useGET({
         path: `/api/teacher/statistics/course/${courseId}`,
         tag: 'COURSE_STATISTICS',
@@ -18,10 +19,14 @@ const useCourseStatistics = (courseId) => {
                 courseId,
                 payload: response,
             });
+            setLoading(false);
         }
-    }, [response, dispatch, courseId]);
+        if (error) {
+            setLoading(false);
+        }
+    }, [response, error, dispatch, courseId]);
 
-    return [courses, error];
+    return { courses, loading, error };
 };
 
 export default useCourseStatistics;
