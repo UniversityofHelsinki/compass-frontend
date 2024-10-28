@@ -1,0 +1,31 @@
+.pie-charts-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.pie-chart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 calc(50% - 20px); /* Updated to ensure two items per row accounting for padding */
+    box-sizing: border-box;
+    max-width: 450px;
+    margin: 10px; /* Add margin to avoid clipping and overlap */
+}
+
+.recharts-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: visible; /* Ensure overflow is visible to prevent clipping */
+}
+
+.recharts-text {
+    font-size: 12px; /* Ensure text size is reasonable for small segments */
+    text-anchor: middle; /* Center the text to prevent overflow */
+    dominant-baseline: central;
+    overflow: visible; /* Ensure text overflow is visible */
+}

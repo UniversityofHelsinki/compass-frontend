@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import useCourseStatistics from '../../hooks/teacher/useCourseStatistics'; // Adjust the path as needed
-import PieCharts from '../charts/PieChart'; // Adjust the path as needed
+import useCourseStatistics from '../../hooks/teacher/useCourseStatistics';
+import PieCharts from '../charts/PieChart';
 
 const CourseStatistics = () => {
     const { courseId } = useParams();
@@ -20,20 +20,21 @@ const CourseStatistics = () => {
     }
 
     const groupedData = courses.reduce((acc, curr) => {
-        const { assignment_id, assignment_topic, order_nbr, order_nbr_percentage } = curr;
+        const { assignment_id, assignment_topic, order_nbr, order_nbr_percentage, answer_count } =
+            curr;
 
         if (!acc[assignment_id]) {
             acc[assignment_id] = {
                 assignmentId: assignment_id,
                 assignmentTopic: assignment_topic,
                 data: [],
+                answerCount: answer_count,
             };
         }
 
         acc[assignment_id].data.push({
             name: `${order_nbr}`,
             value: parseFloat(order_nbr_percentage),
-            orderNbr: order_nbr,
         });
 
         return acc;
@@ -45,12 +46,7 @@ const CourseStatistics = () => {
         <div>
             <h1>Course Statistics for Course ID: {courseId}</h1>
             {Array.isArray(chartData) && chartData.length > 0 ? (
-                chartData.map((chartDataItem) => (
-                    <div key={chartDataItem.assignmentId}>
-                        <h2>{chartDataItem.assignmentTopic}</h2>
-                        <PieCharts data={[chartDataItem]} /> {/* Passing each item as an array */}
-                    </div>
-                ))
+                <PieCharts data={chartData} /> /* Pass the entire array without nesting */
             ) : (
                 <p>No assignment data available.</p>
             )}
