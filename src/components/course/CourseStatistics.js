@@ -18,10 +18,6 @@ const CourseStatistics = () => {
         }
     }, [courseStatistics]);
 
-    // Debugging to ensure correct course and course statistics
-    console.log(`Current courseId: ${courseId}`);
-    console.log('CourseStatistics:', courseStatistics);
-
     if (loading) {
         return <p>Loading...</p>;
     }
