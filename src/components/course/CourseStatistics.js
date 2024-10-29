@@ -13,8 +13,14 @@ const CourseStatistics = () => {
         if (Array.isArray(courseStatistics) && courseStatistics.length > 0) {
             const allChartIds = courseStatistics.map((stat) => stat.assignment_id);
             setSelectedCharts(allChartIds);
+        } else {
+            setSelectedCharts([]);
         }
     }, [courseStatistics]);
+
+    // Debugging to ensure correct course and course statistics
+    console.log(`Current courseId: ${courseId}`);
+    console.log('CourseStatistics:', courseStatistics);
 
     if (loading) {
         return <p>Loading...</p>;

@@ -14,7 +14,7 @@ const useCourseStatistics = (courseId) => {
     // Use custom hook to fetch data
     const [response, error] = useGET({
         path: `/api/teacher/statistics/course/${courseId}`,
-        tag: 'COURSE_STATISTICS',
+        tag: `COURSE_STATISTICS_${courseId}`,
     });
 
     // Effect to handle API response
