@@ -19,26 +19,29 @@ const renderPieChart = (data, index) => {
     }
 
     return (
-        <ResponsiveContainer width={500} height={500}>
-            <PieChart key={`pie-${index}`}>
-                <Pie
-                    data={data}
-                    cx="50%" /* Center the Pie horizontally */
-                    cy="50%" /* Center the Pie vertically */
-                    outerRadius={150} /* Keep the outer radius as per design */
-                    fill="#8884d8"
-                    dataKey="value"
-                    nameKey="name"
-                    label={renderLabel}
-                    labelLine={false}
-                >
-                    {data.map((entry, idx) => (
-                        <Cell key={`cell-${index}-${idx}`} fill={COLORS[idx % COLORS.length]} />
-                    ))}
-                </Pie>
-                <Tooltip formatter={(value, name) => `${name}: ${Math.round(value)}%`} /> <Legend />
-            </PieChart>
-        </ResponsiveContainer>
+        <div style={{ width: '100%', height: 500 }}>
+            <ResponsiveContainer>
+                <PieChart key={`pie-${index}`}>
+                    <Pie
+                        data={data}
+                        cx="50%" // Center the Pie horizontally
+                        cy="50%" // Center the Pie vertically
+                        outerRadius={150} // Keep the outer radius as per design
+                        fill="#8884d8"
+                        dataKey="value"
+                        nameKey="name"
+                        label={renderLabel}
+                        labelLine={false}
+                    >
+                        {data.map((entry, idx) => (
+                            <Cell key={`cell-${index}-${idx}`} fill={COLORS[idx % COLORS.length]} />
+                        ))}
+                    </Pie>
+                    <Tooltip formatter={(value, name) => `${name}: ${Math.round(value)}%`} />
+                    <Legend />
+                </PieChart>
+            </ResponsiveContainer>
+        </div>
     );
 };
 

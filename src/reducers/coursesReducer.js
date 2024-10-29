@@ -1,11 +1,18 @@
-const coursesReducer = (state = { loadingUsers: false }, action) => {
+const coursesReducer = (state = { loadingUsers: false, statistics: {} }, action) => {
     switch (action.type) {
         case 'SET_ALL_COURSES':
             return { ...state, allCourses: action.payload };
         case 'SET_COURSE':
-            return { ...state, clickedCouse: action.payload };
+            return { ...state, clickedCourse: action.payload };
         case 'SET_COURSE_STATISTICS':
-            return { ...state, statistics: action.payload };
+            const { courseId, data } = action.payload;
+            return {
+                ...state,
+                statistics: {
+                    ...state.statistics,
+                    [courseId]: data,
+                },
+            };
         default:
             return state;
     }

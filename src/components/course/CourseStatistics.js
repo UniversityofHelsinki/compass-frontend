@@ -5,7 +5,7 @@ import PieCharts from '../charts/PieChart';
 
 const CourseStatistics = () => {
     const { courseId } = useParams();
-    const { courses, loading, error } = useCourseStatistics(courseId);
+    const { courseStatistics, loading, error } = useCourseStatistics(courseId);
 
     if (loading) {
         return <p>Loading...</p>;
@@ -15,11 +15,11 @@ const CourseStatistics = () => {
         return <p>Error loading data: {error.message}</p>;
     }
 
-    if (!Array.isArray(courses) || courses.length === 0) {
+    if (!Array.isArray(courseStatistics) || courseStatistics.length === 0) {
         return <p>No data available.</p>;
     }
 
-    const groupedData = courses.reduce((acc, curr) => {
+    const groupedData = courseStatistics.reduce((acc, curr) => {
         const { assignment_id, assignment_topic, order_nbr, order_nbr_percentage, answer_count } =
             curr;
 
@@ -42,11 +42,13 @@ const CourseStatistics = () => {
 
     const chartData = Object.values(groupedData);
 
+    console.log('Chart Data:', chartData); // Debug log for chart data
+
     return (
         <div>
             <h1>Course Statistics for Course ID: {courseId}</h1>
             {Array.isArray(chartData) && chartData.length > 0 ? (
-                <PieCharts data={chartData} /> /* Pass the entire array without nesting */
+                <PieCharts data={chartData} />
             ) : (
                 <p>No assignment data available.</p>
             )}

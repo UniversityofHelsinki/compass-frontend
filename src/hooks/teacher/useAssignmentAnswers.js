@@ -1,16 +1,23 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGET } from '../useHttp';
+import { assignmentAnswers } from '../../selectors/assignmentAnswerSelector';
 
 const useAssignmentAnswers = (assignmentId) => {
     const dispatch = useDispatch();
-    const answers = useSelector((state) => state.assignments.answers[assignmentId] || []); // Select specific answers for assignmentId
+
+    const selectAssignmentAnswers = assignmentAnswers();
+    const answers = useSelector((state) => selectAssignmentAnswers(state, assignmentId));
+
     const [loading, setLoading] = useState(true);
+
+    // Use custom hook to fetch data
     const [response, error] = useGET({
         path: `/api/teacher/assignment/${assignmentId}/answers`,
         tag: `ASSIGNMENT_ANSWERS_${assignmentId}`,
     });
 
+    // Effect to handle API response
     useEffect(() => {
         if (response) {
             console.log('API Response:', response); // Debug line to check response
