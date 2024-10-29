@@ -20,7 +20,6 @@ const useCourseStatistics = (courseId) => {
     // Effect to handle API response
     useEffect(() => {
         if (response) {
-            console.log('API Response:', response); // Debug log
             dispatch({
                 type: 'SET_COURSE_STATISTICS',
                 payload: {
@@ -42,9 +41,6 @@ const useCourseStatistics = (courseId) => {
         }
         return [];
     }, [statistics, courseId]);
-
-    // Detailed logs for debug
-    console.log('Course Statistics:', courseStatistics);
 
     return { courseStatistics, loading, error };
 };

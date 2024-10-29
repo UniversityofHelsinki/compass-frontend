@@ -42,8 +42,6 @@ const CourseStatistics = () => {
 
     const chartData = Object.values(groupedData);
 
-    console.log('Chart Data:', chartData); // Debug log for chart data
-
     return (
         <div>
             <h1>Course Statistics for Course ID: {courseId}</h1>

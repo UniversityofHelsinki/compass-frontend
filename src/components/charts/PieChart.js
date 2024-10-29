@@ -11,9 +11,6 @@ const renderLabel = ({ name, value }) => {
 };
 
 const renderPieChart = (data, index) => {
-    console.log('Rendering Pie Chart - Index:', index);
-    console.log('Data:', data);
-
     if (!data || !Array.isArray(data)) {
         return null; // Return nothing if data is undefined or not an array
     }
@@ -46,8 +43,6 @@ const renderPieChart = (data, index) => {
 };
 
 const PieCharts = ({ data }) => {
-    console.log('PieCharts Component Data:', data);
-
     if (!data || !Array.isArray(data) || data.length === 0) {
         return null; // Return nothing if data is undefined, not an array, or empty
     }

@@ -4,9 +4,6 @@ import useAssignmentAnswers from '../../hooks/teacher/useAssignmentAnswers';
 const TableData = ({ assignmentId }) => {
     const { answers, loading, error } = useAssignmentAnswers(assignmentId);
 
-    console.log(`Rendering TableData for assignmentId: ${assignmentId}`);
-    console.log(`Answers for assignmentId ${assignmentId}:`, answers);
-
     if (loading) {
         return <p>Loading...</p>;
     }

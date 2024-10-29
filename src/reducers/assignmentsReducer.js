@@ -15,9 +15,6 @@ const assignmentsReducer = (
         case 'GET_ASSIGNMENTS_FAILURE':
             return { ...state, loading: false, error: action.payload };
         case 'SET_ASSIGNMENT_ANSWERS':
-            console.log(
-                `Reducer handling SET_ASSIGNMENT_ANSWERS for assignment ${action.assignmentId}`,
-            );
             return {
                 ...state,
                 answers: {
