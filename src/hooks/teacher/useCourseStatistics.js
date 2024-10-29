@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useGET } from '../useHttp'; // Adjust the path as needed
+import { useGET } from '../useHttp';
 
 const useCourseStatistics = (courseId) => {
     const dispatch = useDispatch();

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
-import './PieChart.css'; // Ensure CSS path is correct
+import './PieChart.css';
+import TableData from './TableData';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6384'];
 
@@ -28,16 +29,14 @@ const renderPieChart = (data, index) => {
                     fill="#8884d8"
                     dataKey="value"
                     nameKey="name"
-                    label={renderLabel} /* Custom label function */
+                    label={renderLabel}
                     labelLine={false}
                 >
                     {data.map((entry, idx) => (
                         <Cell key={`cell-${index}-${idx}`} fill={COLORS[idx % COLORS.length]} />
                     ))}
                 </Pie>
-                <Tooltip formatter={(value, name) => `${name}: ${Math.round(value)}%`} />{' '}
-                {/* Tooltip to show name and value */}
-                <Legend />
+                <Tooltip formatter={(value, name) => `${name}: ${Math.round(value)}%`} /> <Legend />
             </PieChart>
         </ResponsiveContainer>
     );
@@ -61,6 +60,7 @@ const PieCharts = ({ data }) => {
                         {assignment.assignmentTopic} (Answers: {assignment.answerCount})
                     </h3>
                     {renderPieChart(assignment.data, index)}
+                    <TableData assignmentId={assignment.assignmentId} />
                 </div>
             ))}
         </div>
