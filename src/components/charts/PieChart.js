@@ -42,14 +42,18 @@ const renderPieChart = (data, index) => {
     );
 };
 
-const PieCharts = ({ data }) => {
+const PieCharts = ({ data, selectedChartIds }) => {
     if (!data || !Array.isArray(data) || data.length === 0) {
         return null; // Return nothing if data is undefined, not an array, or empty
     }
 
+    const filteredData = data.filter((assignment) =>
+        selectedChartIds.includes(assignment.assignmentId),
+    );
+
     return (
         <div className="pie-charts-container">
-            {data.map((assignment, index) => (
+            {filteredData.map((assignment, index) => (
                 <div
                     className="pie-chart-item"
                     key={`assignment-${assignment.assignmentId}-${index}`}
