@@ -10,22 +10,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1 1 calc(50% - 20px); /* Updated to ensure two items per row accounting for padding */
+    flex: 1 1 calc(50% - 20px);
     box-sizing: border-box;
     max-width: 450px;
-    margin: 10px; /* Add margin to avoid clipping and overlap */
+    margin: 10px;
 }
 
-.recharts-wrapper {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    overflow: visible; /* Ensure overflow is visible to prevent clipping */
-}
-
-.recharts-text {
-    font-size: 12px; /* Ensure text size is reasonable for small segments */
-    text-anchor: middle; /* Center the text to prevent overflow */
-    dominant-baseline: central;
-    overflow: visible; /* Ensure text overflow is visible */
+@media (max-width: 768px) {
+    .pie-chart-item {
+        flex: 1 1 100%;
+        max-width: none;
+    }
 }

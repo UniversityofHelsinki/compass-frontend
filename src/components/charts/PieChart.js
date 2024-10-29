@@ -1,8 +1,13 @@
 import React from 'react';
-import { Cell, Legend, Pie, PieChart, Tooltip } from 'recharts';
+import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 import './PieChart.css'; // Ensure CSS path is correct
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6384'];
+
+const renderLabel = ({ name, value }) => {
+    const formattedValue = Math.round(value) === 100 ? '100%' : `${Math.round(value)}%`;
+    return `${name}: ${formattedValue}`;
+};
 
 const renderPieChart = (data, index) => {
     console.log('Rendering Pie Chart - Index:', index);
@@ -13,27 +18,28 @@ const renderPieChart = (data, index) => {
     }
 
     return (
-        <PieChart key={`pie-${index}`} width={450} height={450}>
-            {' '}
-            {/* Increased width and height */}
-            <Pie
-                data={data}
-                cx={200}
-                cy={200}
-                outerRadius={150}
-                fill="#8884d8"
-                dataKey="value"
-                nameKey="name"
-                label={({ name, value }) => `${Math.round(value)}%`} // Display name and value together
-            >
-                {data.map((entry, idx) => (
-                    <Cell key={`cell-${index}-${idx}`} fill={COLORS[idx % COLORS.length]} />
-                ))}
-            </Pie>
-            <Tooltip formatter={(value, name) => `${name}: ${Math.round(value)}%`} /> // Tooltip to
-            show name and value
-            <Legend />
-        </PieChart>
+        <ResponsiveContainer width={500} height={500}>
+            <PieChart key={`pie-${index}`}>
+                <Pie
+                    data={data}
+                    cx="50%" /* Center the Pie horizontally */
+                    cy="50%" /* Center the Pie vertically */
+                    outerRadius={150} /* Keep the outer radius as per design */
+                    fill="#8884d8"
+                    dataKey="value"
+                    nameKey="name"
+                    label={renderLabel} /* Custom label function */
+                    labelLine={false}
+                >
+                    {data.map((entry, idx) => (
+                        <Cell key={`cell-${index}-${idx}`} fill={COLORS[idx % COLORS.length]} />
+                    ))}
+                </Pie>
+                <Tooltip formatter={(value, name) => `${name}: ${Math.round(value)}%`} />{' '}
+                {/* Tooltip to show name and value */}
+                <Legend />
+            </PieChart>
+        </ResponsiveContainer>
     );
 };
 
@@ -46,8 +52,6 @@ const PieCharts = ({ data }) => {
 
     return (
         <div className="pie-charts-container">
-            {' '}
-            {/* Flex container to align items horizontally */}
             {data.map((assignment, index) => (
                 <div
                     className="pie-chart-item"
@@ -55,8 +59,7 @@ const PieCharts = ({ data }) => {
                 >
                     <h3>
                         {assignment.assignmentTopic} (Answers: {assignment.answerCount})
-                    </h3>{' '}
-                    {/* Display topic and answer count */}
+                    </h3>
                     {renderPieChart(assignment.data, index)}
                 </div>
             ))}
