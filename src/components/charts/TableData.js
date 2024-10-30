@@ -4,10 +4,9 @@ import Table from 'react-bootstrap/Table';
 import useAssignmentAnswers from '../../hooks/teacher/useAssignmentAnswers';
 import { ReactComponent as AscendingIcon } from '../utilities/icons/arrow-up.svg'; // Adjust the path as necessary
 import { ReactComponent as DescendingIcon } from '../utilities/icons/arrow-down.svg';
-import './TableData.css'; // Ensure this CSS file is correctly referenced
+import './TableData.css';
 
 const TableData = ({ assignmentId }) => {
-    // Default sorting by 'user_name' in ascending order
     const [sortConfig, setSortConfig] = useState({ key: 'user_name', direction: 'asc' });
 
     const { answers, loading, error } = useAssignmentAnswers(assignmentId);
@@ -32,8 +31,15 @@ const TableData = ({ assignmentId }) => {
         setSortConfig({ key, direction });
     };
 
-    const getSortedClass = (key, direction) => {
-        return sortConfig.key === key && sortConfig.direction === direction ? 'sorted' : '';
+    const getIndicator = (key) => {
+        if (sortConfig.key === key) {
+            return sortConfig.direction === 'asc' ? (
+                <AscendingIcon className="sort-icon sorted" />
+            ) : (
+                <DescendingIcon className="sort-icon sorted" />
+            );
+        }
+        return null;
     };
 
     if (loading) {
@@ -60,34 +66,16 @@ const TableData = ({ assignmentId }) => {
                                         onClick={() => handleSort('user_name')}
                                         className="sortable"
                                     >
-                                        Name
-                                        <AscendingIcon
-                                            className={`sort-icon ${getSortedClass('user_name', 'asc')}`}
-                                        />
-                                        <DescendingIcon
-                                            className={`sort-icon ${getSortedClass('user_name', 'desc')}`}
-                                        />
+                                        Name {getIndicator('user_name')}
                                     </th>
                                     <th
                                         onClick={() => handleSort('order_nbr')}
                                         className="sortable"
                                     >
-                                        Number
-                                        <AscendingIcon
-                                            className={`sort-icon ${getSortedClass('order_nbr', 'asc')}`}
-                                        />
-                                        <DescendingIcon
-                                            className={`sort-icon ${getSortedClass('order_nbr', 'desc')}`}
-                                        />
+                                        Number {getIndicator('order_nbr')}
                                     </th>
                                     <th onClick={() => handleSort('value')} className="sortable">
-                                        Value
-                                        <AscendingIcon
-                                            className={`sort-icon ${getSortedClass('value', 'asc')}`}
-                                        />
-                                        <DescendingIcon
-                                            className={`sort-icon ${getSortedClass('value', 'desc')}`}
-                                        />
+                                        Value {getIndicator('value')}
                                     </th>
                                 </tr>
                             </thead>

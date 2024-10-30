@@ -9,8 +9,6 @@ const CourseStatistics = () => {
     const { courseId } = useParams();
     const { courseStatistics, loading, error } = useCourseStatistics(courseId);
     const [course] = useTeacherCourse(courseId);
-
-    console.log(course);
     const [selectedCharts, setSelectedCharts] = useState([]);
 
     useEffect(() => {
