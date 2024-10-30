@@ -12,6 +12,8 @@ import { useTranslation } from 'react-i18next';
 import './SummaryChart.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
+import CustomTick from './SummaryChartCustomTicks';
+import CustomTooltip from './SummaryChartCustomTooltip';
 
 const SummaryChart = ({ assignments }) => {
     const { t } = useTranslation();
@@ -21,14 +23,14 @@ const SummaryChart = ({ assignments }) => {
         <Container>
             <Row className="chart-row">
                 <Col className="chart-col">
-                    <ResponsiveContainer width="100%" height={300}>
+                    <ResponsiveContainer width="100%" height={400}>
                         <LineChart
                             data={sortedAssignmentsData}
                             width={730}
                             height={250}
                             margin={{ top: 5, right: 30, left: 20, bottom: 10 }}
                         >
-                            <CartesianGrid strokeDasharray="1 1" />
+                            <CartesianGrid strokeDasharray="1" />
                             <XAxis
                                 dataKey="assignment_id"
                                 label={{
@@ -40,6 +42,9 @@ const SummaryChart = ({ assignments }) => {
                                 dataKey="order_nbr"
                                 domain={[0, 4]}
                                 tickCount={5}
+                                tick={<CustomTick />}
+                                padding={{ bottom: 40 }}
+                                tickLine={false}
                                 label={{
                                     value: t('chart_y_axis_label'),
                                     angle: -90,
@@ -47,7 +52,7 @@ const SummaryChart = ({ assignments }) => {
                                     dy: -5,
                                 }}
                             />
-                            <Tooltip />
+                            <Tooltip content={<CustomTooltip />} />
                             <Line type="linear" dataKey="order_nbr" stroke="#107eab" />
                         </LineChart>
                     </ResponsiveContainer>

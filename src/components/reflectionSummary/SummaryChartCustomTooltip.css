@@ -1,0 +1,8 @@
+.custom-tooltip {
+    background-color: var(--hy-white);
+    border: 1px solid var(--hy-silver);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: var(--hy-light-gray) 1px 2px 3px;
+    font-size: 1em;
+}
