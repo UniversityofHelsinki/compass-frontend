@@ -3,7 +3,7 @@ import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recha
 import './PieChart.css';
 import TableData from './TableData';
 
-const COLORS = ['#FF8042', '#FFBB28', '#00A8E8', '#0088FE', '#00C49F'];
+const COLORS = ['#8B0000', '#8B4513', '#00008B', '#4B0082', '#006400'];
 
 const getColorForValue = (value) => {
     if (value < 0 || value > 4) {
@@ -32,25 +32,6 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
     );
 };
 
-const renderCustomLegend = (value, entry) => {
-    const { color } = entry;
-    return (
-        <div
-            style={{
-                backgroundColor: '#FFFFFF',
-                color: '#000000',
-                padding: '5px 10px',
-                borderRadius: '3px',
-                display: 'flex',
-                alignItems: 'center',
-                marginBottom: '5px',
-            }}
-        >
-            <span>{value}</span>
-        </div>
-    );
-};
-
 const renderPieChart = (data, index) => {
     if (!data || !Array.isArray(data)) {
         return null; // Return nothing if data is undefined or not an array
@@ -76,7 +57,7 @@ const renderPieChart = (data, index) => {
                             />
                         ))}
                     </Pie>
-                    <Legend formatter={renderCustomLegend} />
+                    <Legend />
                 </PieChart>
             </ResponsiveContainer>
         </div>
