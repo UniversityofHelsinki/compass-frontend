@@ -15,10 +15,18 @@
 }
 
 .width-transition {
-    transition: width 0.25s, opacity 0.25s;
+    transition:
+        width 0.25s,
+        opacity 0.25s;
 }
 
 .hide-after-slide {
     width: 400px;
     opacity: 0%;
+}
+
+.main-content-notification-area {
+    position: fixed;
+    max-width: fit-content;
+    bottom: 2dvh;
 }
