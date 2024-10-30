@@ -1,17 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGET } from '../useHttp';
-import { assignmentAnswers } from '../../selectors/assignmentAnswerSelector';
 
 const useAssignmentAnswers = (assignmentId) => {
     const dispatch = useDispatch();
-
-    const selectAssignmentAnswers = assignmentAnswers();
-    const answers = useSelector((state) => selectAssignmentAnswers(state, assignmentId));
-
+    const assignments = useSelector((state) => state.assignments);
+    const answers = assignments.answers[assignmentId] || [];
     const [loading, setLoading] = useState(true);
 
-    // Use custom hook to fetch data
     const [response, error] = useGET({
         path: `/api/teacher/assignment/${assignmentId}/answers`,
         tag: `ASSIGNMENT_ANSWERS_${assignmentId}`,

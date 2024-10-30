@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useCourseStatistics from '../../hooks/teacher/useCourseStatistics';
 import PieCharts from '../charts/PieChart';
-import './CourseStatistics.css'; // Additional CSS for styling buttons, customize as per your needs
+import './CourseStatistics.css';
 
 const CourseStatistics = () => {
     const { courseId } = useParams();
@@ -11,7 +11,7 @@ const CourseStatistics = () => {
 
     useEffect(() => {
         if (Array.isArray(courseStatistics) && courseStatistics.length > 0) {
-            const allChartIds = courseStatistics.map((stat) => stat.assignment_id);
+            const allChartIds = courseStatistics.map((statistic) => statistic.assignment_id);
             setSelectedCharts(allChartIds);
         } else {
             setSelectedCharts([]);
@@ -30,7 +30,7 @@ const CourseStatistics = () => {
         return <p>No data available.</p>;
     }
 
-    const groupedData = courseStatistics.reduce((acc, curr) => {
+    const groupedData = courseStatistics.reduce((accumulator, current) => {
         const {
             assignment_id,
             assignment_topic,
@@ -39,10 +39,10 @@ const CourseStatistics = () => {
             answer_count,
             start_date,
             end_date,
-        } = curr;
+        } = current;
 
-        if (!acc[assignment_id]) {
-            acc[assignment_id] = {
+        if (!accumulator[assignment_id]) {
+            accumulator[assignment_id] = {
                 assignmentId: assignment_id,
                 assignmentTopic: assignment_topic,
                 data: [],
@@ -52,12 +52,12 @@ const CourseStatistics = () => {
             };
         }
 
-        acc[assignment_id].data.push({
+        accumulator[assignment_id].data.push({
             name: `${order_nbr}`,
             value: parseFloat(order_nbr_percentage),
         });
 
-        return acc;
+        return accumulator;
     }, {});
 
     const chartData = Object.values(groupedData);

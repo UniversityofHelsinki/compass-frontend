@@ -1,23 +1,20 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGET } from '../useHttp';
-import { getCoursesStatistics } from '../../selectors/courseStatisticSelector';
+import useTeacherCourse from '../useTeacherCourse';
 
 const useCourseStatistics = (courseId) => {
     const dispatch = useDispatch();
-
-    // Use the memoized selector
-    const statistics = useSelector(getCoursesStatistics) || {};
+    const statistics = useSelector((state) => state.courses.statistics || {});
+    const [course] = useTeacherCourse(courseId);
 
     const [loading, setLoading] = useState(true);
 
-    // Use custom hook to fetch data
     const [response, error] = useGET({
         path: `/api/teacher/statistics/course/${courseId}`,
         tag: `COURSE_STATISTICS_${courseId}`,
     });
 
-    // Effect to handle API response
     useEffect(() => {
         if (response) {
             dispatch({
