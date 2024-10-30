@@ -29,4 +29,5 @@
     position: fixed;
     max-width: fit-content;
     bottom: 2dvh;
+    left: 2dvw;
 }
