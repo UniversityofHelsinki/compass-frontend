@@ -3,12 +3,7 @@ import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recha
 import './PieChart.css';
 import TableData from './TableData';
 
-const COLORS = ['#FFA500', '#FFD700', '#87CEEB', '#79cf53', '#008000'];
-
-const renderLabel = ({ name, value }) => {
-    const formattedValue = Math.round(value) === 100 ? '100%' : `${Math.round(value)}%`;
-    return ` ${formattedValue}`;
-};
+const COLORS = ['#FF8042', '#FFBB28', '#00A8E8', '#0088FE', '#00C49F'];
 
 const getColorForValue = (value) => {
     if (value < 0 || value > 4) {
@@ -17,8 +12,46 @@ const getColorForValue = (value) => {
     return COLORS[value];
 };
 
+const RADIAN = Math.PI / 180;
+
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+        <text
+            x={x}
+            y={y}
+            fill="white"
+            textAnchor={x > cx ? 'start' : 'end'}
+            dominantBaseline="central"
+        >
+            {`${(percent * 100).toFixed(0)}%`}
+        </text>
+    );
+};
+
+const renderCustomLegend = (value, entry) => {
+    const { color } = entry;
+    return (
+        <div
+            style={{
+                backgroundColor: '#FFFFFF',
+                color: '#000000',
+                padding: '5px 10px',
+                borderRadius: '3px',
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '5px',
+            }}
+        >
+            <span>{value}</span>
+        </div>
+    );
+};
+
 const renderPieChart = (data, index) => {
-    console.log(data);
     if (!data || !Array.isArray(data)) {
         return null; // Return nothing if data is undefined or not an array
     }
@@ -29,13 +62,11 @@ const renderPieChart = (data, index) => {
                 <PieChart key={`pie-${index}`}>
                     <Pie
                         data={data}
-                        cx="50%" // Center the Pie horizontally
-                        cy="50%" // Center the Pie vertically
-                        outerRadius={150} // Keep the outer radius as per design
-                        fill="#8884d8"
+                        cx="50%"
+                        cy="50%"
                         dataKey="value"
                         nameKey="name"
-                        label={renderLabel}
+                        label={renderCustomizedLabel}
                         labelLine={false}
                     >
                         {data.map((entry, idx) => (
@@ -45,8 +76,7 @@ const renderPieChart = (data, index) => {
                             />
                         ))}
                     </Pie>
-                    <Tooltip formatter={(value, name) => `${name}: ${Math.round(value)}%`} />
-                    <Legend />
+                    <Legend formatter={renderCustomLegend} />
                 </PieChart>
             </ResponsiveContainer>
         </div>
