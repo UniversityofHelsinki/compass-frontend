@@ -73,7 +73,7 @@ const Row = ({ teacherForm }) => {
 
     const clipboardCopy = () => {
         setNotification(t('teacher_forms_table_share_copy_to_clipboard'), 'success', true);
-        const target = `${window.location.origin}/student/assignments`;
+        const target = `${window.location.origin}/student/assignments/${teacherForm.id}`;
         navigator.clipboard.writeText(target);
     };
 
