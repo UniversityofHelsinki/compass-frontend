@@ -3,14 +3,22 @@ import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recha
 import './PieChart.css';
 import TableData from './TableData';
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF6384'];
+const COLORS = ['#FFA500', '#FFD700', '#87CEEB', '#79cf53', '#008000'];
 
 const renderLabel = ({ name, value }) => {
     const formattedValue = Math.round(value) === 100 ? '100%' : `${Math.round(value)}%`;
-    return `${name}: ${formattedValue}`;
+    return ` ${formattedValue}`;
+};
+
+const getColorForValue = (value) => {
+    if (value < 0 || value > 4) {
+        throw new Error('Value must be between 0 and 4');
+    }
+    return COLORS[value];
 };
 
 const renderPieChart = (data, index) => {
+    console.log(data);
     if (!data || !Array.isArray(data)) {
         return null; // Return nothing if data is undefined or not an array
     }
@@ -31,7 +39,10 @@ const renderPieChart = (data, index) => {
                         labelLine={false}
                     >
                         {data.map((entry, idx) => (
-                            <Cell key={`cell-${index}-${idx}`} fill={COLORS[idx % COLORS.length]} />
+                            <Cell
+                                key={`cell-${index}-${idx}`}
+                                fill={getColorForValue(entry.name)}
+                            />
                         ))}
                     </Pie>
                     <Tooltip formatter={(value, name) => `${name}: ${Math.round(value)}%`} />
