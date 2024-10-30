@@ -3,10 +3,14 @@ import { useParams } from 'react-router-dom';
 import useCourseStatistics from '../../hooks/teacher/useCourseStatistics';
 import PieCharts from '../charts/PieChart';
 import './CourseStatistics.css';
+import useTeacherCourse from '../../hooks/useTeacherCourse';
 
 const CourseStatistics = () => {
     const { courseId } = useParams();
     const { courseStatistics, loading, error } = useCourseStatistics(courseId);
+    const [course] = useTeacherCourse(courseId);
+
+    console.log(course);
     const [selectedCharts, setSelectedCharts] = useState([]);
 
     useEffect(() => {
@@ -72,7 +76,7 @@ const CourseStatistics = () => {
 
     return (
         <div>
-            <h2>Course statistics for course: {courseId}</h2>
+            <h2>Course statistics for course: {course?.title}</h2>
             <div className="chart-selection">
                 <h3>Select which assignments to display</h3>
                 {chartData.map((assignment) => (

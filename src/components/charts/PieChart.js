@@ -66,7 +66,7 @@ const renderPieChart = (data, index) => {
 
 const PieCharts = ({ data, selectedChartIds }) => {
     if (!data || !Array.isArray(data) || data.length === 0) {
-        return null; // Return nothing if data is undefined, not an array, or empty
+        return null;
     }
 
     const filteredData = data.filter((assignment) =>

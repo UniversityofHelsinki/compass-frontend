@@ -1,12 +1,10 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGET } from '../useHttp';
-import useTeacherCourse from '../useTeacherCourse';
 
 const useCourseStatistics = (courseId) => {
     const dispatch = useDispatch();
     const statistics = useSelector((state) => state.courses.statistics || {});
-    const [course] = useTeacherCourse(courseId);
 
     const [loading, setLoading] = useState(true);
 
