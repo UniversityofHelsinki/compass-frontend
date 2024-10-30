@@ -4,12 +4,14 @@ import useCourseStatistics from '../../hooks/teacher/useCourseStatistics';
 import PieCharts from '../charts/PieChart';
 import './CourseStatistics.css';
 import useTeacherCourse from '../../hooks/useTeacherCourse';
+import { useTranslation } from 'react-i18next';
 
 const CourseStatistics = () => {
     const { courseId } = useParams();
     const { courseStatistics, loading, error } = useCourseStatistics(courseId);
     const [course] = useTeacherCourse(courseId);
     const [selectedCharts, setSelectedCharts] = useState([]);
+    const { t } = useTranslation();
 
     useEffect(() => {
         if (Array.isArray(courseStatistics) && courseStatistics.length > 0) {
@@ -21,15 +23,19 @@ const CourseStatistics = () => {
     }, [courseStatistics]);
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <p>{t('loading')}</p>;
     }
 
     if (error) {
-        return <p>Error loading data: {error.message}</p>;
+        return (
+            <p>
+                {t('error_loading_data')}: {error.message}
+            </p>
+        );
     }
 
     if (!Array.isArray(courseStatistics) || courseStatistics.length === 0) {
-        return <p>No data available.</p>;
+        return <p>{t('no_statistic_data_available')}</p>;
     }
 
     const groupedData = courseStatistics.reduce((accumulator, current) => {
@@ -62,7 +68,9 @@ const CourseStatistics = () => {
         return accumulator;
     }, {});
 
-    const chartData = Object.values(groupedData);
+    const chartData = Object.values(groupedData).sort((a, b) => {
+        return new Date(a.start_date) - new Date(b.start_date);
+    });
 
     const handleSelectChart = (assignmentId) => {
         setSelectedCharts((prev) =>
@@ -74,9 +82,11 @@ const CourseStatistics = () => {
 
     return (
         <div>
-            <h2>Course statistics for course: {course?.title}</h2>
+            <h2>
+                {t('course_statistics_for_course')}: {course?.title}
+            </h2>
             <div className="chart-selection">
-                <h3>Select which assignments to display</h3>
+                <h3>{t('select_assignments_to_display')}</h3>
                 {chartData.map((assignment) => (
                     <button
                         key={assignment.assignmentId}

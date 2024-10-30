@@ -81,7 +81,7 @@ const PieCharts = ({ data, selectedChartIds }) => {
                     key={`assignment-${assignment.assignmentId}-${index}`}
                 >
                     <h3>
-                        {assignment.assignmentTopic} (Answers: {assignment.answerCount})
+                        {assignment.assignmentTopic} ({assignment.answerCount})
                     </h3>
                     {renderPieChart(assignment.data, index)}
                     <TableData assignmentId={assignment.assignmentId} />
