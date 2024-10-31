@@ -1,16 +1,19 @@
 import React from 'react';
-import { ReactComponent as Level0Icon } from '../utilities/icons/minus.svg';
-import { ReactComponent as Level1Icon } from '../utilities/icons/square.svg';
-import { ReactComponent as Level2Icon } from '../utilities/icons/log.svg';
-import { ReactComponent as Level3Icon } from '../utilities/icons/units-and-faculties.svg';
-import { ReactComponent as Level4Icon } from '../utilities/icons/favorites.svg';
+import { ReactComponent as Level0Icon } from '../utilities/icons/circle.svg';
+import { ReactComponent as Level1Icon } from '../utilities/icons/circle-fill.svg';
+import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vertical.svg';
+import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
+import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
 
 import './SummaryChartCustomTicks.css';
+import PropTypes from 'prop-types';
 
 const CustomTick = ({ x, y, payload }) => {
+    const value = payload?.value;
+
     let IconComponent;
 
-    switch (payload.value) {
+    switch (value) {
         case 0:
             IconComponent = Level0Icon;
             break;
@@ -36,6 +39,14 @@ const CustomTick = ({ x, y, payload }) => {
             <IconComponent className="y-axis-icons" />
         </foreignObject>
     ) : null;
+};
+
+CustomTick.propTypes = {
+    x: PropTypes.number,
+    y: PropTypes.number,
+    payload: PropTypes.shape({
+        value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    }),
 };
 
 export default CustomTick;
