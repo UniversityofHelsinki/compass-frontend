@@ -25,7 +25,7 @@ const Compass = () => {
                         <Header />
                     </Col>
                 </Row>
-                <Row>
+                <Row className="root-main-row">
                     <Col role="main">
                         <div className="main-content">
                             <Outlet />
