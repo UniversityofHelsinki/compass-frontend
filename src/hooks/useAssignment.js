@@ -9,7 +9,7 @@ const useAssignment = (assignmentId) => {
 
     const get = async () => {
         const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
-        const URL = `${COMPASS_BACKEND_SERVER}/api/student/course/assignment/${assignmentId}`;
+        const URL = `${COMPASS_BACKEND_SERVER}/api/student/course/assignment/feedback/${assignmentId}`;
         try {
             const response = await fetch(URL);
             if (response.ok) {

@@ -16,7 +16,7 @@ const Assignments = () => {
     const dueAssignmentRow = (studentAssignment) => {
         return (
             <span className="assignments-course-row">
-                <Link to={`/student/assignment/${studentAssignment?.assignment_id}/${course?.course_id}`} >
+                <Link to={`/student/assignment/${studentAssignment?.assignment_id}/${course?.id}`} >
                     {studentAssignment?.topic}
                 </Link>
             </span>
@@ -25,7 +25,7 @@ const Assignments = () => {
     const previousAssignmentRow = (studentAssignment) => {
         return (
             <span className="assignments-course-row">
-                <Link to={`/student/feedback/${studentAssignment?.assignment_id}/${course?.course_id}`}>
+                <Link to={`/student/feedback/${studentAssignment?.assignment_id}/${course?.course_id}/${course?.id}`}>
                     {studentAssignment?.topic}
                 </Link>
             </span>

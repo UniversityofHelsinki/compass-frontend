@@ -18,11 +18,12 @@ import HyButton from '../utilities/HyButton';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import useStudentAssignmentAnswer from '../../hooks/useStudentAssignmentAnswer';
 
-const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/student/assignments', levels }) => {
-    const { assignment, course_id } = useParams();
-    backBtnHref = backBtnHref + '/${course_id}';
+const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/student/assignments/', levels }) => {
+    const { assignment, id } = useParams();
+    backBtnHref = backBtnHref + id;
     const [user] = useUser();
     const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
+    const courseId = studentAnswerData.id;
     const studentAnswer = {...studentAnswerData,
         value: studentAssignmentAnswer?.value,
         order_nbr: studentAssignmentAnswer?.order_nbr,
@@ -56,7 +57,7 @@ const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/student
         newUser["assignment_id"] = studentAnswer.assignment_id;
         const answer = await addAnswer(newUser, true);
         let course = studentAnswer.course_id;
-        navigate(`/student/feedback/${answer}/${course}`);
+        navigate(`/student/feedback/${answer}/${course}/${courseId}`);
     };
 
     const changeValue = (name, value) => {

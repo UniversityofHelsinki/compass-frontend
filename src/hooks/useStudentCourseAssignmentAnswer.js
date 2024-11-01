@@ -18,7 +18,7 @@ const useStudentCourseAssignmentAnswer = (course_id) => {
     const [previousAssignments, setPreviousAssignments] = useState(null);
 
     const get = async (course_id) => {
-        if (course_id?.length > 0) {
+        if (course_id) {
             const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
             const URL = `${COMPASS_BACKEND_SERVER}/api/student/course/assignment/answer/${course_id}`;
             try {

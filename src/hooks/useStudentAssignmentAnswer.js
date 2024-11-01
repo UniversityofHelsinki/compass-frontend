@@ -44,7 +44,7 @@ const useStudentAssignmentAnswer = (assignmentId) => {
     };
 
     useEffect(() => {
-        if (!answer || answer.assignment_id !== assignmentId) {
+        if (!answer || answer.assignment_id !== parseInt(assignmentId)) {
             (async () => {
                 //dispatch({ type: 'GET_STUDENT_COURSE_ASSIGNMENT_ANSWER', payload: await get() })
                 setAnswer(await get());

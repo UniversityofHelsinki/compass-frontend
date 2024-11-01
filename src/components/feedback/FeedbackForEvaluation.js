@@ -11,7 +11,7 @@ import useStudentFeedback from "../../hooks/useStudentFeedback";
 import useAssignment from "../../hooks/useAssignment";
 
 const FeedbackForEvaluation = () => {
-    const { answer, course } = useParams();
+    const { answer, course, id } = useParams();
     const [user] = useUser();
 
     const studentAnswer = useStudentFeedback(answer, course);
@@ -61,7 +61,7 @@ const FeedbackForEvaluation = () => {
     return (
         <>
             {showFeedback()}
-            <FeedbackForEvaluationFooter disabled={editable} message={''} assignment={studentAnswer.assignment_id}
+            <FeedbackForEvaluationFooter disabled={editable} message={''} assignment={studentAnswer.assignment_id} id={id}
                                          msgStyle={'assignment.msgStyle'} studentAnswer={studentAnswer}></FeedbackForEvaluationFooter>
         </>
     );

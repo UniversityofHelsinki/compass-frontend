@@ -50,6 +50,8 @@ const useStudentAssignmentCourse = (assignmentId) => {
         emptyAnswer.topic = assignment_course.topic;
         emptyAnswer.title = assignment_course.title;
         emptyAnswer.course_id = assignment_course.course_id;
+        emptyAnswer.assignment_id = assignmentId;
+        emptyAnswer.id = assignment_course.id;
         return emptyAnswer;
     }
 
