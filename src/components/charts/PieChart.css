@@ -1,0 +1,24 @@
+.pie-charts-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.pie-chart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 calc(50% - 20px);
+    box-sizing: border-box;
+    max-width: 450px;
+    margin: 10px;
+}
+
+@media (max-width: 768px) {
+    .pie-chart-item {
+        flex: 1 1 100%;
+        max-width: none;
+    }
+}

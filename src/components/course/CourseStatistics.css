@@ -1,0 +1,18 @@
+.tag-button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--hy-silver);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333333;
+}
+
+.tag-button.selected {
+    background-color: var(--hy-blue-active);
+    color: white;
+}
+
+.tag-button:hover {
+    background-color: var(--hy-blue-light);
+}
