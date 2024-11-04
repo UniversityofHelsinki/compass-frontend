@@ -7,6 +7,7 @@ import { ReactComponent as CopyIcon } from '../utilities/icons/copy.svg';
 import { ReactComponent as EditIcon } from '../utilities/icons/edit.svg';
 import { ReactComponent as TrashIcon } from '../utilities/icons/trash.svg';
 import { ReactComponent as ShareIcon } from '../utilities/icons/share.svg';
+import { ReactComponent as StatisticsIcon } from '../utilities/icons/pie-chart.svg';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useNotification } from '../../NotificationContext';
@@ -88,7 +89,21 @@ const Row = ({ teacherForm }) => {
         </div>
     );
 
-    const actions = [<Copy />, <Edit />, <Delete />, <Share />];
+    const Statistics = () => (
+        <div className="teacher-forms-table-row-statistics-action">
+            <Link
+                to={`/teacher/statistics/course/${teacherForm.id}`}
+                title={t('teacher_forms_table_statistics_title')}
+            >
+                <span className="screenreader-only">
+                    {t('teacher_forms_table_row_statistics', { title: teacherForm.title })}
+                </span>
+                <StatisticsIcon aria-hidden />
+            </Link>
+        </div>
+    );
+
+    const actions = [<Copy />, <Edit />, <Delete />, <Statistics />, <Share />];
 
     const period = (startDate, endDate) => {
         return (
@@ -159,6 +174,13 @@ const TeacherFormsTable = ({ teacherForms = [], onSortCriteriaChange, sortOpts }
     );
 };
 
-TeacherFormsTable.propTypes = {};
+TeacherFormsTable.propTypes = {
+    teacherForms: PropTypes.array.isRequired,
+    onSortCriteriaChange: PropTypes.func.isRequired,
+    sortOpts: PropTypes.shape({
+        criteria: PropTypes.string.isRequired,
+        direction: PropTypes.number.isRequired,
+    }).isRequired,
+};
 
 export default TeacherFormsTable;

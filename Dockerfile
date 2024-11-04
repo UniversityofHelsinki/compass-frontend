@@ -18,7 +18,7 @@ RUN mkdir -p /app/logs /var/cache/nginx /usr/share/nginx/html
 RUN rm -rf /etc/nginx/conf.d/default.conf
 
 # Copy custom Nginx configuration
-COPY nginx.conf /etc/nginx/conf.d
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Create a non-root user and group
 RUN addgroup -S nginxgroup && \
