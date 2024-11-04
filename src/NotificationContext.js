@@ -27,7 +27,13 @@ const NotificationProvider = ({ children }) => {
             throw new Error(`Notification must have content defined (${content}).`);
         }
 
-        setNotification({ content, type, disappearing, additionalContent });
+        if (notification) {
+            clearNotification();
+        }
+
+        setTimeout(() => {
+            setNotification({ content, type, disappearing, additionalContent });
+        });
     };
 
     return (
