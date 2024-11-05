@@ -9,37 +9,47 @@ import {useLocation, Link, useParams} from 'react-router-dom';
 import useUser from "../../hooks/useUser";
 import useStudentFeedback from "../../hooks/useStudentFeedback";
 import useAssignment from "../../hooks/useAssignment";
+import TopBar from "../utilities/TopBar";
 
-const FeedbackForEvaluation = () => {
+const FeedbackForEvaluation = (showBackBtn = true) => {
     const { answer, course, id } = useParams();
+    //const backBtnHref = "/student/assignments/" + id;
+    const backBtnHref = "/student/courses";
     const [user] = useUser();
-
     const studentAnswer = useStudentFeedback(answer, course);
     const editable = useAssignment(answer);
 
     const { t } = useTranslation();
     let answer_evaluation_form_header =  'answer_evaluation_form_header_';
     let answer_evaluation_form_text =  'answer_evaluation_form_text_';
+    const backBtnLabels={
+        primary: t('assignment_feedback_back_to_course'),
+        secondary: t('assignment_feedback_back_to_course_secondary'),
+    };
 
     const showFeedback = () => {
         return (
-            <Container>
-                <Row >
-                    <Col className="feedback-for-evaluation-assignment">
-                        {studentAnswer.topic}
-                    </Col>
-                    <Col>
-                        {t('assignment_feedback_answer')}: {studentAnswer.value}
-                    </Col>
-                </Row>
-                <Row className="feedback-for-evaluation-course">
-                    <Col>
-                        {studentAnswer.title}
-                    </Col>
-                    <Col>
-                        {t('assignment_feedback_choice')}: {studentAnswer.order_nbr}
-                    </Col>
-                </Row>
+            <div className="feedback-for-evaluation-form-container">
+                <TopBar
+                    heading={studentAnswer.topic}
+                    showBackBtn={true}
+                    backBtnHref={backBtnHref}
+                    backBtnLabels={backBtnLabels}
+                />
+                <div className="m-3"></div>
+                <div className="feedback-for-evaluation">
+                    <div className="feedback-for-evaluation-answer">
+                        <strong>{t('assignment_feedback_answer')}:</strong> {studentAnswer.value}
+                    </div>
+                    <div className="feedback-for-evaluation-answer">
+                        <strong>{t('assignment_feedback_choice')}:</strong> {studentAnswer.order_nbr}
+                    </div>
+                </div>
+                <div className="feedback-for-evaluation-course">
+                    {studentAnswer.title}
+                </div>
+                <div className="m-2"></div>
+
                 <Row>
                     <Col>
                         <h4 className="feedback-for-evaluation-header">{t(answer_evaluation_form_header + studentAnswer.order_nbr)}</h4>
@@ -50,7 +60,7 @@ const FeedbackForEvaluation = () => {
                         {t(answer_evaluation_form_text + studentAnswer.order_nbr)}
                     </Col>
                 </Row>
-            </Container>
+            </div>
         )
     }
 
@@ -61,7 +71,8 @@ const FeedbackForEvaluation = () => {
     return (
         <>
             {showFeedback()}
-            <FeedbackForEvaluationFooter disabled={editable} message={''} assignment={studentAnswer.assignment_id} id={id}
+            <FeedbackForEvaluationFooter disabled={editable} message={''} assignment={studentAnswer.assignment_id}
+                                         answer={answer} course={course} id={id}
                                          msgStyle={'assignment.msgStyle'} studentAnswer={studentAnswer}></FeedbackForEvaluationFooter>
         </>
     );
@@ -69,6 +80,8 @@ const FeedbackForEvaluation = () => {
 }
 
 FeedbackForEvaluation.propTypes = {
+    showBackBtn: PropTypes.bool,
+    backBtnHref: PropTypes.string,
 };
 
 export default FeedbackForEvaluation;

@@ -7,8 +7,8 @@ const studentReducer = (state = {}, action) => {
       return { ...state, assignments: action.payload };
     case 'SET_STUDENT_ANSWER':
       return { ...state, answer: action.payload };
-    case 'GET_STUDENT_ANSWER':
-      return { ...state, answerXXXXX: action.payload };
+    /*case 'GET_STUDENT_ANSWER':
+      return { ...state, answerXXXXX: action.payload };*/
     case 'GET_STUDENT_COURSE':
       return { ...state, course: action.payload };
     case 'GET_STUDENT_ASSIGNMENT_COURSE':

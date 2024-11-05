@@ -31,7 +31,6 @@ const useStudentAnswerRemove = () => {
 
     const removeAnswer = async (answer) => {
         const resp = await post(answer);
-        //let message = findValue(addedRecord, "message");
         dispatch({type: 'SET_STUDENT_ANSWER', payload: resp});
         /*setTimeout(() => {
             dispatch({ type: 'HIDE_REMOVE_NOTIFICATION' });

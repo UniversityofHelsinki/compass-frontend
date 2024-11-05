@@ -6,19 +6,22 @@ import {Link} from "react-router-dom";
 
 const Course = ({course}) => {
         return(
-            <Link to={`/student/assignments/${course.id}`}>
-              <div className="student-course">
-                <div className="student-course-title">
-                  <span>
-                    {course.title}
-                  </span>
-                </div>
-                <div className="student-course-description">
+            <Link to={`/student/assignments/${course.id}`} className="course-link">
+                <div>
+                    <div className="course-title">
+                      <span>
+                        {course.title}
+                      </span>
+                    </div>
+                    {/*<div className="course-list-line-container">
+                        <hr className="line"></hr>
+                    </div>*/}
+                    {/*<div className="student-course-description">
                   <span>
                     {course.description}
                   </span>
+                </div>*/}
                 </div>
-              </div>
             </Link>
         )
 }

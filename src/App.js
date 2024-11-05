@@ -78,11 +78,11 @@ const App = () => {
               </Route>
             <Route path="assignments/:id" element={<Assignments backBtnLabels={backBtnLabels}/>}>
             </Route>
-            <Route path="assignment/:assignment/:id" element={<Assignment levels={LEVELS} backBtnLabels={backBtnLabels}/>}>
+            <Route path="assignment/:assignment/:id" element={<Assignment levels={LEVELS} />}>
             </Route>
             <Route path="feedback/:answer/:course/:id" element={<FeedbackForEvaluation />}>
             </Route>
-            <Route path="delete" element={<DeleteStudentAnswer />}>
+            <Route path="delete/:answer/:id" element={<DeleteStudentAnswer />}>
             </Route>
           </Route>
         </Route>

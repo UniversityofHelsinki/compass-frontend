@@ -17,10 +17,12 @@ import BackButton from '../utilities/BackButton';
 import HyButton from '../utilities/HyButton';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import useStudentAssignmentAnswer from '../../hooks/useStudentAssignmentAnswer';
+import TopBar from "../utilities/TopBar";
 
-const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/student/assignments/', levels }) => {
+const Assignment = ({ showBackBtn = true, levels }) => {
     const { assignment, id } = useParams();
-    backBtnHref = backBtnHref + id;
+    //backBtnHref = backBtnHref + id;
+    const backBtnHref = "/student/courses";
     const [user] = useUser();
     const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
     const courseId = studentAnswerData.id;
@@ -43,6 +45,10 @@ const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/student
     const [_answer, _message, _messageStyle, addAnswer] = useSelfReflectionSave();
     const formRef = useRef();
     const disabled = false;
+    const backBtnLabels={
+        primary: t('assignment_answer_back_to_course'),
+            secondary: t('assignment_answer_back_to_course_secondary'),
+    };
 
     const resetFileFields = () => {
         if (formRef.current) {
@@ -96,16 +102,18 @@ const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/student
     );
 
     return (
-        <Container className="assignment-form-container">
-            <Row className="assignment-form-row">
-                <div className="assignment-form-back-col">
-                    {showBackBtn && <BackButton labels={backBtnLabels} href={backBtnHref} />}
-                </div>
-                <div className="assignment-form-assignment-col">
-                    <h3>{studentAnswer.topic}</h3>
-                    <div>{studentAnswer.title}</div>
-                </div>
-            </Row>
+        <div className="assignment-form-container">
+            <TopBar
+                heading={studentAnswer.topic}
+                showBackBtn={true}
+                backBtnHref={backBtnHref}
+                backBtnLabels={backBtnLabels}
+            />
+            <div className="m-3"></div>
+            <div className="assignment-form-row">
+                {studentAnswer.title}
+            </div>
+            <div className="m-2"></div>
             <Row>
                 <Col>
                     <FormFreeAnswer
@@ -141,7 +149,7 @@ const Assignment = ({ showBackBtn = true, backBtnLabels, backBtnHref = '/student
                     </ButtonRow>
                 </Col>
             </Row>
-        </Container>
+        </div>
     );
 };
 

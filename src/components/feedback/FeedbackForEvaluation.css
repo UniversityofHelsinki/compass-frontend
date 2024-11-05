@@ -1,5 +1,36 @@
+.feedback-for-evaluation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.feedback-for-evaluation-answer {
+    width: 30%;
+}
+
 .feedback-for-evaluation-header {
 }
+
+/*.feedback-for-evaluation-form-container  {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;*/
+    /*outline: 2px solid var(--huds-grayscale-medium-dark);*/
+    /*margin-bottom: 10px;
+    padding: 0 20px;
+    width: 100%;*/
+    /*box-shadow: 1px 2px 4px var(--huds-grayscale-black);*/
+/*}*/
+
+.feedback-for-evaluation-back-col {
+    flex: 0;
+}
+
+/*.feedback-for-evaluation-header-row {
+    display: flex;
+    width: 100%;
+}*/
 
 .feedback-for-evaluation-assignment {
     padding-bottom: 5px;
@@ -7,6 +38,9 @@
     font-weight: bold;
 }
 
-.feedback-for-evaluation-course {
+/*.feedback-for-evaluation-course {
     padding-bottom: 10px;
-}
+    padding-left: 10.0em;
+    display: flex;
+    width: 100%;
+}*/

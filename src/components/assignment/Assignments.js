@@ -6,13 +6,18 @@ import {useTranslation} from "react-i18next";
 import {Link, useLocation, useParams} from "react-router-dom";
 import useStudentCourseAssignmentAnswer from "../../hooks/useStudentCourseAssignmentAnswer";
 import useStudentCourse from "../../hooks/useStudentCourse";
+import TopBar from "../utilities/TopBar";
 
 const Assignments = () => {
     const { id } = useParams();
     const {t} = useTranslation();
     let course = useStudentCourse(id);
     const [due_assignment, previous_assignment] = useStudentCourseAssignmentAnswer(course?.course_id);
-
+    const backBtnHref = "/student/courses";
+    const backBtnLabels={
+        primary: t('assignment_feedback_back_to_course'),
+        secondary: t('assignment_feedback_back_to_course_secondary'),
+    };
     const dueAssignmentRow = (studentAssignment) => {
         return (
             <span className="assignments-course-row">
@@ -34,15 +39,14 @@ const Assignments = () => {
     }
     const listStudentAssignments = () => {
         return(
-            <div>
-                <Container className="assignments-form-container">
-                    <Row className="assignments-form-row">
-                        <div className="assignments-form-title-col">
-                            {course?.title}
-                        </div>
-                    </Row>
-                </Container>
-
+            <>
+                <TopBar
+                    heading={course?.title}
+                    showBackBtn={true}
+                    backBtnHref={backBtnHref}
+                    backBtnLabels={backBtnLabels}
+                />
+                <div className="m-3"></div>
                 <Container className="assignments-form-container">
                     <Row>
                         <div>
@@ -85,7 +89,7 @@ const Assignments = () => {
                         </Row>
                     </Link>
                 </Container>
-            </div>)
+            </>)
     }
 
     if ((due_assignment && due_assignment?.length > 0) || (previous_assignment && previous_assignment?.length > 0)) {

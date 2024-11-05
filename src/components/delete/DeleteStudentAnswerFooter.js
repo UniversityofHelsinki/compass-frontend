@@ -6,20 +6,19 @@ import HyButton from '../utilities/HyButton';
 import {Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
-const DeleteStudentAnswerFooter = ({disabled, assignment, course, deleteAnswer}) => {
+const DeleteStudentAnswerFooter = ({disabled, answer, course, id, deleteAnswer}) => {
     const { t } = useTranslation();
-    let answer = assignment;
 
     return (
         <Container>
             <div className="delete-student-answer-footer">
                 <div className="delete-student-answer-footer-buttons">
-                    <Link to={`/student/feedback/${answer}/${course}`} >
+                    <Link to={`/student/feedback/${answer}/${course}/${id}`} >
                         <HyButton variant="primary" onClick={null} type="submit" disabled={disabled}>
                             {t('assignment_answer_do_not_remove')}
                         </HyButton>
                     </Link>
-                    <Link to={`/student/assignments/${assignment}`} >
+                    <Link to={`/student/assignments/${answer}/${course}/${id}`} >
                         <HyButton variant="primary" type="submit" onClick={deleteAnswer} disabled={disabled}>
                             {t('assignment_answer_remove')}
                         </HyButton>
@@ -32,7 +31,6 @@ const DeleteStudentAnswerFooter = ({disabled, assignment, course, deleteAnswer})
 
 DeleteStudentAnswerFooter.propTypes = {
     disabled: PropTypes.bool,
-    assignment: PropTypes.string,
     deleteAnswer: PropTypes.func
 };
 

@@ -7,32 +7,30 @@ import Notification from "../notes/Notification";
 import {Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
-const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, assignment, id, studentAnswer}) => {
+const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, assignment, answer, course, id, studentAnswer}) => {
     const { t } = useTranslation();
 
     return (
-        <Container>
         <div className="feedback-for-evaluation-footer">
             <Notification msg={t(message)} type={msgStyle}/>
             <div className="feedback-for-evaluation-footer-buttons">
-                <Link to={`/student/assignment/${assignment}`} >
+                <Link to={`/student/assignment/${answer}/${id}`} >
                     <HyButton variant="primary" onClick={null} type="submit" disabled={disabled}>
                         {t('assignment_feedback_edit')}
                     </HyButton>
                 </Link>
-                <Link to={`/student/delete`} state={{ studentAnswer: {...studentAnswer}}}>
+                <Link to={`/student/delete/${answer}/${id}`} state={{ studentAnswer: {...studentAnswer}}}>
                     <HyButton variant="primary" type="submit" disabled={disabled}>
                         {t('assignment_feedback_remove')}
                     </HyButton>
                 </Link>
-                <Link to={`/student/assignments/${id}`} >
+                {/* <Link to={`/student/assignments/${id}`} >
                     <HyButton variant="primary" type="submit" disabled={false}>
                         {t('assignment_feedback_back')}
                     </HyButton>
-                </Link>
+                </Link> */}
             </div>
         </div>
-        </Container>
     );
 };
 

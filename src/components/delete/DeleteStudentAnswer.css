@@ -1,0 +1,12 @@
+
+.delete-student-answer-topic {
+    padding-bottom: 5px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.delete-student-answer-title {
+    padding-bottom: 10px;
+    display: flex;
+    width: 100%;
+}

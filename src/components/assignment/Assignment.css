@@ -1,24 +1,23 @@
-.assignment-form-container  {
+/*.assignment-form-container  {
     display: flex;
     flex-direction: column;
     align-items: start;
-    justify-content: start;
-    outline: 2px solid var(--huds-grayscale-medium-dark);
-    margin-bottom: 10px;
+    justify-content: start;*/
+    /*outline: 2px solid var(--huds-grayscale-medium-dark);*/
+    /*margin-bottom: 10px;
     padding: 0 20px;
-    width: 80%;
-    box-shadow: 1px 2px 4px var(--huds-grayscale-black);
-}
+    width: 100%;*/
+    /*box-shadow: 1px 2px 4px var(--huds-grayscale-black);*/
+/*}*/
 
-.assignment-form-row {
-    /*padding: 0.5em 0 0.5em;*/
-    /*padding-bottom: 1.0em;*/
-    /*font-weight: 700;
-    border-bottom: 1px solid var(--huds-grayscale-medium);*/
+.assignment-form-header-row {
     display: flex;
     width: 100%;
-    padding-bottom: 1.0em;
 }
+/*.assignment-form-row {
+    padding-bottom: 1.0em;
+    padding-left: 10.0em;
+}*/
 
 /*.assignment-form-col {
     padding: 0.5em 0 0.5em;
@@ -35,6 +34,8 @@
     flex: 0;
     flex-basis: auto;
     width: 85%;
+    font-size: large;
+    font-weight: bold;
 }
 
 /*.assignment-form-description-col {

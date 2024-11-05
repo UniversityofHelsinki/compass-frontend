@@ -7,6 +7,8 @@ import * as PropTypes from "prop-types";
 import Course from "./Course";
 import React from "react";
 import useStudentCourses from "../hooks/student/useStudentCourses";
+import {Container} from "react-bootstrap";
+import Row from "react-bootstrap/Row";
 
 const CourseList = () => {
   const { t } = useTranslation();
@@ -19,9 +21,9 @@ const CourseList = () => {
       <div>
         <ul className="course-list">
           {courses.map((course) =>
-            <li key={course.course_id} className="course-row">
-              <Course course={course} />
-            </li>
+              <li key={course.course_id} className="course-row">
+                <Course course={course}/>
+              </li>
           )}
         </ul>
       </div>)

@@ -1,11 +1,17 @@
-.student-course {
-   padding: 5px;
+.course {
 }
 
-.student-course-title {
+/*.course-link a:nth-child(even) {
+   background-color:var(--huds-grayscale-light);
+}*/
+
+.course-title {
    font-weight: bold;
 }
+/*.course-title:nth-child(even)  {
+   background-color:var(--huds-grayscale-light);
+}*/
 
-.student-course-description {
+/*.student-course-description {
    padding-left: 10px;
-}
+}*/
