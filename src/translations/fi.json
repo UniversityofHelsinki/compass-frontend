@@ -218,5 +218,7 @@
     "course_assignment_on_going_assignment_can_not_be_deleted": "Käynnissä olevaa ASSIGNMENTTIA??? ei voi poistaa.",
     "course_assignment_on_going_assignment_topic_can_not_be_changed": "Käynnissä olevan ASSIGNMENTIN??? aihetta ei voi muuttaa.",
     "course_assignment_on_going_assignment_can_not_be_shortened": "Käynnissä olevan ASSIGNMENTIN??? voimassaoloa ei voi lyhentää.",
-    "course_assignment_past_assignment_can_not_be_changed": "Päättyneen ASSIGNMENTIN??? tietoja ei voi enää muuttaa."
+    "course_assignment_past_assignment_can_not_be_changed": "Päättyneen ASSIGNMENTIN??? tietoja ei voi enää muuttaa.",
+    "tooltip_top": "Tehtävä: ",
+    "tooltip_bottom": "Taso: "
 }

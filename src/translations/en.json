@@ -44,5 +44,7 @@
     "error_loading_data": "Error loading data",
     "no_statistic_data_available": "No statistic data available",
     "course_statistics_for_course": "Statistics for course",
-    "select_assignments_to_display": "Select which assignments to display"
+    "select_assignments_to_display": "Select which assignments to display",
+    "tooltip_top": "Assignment: ",
+    "tooltip_bottom": "Level: "
 }
