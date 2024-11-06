@@ -20,10 +20,10 @@ import TopBar from "../utilities/TopBar";
 
 const Assignment = ({ showBackBtn = true, levels }) => {
     const { assignment, id } = useParams();
-    const backBtnHref = "/student/courses";
     const [user] = useUser();
     const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
     const courseId = studentAnswerData.id;
+    const backBtnHref = "/student/assignments/" + id;
     const studentAnswer = {...studentAnswerData,
         value: studentAssignmentAnswer?.value,
         order_nbr: studentAssignmentAnswer?.order_nbr,

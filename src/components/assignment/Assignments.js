@@ -15,8 +15,8 @@ const Assignments = () => {
     const [due_assignment, previous_assignment] = useStudentCourseAssignmentAnswer(course?.course_id);
     const backBtnHref = "/student/courses";
     const backBtnLabels={
-        primary: t('assignment_feedback_back_to_course'),
-        secondary: t('assignment_feedback_back_to_course_secondary'),
+        primary: t('assignments_back_to_course'),
+        secondary: t('assignments_back_to_course_secondary'),
     };
     const dueAssignmentRow = (studentAssignment) => {
         return (

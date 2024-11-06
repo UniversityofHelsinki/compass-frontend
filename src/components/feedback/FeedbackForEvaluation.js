@@ -14,7 +14,7 @@ import TopBar from "../utilities/TopBar";
 const FeedbackForEvaluation = (showBackBtn = true) => {
     const { answer, course, id } = useParams();
     //const backBtnHref = "/student/assignments/" + id;
-    const backBtnHref = "/student/courses";
+    const backBtnHref = "/student/assignments/" + id;
     const [user] = useUser();
     const studentAnswer = useStudentFeedback(answer, course);
     const editable = useAssignment(answer);
