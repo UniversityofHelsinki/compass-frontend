@@ -1,7 +1,8 @@
 import React from 'react';
-import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
+import { Cell, Legend, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import './PieChart.css';
 import TableData from './TableData';
+import { useTranslation } from 'react-i18next';
 
 const COLORS = ['#8B0000', '#8B4513', '#00008B', '#4B0082', '#006400'];
 
@@ -65,6 +66,8 @@ const renderPieChart = (data, index) => {
 };
 
 const PieCharts = ({ data, selectedChartIds }) => {
+    const { t } = useTranslation();
+
     if (!data || !Array.isArray(data) || data.length === 0) {
         return null;
     }
@@ -84,6 +87,9 @@ const PieCharts = ({ data, selectedChartIds }) => {
                         {assignment.assignmentTopic} ({assignment.answerCount})
                     </h3>
                     {renderPieChart(assignment.data, index)}
+                    <div className="answer-average-level">
+                        {t('chart_average_answer_level')} {assignment.avg_answer_level}
+                    </div>
                     <TableData assignmentId={assignment.assignmentId} />
                 </div>
             ))}
