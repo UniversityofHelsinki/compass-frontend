@@ -56,6 +56,7 @@ const useSelfReflectionModification = (object, validate) => {
         setTouchedFields([]);
         setModified(false);
         setClearValues(false);
+        validate(object, modifiedObject);
         return [{...object}, onChange, false];
     }
 
