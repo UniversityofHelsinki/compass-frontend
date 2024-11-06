@@ -100,55 +100,58 @@ const Assignment = ({ showBackBtn = true, levels }) => {
     );
 
     return (
-        <div className="assignment-form-container">
-            <TopBar
-                heading={studentAnswer.topic}
-                showBackBtn={true}
-                backBtnHref={backBtnHref}
-                backBtnLabels={backBtnLabels}
-            />
-            <div className="m-3"></div>
-            <div className="assignment-form-row">
-                {studentAnswer.title}
-            </div>
-            <div className="m-2"></div>
-            <Row>
-                <Col>
-                    <FormFreeAnswer
-                        onChange={changeValue}
-                        value={modifiedObject && modifiedObject.value}
-                        validationMessage={messages?.value}
-                    />
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Form>
-                        <Form.Label> {t('option_header')}</Form.Label>
-                        <RadioButtonGroup
-                            options={levels ? levels : []}
-                            validationMessage={messages?.order_nbr}
+        <form ref={formRef}>
+            <div className="assignment-form-container">
+                <TopBar
+                    heading={studentAnswer.topic}
+                    showBackBtn={true}
+                    backBtnHref={backBtnHref}
+                    backBtnLabels={backBtnLabels}
+                />
+                <div className="m-3"></div>
+                <div className="assignment-form-row">
+                    {studentAnswer.title}
+                </div>
+                <div className="m-2"></div>
+                <Row>
+                    <Col>
+                        <FormFreeAnswer
                             onChange={changeValue}
-                            value={
-                                modifiedObject && modifiedObject.order_nbr
-                                    ? modifiedObject.order_nbr
-                                    : '0'
-                            }
-                            aria-required
+                            value={modifiedObject && modifiedObject.value}
+                            validationMessage={messages?.value}
                         />
-                    </Form>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <ButtonRow>
-                        {theButtonClear}
-                        {theButtonSave}
-                    </ButtonRow>
-                </Col>
-            </Row>
-        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <Form>
+                            <Form.Label> {t('option_header')}</Form.Label>
+                            <RadioButtonGroup
+                                options={levels ? levels : []}
+                                validationMessage={messages?.order_nbr}
+                                onChange={changeValue}
+                                value={
+                                    modifiedObject && modifiedObject.order_nbr
+                                        ? modifiedObject.order_nbr
+                                        : '0'
+                                }
+                                aria-required
+                            />
+                        </Form>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <ButtonRow>
+                            {theButtonClear}
+                            {theButtonSave}
+                        </ButtonRow>
+                    </Col>
+                </Row>
+            </div>
+        </form>
     );
+
 };
 
 Assignment.propTypes = {
