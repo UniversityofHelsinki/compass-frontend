@@ -8,11 +8,15 @@ import useUser from '../../hooks/useUser';
 import useTeacherFormSave from '../../hooks/teacher/useTeacherFormSave';
 import TeacherForm from './TeacherForm';
 import { useNavigate } from 'react-router-dom';
+import { useNotification } from '../../NotificationContext';
 
 const TeacherFormNew = () => {
     const { t } = useTranslation();
     const [user] = useUser();
     const navigate = useNavigate();
+    const { setNotification } = useNotification();
+
+    const [teacherForm, setTeacherForm] = useState(null);
 
     const [saved, setSaved] = useState(null);
 
@@ -39,7 +43,19 @@ const TeacherFormNew = () => {
 
     const handleSave = async (teacherForm) => {
         const saved = await save(teacherForm);
-        setSaved(await saved.json());
+        if (saved.ok) {
+            setSaved(await saved.json());
+            setNotification(t(`teacher_form_new_saved_notification_success`), 'success', true);
+        } else {
+            const reason = (await saved.json())?.reason;
+            setNotification(
+                t(`teacher_form_new_saved_notification_error`),
+                'error',
+                false,
+                t(reason),
+            );
+            setTeacherForm(teacherForm);
+        }
     };
 
     return (
@@ -54,7 +70,7 @@ const TeacherFormNew = () => {
                 }}
             />
             <div className="m-3"></div>
-            <TeacherForm onSave={handleSave} teacherForm={empty} />
+            <TeacherForm onSave={handleSave} teacherForm={teacherForm || empty} />
         </div>
     );
 };

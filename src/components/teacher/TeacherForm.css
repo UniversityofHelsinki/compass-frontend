@@ -1,55 +1,65 @@
 .teacher-form-dates {
-  display: flex;
-  justify-content: space-between;
-  width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width: 992px) {
+    .teacher-form {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
 }
 
 .teacher-form-dates > .teacher-form-field {
-  width: 100%;
+    width: 100%;
 }
 
 .teacher-form-dates .react-datepicker-wrapper {
-  width: 100%;
+    width: 100%;
 }
 
 .teacher-form-assignment {
-  display: flex;
+    display: flex;
 }
 
 .teacher-form-assignment-topic {
-  width: 100%;
+    width: 100%;
 }
 
 .teacher-form-assignments ol {
-  display: flex;
-  flex-direction: column;
-  list-style: none;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
 }
 
 .teacher-form-assignment-marker {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .teacher-form-assignments ol > li {
-  margin: 10px;
+    margin: 10px;
 }
 
 .teacher-form-assignment-delete {
 }
 
 .teacher-form-assignment-delete svg {
-  fill: var(--huds-grayscale-black);
-  min-width: 1.2em;
-  max-width: 1.2em;
-  width: 1.2em;
-  max-height: 1.2em;
+    fill: var(--huds-grayscale-black);
+    min-width: 1.2em;
+    max-width: 1.2em;
+    width: 1.2em;
+    max-height: 1.2em;
 }
 
 .teacher-form-assignment-delete button {
-  border: unset;
-  background-color: unset;
+    border: unset;
+    background-color: unset;
+}
+
+.teacher-form-assignment-delete button:disabled svg {
+    fill: var(--huds-grayscale-medium-dark);
 }
 
 .validation-message {
-  color: var(--hy-red);
+    color: var(--hy-red);
 }

@@ -23,35 +23,35 @@ const FormField = ({ children, field, fieldId }) => {
 };
 
 const ValidationMessage = ({ children, id }) => {
-  return (
-    <div className="validation-message">
-      <span id={id} aria-live="polite">
-        {children}
-      </span>
-    </div>
-  );
+    return (
+        <div className="validation-message">
+            <span id={id} aria-live="polite">
+                {children}
+            </span>
+        </div>
+    );
 };
 
 const Title = ({ onChange, value, validationError }) => {
     const { t } = useTranslation();
     const id = useId();
     const validationErrorId = useId();
-    const validationAttributes = validationError ? {
-      'aria-invalid': true,
-      'aria-errormessage': validationErrorId,
-    } : {};
+    const validationAttributes = validationError
+        ? {
+              'aria-invalid': true,
+              'aria-errormessage': validationErrorId,
+          }
+        : {};
 
     return (
-        <FormField 
-          field="title" 
-          fieldId={id}>
+        <FormField field="title" fieldId={id}>
             <Form.Control
                 type="text"
                 id={id}
                 onChange={onChange}
                 value={value}
                 placeholder={t('teacher_form_title_placeholder')}
-                { ...validationAttributes }
+                {...validationAttributes}
             />
             <ValidationMessage id={validationErrorId}>{t(validationError)}</ValidationMessage>
         </FormField>
@@ -62,10 +62,12 @@ const Identifier = ({ onChange, value, validationError }) => {
     const { t } = useTranslation();
     const id = useId();
     const validationErrorId = useId();
-    const validationAttributes = validationError ? {
-      'aria-invalid': true,
-      'aria-errormessage': validationErrorId,
-    } : {};
+    const validationAttributes = validationError
+        ? {
+              'aria-invalid': true,
+              'aria-errormessage': validationErrorId,
+          }
+        : {};
 
     return (
         <FormField field="course_id" fieldId={id}>
@@ -75,7 +77,7 @@ const Identifier = ({ onChange, value, validationError }) => {
                 onChange={onChange}
                 value={value}
                 placeholder={t('teacher_form_course_id_placeholder')}
-                { ...validationAttributes }
+                {...validationAttributes}
             />
             <ValidationMessage id={validationErrorId}>{t(validationError)}</ValidationMessage>
         </FormField>
@@ -86,22 +88,24 @@ const StartDate = ({ onChange, value, validationError }) => {
     const { t } = useTranslation();
     const id = useId();
     const validationErrorId = useId();
-    const validationAttributes = validationError ? {
-      'aria-invalid': true,
-      'aria-errormessage': validationErrorId,
-    } : {};
+    const validationAttributes = validationError
+        ? {
+              'aria-invalid': true,
+              'aria-errormessage': validationErrorId,
+          }
+        : {};
     const ref = useRef();
 
     return (
         <FormField field="start_date" fieldId={id}>
-            <DatePicker 
-              id={id} 
-              ref={ref} 
-              date={value} 
-              onChange={onChange}
-              { ...validationAttributes }
-          />
-          <ValidationMessage id={validationErrorId}>{t(validationError)}</ValidationMessage>
+            <DatePicker
+                id={id}
+                ref={ref}
+                date={value}
+                onChange={onChange}
+                {...validationAttributes}
+            />
+            <ValidationMessage id={validationErrorId}>{t(validationError)}</ValidationMessage>
         </FormField>
     );
 };
@@ -111,44 +115,81 @@ const EndDate = ({ onChange, value, validationError }) => {
     const id = useId();
     const ref = useRef();
     const validationErrorId = useId();
-    const validationAttributes = validationError ? {
-      'aria-invalid': true,
-      'aria-errormessage': validationErrorId,
-    } : {};
+    const validationAttributes = validationError
+        ? {
+              'aria-invalid': true,
+              'aria-errormessage': validationErrorId,
+          }
+        : {};
 
     return (
         <FormField field="end_date" fieldId={id}>
-            <DatePicker id={id} ref={ref} date={value} onChange={onChange} { ...validationAttributes } />
+            <DatePicker
+                id={id}
+                ref={ref}
+                date={value}
+                onChange={onChange}
+                {...validationAttributes}
+            />
             <ValidationMessage id={validationErrorId}>{t(validationError)}</ValidationMessage>
         </FormField>
     );
 };
 
-const Assignment = ({ onChange, assignment, ordinal, teacherForm, validationError, onAssignmentRemove }) => {
+const Assignment = ({
+    onChange,
+    assignment,
+    ordinal,
+    teacherForm,
+    validationError,
+    onAssignmentRemove,
+}) => {
     const { t } = useTranslation();
+
+    const type = (() => {
+        if (!assignment.id) {
+            return 'new';
+        }
+
+        if (new Date(assignment.end_date) < new Date()) {
+            return 'past';
+        }
+
+        if (new Date(assignment.start_date) > new Date()) {
+            return 'future';
+        }
+
+        return 'current';
+    })();
 
     const startDateRef = useRef();
     const endDateRef = useRef();
     const validationErrorId = useId();
-    const validationAttributes = ['topic', 'start_date', 'end_date' ]
-      .map(p => validationError[p] ? {
-        'aria-invalid': true,
-        'aria-errormessage': `${validationErrorId}-topic`
-    } : {});
+    const validationAttributes = ['topic', 'start_date', 'end_date'].map((p) =>
+        validationError[p]
+            ? {
+                  'aria-invalid': true,
+                  'aria-errormessage': `${validationErrorId}-topic`,
+              }
+            : {},
+    );
 
     const handleChange = (property, value) => {
         onChange({ ...assignment, [property]: value });
     };
 
     const handleRemoval = (event) => {
-      event.preventDefault();
-      onAssignmentRemove();
+        event.preventDefault();
+        onAssignmentRemove();
     };
 
     return (
         <div className="teacher-form-assignment">
-            <span className="teacher-form-assignment-marker">{ordinal+1}.</span>
-            <label className="screenreader-only" htmlFor={`teacher-form-assignment-topic-label-${ordinal}`}>
+            <span className="teacher-form-assignment-marker">{ordinal + 1}.</span>
+            <label
+                className="screenreader-only"
+                htmlFor={`teacher-form-assignment-topic-label-${ordinal}`}
+            >
                 {t('teacher_form_assignment_topic_label')}
             </label>
             <div className="teacher-form-assignment-topic">
@@ -158,42 +199,57 @@ const Assignment = ({ onChange, assignment, ordinal, teacherForm, validationErro
                     onChange={(event) => handleChange('topic', event.target.value)}
                     value={assignment.topic}
                     placeholder={t('teacher_form_assignment_topic_placeholder')}
-                    { ...validationAttributes[0] }
+                    {...validationAttributes[0]}
+                    disabled={type === 'past' || type === 'current'}
                 />
-                {validationError.topic && <ValidationMessage id={`${validationErrorId}-topic`}>{t(validationError.topic)}</ValidationMessage>}
+                {validationError.topic && (
+                    <ValidationMessage id={`${validationErrorId}-topic`}>
+                        {t(validationError.topic)}
+                    </ValidationMessage>
+                )}
             </div>
             <div className="m-1"></div>
             <label className="screenreader-only" htmlFor={`assignment-start-date-${ordinal}`}>
                 {t('teacher_form_assignment_start_label')}
             </label>
             <div>
-              <DatePicker
-                ref={startDateRef}
-                id={`assignment-start-date-${ordinal}`}
-                aria-label={t('teacher_form_assignment_start_label')}
-                date={assignment.start_date}
-                onChange={(date) => handleChange('start_date', date)}
-                { ...validationAttributes[1] }
-              />
-              {validationError.start_date && <ValidationMessage id={`${validationErrorId}-start-date`}>{t(validationError.start_date)}</ValidationMessage>}
+                <DatePicker
+                    ref={startDateRef}
+                    id={`assignment-start-date-${ordinal}`}
+                    aria-label={t('teacher_form_assignment_start_label')}
+                    date={assignment.start_date}
+                    onChange={(date) => handleChange('start_date', date)}
+                    {...validationAttributes[1]}
+                    disabled={type === 'past'}
+                />
+                {validationError.start_date && (
+                    <ValidationMessage id={`${validationErrorId}-start-date`}>
+                        {t(validationError.start_date)}
+                    </ValidationMessage>
+                )}
             </div>
             <div className="m-1"></div>
             <label className="screenreader-only" htmlFor={`assignment-end-date-${ordinal}`}>
                 {t('teacher_form_assignment_end_label')}
             </label>
             <div>
-              <DatePicker
-                  ref={endDateRef}
-                  id={`assignment-end-date-${ordinal}`}
-                  date={assignment.end_date}
-                  onChange={(date) => handleChange('end_date', date)}
-                  { ...validationAttributes[2] }
-              />
-              {validationError.end_date && <ValidationMessage id={`${validationErrorId}-end-date`}>{t(validationError.end_date)}</ValidationMessage>}
+                <DatePicker
+                    ref={endDateRef}
+                    id={`assignment-end-date-${ordinal}`}
+                    date={assignment.end_date}
+                    onChange={(date) => handleChange('end_date', date)}
+                    {...validationAttributes[2]}
+                    disabled={type === 'past'}
+                />
+                {validationError.end_date && (
+                    <ValidationMessage id={`${validationErrorId}-end-date`}>
+                        {t(validationError.end_date)}
+                    </ValidationMessage>
+                )}
             </div>
             <div className="m-1"></div>
             <div className="teacher-form-assignment-delete">
-                <button onClick={handleRemoval}>
+                <button onClick={handleRemoval} disabled={type === 'current'}>
                     <TrashIcon aria-hidden />
                 </button>
             </div>
@@ -213,43 +269,55 @@ const TeacherForm = ({ teacherForm, onSave }) => {
     const { t } = useTranslation();
     const [modified, setModified] = useState(teacherForm);
 
-    const [validationErrors] = useValidation({
-      title: [
-        title => !title && 'teacher_form_title_can_not_be_empty',
-        title => title.length > 50 && 'teacher_form_title_is_too_long'
-      ],
-      course_id: [
-        identifier => !identifier && 'teacher_form_course_id_can_not_be_empty',
-        identifier => identifier.length > 20 && 'teacher_form_course_id_too_long'
-      ],
-      start_date: [
-        startDate => !startDate && 'teacher_form_start_date_can_not_be_empty',
-        startDate => modified.end_date && new Date(startDate) > new Date(modified.end_date) && 'teacher_form_start_date_after_end_date'
-      ],
-      end_date: [
-        endDate => !endDate && 'teacher_form_end_date_can_not_be_empty'
-      ]
-    }, [modified]);
+    const [validationErrors] = useValidation(
+        {
+            title: [
+                (title) => !title && 'teacher_form_title_can_not_be_empty',
+                (title) => title.length > 50 && 'teacher_form_title_is_too_long',
+            ],
+            course_id: [
+                (identifier) => !identifier && 'teacher_form_course_id_can_not_be_empty',
+                (identifier) => identifier.length > 20 && 'teacher_form_course_id_too_long',
+            ],
+            start_date: [
+                (startDate) => !startDate && 'teacher_form_start_date_can_not_be_empty',
+                (startDate) =>
+                    modified.end_date &&
+                    new Date(startDate) > new Date(modified.end_date) &&
+                    'teacher_form_start_date_after_end_date',
+            ],
+            end_date: [(endDate) => !endDate && 'teacher_form_end_date_can_not_be_empty'],
+        },
+        [modified],
+    );
 
-    const assignmentValidationErrors = useValidation({
-      topic: [
-        topic => !topic && 'teacher_form_assignment_topic_can_not_be_empty'
-      ],
-      start_date: [
-        startDate => !startDate && 'teacher_form_assignment_start_date_can_not_be_empty',
-        (startDate, assignment) => assignment.end_date && new Date(startDate) > new Date(assignment.end_date) && 'teacher_form_assignment_start_date_after_end_date',
-        startDate => modified.start_date && new Date(startDate) < new Date(modified.start_date) && 'teacher_form_assignment_starts_before_course'
-      ],
-      end_date: [
-        endDate => !endDate && 'teacher_form_assignment_assignment_end_date_can_not_be_empty'
-      ]
-    }, modified?.assignments);
+    const assignmentValidationErrors = useValidation(
+        {
+            topic: [(topic) => !topic && 'teacher_form_assignment_topic_can_not_be_empty'],
+            start_date: [
+                (startDate) => !startDate && 'teacher_form_assignment_start_date_can_not_be_empty',
+                (startDate, assignment) =>
+                    assignment.end_date &&
+                    new Date(startDate) > new Date(assignment.end_date) &&
+                    'teacher_form_assignment_start_date_after_end_date',
+                (startDate) =>
+                    modified.start_date &&
+                    new Date(startDate) < new Date(modified.start_date) &&
+                    'teacher_form_assignment_starts_before_course',
+            ],
+            end_date: [
+                (endDate) =>
+                    !endDate && 'teacher_form_assignment_assignment_end_date_can_not_be_empty',
+            ],
+        },
+        modified?.assignments,
+    );
 
     const [saving, setSaving] = useState(false);
 
-    const isValid = (ve) => Object.values(ve).every(value => !value);
+    const isValid = (ve) => Object.values(ve).every((value) => !value);
     const formIsValid = isValid(validationErrors);
-    const assignmentsAreValid = assignmentValidationErrors.map(isValid).every(value => value);
+    const assignmentsAreValid = assignmentValidationErrors.map(isValid).every((value) => value);
 
     useEffect(() => {
         if (modified !== teacherForm) {
@@ -269,21 +337,21 @@ const TeacherForm = ({ teacherForm, onSave }) => {
     };
 
     const onAssignmentChange = (assignment, i) => {
-        const assignments = [ ...modified.assignments ];
+        const assignments = [...modified.assignments];
         assignments.splice(i, 1, assignment);
         setModified({
-          ...modified,
-          assignments
+            ...modified,
+            assignments,
         });
     };
 
     const onAssignmentRemove = (i) => {
-      const assignments = [ ...modified.assignments ];
-      assignments.splice(i, 1);
-      setModified({
-        ...modified,
-        assignments
-      });
+        const assignments = [...modified.assignments];
+        assignments.splice(i, 1);
+        setModified({
+            ...modified,
+            assignments,
+        });
     };
 
     const addAssignment = (event) => {
@@ -355,7 +423,13 @@ const TeacherForm = ({ teacherForm, onSave }) => {
                     </button>
                 </div>
                 <div className="teacher-form-buttons">
-                    <HyButton variant="primary" type="submit" disabled={!formIsValid || !assignmentsAreValid}>{t('teacher_form_save_button')}</HyButton>
+                    <HyButton
+                        variant="primary"
+                        type="submit"
+                        disabled={!formIsValid || !assignmentsAreValid}
+                    >
+                        {t('teacher_form_save_button')}
+                    </HyButton>
                 </div>
             </form>
         </div>
