@@ -31,6 +31,9 @@ const DeleteStudentAnswerFooter = ({disabled, answer, course, id, deleteAnswer})
 
 DeleteStudentAnswerFooter.propTypes = {
     disabled: PropTypes.bool,
+    answer: PropTypes.number,
+    course: PropTypes.string,
+    id: PropTypes.number,
     deleteAnswer: PropTypes.func
 };
 

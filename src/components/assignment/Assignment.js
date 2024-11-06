@@ -13,7 +13,6 @@ import useSelfReflectionSave from '../../hooks/useSelfReflectionSave';
 import useAnswerValidation from '../../hooks/validation/answers/useAnswerValidation';
 import ButtonRow from '../actions/ButtonRow';
 import useUser from '../../hooks/useUser';
-import BackButton from '../utilities/BackButton';
 import HyButton from '../utilities/HyButton';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import useStudentAssignmentAnswer from '../../hooks/useStudentAssignmentAnswer';
@@ -21,7 +20,6 @@ import TopBar from "../utilities/TopBar";
 
 const Assignment = ({ showBackBtn = true, levels }) => {
     const { assignment, id } = useParams();
-    //backBtnHref = backBtnHref + id;
     const backBtnHref = "/student/courses";
     const [user] = useUser();
     const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
@@ -155,9 +153,7 @@ const Assignment = ({ showBackBtn = true, levels }) => {
 
 Assignment.propTypes = {
     levels: PropTypes.array.isRequired,
-    showBackBtn: PropTypes.bool,
-    backBtnLabels: PropTypes.object,
-    backBtnHref: PropTypes.string,
+    showBackBtn: PropTypes.bool
 };
 
 export default Assignment;

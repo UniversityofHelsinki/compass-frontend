@@ -1,5 +1,6 @@
 import React from "react";
 import './Notification.css';
+import PropTypes from "prop-types";
 
 const Notification = ({ msg, type }) => {
 
@@ -19,6 +20,11 @@ const Notification = ({ msg, type }) => {
             { (msg) ? <span>{msg}&nbsp;</span> : <span>&nbsp;&nbsp;</span>}
         </div>
     )
+}
+
+Notification.protoTypes = {
+    msg: PropTypes.string,
+    type: PropTypes.oneOf(['light', 'neutral', 'warning'])
 }
 
 export default Notification;

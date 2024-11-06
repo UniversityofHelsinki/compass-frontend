@@ -68,7 +68,7 @@ CourseEvaluation.protoTypes = {
     handleAddAnswer: PropTypes.func.isRequired,
     msg: PropTypes.string,
     msgStyle: PropTypes.string,
-    order_nbr: PropTypes.string
+    order_nbr: PropTypes.number
 }
 
 export default CourseEvaluation;

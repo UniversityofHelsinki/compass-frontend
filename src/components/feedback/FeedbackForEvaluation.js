@@ -81,7 +81,6 @@ const FeedbackForEvaluation = (showBackBtn = true) => {
 
 FeedbackForEvaluation.propTypes = {
     showBackBtn: PropTypes.bool,
-    backBtnHref: PropTypes.string,
 };
 
 export default FeedbackForEvaluation;

@@ -4,10 +4,9 @@ import './FeedbackForEvaluationFooter.css';
 import { useTranslation } from 'react-i18next';
 import HyButton from '../utilities/HyButton';
 import Notification from "../notes/Notification";
-import {Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
 
-const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, assignment, answer, course, id, studentAnswer}) => {
+const FeedbackForEvaluationFooter = ({disabled, message, msgStyle, answer, id, studentAnswer}) => {
     const { t } = useTranslation();
 
     return (
@@ -38,7 +37,9 @@ FeedbackForEvaluationFooter.propTypes = {
     disabled: PropTypes.bool,
     message: PropTypes.string,
     msgStyle: PropTypes.string,
-    assignment: PropTypes.string,
+    answer: PropTypes.number,
+    id: PropTypes.number,
+    studentAnswer: PropTypes.object
 };
 
 export default FeedbackForEvaluationFooter;
