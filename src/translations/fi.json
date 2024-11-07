@@ -36,8 +36,8 @@
     "student_no_courses": "Ei kursseja vielä... kysy opettajalta lisätietoa tai käytä sovellusta opettajan tunnuksella",
     "student_courses_heading": "Kurssit",
     "assignments_summary": "Reflection summary",
-    "assignments_due": "Voimassa oleva vastaus",
-    "assignments_previous": "Aiemmat vastaukset",
+    "assignments_due": "Käynnissä",
+    "assignments_previous": "Päättyneet",
     "assignments_back_to_course": "Kurssi",
     "assignments_back_to_course_secondary": "Takaisin kurssilistaan",
     "assignment_feedback_answer": "Vastaus",
@@ -128,5 +128,6 @@
     "course_assignment_past_assignment_can_not_be_changed": "Päättyneen ASSIGNMENTIN??? tietoja ei voi enää muuttaa.",
     "tooltip_top": "Tehtävä: ",
     "tooltip_bottom": "Taso: ",
-    "chart_average_answer_level": "Tason keskiarvo: "
+    "chart_average_answer_level": "Tason keskiarvo: ",
+    "course_list_item_period_label": "Kurssin ajankohta"
 }

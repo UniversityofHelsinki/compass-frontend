@@ -63,33 +63,32 @@ i18n.use(initReactI18next).init({
 
 const App = () => {
     const router = createBrowserRouter(
-      createRoutesFromElements(
-        <Route path="/" element={<Compass />} errorElement={<Error />}>
-            <Route path="teacher" element={<Teacher />}>
-                <Route path="forms" element={<TeacherForms />}></Route>
-                <Route path="forms/new" element={<TeacherFormNew />}></Route>
-                <Route path="forms/edit/:course" element={<TeacherFormEdit />}></Route>
-                <Route path="statistics/course/:courseId" element={<CourseStatistics />} />
-            </Route>
-          <Route path="student" element={<Student />}>
-            <Route path="courses" element={<StudentCourses />}></Route>
-              <Route path="courses/:course" element={<Outlet />}>
-                  <Route path="summary" element={<SummaryPage />}></Route>
-              </Route>
-            <Route path="assignments/:id"
-                   element={<Assignments backBtnLabels={backBtnLabels}/>}>
-            </Route>
-            <Route path="assignment/:assignment/:id"
-                   element={<Assignment levels={LEVELS} />}>
-            </Route>
-            <Route path="feedback/:answer/:course/:id"
-                   element={<FeedbackForEvaluation />}>
-            </Route>
-            <Route path="delete/:answer/:id" element={<DeleteStudentAnswer />}>
-            </Route>
-          </Route>
-        </Route>
-      ),
+        createRoutesFromElements(
+            <Route path="/" element={<Compass />} errorElement={<Error />}>
+                <Route path="teacher" element={<Teacher />}>
+                    <Route path="forms" element={<TeacherForms />}></Route>
+                    <Route path="forms/new" element={<TeacherFormNew />}></Route>
+                    <Route path="forms/edit/:course" element={<TeacherFormEdit />}></Route>
+                    <Route path="statistics/course/:courseId" element={<CourseStatistics />} />
+                </Route>
+                <Route path="student" element={<Student />}>
+                    <Route path="courses" element={<StudentCourses />}></Route>
+                    <Route path="courses/:course" element={<Outlet />}>
+                        <Route path="summary" element={<SummaryPage />}></Route>
+                    </Route>
+                    <Route path="assignments/:id" element={<Assignments />}></Route>
+                    <Route
+                        path="assignment/:assignment/:id"
+                        element={<Assignment levels={LEVELS} />}
+                    ></Route>
+                    <Route
+                        path="feedback/:answer/:course/:id"
+                        element={<FeedbackForEvaluation />}
+                    ></Route>
+                    <Route path="delete/:answer/:id" element={<DeleteStudentAnswer />}></Route>
+                </Route>
+            </Route>,
+        ),
     );
 
     return (

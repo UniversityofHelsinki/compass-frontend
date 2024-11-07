@@ -3,11 +3,11 @@
     flex-direction: column;
     align-items: start;
     justify-content: start;*/
-    /*outline: 2px solid var(--huds-grayscale-medium-dark);*/
-    /*margin-bottom: 10px;
+/*outline: 2px solid var(--huds-grayscale-medium-dark);*/
+/*margin-bottom: 10px;
     padding: 0 20px;
     width: 100%;*/
-    /*box-shadow: 1px 2px 4px var(--huds-grayscale-black);*/
+/*box-shadow: 1px 2px 4px var(--huds-grayscale-black);*/
 /*}*/
 
 .assignment-form-header-row {
@@ -28,7 +28,6 @@
 }*/
 .assignment-form-back-col {
     flex: 0;
-
 }
 .assignment-form-assignment-col {
     flex: 0;
@@ -37,17 +36,6 @@
     font-size: large;
     font-weight: bold;
 }
-
-/*.assignment-form-description-col {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5em;
-    color: var(--hy-black);
-    display: block;
-    box-sizing: border-box;
-    margin-block-end: 1em;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-}*/
 
 .assignment-form-send-button {
     margin-bottom: 1em;
@@ -60,3 +48,42 @@
     margin-top: 1em;
 }
 
+ul.assignments-list {
+    list-style: none;
+    padding-left: unset;
+}
+
+.assignments-list-item {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--huds-grayscale-light);
+    padding: 16px;
+    padding-top: 12px;
+}
+
+.assignments-list-item-link {
+    flex-basis: 100%;
+}
+
+.assignments-list-item-link a {
+    color: var(--huds-brand-main) !important;
+    text-decoration: none;
+    display: block;
+    min-width: 100%;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+.assignments-list-item-link a:hover {
+    text-decoration: underline;
+}
+
+.assignments-list-item-secondary {
+    font-weight: 600;
+    font-size: 0.8em;
+}
+
+.assignments-reflection-summary {
+    display: flex;
+    flex-direction: row-reverse;
+}

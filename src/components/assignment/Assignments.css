@@ -1,4 +1,4 @@
-.assignments-form-container  {
+.assignments-form-container {
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -9,10 +9,6 @@
 }
 
 .assignments-form-row {
-    /*padding: 0.5em 0 0.5em;*/
-    /*padding-bottom: 1.0em;*/
-    /*font-weight: 700;
-    border-bottom: 1px solid var(--huds-grayscale-medium);*/
     display: flex;
     width: 100%;
     padding-bottom: 0.5em;
@@ -20,7 +16,6 @@
 
 .assignments-form-back-col {
     flex: 0;
-
 }
 
 .assignments-form-title-col {
@@ -37,7 +32,7 @@
     width: 85%;
 }
 
-.assignments-summary-container  {
+.assignments-summary-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -63,18 +58,16 @@
     justify-content: left;
     margin-bottom: 10px;
     padding: 0 0px;
-   /* border: 2px solid var(--hy-blue);
-    box-shadow: 1px 2px 4px var(--huds-grayscale-black); */
 }
 
 .assignments-course-row {
     display: flex;
     padding-left: 0.5em;
-    padding-bottom: 0.20em;
-    padding-top: 0.20em;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
 }
 
-.assignments-line-container  {
+.assignments-line-container {
     flex-direction: row;
     width: 80%;
 }
@@ -85,4 +78,3 @@
     color: black;
     height: 2px;
 }
-

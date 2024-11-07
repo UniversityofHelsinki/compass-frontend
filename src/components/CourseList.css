@@ -1,35 +1,10 @@
-
-/*.course-list-line-container  {
-    flex-direction: row;
-}*/
-
-.line {
-    border: 0;
-    background-color: #000;
-    color: black;
-    height: 2px;
-}
-
 .course-list {
-    list-style-type: none;
+    list-style: none;
+    padding-left: unset;
 }
 
-/*.course-list > li > body > :nth-child(even) {
-    background-color: var(--huds-grayscale-light);
-}*/
-
-/*.course-list li:nth-child(even) a {
-    color:var(--huds-grayscale-dark);
-}*/
-
-.course-row:nth-child(even)  {
-   background-color:var(--huds-grayscale-light);
-}
-
-.course-row {
-    max-width: 20em;
-    border-bottom: 1px solid var(--huds-grayscale-black);
-    padding-bottom: 0.5em;
+.course-list li {
+    margin-bottom: 12px;
 }
 
 .student-no-courses {
@@ -41,5 +16,3 @@
     background-color: var(--hy-light-silver);
     text-align: center;
 }
-
-
