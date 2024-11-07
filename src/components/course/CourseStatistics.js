@@ -47,6 +47,7 @@ const CourseStatistics = () => {
             answer_count,
             start_date,
             end_date,
+            avg_answer_level,
         } = current;
 
         if (!accumulator[assignment_id]) {
@@ -57,6 +58,7 @@ const CourseStatistics = () => {
                 answerCount: answer_count,
                 start_date: start_date,
                 end_date: end_date,
+                avg_answer_level: parseFloat(avg_answer_level).toFixed(1),
             };
         }
 

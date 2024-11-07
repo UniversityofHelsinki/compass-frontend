@@ -136,6 +136,16 @@ const EndDate = ({ onChange, value, validationError }) => {
     );
 };
 
+const truncate = (date) => {
+    const copy = new Date(date);
+    if (copy == 'Invalid Date') {
+        return date;
+    }
+    const now = copy.getTime();
+    const day = 24 * 60 * 60 * 1000;
+    return new Date(now - (now % day)).toISOString();
+};
+
 const Assignment = ({
     onChange,
     assignment,
@@ -218,7 +228,7 @@ const Assignment = ({
                     id={`assignment-start-date-${ordinal}`}
                     aria-label={t('teacher_form_assignment_start_label')}
                     date={assignment.start_date}
-                    onChange={(date) => handleChange('start_date', date)}
+                    onChange={(date) => handleChange('start_date', truncate(date))}
                     {...validationAttributes[1]}
                     disabled={type === 'past'}
                 />
@@ -260,8 +270,8 @@ const Assignment = ({
 const createAssignment = (startDate, endDate) => {
     return {
         topic: '',
-        start_date: startDate || new Date().toISOString(),
-        end_date: endDate || new Date().toISOString(),
+        start_date: startDate || truncate(new Date()),
+        end_date: endDate || truncate(new Date()),
     };
 };
 
@@ -389,13 +399,15 @@ const TeacherForm = ({ teacherForm, onSave }) => {
                 />
                 <div className="teacher-form-dates">
                     <StartDate
-                        onChange={(date, element) => onChange('start_date', date, element)}
+                        onChange={(date, element) =>
+                            onChange('start_date', truncate(date), element)
+                        }
                         value={modified.start_date}
                         validationError={validationErrors.start_date}
                     />
                     <div className="mx-1"></div>
                     <EndDate
-                        onChange={(date, element) => onChange('end_date', date, element)}
+                        onChange={(date, element) => onChange('end_date', truncate(date), element)}
                         value={modified.end_date}
                         validationError={validationErrors.end_date}
                     />
