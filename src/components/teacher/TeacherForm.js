@@ -259,7 +259,13 @@ const Assignment = ({
             </div>
             <div className="m-1"></div>
             <div className="teacher-form-assignment-delete">
-                <button onClick={handleRemoval} disabled={type === 'current'}>
+                <button
+                    onClick={handleRemoval}
+                    disabled={type === 'current'}
+                    aria-label={t('teacher_form_delete_assignment_button', {
+                        topic: assignment.topic,
+                    })}
+                >
                     <TrashIcon aria-hidden />
                 </button>
             </div>

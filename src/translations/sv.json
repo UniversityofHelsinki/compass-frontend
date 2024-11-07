@@ -45,5 +45,6 @@
     "select_assignments_to_display": "Select which assignments to display",
     "tooltip_top": "Assignment: ",
     "tooltip_bottom": "Level: ",
-    "chart_average_answer_level": "Average level: "
+    "chart_average_answer_level": "Average level: ",
+    "teacher_form_delete_assignment_button": "Delete assignment {{topic}}"
 }

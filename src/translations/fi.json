@@ -129,5 +129,6 @@
     "tooltip_top": "Tehtävä: ",
     "tooltip_bottom": "Taso: ",
     "chart_average_answer_level": "Tason keskiarvo: ",
-    "course_list_item_period_label": "Kurssin ajankohta"
+    "course_list_item_period_label": "Kurssin ajankohta",
+    "teacher_form_delete_assignment_button": "Poista aihe {{topic}}"
 }
