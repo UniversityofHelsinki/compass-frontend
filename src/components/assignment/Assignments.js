@@ -31,7 +31,7 @@ const Assignments = () => {
     const { t } = useTranslation();
     let course = useStudentCourse(id);
     const [dueAssignments, previousAssignments] = useStudentCourseAssignmentAnswer(
-        course?.course_id,
+        (course && course[0])?.course_id,
     );
     const backBtnHref = '/student/courses';
     const backBtnLabels = {
