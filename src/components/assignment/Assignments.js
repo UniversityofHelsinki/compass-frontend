@@ -31,7 +31,7 @@ const Assignments = () => {
     const { t } = useTranslation();
     let course = useStudentCourse(id);
     const [dueAssignments, previousAssignments] = useStudentCourseAssignmentAnswer(
-        (course && course[0])?.course_id,
+        course?.course_id,
     );
     const backBtnHref = '/student/courses';
     const backBtnLabels = {
@@ -71,7 +71,7 @@ const Assignments = () => {
                         <li key={assignment.id}>
                             <AssignmentListItem
                                 assignment={assignment}
-                                href={`/student/assignment/${assignment?.assignment_id}/${(course && course[0])?.id}`}
+                                href={`/student/assignment/${assignment?.assignment_id}/${course?.id}`}
                             />
                         </li>
                     ))}
@@ -84,7 +84,7 @@ const Assignments = () => {
                             <AssignmentListItem
                                 key={assignment.id}
                                 assignment={assignment}
-                                href={`/student/feedback/${assignment?.assignment_id}/${course?.course_id}/${(course && course[0])?.id}`}
+                                href={`/student/feedback/${assignment?.assignment_id}/${course?.course_id}/${course?.id}`}
                             />
                         </li>
                     ))}
