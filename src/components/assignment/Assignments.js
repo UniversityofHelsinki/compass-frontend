@@ -71,7 +71,7 @@ const Assignments = () => {
                         <li key={assignment.id}>
                             <AssignmentListItem
                                 assignment={assignment}
-                                href={`/student/assignment/${assignment?.assignment_id}/${course?.id}`}
+                                href={`/student/assignment/${assignment?.assignment_id}/${(course && course[0])?.id}`}
                             />
                         </li>
                     ))}
@@ -84,7 +84,7 @@ const Assignments = () => {
                             <AssignmentListItem
                                 key={assignment.id}
                                 assignment={assignment}
-                                href={`/student/feedback/${assignment?.assignment_id}/${course?.course_id}/${course?.id}`}
+                                href={`/student/feedback/${assignment?.assignment_id}/${course?.course_id}/${(course && course[0])?.id}`}
                             />
                         </li>
                     ))}
