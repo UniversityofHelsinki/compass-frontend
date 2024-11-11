@@ -100,7 +100,7 @@ test:
     - ohtu-build-4
   script:
     - npm ci
-    - npm test -- --coverage
+    - npm run coverage
   artifacts:
     paths:
       - coverage/
