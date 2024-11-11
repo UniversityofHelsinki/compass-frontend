@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import useUser from './hooks/useUser'; // Assuming your hook fetches and handles user logic
+import useUser from './hooks/useUser';
+import { ROLE_TEACHER } from '../src/Constants'; // Assuming your hook fetches and handles user logic
 
 const AuthContext = createContext(null);
 
@@ -26,11 +27,10 @@ export const AuthProvider = ({ children }) => {
         fetchUser();
     }, []);
 
-    // replace the value with the real deal when it's relevant
-    const isTeacher = true;
+    const isTeacher = user?.eduPersonAffiliation?.includes(ROLE_TEACHER);
 
     return (
-        <AuthContext.Provider value={{ user: user && { ...user, isTeacher } || null, loading }}>
+        <AuthContext.Provider value={{ user: (user && { ...user, isTeacher }) || null, loading }}>
             {children}
         </AuthContext.Provider>
     );
