@@ -102,6 +102,7 @@ test:
     - npm ci
     - npm run coverage
   artifacts:
+    name: coverage-test
     paths:
       - coverage/
 
