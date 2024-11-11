@@ -99,6 +99,7 @@ test:
   tags:
     - ohtu-build-4
   script:
+    - npm ci
     - npm test -- --coverage
   artifacts:
     paths:
