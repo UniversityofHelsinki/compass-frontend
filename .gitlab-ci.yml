@@ -95,6 +95,7 @@ setup_stage:
 
 test:
   stage: test
+  image: node:20-alpine
   tags:
     - ohtu-build-4
   script:
