@@ -3,6 +3,8 @@ import { Cell, Legend, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import './PieChart.css';
 import TableData from './TableData';
 import { useTranslation } from 'react-i18next';
+import CustomLegend from './CustomLegend';
+import HyColors from '../utilities/HyColors';
 
 const COLORS = ['#8B0000', '#8B4513', '#00008B', '#4B0082', '#006400'];
 
@@ -15,7 +17,7 @@ const getColorForValue = (value) => {
 
 const RADIAN = Math.PI / 180;
 
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, name, percent }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -24,11 +26,11 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
         <text
             x={x}
             y={y}
-            fill="white"
+            fill={HyColors.white}
             textAnchor={x > cx ? 'start' : 'end'}
             dominantBaseline="central"
         >
-            {`${(percent * 100).toFixed(0)}%`}
+            {`${name}: ${(percent * 100).toFixed(0)}%`}
         </text>
     );
 };
@@ -58,7 +60,7 @@ const renderPieChart = (data, index) => {
                             />
                         ))}
                     </Pie>
-                    <Legend />
+                    <Legend content={CustomLegend} />
                 </PieChart>
             </ResponsiveContainer>
         </div>
