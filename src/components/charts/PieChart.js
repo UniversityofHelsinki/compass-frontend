@@ -6,7 +6,32 @@ import { useTranslation } from 'react-i18next';
 import CustomLegend from './CustomLegend';
 import HyColors from '../utilities/HyColors';
 
+import { ReactComponent as Level0Icon } from '../utilities/icons/circle.svg';
+import { ReactComponent as Level1Icon } from '../utilities/icons/circle-fill.svg';
+import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vertical.svg';
+import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
+import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
+
 const COLORS = ['#8B0000', '#8B4513', '#00008B', '#4B0082', '#006400'];
+
+const getIcon = (entry) => {
+    const style = { fill: HyColors.white };
+
+    switch (parseInt(entry)) {
+        case 0:
+            return <Level0Icon style={style} />;
+        case 1:
+            return <Level1Icon style={style} />;
+        case 2:
+            return <Level2Icon style={style} />;
+        case 3:
+            return <Level3Icon style={style} />;
+        case 4:
+            return <Level4Icon style={style} />;
+        default:
+            return <Level0Icon style={style} />;
+    }
+};
 
 const getColorForValue = (value) => {
     if (value < 0 || value > 4) {
@@ -17,21 +42,33 @@ const getColorForValue = (value) => {
 
 const RADIAN = Math.PI / 180;
 
+const iconSize = 30;
+
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, name, percent }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
     return (
-        <text
-            x={x}
-            y={y}
-            fill={HyColors.white}
-            textAnchor={x > cx ? 'start' : 'end'}
-            dominantBaseline="central"
-        >
-            {`${name}: ${(percent * 100).toFixed(0)}%`}
-        </text>
+        <g>
+            <foreignObject
+                x={x - iconSize / 2}
+                y={y - 1.5 * iconSize}
+                width={iconSize}
+                height={iconSize}
+            >
+                {getIcon(name)}
+            </foreignObject>
+            <text
+                x={x}
+                y={y}
+                fill={HyColors.white}
+                textAnchor={x > cx ? 'start' : 'end'}
+                dominantBaseline="central"
+            >
+                {`${name}: ${(percent * 100).toFixed(0)}%`}
+            </text>
+        </g>
     );
 };
 
