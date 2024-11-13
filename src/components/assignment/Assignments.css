@@ -78,3 +78,49 @@
     color: black;
     height: 2px;
 }
+
+
+ul.assignments-list {
+    list-style: none;
+    padding-left: unset;
+}
+
+.assignments-list-item {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--huds-grayscale-light);
+    padding: 16px;
+    padding-top: 12px;
+}
+
+.assignments-list-item-link {
+    flex-basis: 100%;
+}
+
+.assignments-list-item-link a {
+    color: var(--huds-brand-main) !important;
+    text-decoration: none;
+    display: block;
+    min-width: 100%;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+.assignments-list-item-link a:hover {
+    text-decoration: underline;
+}
+
+.assignments-list-item-secondary {
+    font-weight: 600;
+    font-size: 0.8em;
+}
+
+.assignments-reflection-summary {
+    color: var(--huds-brand-main) !important;
+    text-decoration: none;
+    display: block;
+    min-width: 100%;
+    font-weight: 600;
+    font-size: 1.4em;
+    padding-bottom: 12px;
+}
