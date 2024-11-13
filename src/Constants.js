@@ -25,3 +25,5 @@ export const LEVELS = [
         value: '4',
     },
 ];
+
+export const ROLE_TEACHER = 'faculty';

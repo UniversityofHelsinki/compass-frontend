@@ -1,9 +1,10 @@
 image: docker:stable
 
 stages:
+  - test
+  - setup
   - dependency-check
   - sonarqube-check
-  - setup
   - build
   - deploy
 
@@ -51,6 +52,8 @@ sonarqube-check:
   needs:
     - job: dependency-check
       artifacts: true
+    - job: test
+      artifacts: true
 
 dependency-check:
   stage: dependency-check
@@ -69,7 +72,7 @@ dependency-check:
       --format HTML -nvdApiKey $NVD_API_KEY
   artifacts:
     when: always
-    expire_in: 1 week
+    expire_in: 1 hour
     paths:
       - dependency-check-report.html
 
@@ -88,6 +91,20 @@ setup_stage:
     name: compass-build
     paths:
       - build
+    expire_in: 1 hour
+
+test:
+  stage: test
+  image: node:20-alpine
+  tags:
+    - ohtu-build-4
+  script:
+    - npm ci
+    - npm run coverage
+  artifacts:
+    name: coverage-test
+    paths:
+      - coverage/
 
 build_image:
   stage: build
