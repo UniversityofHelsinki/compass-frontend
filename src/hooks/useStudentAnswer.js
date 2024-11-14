@@ -1,43 +1,44 @@
 /*import useUser from "./useUser";
 import {useGET} from "./useHttp";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
-import user from "../components/header/User";
+import {useEffect, useState} from "react";
+import assignments from "../components/assignment/Assignments";
+import error from "../Error";
 
-const emptyAnswer = {
-    id: '',
-    assignment_id: 1,
-    course_id: 'A1234',
-    user_name: '',
-    value: '',
-    order_nbr: '',
-};
 
-const useStudentAnswer = (assignmentId, userId, feedbackEvaluationPage) => {
+const useStudentAnswer = (dueAssignments, previousAssignments) => {
     const [user] = useUser();
-    emptyAnswer.user_name = user.eppn;
     const dispatch = useDispatch();
-    const answer = useSelector((state) => state.student.answer);
+    //const answer = useSelector((state) => state.student.answer);
+    const [answer, setAnswer] = useState(null);
 
-    const [response, error] = useGET({
-        path: `/api/student/answer/${assignmentId}/${user.eppn}`
-    });
+    let dueAssignmentIds = dueAssignments?.map(o => o.assignment_id);
+
+    const get = async (dueAssignmentIds) => {
+        const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
+        const URL = `${COMPASS_BACKEND_SERVER}/api/student/answer/${dueAssignmentIds}/${user.eppn}`;
+        try {
+            const response = await fetch(URL);
+            if (response.ok) {
+                return await response.json();
+            }
+            throw new Error(
+                `Unexpected status code ${response.status} while fetching student answers from ${URL}`,
+            );
+        } catch (error) {
+            console.error(error.message);
+        }
+    };
 
     useEffect(() => {
-        if (response !== answer) {
-            dispatch({
-                type: 'GET_STUDENT_ANSWER',
-                payload: response
-            });
+        if (!answer && dueAssignmentIds) {
+            (async () => {
+                //dispatch({ type: 'GET_STUDENT_ASSIGNMENT_COURSE', payload: await get() });
+                setAnswer(await get(dueAssignmentIds));
+            })();
         }
-    }, [response]);
-
-    if (!feedbackEvaluationPage && (!answer || answer.length === 0 || error)) {
-        return emptyAnswer;
-    }
-
-    return answer;
+    }, [dueAssignments, answer, dispatch]);
+    return [answer];
 };
 
-export default useStudentAnswer;
-*/
+export default useStudentAnswer;*/

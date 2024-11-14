@@ -7,6 +7,7 @@ import { Link, useLocation, useParams } from 'react-router-dom';
 import useStudentCourseAssignmentAnswer from '../../hooks/useStudentCourseAssignmentAnswer';
 import useStudentCourse from '../../hooks/useStudentCourse';
 import TopBar from '../utilities/TopBar';
+//import useStudentAnswer from "../../hooks/useStudentAnswer";
 
 const AssignmentListItem = ({ assignment, href }) => {
     const { t } = useTranslation();
@@ -14,6 +15,7 @@ const AssignmentListItem = ({ assignment, href }) => {
         <div className="assignments-list-item">
             <div className="assignments-list-item-link">
                 <Link to={href}>{assignment?.topic}</Link>
+                <span className="assignments-list-item-answered">{assignment.answered}</span>
             </div>
             <div className="assignments-list-item-secondary">
                 <span className="screenreader-only">{t('assignment_list_item_period')}</span>
@@ -33,6 +35,7 @@ const Assignments = () => {
     const [dueAssignments, previousAssignments] = useStudentCourseAssignmentAnswer(
         course?.course_id,
     );
+    //const [dueAssignments_anwer]  = useStudentAnswer(dueAssignments, previousAssignments);
     const backBtnHref = '/student/courses';
     const backBtnLabels = {
         primary: t('assignments_back_to_course'),

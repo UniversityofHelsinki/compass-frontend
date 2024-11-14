@@ -63,12 +63,17 @@ ul.assignments-list {
 
 .assignments-list-item-link {
     flex-basis: 100%;
+    display: inline-block;
+}
+
+.assignments-list-item-answered {
+    padding-left: 12px;
 }
 
 .assignments-list-item-link a {
     color: var(--huds-brand-main) !important;
     text-decoration: none;
-    display: block;
+    display: inline;
     min-width: 100%;
     font-weight: 600;
     font-size: 1.4em;
