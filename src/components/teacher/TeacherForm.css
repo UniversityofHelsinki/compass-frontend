@@ -1,3 +1,16 @@
+.teacher-form input[type='text'] {
+    width: 100%;
+    border-radius: 0;
+    padding: 10px;
+}
+
+.teacher-form input[type='text']:focus-visible {
+    outline: 2px solid var(--hy-blue);
+    border-radius: 0;
+    box-shadow: initial;
+    transition: none;
+}
+
 .teacher-form-dates {
     display: flex;
     justify-content: space-between;
