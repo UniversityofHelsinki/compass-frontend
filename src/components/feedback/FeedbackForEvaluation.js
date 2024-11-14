@@ -27,8 +27,12 @@ const FeedbackForEvaluation = (showBackBtn = true) => {
         secondary: t('assignment_feedback_back_to_course_secondary'),
     };
 
-    const showFeedback = () => {
-        return (
+    if (studentAnswer === undefined || studentAnswer === null || studentAnswer.value === undefined) {
+        return '';
+    }
+
+    return (
+        <>
             <div className="feedback-for-evaluation-form-container">
                 <TopBar
                     heading={studentAnswer.topic}
@@ -37,43 +41,36 @@ const FeedbackForEvaluation = (showBackBtn = true) => {
                     backBtnLabels={backBtnLabels}
                 />
                 <div className="m-3"></div>
-                <div className="feedback-for-evaluation">
-                    <div className="feedback-for-evaluation-answer">
-                        <strong>{t('assignment_feedback_answer')}:</strong> {studentAnswer.value}
+                <div className="responsive-margins">
+                    <div className="feedback-for-evaluation">
+                        <div className="feedback-for-evaluation-answer">
+                            <strong>{t('assignment_feedback_answer')}:</strong> {studentAnswer.value}
+                        </div>
+                        <div className="feedback-for-evaluation-answer">
+                            <strong>{t('assignment_feedback_choice')}:</strong> {studentAnswer.order_nbr}
+                        </div>
                     </div>
-                    <div className="feedback-for-evaluation-answer">
-                        <strong>{t('assignment_feedback_choice')}:</strong> {studentAnswer.order_nbr}
+                    <div className="feedback-for-evaluation-course">
+                        {studentAnswer.title}
                     </div>
-                </div>
-                <div className="feedback-for-evaluation-course">
-                    {studentAnswer.title}
-                </div>
-                <div className="m-2"></div>
+                    <div className="m-2"></div>
 
-                <Row>
-                    <Col>
-                        <h4 className="feedback-for-evaluation-header">{t(answer_evaluation_form_header + studentAnswer.order_nbr)}</h4>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        {t(answer_evaluation_form_text + studentAnswer.order_nbr)}
-                    </Col>
-                </Row>
+                    <Row>
+                        <Col>
+                            <h4 className="feedback-for-evaluation-header">{t(answer_evaluation_form_header + studentAnswer.order_nbr)}</h4>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            {t(answer_evaluation_form_text + studentAnswer.order_nbr)}
+                        </Col>
+                    </Row>
+                    <FeedbackForEvaluationFooter disabled={editable} message={''} assignment={studentAnswer.assignment_id}
+                                                 answer={answer} course={course} id={id}
+                                                 msgStyle={'assignment.msgStyle'} studentAnswer={studentAnswer}></FeedbackForEvaluationFooter>
+
+                </div>
             </div>
-        )
-    }
-
-    if (studentAnswer === undefined || studentAnswer === null || studentAnswer.value === undefined) {
-        return '';
-    }
-
-    return (
-        <>
-            {showFeedback()}
-            <FeedbackForEvaluationFooter disabled={editable} message={''} assignment={studentAnswer.assignment_id}
-                                         answer={answer} course={course} id={id}
-                                         msgStyle={'assignment.msgStyle'} studentAnswer={studentAnswer}></FeedbackForEvaluationFooter>
         </>
     );
 
