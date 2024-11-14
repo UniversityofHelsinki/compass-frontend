@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './TeacherFormsTable.css';
 import { ReactComponent as CaretUp } from '../utilities/icons/caret-up.svg';
@@ -11,6 +11,8 @@ import { ReactComponent as StatisticsIcon } from '../utilities/icons/pie-chart.s
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useNotification } from '../../NotificationContext';
+
+import useClipboardCopy from '../../hooks/teacher/useClipboardCopy';
 
 const HeadingColumn = ({ children, onSortCriteriaChange, sorted, direction }) => {
     const { t } = useTranslation();
@@ -34,7 +36,23 @@ const HeadingColumn = ({ children, onSortCriteriaChange, sorted, direction }) =>
 
 const Row = ({ teacherForm }) => {
     const { t } = useTranslation();
+    console.log(teacherForm);
+    const { clipboardCopy, loading, error } = useClipboardCopy(
+        teacherForm.id,
+        teacherForm.course_id,
+    );
     const { setNotification } = useNotification();
+
+    useEffect(() => {
+        if (error) {
+            // Display error notification if an error occurs
+            setNotification(t('error_generating_signed_url'), 'error', true);
+        }
+    }, [error, setNotification, t]);
+
+    const handleShareClick = () => {
+        clipboardCopy();
+    };
 
     const Copy = () => (
         <div className="teacher-forms-table-row-copy-action">
@@ -72,15 +90,13 @@ const Row = ({ teacherForm }) => {
         </div>
     );
 
-    const clipboardCopy = () => {
-        setNotification(t('teacher_forms_table_share_copy_to_clipboard'), 'success', true);
-        const target = `${window.location.origin}/student/assignments/${teacherForm.id}`;
-        navigator.clipboard.writeText(target);
-    };
-
     const Share = () => (
         <div className="teacher-forms-table-row-share-action">
-            <button title={t('teacher_forms_table_share_title')} onClick={clipboardCopy}>
+            <button
+                title={t('teacher_forms_table_share_title')}
+                onClick={handleShareClick}
+                disabled={loading}
+            >
                 <span className="screenreader-only">
                     {t('teacher_forms_table_row_share', { title: teacherForm.title })}
                 </span>
@@ -151,7 +167,7 @@ const TeacherFormsTable = ({ teacherForms = [], onSortCriteriaChange, sortOpts }
                                 <HeadingColumn
                                     sorted={property === sortOpts.criteria}
                                     direction={sortOpts.direction}
-                                    onSortCriteriaChange={(e) => onSortCriteriaChange(property)}
+                                    onSortCriteriaChange={() => onSortCriteriaChange(property)}
                                 >
                                     {t(`teacher_forms_table_${property}`)}
                                 </HeadingColumn>
