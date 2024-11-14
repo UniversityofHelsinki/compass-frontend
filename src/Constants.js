@@ -2,7 +2,10 @@ export const DEFAULT_LANGUAGE = 'fi';
 export const LANGUAGES = ['fi', 'sv', 'en', 'ee'];
 
 export const FIELD_IS_VALID = false;
-export const ASSIGNMENT_VALID_FOR_EDIT = false;
+export const ASSIGNMENT_VALID_FOR_EDIT = 'valid';
+export const ASSIGNMENT_OLD = 'old';
+export const ASSIGNMENT_FUTURE = 'future';
+
 export const LEVELS = [
     {
         label: 'option_one',
