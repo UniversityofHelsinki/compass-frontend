@@ -1,11 +1,11 @@
-import {ASSIGNMENT_VALID_FOR_EDIT} from "../../Constants";
+import { ASSIGNMENT_VALID_FOR_EDIT, ASSIGNMENT_OLD, ASSIGNMENT_FUTURE } from '../../Constants';
 
 const regExp = /\..{3}Z$/;
 const removeMillisecs = (dateString) => dateString.replace(regExp, 'Z');
 
 export const validatePeriod = (assignment) => {
     if (!assignment || assignment.length === 0) {
-        return true;
+        return 'true';
     }
 
     let startDate = assignment.start_date;
@@ -20,7 +20,10 @@ export const validatePeriod = (assignment) => {
         let end_d = removeMillisecs(endDate);
         if (start_d <= today && today <= end_d) {
             return ASSIGNMENT_VALID_FOR_EDIT;
+        } else if (start_d <= today && today >= end_d) {
+            return ASSIGNMENT_OLD;
+        } else {
+            return ASSIGNMENT_FUTURE;
         }
     }
-    return true;
 };
