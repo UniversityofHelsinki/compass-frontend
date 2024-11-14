@@ -5,7 +5,7 @@ import './RadioButtonGroup.css';
 import {useTranslation} from "react-i18next";
 import Message from "./Message";
 
-const RadioButtonGroup = ({ options = [], validationMessage, onChange, value = "0", ...rest }) => {
+const RadioButtonGroup = ({ answerNotFound, options = [], validationMessage, onChange, value = "0", ...rest }) => {
     const { t } = useTranslation();
     const id = useId();
 
@@ -15,7 +15,7 @@ const RadioButtonGroup = ({ options = [], validationMessage, onChange, value = "
                 <Form.Check
                     className="radio-button-group"
                     type="radio"
-                    checked={value.toString() === option.value}
+                    checked={value.toString() === option.value && answerNotFound === false}
                     key={option.value} value={option.value}
                     id={`compass-${option.value}-${id}`}
                     label={t(option.label)}

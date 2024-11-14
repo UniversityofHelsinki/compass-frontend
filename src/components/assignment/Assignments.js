@@ -56,11 +56,7 @@ const Assignments = () => {
                 backBtnHref={backBtnHref}
                 backBtnLabels={backBtnLabels}
             >
-                <div className="assignments-reflection-summary">
-                    <Link to={`/student/courses/${course?.course_id}/summary`}>
-                        {t('assignments_summary')}
-                    </Link>
-                </div>
+
             </TopBar>
             <div className="m-3"></div>
             <div className="responsive-margins">
@@ -71,7 +67,7 @@ const Assignments = () => {
                         <li key={assignment.id}>
                             <AssignmentListItem
                                 assignment={assignment}
-                                href={`/student/assignment/${assignment?.assignment_id}/${course?.id}`}
+                                href={`/student/assignment/${assignment?.id}/${course?.id}`}
                             />
                         </li>
                     ))}
@@ -84,11 +80,17 @@ const Assignments = () => {
                             <AssignmentListItem
                                 key={assignment.id}
                                 assignment={assignment}
-                                href={`/student/feedback/${assignment?.assignment_id}/${course?.course_id}/${course?.id}`}
+                                href={`/student/feedback/${assignment?.id}/${course?.course_id}/${course?.id}`}
                             />
                         </li>
                     ))}
                 </ul>
+
+                <div className="assignments-reflection-summary">
+                    <Link to={`/student/courses/${course?.course_id}/summary`}>
+                        {t('assignments_summary')}
+                    </Link>
+                </div>
             </div>
         </>
     );
