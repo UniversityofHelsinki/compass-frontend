@@ -21,10 +21,11 @@ const Navigation = ({ isTeacher }) => {
 
     // Using useEffect to handle the redirection logic based on user type
     useEffect(() => {
-        if (isTeacher) {
-            navigate('/teacher/forms');
-        } else {
+        const path = window.location.pathname;
+        if (!isTeacher && (path.startsWith('/teacher') || path === '/')) {
             navigate('/student/courses');
+        } else if (path === '/') {
+            navigate('/teacher/forms');
         }
     }, [isTeacher, navigate]);
 

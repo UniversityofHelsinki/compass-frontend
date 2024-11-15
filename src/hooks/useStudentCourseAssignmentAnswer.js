@@ -1,6 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { validatePeriod } from './validation/assignmentPeriodValidation';
+import { ASSIGNMENT_OLD, ASSIGNMENT_VALID_FOR_EDIT } from '../Constants';
 
 const emptyAnswer = {
     id: '',
@@ -15,7 +16,7 @@ const useStudentCourseAssignmentAnswer = (course_id) => {
     const dispatch = useDispatch();
 
     const [assignments, setAssignments] = useState(null);
-    const [previousAssignments, setPreviousAssignments] = useState(null);
+    //const [previousAssignments, setPreviousAssignments] = useState(null);
 
     const get = async (course_id) => {
         if (course_id) {
@@ -26,9 +27,6 @@ const useStudentCourseAssignmentAnswer = (course_id) => {
                 if (response.ok) {
                     return await response.json();
                 }
-                throw new Error(
-                    `Unexpected status code ${response.status} while fetching student course assignment answer from ${URL}`,
-                );
             } catch (error) {
                 console.error(error.message);
             }
@@ -54,9 +52,9 @@ const useStudentCourseAssignmentAnswer = (course_id) => {
             })
             .filter((assignment) => {
                 if (due) {
-                    return !validatePeriod(assignment);
+                    return validatePeriod(assignment) === ASSIGNMENT_VALID_FOR_EDIT;
                 } else {
-                    return validatePeriod(assignment);
+                    return validatePeriod(assignment) === ASSIGNMENT_OLD;
                 }
             });
     const due_assignment = newassignments(true);
