@@ -28,7 +28,7 @@ const Assignment = ({ showBackBtn = true, levels }) => {
         value: studentAssignmentAnswer?.value,
         order_nbr: studentAssignmentAnswer?.order_nbr,
         id: studentAssignmentAnswer?.id,
-        topic: studentAssignmentAnswer?.topic,
+        //topic: studentAssignmentAnswer?.topic,
         assignment_id: studentAssignmentAnswer?.assignment_id};
     const navigate = useNavigate();
 
@@ -47,9 +47,11 @@ const Assignment = ({ showBackBtn = true, levels }) => {
         primary: t('assignment_answer_back_to_course'),
             secondary: t('assignment_answer_back_to_course_secondary'),
     };
+    const [radioButtonClicked, setRadioButtonClicked] = useState(false);
 
     const resetFileFields = () => {
         if (formRef.current) {
+            setRadioButtonClicked(false);
             formRef.current.reset();
         }
     };
@@ -65,6 +67,7 @@ const Assignment = ({ showBackBtn = true, levels }) => {
     };
 
     const changeValue = (name, value) => {
+        if (name === 'order_nbr') setRadioButtonClicked(true);
         onChange(name, value);
     };
 
@@ -101,13 +104,13 @@ const Assignment = ({ showBackBtn = true, levels }) => {
 
     return (
         <form ref={formRef}>
-            <div className="assignment-form-container">
-                <TopBar
-                    heading={studentAnswer.topic}
-                    showBackBtn={true}
-                    backBtnHref={backBtnHref}
-                    backBtnLabels={backBtnLabels}
-                />
+            <TopBar
+                heading={studentAnswer.topic}
+                showBackBtn={true}
+                backBtnHref={backBtnHref}
+                backBtnLabels={backBtnLabels}
+            />
+            <div className="responsive-margins">
                 <div className="m-3"></div>
                 <div className="assignment-form-row">
                     {studentAnswer.title}
@@ -127,6 +130,7 @@ const Assignment = ({ showBackBtn = true, levels }) => {
                         <Form>
                             <Form.Label> {t('option_header')}</Form.Label>
                             <RadioButtonGroup
+                                answerNotFound={!radioButtonClicked && studentAssignmentAnswer.id === ""}
                                 options={levels ? levels : []}
                                 validationMessage={messages?.order_nbr}
                                 onChange={changeValue}

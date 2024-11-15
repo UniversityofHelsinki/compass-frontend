@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import useStudentAssignmentCourse from './useStudentAssignmentCourse';
 
-const emptyAnswer = {
+let emptyAnswer = {
     id: '',
     assignment_id: 1,
     course_id: '',
@@ -12,6 +12,7 @@ const emptyAnswer = {
 };
 
 const useStudentAssignmentAnswer = (assignmentId) => {
+    emptyAnswer.assignment_id = assignmentId;
     const dispatch = useDispatch();
     const studentAnswerData = useStudentAssignmentCourse(assignmentId);
     useEffect(() => {

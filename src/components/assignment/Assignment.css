@@ -53,7 +53,7 @@ ul.assignments-list {
     padding-left: unset;
 }
 
-.assignments-list-item {
+/*.assignments-list-item {
     display: flex;
     flex-direction: column;
     background-color: var(--huds-grayscale-light);
@@ -84,6 +84,11 @@ ul.assignments-list {
 }
 
 .assignments-reflection-summary {
-    display: flex;
-    flex-direction: row-reverse;
-}
+    color: var(--huds-brand-main) !important;
+    text-decoration: none;
+    display: block;
+    min-width: 100%;
+    font-weight: 600;
+    font-size: 1.4em;
+    padding-bottom: 12px;
+}*/
