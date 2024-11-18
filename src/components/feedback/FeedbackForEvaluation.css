@@ -1,36 +1,22 @@
 .feedback-for-evaluation {
+    background-color: var(--huds-grayscale-light);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
 
 .feedback-for-evaluation-answer {
-    width: 30%;
+    background-color: var(--huds-grayscale-light);
+    width: 35%;
 }
 
-.feedback-for-evaluation-header {
+.feedback-for-evaluation-rows {
+    background-color: var(--huds-grayscale-light);
 }
-
-/*.feedback-for-evaluation-form-container  {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;*/
-    /*outline: 2px solid var(--huds-grayscale-medium-dark);*/
-    /*margin-bottom: 10px;
-    padding: 0 20px;
-    width: 100%;*/
-    /*box-shadow: 1px 2px 4px var(--huds-grayscale-black);*/
-/*}*/
 
 .feedback-for-evaluation-back-col {
     flex: 0;
 }
-
-/*.feedback-for-evaluation-header-row {
-    display: flex;
-    width: 100%;
-}*/
 
 .feedback-for-evaluation-assignment {
     padding-bottom: 5px;
@@ -38,9 +24,15 @@
     font-weight: bold;
 }
 
-/*.feedback-for-evaluation-course {
-    padding-bottom: 10px;
-    padding-left: 10.0em;
-    display: flex;
-    width: 100%;
-}*/
+.feedback-for-evaluation-choice {
+    padding-right: 5px;
+}
+
+.feedback-for-evaluation-order {
+    padding-left: 5px;
+}
+
+.feedback-for-evaluation-order > img,
+svg {
+    vertical-align: text-bottom;
+}
