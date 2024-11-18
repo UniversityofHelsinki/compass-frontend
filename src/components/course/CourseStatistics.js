@@ -36,7 +36,20 @@ const CourseStatistics = () => {
     }
 
     if (!Array.isArray(courseStatistics) || courseStatistics.length === 0) {
-        return <p>{t('no_statistic_data_available')}</p>;
+        return (
+            <>
+                <TopBar
+                    showBackBtn={true}
+                    backBtnLabels={{
+                        primary: t('teacher_forms_back_to_forms'),
+                        secondary: t('teacher_forms_back_to_forms_secondary'),
+                    }}
+                    backBtnHref="/teacher/forms"
+                    heading={`${t('course_statistics_for_course')}: ${course?.title}`}
+                />
+                <p>{t('no_statistic_data_available')}</p>
+            </>
+        );
     }
 
     const groupedData = courseStatistics.reduce((accumulator, current) => {
