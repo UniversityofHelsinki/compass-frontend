@@ -36,7 +36,6 @@ const HeadingColumn = ({ children, onSortCriteriaChange, sorted, direction }) =>
 
 const Row = ({ teacherForm }) => {
     const { t } = useTranslation();
-    console.log(teacherForm);
     const { clipboardCopy, loading, error } = useClipboardCopy(
         teacherForm.id,
         teacherForm.course_id,
