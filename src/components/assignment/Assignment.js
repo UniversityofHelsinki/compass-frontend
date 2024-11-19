@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import './Assignment.css';
 import { useTranslation } from 'react-i18next';
@@ -14,22 +13,23 @@ import useAnswerValidation from '../../hooks/validation/answers/useAnswerValidat
 import ButtonRow from '../actions/ButtonRow';
 import useUser from '../../hooks/useUser';
 import HyButton from '../utilities/HyButton';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useStudentAssignmentAnswer from '../../hooks/useStudentAssignmentAnswer';
-import TopBar from "../utilities/TopBar";
+import TopBar from '../utilities/TopBar';
 
 const Assignment = ({ showBackBtn = true, levels }) => {
     const { assignment, id } = useParams();
     const [user] = useUser();
     const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
     const courseId = studentAnswerData.id;
-    const backBtnHref = "/student/assignments/" + id;
-    const studentAnswer = {...studentAnswerData,
+    const backBtnHref = '/student/assignments/' + id;
+    const studentAnswer = {
+        ...studentAnswerData,
         value: studentAssignmentAnswer?.value,
         order_nbr: studentAssignmentAnswer?.order_nbr,
         id: studentAssignmentAnswer?.id,
-        //topic: studentAssignmentAnswer?.topic,
-        assignment_id: studentAssignmentAnswer?.assignment_id};
+        assignment_id: studentAssignmentAnswer?.assignment_id,
+    };
     const navigate = useNavigate();
 
     const { t } = useTranslation();
@@ -43,9 +43,9 @@ const Assignment = ({ showBackBtn = true, levels }) => {
     const [_answer, _message, _messageStyle, addAnswer] = useSelfReflectionSave();
     const formRef = useRef();
     const disabled = false;
-    const backBtnLabels={
+    const backBtnLabels = {
         primary: t('assignment_answer_back_to_course'),
-            secondary: t('assignment_answer_back_to_course_secondary'),
+        secondary: t('assignment_answer_back_to_course_secondary'),
     };
     const [radioButtonClicked, setRadioButtonClicked] = useState(false);
 
@@ -59,8 +59,8 @@ const Assignment = ({ showBackBtn = true, levels }) => {
     const handleAddAnswer = async () => {
         const newUser = { ...modifiedObject };
         newUser['course_id'] = studentAnswer.course_id;
-        newUser["id"] = studentAnswer.id;
-        newUser["assignment_id"] = studentAnswer.assignment_id;
+        newUser['id'] = studentAnswer.id;
+        newUser['assignment_id'] = studentAnswer.assignment_id;
         const answer = await addAnswer(newUser, true);
         let course = studentAnswer.course_id;
         navigate(`/student/feedback/${answer}/${course}/${courseId}`);
@@ -111,39 +111,41 @@ const Assignment = ({ showBackBtn = true, levels }) => {
                 backBtnLabels={backBtnLabels}
             />
             <div className="responsive-margins">
-                <div className="m-3"></div>
-                <div className="assignment-form-row">
-                    {studentAnswer.title}
-                </div>
-                <div className="m-2"></div>
-                <Row>
-                    <Col>
-                        <FormFreeAnswer
-                            onChange={changeValue}
-                            value={modifiedObject && modifiedObject.value}
-                            validationMessage={messages?.value}
-                        />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <Form>
-                            <Form.Label> {t('option_header')}</Form.Label>
-                            <RadioButtonGroup
-                                answerNotFound={!radioButtonClicked && studentAssignmentAnswer.id === ""}
-                                options={levels ? levels : []}
-                                validationMessage={messages?.order_nbr}
+                <div className="assignment-form-area">
+                    <div className="m-3"></div>
+                    <div className="assignment-form-row">{studentAnswer.title}</div>
+                    <div className="m-2"></div>
+                    <Row>
+                        <Col>
+                            <FormFreeAnswer
                                 onChange={changeValue}
-                                value={
-                                    modifiedObject && modifiedObject.order_nbr
-                                        ? modifiedObject.order_nbr
-                                        : '0'
-                                }
-                                aria-required
+                                value={modifiedObject && modifiedObject.value}
+                                validationMessage={messages?.value}
                             />
-                        </Form>
-                    </Col>
-                </Row>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <Form>
+                                <Form.Label> {t('option_header')}</Form.Label>
+                                <RadioButtonGroup
+                                    answerNotFound={
+                                        !radioButtonClicked && studentAssignmentAnswer.id === ''
+                                    }
+                                    options={levels ? levels : []}
+                                    validationMessage={messages?.order_nbr}
+                                    onChange={changeValue}
+                                    value={
+                                        modifiedObject && modifiedObject.order_nbr
+                                            ? modifiedObject.order_nbr
+                                            : '0'
+                                    }
+                                    aria-required
+                                />
+                            </Form>
+                        </Col>
+                    </Row>
+                </div>
                 <Row>
                     <Col>
                         <ButtonRow>
@@ -155,12 +157,11 @@ const Assignment = ({ showBackBtn = true, levels }) => {
             </div>
         </form>
     );
-
 };
 
 Assignment.propTypes = {
     levels: PropTypes.array.isRequired,
-    showBackBtn: PropTypes.bool
+    showBackBtn: PropTypes.bool,
 };
 
 export default Assignment;

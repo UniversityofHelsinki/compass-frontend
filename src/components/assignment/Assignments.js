@@ -46,7 +46,6 @@ const Assignments = () => {
     const [dueAssignments, previousAssignments] = useStudentCourseAssignmentAnswer(
         course?.course_id,
     );
-    //const [dueAssignments_anwer]  = useStudentAnswer(dueAssignments, previousAssignments);
     const backBtnHref = '/student/courses';
     const backBtnLabels = {
         primary: t('assignments_back_to_course'),
