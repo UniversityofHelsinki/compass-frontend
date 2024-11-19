@@ -3,18 +3,15 @@ import PropTypes from 'prop-types';
 import './Error.css';
 import { useRouteError } from 'react-router-dom';
 
-const Error = () => {
-  const error = useRouteError();
-  return (
-    <div className="error-page">
-      <p>
-        {error.message}
-      </p>
-    </div>
-  );
+const ErrorPage = () => {
+    const error = useRouteError();
+    return (
+        <div className="error-page">
+            <p>{error.message}</p>
+        </div>
+    );
 };
 
-Error.propTypes = {
-};
+ErrorPage.propTypes = {};
 
-export default Error;
+export default ErrorPage;

@@ -63,12 +63,15 @@ const Row = ({ teacherForm }) => {
 
     const Delete = () => (
         <div className="teacher-forms-table-row-delete-action">
-            <button title={t('teacher_forms_table_delete_title')}>
+            <Link
+                to={`/teacher/forms/delete/${teacherForm.id}`}
+                title={t('teacher_forms_table_delete_title')}
+            >
                 <span className="screenreader-only">
                     {t('teacher_forms_table_row_delete', { title: teacherForm.title })}
                 </span>
                 <TrashIcon aria-hidden />
-            </button>
+            </Link>
         </div>
     );
 
