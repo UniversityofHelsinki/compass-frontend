@@ -13,7 +13,7 @@ const emptyAnswer = {
     order_nbr: '',
 };
 
-const useStudentCourseAssignmentAnswer = (course_id, signature) => {
+const useStudentCourseAssignmentAnswer = (course_id, signature, id) => {
     const dispatch = useDispatch();
 
     const [assignments, setAssignments] = useState(null);
@@ -23,7 +23,7 @@ const useStudentCourseAssignmentAnswer = (course_id, signature) => {
         if (course_id) {
             console.log(signature);
             const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
-            const URL = `${COMPASS_BACKEND_SERVER}/api/student/course/assignment/answer/${course_id}?signature=${signature}`;
+            const URL = `${COMPASS_BACKEND_SERVER}/api/student/course/assignment/answer/${course_id}?id=${id}&signature=${signature}`;
             try {
                 const response = await fetch(URL);
                 if (response.ok) {

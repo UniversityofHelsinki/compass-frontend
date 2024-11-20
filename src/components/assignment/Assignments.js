@@ -1,7 +1,7 @@
 import './Assignments.css';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import useStudentCourseAssignmentAnswer from '../../hooks/useStudentCourseAssignmentAnswer';
 import useStudentCourse from '../../hooks/useStudentCourse';
 import TopBar from '../utilities/TopBar';
@@ -56,6 +56,7 @@ const Assignments = () => {
     const [dueAssignments, previousAssignments] = useStudentCourseAssignmentAnswer(
         course?.course_id,
         signature,
+        id,
     );
     const backBtnHref = '/student/courses';
     const backBtnLabels = {
