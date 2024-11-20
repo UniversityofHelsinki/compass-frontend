@@ -147,5 +147,6 @@
     "teacher_form_delete_cancel_button_label": "Peruuta",
     "teacher_form_delete_course_deleted_notification": "Kurssi poistettu",
     "course_can_not_have_on_going_assignments": "Kurssilla on käynnissä olevia ASSIGNMENTTEJA",
-    "unknown_error": "Tuntematon virhe."
+    "unknown_error": "Tuntematon virhe.",
+    "student": "Opiskelija"
 }

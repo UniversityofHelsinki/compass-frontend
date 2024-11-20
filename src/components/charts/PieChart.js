@@ -66,7 +66,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, nam
                 textAnchor={x > cx ? 'start' : 'end'}
                 dominantBaseline="central"
             >
-                {`${name}: ${(percent * 100).toFixed(0)}%`}
+                {`${(percent * 100).toFixed(0)}%`}
             </text>
         </g>
     );
@@ -126,9 +126,6 @@ const PieCharts = ({ data, selectedChartIds }) => {
                         {assignment.assignmentTopic} ({assignment.answerCount})
                     </h3>
                     {renderPieChart(assignment.data, index)}
-                    <div className="answer-average-level">
-                        {t('chart_average_answer_level')} {assignment.avg_answer_level}
-                    </div>
                     <TableData assignmentId={assignment.assignmentId} />
                 </div>
             ))}

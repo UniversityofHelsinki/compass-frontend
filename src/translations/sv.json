@@ -51,5 +51,6 @@
     "tooltip_top": "Assignment: ",
     "tooltip_bottom": "Level: ",
     "chart_average_answer_level": "Average level: ",
-    "teacher_form_delete_assignment_button": "Delete assignment {{topic}}"
+    "teacher_form_delete_assignment_button": "Delete assignment {{topic}}",
+    "student": "Student"
 }
