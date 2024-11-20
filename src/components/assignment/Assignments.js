@@ -1,7 +1,7 @@
 import './Assignments.css';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import useStudentCourseAssignmentAnswer from '../../hooks/useStudentCourseAssignmentAnswer';
 import useStudentCourse from '../../hooks/useStudentCourse';
 import TopBar from '../utilities/TopBar';
