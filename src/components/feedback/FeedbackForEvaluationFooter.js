@@ -11,6 +11,7 @@ const FeedbackForEvaluationFooter = ({
     message,
     msgStyle,
     answer,
+    course,
     id,
     studentAnswer,
 }) => {
@@ -38,11 +39,11 @@ const FeedbackForEvaluationFooter = ({
                         {t('assignment_feedback_remove')}
                     </HyButton>
                 </Link>
-                {/* <Link to={`/student/assignments/${id}`} >
+                <Link to={`/student/courses/${course}/summary`}>
                     <HyButton variant="primary" type="submit" disabled={false}>
-                        {t('assignment_feedback_back')}
+                        {t('assignment_feedback_reflection_summary')}
                     </HyButton>
-                </Link> */}
+                </Link>
             </div>
         </div>
     );
@@ -50,6 +51,7 @@ const FeedbackForEvaluationFooter = ({
 
 FeedbackForEvaluationFooter.propTypes = {
     disabled: PropTypes.bool,
+    course: PropTypes.string,
     message: PropTypes.string,
     msgStyle: PropTypes.string,
     answer: PropTypes.number,

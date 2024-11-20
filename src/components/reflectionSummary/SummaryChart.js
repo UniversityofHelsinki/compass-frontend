@@ -10,7 +10,6 @@ import {
 } from 'recharts';
 import { useTranslation } from 'react-i18next';
 import './SummaryChart.css';
-import { Col, Container, Row } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import CustomTick from './SummaryChartCustomTicks';
 import CustomTooltip from './SummaryChartCustomTooltip';
@@ -21,9 +20,9 @@ const SummaryChart = ({ assignments }) => {
     const sortedAssignmentsData = assignments.sort((a, b) => a.id - b.id);
 
     return (
-        <Container>
-            <Row className="chart-row">
-                <Col className="chart-col">
+        <div className="chart-responsive-margins">
+            <div className="chart-row">
+                <div className="chart-col">
                     {assignments?.length > 0 && (
                         <ResponsiveContainer width="100%" height={400}>
                             <LineChart
@@ -63,9 +62,9 @@ const SummaryChart = ({ assignments }) => {
                             </LineChart>
                         </ResponsiveContainer>
                     )}
-                </Col>
-            </Row>
-        </Container>
+                </div>
+            </div>
+        </div>
     );
 };
 

@@ -1,83 +1,120 @@
-import {Col, Container, Form, Modal, Row} from "react-bootstrap";
-import React, {useState} from "react";
-import {useTranslation} from "react-i18next";
-import FeedbackForEvaluationFooter from "./FeedbackForEvaluationFooter";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import FeedbackForEvaluationFooter from './FeedbackForEvaluationFooter';
 import './FeedbackForEvaluation.css';
-import PropTypes from "prop-types";
-import {useLocation, Link, useParams} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
-import useUser from "../../hooks/useUser";
-import useStudentFeedback from "../../hooks/useStudentFeedback";
-import useAssignment from "../../hooks/useAssignment";
-import TopBar from "../utilities/TopBar";
+import useStudentFeedback from '../../hooks/useStudentFeedback';
+import useAssignment from '../../hooks/useAssignment';
+import TopBar from '../utilities/TopBar';
+import { ReactComponent as Level0Icon } from '../utilities/icons/circle.svg';
+import { ReactComponent as Level1Icon } from '../utilities/icons/circle-fill.svg';
+import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vertical.svg';
+import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
+import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
+
+const Level = ({ level = 4 }) => {
+    let IconComponent;
+
+    switch (level) {
+        case 0:
+            IconComponent = Level0Icon;
+            break;
+        case 1:
+            IconComponent = Level1Icon;
+            break;
+        case 2:
+            IconComponent = Level2Icon;
+            break;
+        case 3:
+            IconComponent = Level3Icon;
+            break;
+        case 4:
+            IconComponent = Level4Icon;
+            break;
+        default:
+            IconComponent = null;
+            break;
+    }
+    return IconComponent ? <IconComponent /> : null;
+};
 
 const FeedbackForEvaluation = (showBackBtn = true) => {
     const { answer, course, id } = useParams();
-    //const backBtnHref = "/student/assignments/" + id;
-    const backBtnHref = "/student/assignments/" + id;
-    const [user] = useUser();
+    const backBtnHref = '/student/assignments/' + id;
     const studentAnswer = useStudentFeedback(answer, course);
     const editable = useAssignment(answer);
 
     const { t } = useTranslation();
-    let answer_evaluation_form_header =  'answer_evaluation_form_header_';
-    let answer_evaluation_form_text =  'answer_evaluation_form_text_';
-    const backBtnLabels={
+    let answer_evaluation_form_header = 'answer_evaluation_form_header_';
+    let answer_evaluation_form_text = 'answer_evaluation_form_text_';
+    let assignment_feedback_level = 'assignment_feedback_level_';
+    const backBtnLabels = {
         primary: t('assignment_feedback_back_to_course'),
         secondary: t('assignment_feedback_back_to_course_secondary'),
     };
 
-    if (studentAnswer === undefined || studentAnswer === null || studentAnswer.value === undefined) {
-        return '';
+    if (
+        studentAnswer === undefined ||
+        studentAnswer === null ||
+        studentAnswer.value === undefined
+    ) {
+        return <></>;
     }
 
     return (
-        <>
-            <div className="feedback-for-evaluation-form-container">
-                <TopBar
-                    heading={studentAnswer.topic}
-                    showBackBtn={true}
-                    backBtnHref={backBtnHref}
-                    backBtnLabels={backBtnLabels}
-                />
-                <div className="m-3"></div>
-                <div className="responsive-margins">
-                    <div className="feedback-for-evaluation">
-                        <div className="feedback-for-evaluation-answer">
-                            <strong>{t('assignment_feedback_answer')}:</strong> {studentAnswer.value}
-                        </div>
-                        <div className="feedback-for-evaluation-answer">
-                            <strong>{t('assignment_feedback_choice')}:</strong> {studentAnswer.order_nbr}
-                        </div>
+        <div>
+            <TopBar
+                heading={studentAnswer.topic}
+                showBackBtn={true}
+                backBtnHref={backBtnHref}
+                backBtnLabels={backBtnLabels}
+            />
+            <div className="m-3"></div>
+            <div className="responsive-margins">
+                <div className="feedback-for-evaluation">
+                    <div className="feedback-for-evaluation-answer">
+                        <strong>{t('assignment_feedback_answer')}:</strong> {studentAnswer.value}
                     </div>
-                    <div className="feedback-for-evaluation-course">
-                        {studentAnswer.title}
+                    <div className="feedback-for-evaluation-answer">
+                        <strong className="feedback-for-evaluation-choice">
+                            {t('assignment_feedback_choice')}:
+                        </strong>
+                        <Level level={studentAnswer.order_nbr} />
+                        <span className="feedback-for-evaluation-order">
+                            {t(assignment_feedback_level + studentAnswer.order_nbr)}
+                        </span>
                     </div>
+                </div>
+                <div className="feedback-for-evaluation-rows">
+                    <div>{studentAnswer.title}</div>
                     <div className="m-2"></div>
-
-                    <Row>
-                        <Col>
-                            <h4 className="feedback-for-evaluation-header">{t(answer_evaluation_form_header + studentAnswer.order_nbr)}</h4>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            {t(answer_evaluation_form_text + studentAnswer.order_nbr)}
-                        </Col>
-                    </Row>
-                    <FeedbackForEvaluationFooter disabled={editable} message={''} assignment={studentAnswer.assignment_id}
-                                                 answer={answer} course={course} id={id}
-                                                 msgStyle={'assignment.msgStyle'} studentAnswer={studentAnswer}></FeedbackForEvaluationFooter>
-
+                    <div>
+                        <h4 className="feedback-for-evaluation-header">
+                            {t(answer_evaluation_form_header + studentAnswer.order_nbr)}
+                        </h4>
+                    </div>
+                    <div>{t(answer_evaluation_form_text + studentAnswer.order_nbr)}</div>
+                    <FeedbackForEvaluationFooter
+                        disabled={editable}
+                        message={''}
+                        assignment={studentAnswer.assignment_id}
+                        answer={answer}
+                        course={course}
+                        id={id}
+                        msgStyle={'assignment.msgStyle'}
+                        studentAnswer={studentAnswer}
+                    ></FeedbackForEvaluationFooter>
                 </div>
             </div>
-        </>
+        </div>
     );
-
-}
+};
 
 FeedbackForEvaluation.propTypes = {
     showBackBtn: PropTypes.bool,
+    level: PropTypes.number,
 };
 
 export default FeedbackForEvaluation;

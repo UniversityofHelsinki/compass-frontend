@@ -1,25 +1,45 @@
 import './Assignments.css';
-import Row from 'react-bootstrap/Row';
 import React from 'react';
-import { Container } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import useStudentCourseAssignmentAnswer from '../../hooks/useStudentCourseAssignmentAnswer';
 import useStudentCourse from '../../hooks/useStudentCourse';
 import TopBar from '../utilities/TopBar';
+import PropTypes from 'prop-types';
 
-const AssignmentListItem = ({ assignment, href }) => {
+const AssignmentListItem = ({ previous, assignment, href }) => {
     const { t } = useTranslation();
+    let anwer =
+        assignment?.answered === true ? t('assignments_answered') : t('assignments_not_answered');
     return (
         <div className="assignments-list-item">
             <div className="assignments-list-item-link">
-                <Link to={href}>{assignment?.topic}</Link>
+                <Link
+                    to={href}
+                    className={
+                        previous === true && assignment?.answered === false
+                            ? 'disabled'
+                            : 'assignments-list-item-link'
+                    }
+                >
+                    {' '}
+                    {assignment?.topic}{' '}
+                </Link>
+                <span
+                    className={
+                        assignment?.answered === true
+                            ? 'assignments-list-item-answered'
+                            : 'assignments-list-item-not-answered'
+                    }
+                >
+                    {anwer}
+                </span>
             </div>
             <div className="assignments-list-item-secondary">
                 <span className="screenreader-only">{t('assignment_list_item_period')}</span>
                 <span>
-                    {new Date(assignment.start_date).toLocaleDateString('fi-FI')} -{' '}
-                    {new Date(assignment.end_date).toLocaleDateString('fi-FI')}
+                    {new Date(assignment?.start_date).toLocaleDateString('fi-FI')} -{' '}
+                    {new Date(assignment?.end_date).toLocaleDateString('fi-FI')}
                 </span>
             </div>
         </div>
@@ -68,8 +88,13 @@ const Assignments = () => {
                     {dueAssignments.map((assignment) => (
                         <li key={assignment.id}>
                             <AssignmentListItem
+                                previous={false}
                                 assignment={assignment}
-                                href={`/student/assignment/${assignment?.id}/${course?.id}`}
+                                href={
+                                    assignment.answered === true
+                                        ? `/student/feedback/${assignment?.id}/${course?.course_id}/${course?.id}`
+                                        : `/student/assignment/${assignment?.id}/${course?.id}`
+                                }
                             />
                         </li>
                     ))}
@@ -80,6 +105,7 @@ const Assignments = () => {
                     {previousAssignments.map((assignment) => (
                         <li key={assignment.id}>
                             <AssignmentListItem
+                                previous={true}
                                 key={assignment.id}
                                 assignment={assignment}
                                 href={`/student/feedback/${assignment?.id}/${course?.course_id}/${course?.id}`}
@@ -88,16 +114,23 @@ const Assignments = () => {
                     ))}
                 </ul>
 
-                <div className="assignments-reflection-summary">
-                    <Link to={`/student/courses/${course?.course_id}/summary`}>
-                        {t('assignments_summary')}
-                    </Link>
+                <h3>{t('assignments_reflection_summary')}</h3>
+                <div className="assignments-list-item">
+                    <div className="assignments-list-item-link">
+                        <Link to={`/student/courses/${course?.course_id}/summary`}>
+                            {t('assignments_summary')}
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>
     );
 };
 
-Assignments.propTypes = {};
+Assignments.propTypes = {
+    assignment: PropTypes.object,
+    href: PropTypes.string,
+    previous: PropTypes.bool,
+};
 
 export default Assignments;

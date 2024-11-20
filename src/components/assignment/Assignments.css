@@ -39,8 +39,6 @@
     margin-bottom: 10px;
     padding: 0 0px;
     width: 80%;
-    /*border: 2px solid var(--hy-blue);
-    box-shadow: 1px 2px 4px var(--huds-grayscale-black);*/
 }
 
 .assignments-summary-row {
@@ -79,7 +77,6 @@
     height: 2px;
 }
 
-
 ul.assignments-list {
     list-style: none;
     padding-left: unset;
@@ -94,7 +91,18 @@ ul.assignments-list {
 }
 
 .assignments-list-item-link {
-    flex-basis: 100%;
+    width: 300px;
+    display: flex;
+}
+.assignments-list-item-answered {
+    padding-top: 5px;
+    width: fit-content;
+    color: green;
+}
+.assignments-list-item-not-answered {
+    padding-top: 5px;
+    width: fit-content;
+    color: red;
 }
 
 .assignments-list-item-link a {
@@ -123,4 +131,9 @@ ul.assignments-list {
     font-weight: 600;
     font-size: 1.4em;
     padding-bottom: 12px;
+}
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
 }
