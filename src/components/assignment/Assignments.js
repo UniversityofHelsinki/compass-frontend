@@ -48,10 +48,14 @@ const AssignmentListItem = ({ previous, assignment, href }) => {
 
 const Assignments = () => {
     const { id } = useParams();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const signature = queryParams.get('signature');
     const { t } = useTranslation();
     let course = useStudentCourse(id);
     const [dueAssignments, previousAssignments] = useStudentCourseAssignmentAnswer(
         course?.course_id,
+        signature,
     );
     const backBtnHref = '/student/courses';
     const backBtnLabels = {
