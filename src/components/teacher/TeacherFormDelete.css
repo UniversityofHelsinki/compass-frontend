@@ -1,0 +1,9 @@
+.teacher-form-delete-warning {
+    padding: 12px;
+    background-color: var(--hy-light-silver);
+}
+
+.teacher-form-delete-actions {
+    display: flex;
+    justify-content: end;
+}

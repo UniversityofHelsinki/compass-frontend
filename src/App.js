@@ -21,7 +21,7 @@ import {
 } from 'react-router-dom';
 import Teacher from './components/teacher/Teacher';
 import Student from './components/student/Student';
-import Error from './Error';
+import ErrorPage from './Error';
 import TeacherForms from './components/teacher/TeacherForms';
 import StudentCourses from './components/student/StudentCourses';
 import SummaryPage from './components/reflectionSummary/SummaryPage';
@@ -32,13 +32,9 @@ import Assignment from './components/assignment/Assignment';
 import DeleteStudentAnswer from './components/delete/DeleteStudentAnswer';
 import Assignments from './components/assignment/Assignments';
 import CourseStatistics from './components/course/CourseStatistics';
+import TeacherFormDelete from './components/teacher/TeacherFormDelete';
 
 const store = createStore(reducer, applyMiddleware(thunk));
-
-const backBtnLabels = {
-    primary: 'Back',
-    secondary: '',
-};
 
 const defaultLanguage = () => {
     try {
@@ -64,11 +60,12 @@ i18n.use(initReactI18next).init({
 const App = () => {
     const router = createBrowserRouter(
         createRoutesFromElements(
-            <Route path="/" element={<Compass />} errorElement={<Error />}>
+            <Route path="/" element={<Compass />} errorElement={<ErrorPage />}>
                 <Route path="teacher" element={<Teacher />}>
                     <Route path="forms" element={<TeacherForms />}></Route>
                     <Route path="forms/new" element={<TeacherFormNew />}></Route>
                     <Route path="forms/edit/:course" element={<TeacherFormEdit />}></Route>
+                    <Route path="forms/delete/:course" element={<TeacherFormDelete />}></Route>
                     <Route path="statistics/course/:courseId" element={<CourseStatistics />} />
                 </Route>
                 <Route path="student" element={<Student />}>

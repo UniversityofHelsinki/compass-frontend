@@ -130,5 +130,13 @@
     "tooltip_bottom": "Taso: ",
     "chart_average_answer_level": "Tason keskiarvo: ",
     "course_list_item_period_label": "Kurssin ajankohta",
-    "teacher_form_delete_assignment_button": "Poista aihe {{topic}}"
+    "teacher_form_delete_assignment_button": "Poista aihe {{topic}}",
+    "teacher_form_table_delete_title": "Poista kurssi",
+    "teacher_form_delete": "Poista kurssi",
+    "teacher_form_delete_warning": "Kaikki kurssiin liittyvät tiedot poistetaan.",
+    "teacher_form_delete_delete_button_label": "Poista",
+    "teacher_form_delete_cancel_button_label": "Peruuta",
+    "teacher_form_delete_course_deleted_notification": "Kurssi poistettu",
+    "course_can_not_have_on_going_assignments": "Kurssilla on käynnissä olevia ASSIGNMENTTEJA",
+    "unknown_error": "Tuntematon virhe."
 }
