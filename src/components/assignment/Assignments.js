@@ -7,14 +7,21 @@ import useStudentCourse from '../../hooks/useStudentCourse';
 import TopBar from '../utilities/TopBar';
 import PropTypes from 'prop-types';
 
-const AssignmentListItem = ({ assignment, href }) => {
+const AssignmentListItem = ({ previous, assignment, href }) => {
     const { t } = useTranslation();
     let anwer =
         assignment?.answered === true ? t('assignments_answered') : t('assignments_not_answered');
     return (
         <div className="assignments-list-item">
             <div className="assignments-list-item-link">
-                <Link to={href} className="assignments-list-item-link">
+                <Link
+                    to={href}
+                    className={
+                        previous === true && assignment?.answered === false
+                            ? 'disabled'
+                            : 'assignments-list-item-link'
+                    }
+                >
                     {' '}
                     {assignment?.topic}{' '}
                 </Link>
@@ -77,6 +84,7 @@ const Assignments = () => {
                     {dueAssignments.map((assignment) => (
                         <li key={assignment.id}>
                             <AssignmentListItem
+                                previous={false}
                                 assignment={assignment}
                                 href={
                                     assignment.answered === true
@@ -93,6 +101,7 @@ const Assignments = () => {
                     {previousAssignments.map((assignment) => (
                         <li key={assignment.id}>
                             <AssignmentListItem
+                                previous={true}
                                 key={assignment.id}
                                 assignment={assignment}
                                 href={`/student/feedback/${assignment?.id}/${course?.course_id}/${course?.id}`}
@@ -117,6 +126,7 @@ const Assignments = () => {
 Assignments.propTypes = {
     assignment: PropTypes.object,
     href: PropTypes.string,
+    previous: PropTypes.bool,
 };
 
 export default Assignments;

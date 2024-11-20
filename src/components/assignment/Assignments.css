@@ -132,3 +132,8 @@ ul.assignments-list {
     font-size: 1.4em;
     padding-bottom: 12px;
 }
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
