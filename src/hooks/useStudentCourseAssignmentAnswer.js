@@ -18,7 +18,6 @@ const useStudentCourseAssignmentAnswer = (course_id, signature, id) => {
 
     const [assignments, setAssignments] = useState(null);
     //const [previousAssignments, setPreviousAssignments] = useState(null);
-
     const get = async (course_id) => {
         if (course_id) {
             console.log(signature);
@@ -36,7 +35,7 @@ const useStudentCourseAssignmentAnswer = (course_id, signature, id) => {
     };
 
     useEffect(() => {
-        if (!assignments) {
+        if (!assignments && !(course_id === undefined)) {
             (async () => {
                 setAssignments(await get(course_id));
             })();

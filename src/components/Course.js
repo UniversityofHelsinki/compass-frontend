@@ -8,7 +8,7 @@ import useGetSignature from '../hooks/useGetSignature';
 
 const Course = ({ course }) => {
     const { t } = useTranslation();
-    const [signature] = useGetSignature(course);
+    const [signature] = useGetSignature(course.id);
     const target = `/student/assignments/${course.id}?signature=${signature}`;
 
     return (

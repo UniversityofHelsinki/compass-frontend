@@ -16,13 +16,15 @@ import HyButton from '../utilities/HyButton';
 import { useNavigate, useParams } from 'react-router-dom';
 import useStudentAssignmentAnswer from '../../hooks/useStudentAssignmentAnswer';
 import TopBar from '../utilities/TopBar';
+import useGetSignature from '../../hooks/useGetSignature';
 
 const Assignment = ({ showBackBtn = true, levels }) => {
     const { assignment, id } = useParams();
     const [user] = useUser();
     const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
     const courseId = studentAnswerData.id;
-    const backBtnHref = '/student/assignments/' + id;
+    const [signature] = useGetSignature(courseId);
+    const backBtnHref = `/student/assignments/${id}?signature=${signature}`;
     const studentAnswer = {
         ...studentAnswerData,
         value: studentAssignmentAnswer?.value,
