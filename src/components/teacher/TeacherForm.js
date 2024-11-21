@@ -1,9 +1,7 @@
 import React, { useEffect, useId, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import './TeacherForm.css';
-import FormElementHeader from '../../form/FormElementHeader';
 import { useTranslation } from 'react-i18next';
-import InputField from '../../form/InputField';
 import DatePicker from '../../form/DatePicker';
 import { ReactComponent as TrashIcon } from '../utilities/icons/trash.svg';
 import useValidation from '../../hooks/validation/useTeacherFormValidation';
@@ -21,6 +19,11 @@ const FormField = ({ children, field, fieldId }) => {
         </div>
     );
 };
+FormField.propTypes = {
+    children: PropTypes.node,
+    field: PropTypes.string,
+    fieldId: PropTypes.string,
+};
 
 const ValidationMessage = ({ children, id }) => {
     return (
@@ -30,6 +33,10 @@ const ValidationMessage = ({ children, id }) => {
             </span>
         </div>
     );
+};
+ValidationMessage.propTypes = {
+    children: PropTypes.node,
+    id: PropTypes.string,
 };
 
 const Title = ({ onChange, value, validationError }) => {
@@ -57,8 +64,13 @@ const Title = ({ onChange, value, validationError }) => {
         </FormField>
     );
 };
+Title.propTypes = {
+    onChange: PropTypes.func,
+    value: PropTypes.string,
+    validationError: PropTypes.string,
+};
 
-const Identifier = ({ onChange, value, validationError }) => {
+const Identifier = ({ onChange, value, validationError, disabled }) => {
     const { t } = useTranslation();
     const id = useId();
     const validationErrorId = useId();
@@ -76,12 +88,19 @@ const Identifier = ({ onChange, value, validationError }) => {
                 id={id}
                 onChange={onChange}
                 value={value}
+                disabled={disabled}
                 placeholder={t('teacher_form_course_id_placeholder')}
                 {...validationAttributes}
             />
             <ValidationMessage id={validationErrorId}>{t(validationError)}</ValidationMessage>
         </FormField>
     );
+};
+Identifier.propTypes = {
+    onChange: PropTypes.func,
+    value: PropTypes.string,
+    validationError: PropTypes.string,
+    disabled: PropTypes.bool,
 };
 
 const StartDate = ({ onChange, value, validationError }) => {
@@ -109,6 +128,11 @@ const StartDate = ({ onChange, value, validationError }) => {
         </FormField>
     );
 };
+StartDate.propTypes = {
+    onChange: PropTypes.func,
+    value: PropTypes.string,
+    validationError: PropTypes.object,
+};
 
 const EndDate = ({ onChange, value, validationError }) => {
     const { t } = useTranslation();
@@ -134,6 +158,12 @@ const EndDate = ({ onChange, value, validationError }) => {
             <ValidationMessage id={validationErrorId}>{t(validationError)}</ValidationMessage>
         </FormField>
     );
+};
+
+EndDate.propTypes = {
+    onChange: PropTypes.func,
+    value: PropTypes.string,
+    validationError: PropTypes.object,
 };
 
 const truncate = (date) => {
@@ -272,6 +302,14 @@ const Assignment = ({
         </div>
     );
 };
+Assignment.propTypes = {
+    onChange: PropTypes.func,
+    assignment: PropTypes.object,
+    ordinal: PropTypes.number,
+    teacherForm: PropTypes.object,
+    validationError: PropTypes.object,
+    onAssignmentRemove: PropTypes.func,
+};
 
 const createAssignment = (startDate, endDate) => {
     return {
@@ -281,7 +319,7 @@ const createAssignment = (startDate, endDate) => {
     };
 };
 
-const TeacherForm = ({ teacherForm, onSave }) => {
+const TeacherForm = ({ teacherForm, onSave, isNew }) => {
     const { t } = useTranslation();
     const [modified, setModified] = useState(teacherForm);
 
@@ -402,6 +440,7 @@ const TeacherForm = ({ teacherForm, onSave }) => {
                     onChange={(event) => onChange('course_id', event.target.value, event.target)}
                     value={modified.course_id}
                     validationError={validationErrors.course_id}
+                    disabled={!isNew}
                 />
                 <div className="teacher-form-dates">
                     <StartDate
@@ -457,6 +496,7 @@ const TeacherForm = ({ teacherForm, onSave }) => {
 TeacherForm.propTypes = {
     teacherForm: PropTypes.object,
     onSave: PropTypes.func,
+    isNew: PropTypes.bool,
 };
 
 export default TeacherForm;
