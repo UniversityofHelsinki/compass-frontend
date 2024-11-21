@@ -4,11 +4,12 @@ import './Course.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import useGetSignature from '../hooks/useGetSignature';
 
 const Course = ({ course }) => {
     const { t } = useTranslation();
-
-    const target = `/student/assignments/${course.id}`;
+    const [signature] = useGetSignature(course.id);
+    const target = `/student/assignments/${course.id}?signature=${signature}`;
 
     return (
         <div className="course">

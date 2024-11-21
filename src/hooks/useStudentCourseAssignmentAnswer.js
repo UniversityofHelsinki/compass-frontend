@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { validatePeriod } from './validation/assignmentPeriodValidation';
 import { ASSIGNMENT_OLD, ASSIGNMENT_VALID_FOR_EDIT } from '../Constants';
+import { useParams } from 'react-router-dom';
 
 const emptyAnswer = {
     id: '',
@@ -12,16 +13,16 @@ const emptyAnswer = {
     order_nbr: '',
 };
 
-const useStudentCourseAssignmentAnswer = (course_id) => {
+const useStudentCourseAssignmentAnswer = (course_id, signature, id) => {
     const dispatch = useDispatch();
 
     const [assignments, setAssignments] = useState(null);
     //const [previousAssignments, setPreviousAssignments] = useState(null);
-
     const get = async (course_id) => {
         if (course_id) {
+            console.log(signature);
             const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
-            const URL = `${COMPASS_BACKEND_SERVER}/api/student/course/assignment/answer/${course_id}`;
+            const URL = `${COMPASS_BACKEND_SERVER}/api/student/course/assignment/answer/${course_id}?id=${id}&signature=${signature}`;
             try {
                 const response = await fetch(URL);
                 if (response.ok) {
@@ -34,7 +35,7 @@ const useStudentCourseAssignmentAnswer = (course_id) => {
     };
 
     useEffect(() => {
-        if (!assignments) {
+        if (!assignments && !(course_id === undefined)) {
             (async () => {
                 setAssignments(await get(course_id));
             })();
