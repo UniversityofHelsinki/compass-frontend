@@ -12,8 +12,8 @@ const useClipboardCopy = (id, courseId) => {
     const [shouldFetch, setShouldFetch] = useState(false);
 
     const [value, fetchError, reload] = useGET({
-        path: `/api/getUrlSignature/${courseId}`,
-        tag: `signature-${courseId}`,
+        path: `/api/getUrlSignature/${id}`,
+        tag: `signature-${id}`,
     });
 
     useEffect(() => {
