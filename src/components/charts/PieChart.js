@@ -65,7 +65,7 @@ const renderPieChart = (data, index) => {
     );
 };
 
-const PieCharts = ({ data, selectedChartIds }) => {
+const PieCharts = ({ data, selectedChartIds, courseTitle }) => {
     const { t } = useTranslation();
 
     if (!data || !Array.isArray(data) || data.length === 0) {
@@ -75,7 +75,7 @@ const PieCharts = ({ data, selectedChartIds }) => {
     const filteredData = data.filter((assignment) =>
         selectedChartIds.includes(assignment.assignmentId),
     );
-
+    console.log('assignment', data);
     return (
         <div className="pie-charts-container">
             {filteredData.map((assignment, index) => (
@@ -90,7 +90,11 @@ const PieCharts = ({ data, selectedChartIds }) => {
                     <div className="answer-average-level">
                         {t('chart_average_answer_level')} {assignment.avg_answer_level}
                     </div>
-                    <TableData assignmentId={assignment.assignmentId} />
+                    <TableData
+                        assignmentId={assignment.assignmentId}
+                        courseTitle={courseTitle}
+                        assignmentTopic={assignment.assignmentTopic}
+                    />
                 </div>
             ))}
         </div>

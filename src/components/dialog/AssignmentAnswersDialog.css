@@ -1,0 +1,25 @@
+.written-response-header {
+    font-size: 1.5em;
+}
+
+.bottom-left-content {
+    font-size: 1.5em;
+}
+
+.tooltip-icon svg {
+    margin-left: 1px;
+    top: -6px;
+    position: relative;
+    width: 18px;
+    height: 18px;
+}
+
+.tooltip-icon svg:hover {
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+}
+
+.tooltip-icon {
+    border: unset;
+    background-color: unset;
+}

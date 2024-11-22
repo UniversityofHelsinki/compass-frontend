@@ -54,8 +54,8 @@
     "summary_time": "Vastaus tallennettu",
     "summary_topic": "Aihe",
     "summary_level": "Taso",
-    "summary_description": "Kuvaus",
-    "summary_description_link": "Katso",
+    "summary_answers_header": "Vastaukset",
+    "summary_answers_view_link": "Näytä",
     "chart_x_axis_label": "Tehtävä",
     "chart_y_axis_label": "Taso",
     "assignment_answer_delete_back_to_course": "Kurssi",
@@ -130,5 +130,13 @@
     "tooltip_bottom": "Taso: ",
     "chart_average_answer_level": "Tason keskiarvo: ",
     "course_list_item_period_label": "Kurssin ajankohta",
-    "teacher_form_delete_assignment_button": "Poista aihe {{topic}}"
+    "teacher_form_delete_assignment_button": "Poista aihe {{topic}}",
+    "answer_dialog_written_response_header": "Opiskelijan vastaus",
+    "answer_dialog_assignment": "Tehtävä",
+    "answer_dialog_course": "Kurssi",
+    "answer_dialog_student": "Opiskelija",
+    "answer_dialog_show_link": "Näytä",
+    "statistics_table_header_answers": "Vastaukset",
+    "answer_dialog_footer_level": "Taso:",
+    "answer_dialog_close_button": "Sulje"
 }

@@ -100,7 +100,11 @@ const CourseStatistics = () => {
                 ))}
             </div>
             {Array.isArray(chartData) && chartData.length > 0 ? (
-                <PieCharts data={chartData} selectedChartIds={selectedCharts} />
+                <PieCharts
+                    data={chartData}
+                    selectedChartIds={selectedCharts}
+                    courseTitle={course?.title}
+                />
             ) : (
                 <p>No assignment data available.</p>
             )}
