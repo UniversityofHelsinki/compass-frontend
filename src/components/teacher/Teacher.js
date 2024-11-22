@@ -5,20 +5,17 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext';
 
 const Teacher = () => {
-  const { user: { isTeacher, eppn } } = useAuth();
+    const {
+        user: { isTeacher, eppn },
+    } = useAuth();
 
-  if (!isTeacher) {
-    throw new Error(`Permission denied for user ${eppn}. User is not a teacher.`);
-  }
+    if (!isTeacher) {
+        throw new Error(`Permission denied for user ${eppn}. User is not a teacher.`);
+    }
 
-  return (
-    <>
-      <Outlet />
-    </>
-  );
+    return <Outlet />;
 };
 
-Teacher.propTypes = {
-};
+Teacher.propTypes = {};
 
 export default Teacher;

@@ -39,8 +39,6 @@
     margin-bottom: 10px;
     padding: 0 0px;
     width: 80%;
-    /*border: 2px solid var(--hy-blue);
-    box-shadow: 1px 2px 4px var(--huds-grayscale-black);*/
 }
 
 .assignments-summary-row {
@@ -77,4 +75,65 @@
     background-color: #000;
     color: black;
     height: 2px;
+}
+
+ul.assignments-list {
+    list-style: none;
+    padding-left: unset;
+}
+
+.assignments-list-item {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--huds-grayscale-light);
+    padding: 16px;
+    padding-top: 12px;
+}
+
+.assignments-list-item-link {
+    width: 300px;
+    display: flex;
+}
+.assignments-list-item-answered {
+    padding-top: 5px;
+    width: fit-content;
+    color: green;
+}
+.assignments-list-item-not-answered {
+    padding-top: 5px;
+    width: fit-content;
+    color: red;
+}
+
+.assignments-list-item-link a {
+    color: var(--huds-brand-main) !important;
+    text-decoration: none;
+    display: block;
+    min-width: 100%;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+.assignments-list-item-link a:hover {
+    text-decoration: underline;
+}
+
+.assignments-list-item-secondary {
+    font-weight: 600;
+    font-size: 0.8em;
+}
+
+.assignments-reflection-summary {
+    color: var(--huds-brand-main) !important;
+    text-decoration: none;
+    display: block;
+    min-width: 100%;
+    font-weight: 600;
+    font-size: 1.4em;
+    padding-bottom: 12px;
+}
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
 }

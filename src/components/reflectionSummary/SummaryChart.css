@@ -1,3 +1,10 @@
+@media (min-width: 992px) {
+    .chart-responsive-margins {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
 .chart-col {
     width: 100%;
     display: flex;
@@ -6,4 +13,5 @@
     outline: 2px solid gray;
     margin-bottom: 1em;
     margin-top: 1em;
+    background-color: var(--huds-grayscale-light);
 }

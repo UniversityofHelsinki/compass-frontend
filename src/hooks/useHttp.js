@@ -151,3 +151,28 @@ export const usePUT = ({ path, invalidates = [] }) => {
 
     return put;
 };
+
+export const useDELETE = ({ path, invalidates = [] }) => {
+    const deleteFn = async (body) => {
+        try {
+            const response = await fetch(`${baseUrl}${path}`, {
+                method: 'DELETE',
+                body: JSON.stringify(body),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (response.ok) {
+                invalidates.forEach((tag) => {
+                    cache.invalidate(tag);
+                });
+            }
+            return response;
+        } catch (error) {
+            console.error(error.message);
+            return error;
+        }
+    };
+
+    return deleteFn;
+};

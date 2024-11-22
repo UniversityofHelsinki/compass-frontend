@@ -71,7 +71,7 @@ const TeacherFormNew = () => {
                 }}
             />
             <div className="m-3"></div>
-            <TeacherForm onSave={handleSave} teacherForm={teacherForm || empty} />
+            <TeacherForm isNew={true} onSave={handleSave} teacherForm={teacherForm || empty} />
         </div>
     );
 };

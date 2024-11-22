@@ -35,27 +35,29 @@ const SummaryTable = ({ assignments }) => {
     const { t } = useTranslation();
 
     return (
-        <Container className="table-container">
-            <Row className="table-row">
-                <Col className="table-col">
-                    <Table striped>
-                        <thead>
-                            <tr>
-                                <th>{t('summary_time')}</th>
-                                <th>{t('summary_topic')}</th>
-                                <th>{t('summary_level')}</th>
-                                <th>{t('summary_answers_header')}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {(assignments || []).map((assignment) => (
-                                <SummaryRow assignment={assignment} key={assignment.id} />
-                            ))}
-                        </tbody>
-                    </Table>
-                </Col>
-            </Row>
-        </Container>
+        <div className="summary-responsive-margins">
+            <Container className="table-container">
+                <Row className="table-row">
+                    <Col className="table-col">
+                        <Table striped>
+                            <thead>
+                                <tr>
+                                    <th>{t('summary_time')}</th>
+                                    <th>{t('summary_topic')}</th>
+                                    <th>{t('summary_level')}</th>
+                                    <th>{t('summary_answers_header')}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {(assignments || []).map((assignment) => (
+                                    <SummaryRow assignment={assignment} key={assignment.id} />
+                                ))}
+                            </tbody>
+                        </Table>
+                    </Col>
+                </Row>
+            </Container>
+        </div>
     );
 };
 

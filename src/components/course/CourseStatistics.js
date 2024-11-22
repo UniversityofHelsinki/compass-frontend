@@ -5,6 +5,7 @@ import PieCharts from '../charts/PieChart';
 import './CourseStatistics.css';
 import useTeacherCourse from '../../hooks/useTeacherCourse';
 import { useTranslation } from 'react-i18next';
+import TopBar from '../utilities/TopBar';
 
 const CourseStatistics = () => {
     const { courseId } = useParams();
@@ -35,7 +36,20 @@ const CourseStatistics = () => {
     }
 
     if (!Array.isArray(courseStatistics) || courseStatistics.length === 0) {
-        return <p>{t('no_statistic_data_available')}</p>;
+        return (
+            <>
+                <TopBar
+                    showBackBtn={true}
+                    backBtnLabels={{
+                        primary: t('teacher_forms_back_to_forms'),
+                        secondary: t('teacher_forms_back_to_forms_secondary'),
+                    }}
+                    backBtnHref="/teacher/forms"
+                    heading={`${t('course_statistics_for_course')}: ${course?.title}`}
+                />
+                <p>{t('no_statistic_data_available')}</p>
+            </>
+        );
     }
 
     const groupedData = courseStatistics.reduce((accumulator, current) => {
@@ -84,30 +98,39 @@ const CourseStatistics = () => {
 
     return (
         <div>
-            <h2>
-                {t('course_statistics_for_course')}: {course?.title}
-            </h2>
-            <div className="chart-selection">
-                <h3>{t('select_assignments_to_display')}</h3>
-                {chartData.map((assignment) => (
-                    <button
-                        key={assignment.assignmentId}
-                        className={`tag-button ${selectedCharts.includes(assignment.assignmentId) ? 'selected' : ''}`}
-                        onClick={() => handleSelectChart(assignment.assignmentId)}
-                    >
-                        {assignment.assignmentTopic}
-                    </button>
-                ))}
+            <TopBar
+                showBackBtn={true}
+                backBtnLabels={{
+                    primary: t('teacher_forms_back_to_forms'),
+                    secondary: t('teacher_forms_back_to_forms_secondary'),
+                }}
+                backBtnHref="/teacher/forms"
+                heading={`${t('course_statistics_for_course')}: ${course?.title}`}
+            />
+            <div>
+                <h2></h2>
+                <div className="chart-selection">
+                    <h3>{t('select_assignments_to_display')}</h3>
+                    {chartData.map((assignment) => (
+                        <button
+                            key={assignment.assignmentId}
+                            className={`tag-button ${selectedCharts.includes(assignment.assignmentId) ? 'selected' : ''}`}
+                            onClick={() => handleSelectChart(assignment.assignmentId)}
+                        >
+                            {assignment.assignmentTopic}
+                        </button>
+                    ))}
+                </div>
+                {Array.isArray(chartData) && chartData.length > 0 ? (
+                    <PieCharts
+                        data={chartData}
+                        selectedChartIds={selectedCharts}
+                        courseTitle={course?.title}
+                    />
+                ) : (
+                    <p>No assignment data available.</p>
+                )}
             </div>
-            {Array.isArray(chartData) && chartData.length > 0 ? (
-                <PieCharts
-                    data={chartData}
-                    selectedChartIds={selectedCharts}
-                    courseTitle={course?.title}
-                />
-            ) : (
-                <p>No assignment data available.</p>
-            )}
         </div>
     );
 };
