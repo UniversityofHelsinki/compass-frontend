@@ -52,7 +52,6 @@ const CustomLegend = (props) => {
                         }}
                     >
                         {getIcon(entry)}
-                        <span style={{ marginLeft: 8, color: '#fff' }}>{entry.value}</span>{' '}
                     </li>
                 ))}
             </ul>
