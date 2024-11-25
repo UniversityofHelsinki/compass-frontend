@@ -1,25 +1,24 @@
 .written-response-header {
     font-size: 1.5em;
+    margin-bottom: 5px;
 }
 
-.bottom-left-content {
+.written-response-content {
+    margin-bottom: 1em;
+}
+
+.bottom-left-content-header {
     font-size: 1.5em;
 }
 
-.tooltip-icon svg {
+.bottom-left-lower-content {
+    font-size: 1em;
+}
+
+.bottom-left-lower-content svg {
     margin-left: 1px;
     top: -6px;
     position: relative;
-    width: 18px;
-    height: 18px;
-}
-
-.tooltip-icon svg:hover {
-    transform: scale(1.2);
-    transition: transform 0.2s ease;
-}
-
-.tooltip-icon {
-    border: unset;
-    background-color: unset;
+    width: 17px;
+    height: 17px;
 }

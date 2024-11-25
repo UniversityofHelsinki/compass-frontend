@@ -148,12 +148,17 @@
     "teacher_form_delete_course_deleted_notification": "Kurssi poistettu",
     "course_can_not_have_on_going_assignments": "Kurssilla on käynnissä olevia ASSIGNMENTTEJA",
     "unknown_error": "Tuntematon virhe.",
-    "answer_dialog_written_response_header": "Opiskelijan vastaus:",
+    "answer_dialog_written_response_header": "Vastaus",
     "answer_dialog_assignment": "Tehtävä",
     "answer_dialog_course": "Kurssi",
     "answer_dialog_student": "Opiskelija",
     "answer_dialog_show_link": "Näytä",
     "statistics_table_header_answers": "Vastaukset",
-    "answer_dialog_footer_level": "Opiskelijan taso:",
-    "answer_dialog_close_button": "Sulje"
+    "answer_dialog_footer_level": "Oppimisen taso",
+    "answer_dialog_close_button": "Sulje",
+    "level_0": "Esi-struktuurinen",
+    "level_1": "Uni-struktuurinen",
+    "level_2": "Multi-struktuurinen",
+    "level_3": "Relationaalinen",
+    "level_4": "Laajannettu abstrakti"
 }

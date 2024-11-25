@@ -114,7 +114,7 @@ const PieCharts = ({ data, selectedChartIds, courseTitle }) => {
     const filteredData = data.filter((assignment) =>
         selectedChartIds.includes(assignment.assignmentId),
     );
-    console.log('assignment', data);
+
     return (
         <div className="pie-charts-container">
             {filteredData.map((assignment, index) => (
