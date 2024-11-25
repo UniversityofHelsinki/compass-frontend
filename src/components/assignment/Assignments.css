@@ -137,3 +137,12 @@ ul.assignments-list {
     cursor: default;
     opacity: 0.6;
 }
+
+.assignments-message {
+    padding-top: 5px;
+    padding-left: 10px;
+    width: fit-content;
+    color: #c21f39;
+    font-weight: bold;
+    background-color: var(--huds-grayscale-light);
+}
