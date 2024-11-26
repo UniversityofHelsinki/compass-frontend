@@ -13,6 +13,7 @@ import { ReactComponent as Level1Icon } from '../utilities/icons/circle-fill.svg
 import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vertical.svg';
 import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
 import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
+import useGetSignature from '../../hooks/useGetSignature';
 
 const Level = ({ level = 4 }) => {
     let IconComponent;
@@ -42,7 +43,8 @@ const Level = ({ level = 4 }) => {
 
 const FeedbackForEvaluation = (showBackBtn = true) => {
     const { answer, course, id } = useParams();
-    const backBtnHref = '/student/assignments/' + id;
+    const [signature] = useGetSignature(id);
+    const backBtnHref = `/student/assignments/${id}?signature=${signature}`;
     const studentAnswer = useStudentFeedback(answer, course);
     const editable = useAssignment(answer);
 

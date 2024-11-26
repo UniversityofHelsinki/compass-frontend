@@ -44,7 +44,7 @@ const TeacherFormEdit = () => {
                 }}
             />
             <div className="m-3"></div>
-            <TeacherForm teacherForm={course} onSave={handleUpdate} />
+            <TeacherForm isNew={false} teacherForm={course} onSave={handleUpdate} />
         </div>
     );
 };

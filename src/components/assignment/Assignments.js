@@ -52,10 +52,11 @@ const Assignments = () => {
     const queryParams = new URLSearchParams(location.search);
     const signature = queryParams.get('signature');
     const { t } = useTranslation();
-    let course = useStudentCourse(id);
+    let [course] = useStudentCourse(id);
     const [dueAssignments, previousAssignments] = useStudentCourseAssignmentAnswer(
         course?.course_id,
         signature,
+        id,
     );
     const backBtnHref = '/student/courses';
     const backBtnLabels = {
