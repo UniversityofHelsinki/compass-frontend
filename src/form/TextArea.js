@@ -29,7 +29,7 @@ const TextArea = ({ value, message, ...rest }) => {
                 </div>
                 <div>
                     <div>
-                        {t('text-area-length')}: {value.length}/3000
+                        {t('text-area-length')}: {value?.length}/3000
                     </div>
                 </div>
             </div>
@@ -38,6 +38,7 @@ const TextArea = ({ value, message, ...rest }) => {
 };
 
 TextArea.propTypes = {
+    value: PropTypes.string,
     answer: PropTypes.string,
     message: PropTypes.shape({
         content: PropTypes.string,
