@@ -4,6 +4,39 @@ import './SummaryTable.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
+import { ReactComponent as Level0Icon } from '../utilities/icons/circle.svg';
+import { ReactComponent as Level1Icon } from '../utilities/icons/circle-fill.svg';
+import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vertical.svg';
+import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
+import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
+
+let assignment_feedback_level = 'assignment_feedback_level_';
+
+const Level = ({ level = 4 }) => {
+    let IconComponent;
+
+    switch (level) {
+        case 0:
+            IconComponent = Level0Icon;
+            break;
+        case 1:
+            IconComponent = Level1Icon;
+            break;
+        case 2:
+            IconComponent = Level2Icon;
+            break;
+        case 3:
+            IconComponent = Level3Icon;
+            break;
+        case 4:
+            IconComponent = Level4Icon;
+            break;
+        default:
+            IconComponent = null;
+            break;
+    }
+    return IconComponent ? <IconComponent /> : null;
+};
 
 const SummaryRow = ({ assignment }) => {
     const { t } = useTranslation();
@@ -17,7 +50,12 @@ const SummaryRow = ({ assignment }) => {
         <tr>
             <td>{formattedTime}</td>
             <td>{assignment?.topic}</td>
-            <td>{assignment?.answer.order_nbr}</td>
+            <td>
+                <Level level={assignment?.answer.order_nbr} />
+                <span className="feedback-for-evaluation-order">
+                    {t(assignment_feedback_level + assignment?.answer.order_nbr)}
+                </span>
+            </td>
             <td>{t('summary_description_link')}</td>
         </tr>
     );
