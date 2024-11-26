@@ -54,5 +54,16 @@
     "tooltip_bottom": "Level: ",
     "chart_average_answer_level": "Average level: ",
     "teacher_form_delete_assignment_button": "Delete assignment {{topic}}",
-    "student": "Student"
+    "student": "Student",
+    "teacher_form_title": "Course title",
+    "teacher_form_edit": "Edit course",
+    "teacher_form_course_id": "Course id",
+    "teacher_form_start_date": "Start date",
+    "teacher_form_end_date": "End date",
+    "teacher_form_add_assignment": "Add assigment",
+    "teacher_form_save_button": "Save",
+    "teacher_forms_back_to_forms": "Forms",
+    "teacher_forms_back_to_forms_secondary": "Back to forms",
+    "navigation_teacher/forms": "Teacher",
+    "navigation_student/courses": "Student"
 }
