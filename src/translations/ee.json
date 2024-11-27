@@ -49,6 +49,7 @@
     "tooltip_bottom": "Level: ",
     "chart_average_answer_level": "Average level: ",
     "teacher_form_delete_assignment_button": "Delete assignment {{topic}}",
+    "view": "View",
     "student": "Student",
     "student_courses_heading": "Kursuste nimekiri",
     "navigation_teacher/forms": "Juhendaja",

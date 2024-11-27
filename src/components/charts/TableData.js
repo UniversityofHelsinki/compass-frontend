@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
 import useAssignmentAnswers from '../../hooks/teacher/useAssignmentAnswers';
-import { ReactComponent as AscendingIcon } from '../utilities/icons/arrow-up.svg'; // Adjust the path as necessary
+import { ReactComponent as AscendingIcon } from '../utilities/icons/arrow-up.svg';
 import { ReactComponent as DescendingIcon } from '../utilities/icons/arrow-down.svg';
 import './TableData.css';
 import HyColors from '../utilities/HyColors';
@@ -12,11 +12,16 @@ import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vert
 import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
 import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
 import { t } from 'i18next';
+import AssignmentAnswersDialog from '../dialog/AssignmentAnswersDialog';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const TableData = ({ assignmentId }) => {
-    const [sortConfig, setSortConfig] = useState({ key: 'user_name', direction: 'asc' });
-
+const TableData = ({ assignmentId, courseTitle, assignmentTopic }) => {
+    const { courseId } = useParams();
     const { answers, loading, error } = useAssignmentAnswers(assignmentId);
+    const [sortConfig, setSortConfig] = useState({ key: 'user_name', direction: 'asc' });
+    const { t } = useTranslation();
 
     const sortedAnswers = useMemo(() => {
         if (!sortConfig.key || !answers) return answers;
@@ -73,11 +78,11 @@ const TableData = ({ assignmentId }) => {
     }
 
     if (error) {
-        return <p>Error: {error}</p>;
+        return <p>Error: {error.message}</p>;
     }
 
     if (!answers || !Array.isArray(answers)) {
-        return null; // Return nothing if data is undefined or not an array
+        return null;
     }
 
     return (
@@ -100,10 +105,7 @@ const TableData = ({ assignmentId }) => {
                                     >
                                         {t('summary_level')} {getIndicator('order_nbr')}
                                     </th>
-                                    <th onClick={() => handleSort('value')} className="sortable">
-                                        {t('assignment_feedback_answer')}
-                                        {getIndicator('value')}
-                                    </th>
+                                    <th>{t('statistics_table_header_answers')}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -111,7 +113,15 @@ const TableData = ({ assignmentId }) => {
                                     <tr key={`row-${index}`}>
                                         <td>{entry.user_name}</td>
                                         <td>{getIcon(entry.order_nbr)}</td>
-                                        <td>{entry.value}</td>
+                                        <td>
+                                            <AssignmentAnswersDialog
+                                                value={entry.value}
+                                                userName={entry.user_name}
+                                                courseTitle={courseTitle}
+                                                assignmentTopic={assignmentTopic}
+                                                order_nbr={entry.order_nbr}
+                                            />
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -121,6 +131,11 @@ const TableData = ({ assignmentId }) => {
             </Row>
         </Container>
     );
+};
+TableData.propTypes = {
+    assignmentId: PropTypes.number.isRequired,
+    courseTitle: PropTypes.string.isRequired,
+    assignmentTopic: PropTypes.string.isRequired,
 };
 
 export default TableData;

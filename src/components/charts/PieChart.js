@@ -107,7 +107,7 @@ const renderPieChart = (data, index) => {
     );
 };
 
-const PieCharts = ({ data, selectedChartIds }) => {
+const PieCharts = ({ data, selectedChartIds, courseTitle }) => {
     const { t } = useTranslation();
 
     if (!data || !Array.isArray(data) || data.length === 0) {
@@ -129,7 +129,11 @@ const PieCharts = ({ data, selectedChartIds }) => {
                         {assignment.assignmentTopic} ({assignment.answerCount})
                     </h3>
                     {renderPieChart(assignment.data, index)}
-                    <TableData assignmentId={assignment.assignmentId} />
+                    <TableData
+                        assignmentId={assignment.assignmentId}
+                        courseTitle={courseTitle}
+                        assignmentTopic={assignment.assignmentTopic}
+                    />
                 </div>
             ))}
         </div>
