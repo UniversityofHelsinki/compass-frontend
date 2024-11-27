@@ -32,6 +32,8 @@
     "assignment_feedback_level_2": "Mitme struktuuriga",
     "assignment_feedback_level_3": "Suhteline",
     "assignment_feedback_level_4": "Laiendatud abstraktne",
+    "assignment_feedback_reflection_summary": "Vastuste kokkuvõte",
+    "assignments_summary": "Vastuste kokkuvõte",
     "student_no_courses": "student_no_courses",
     "summary_time": "Answer saved at",
     "summary_topic": "Topic",
@@ -47,5 +49,6 @@
     "tooltip_bottom": "Level: ",
     "chart_average_answer_level": "Average level: ",
     "teacher_form_delete_assignment_button": "Delete assignment {{topic}}",
+    "student": "Student",
     "view": "View"
 }

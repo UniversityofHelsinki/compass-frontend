@@ -1,8 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { validatePeriod } from './validation/assignmentPeriodValidation';
-import { ASSIGNMENT_OLD, ASSIGNMENT_VALID_FOR_EDIT } from '../Constants';
-import { useParams } from 'react-router-dom';
+import { ASSIGNMENT_OLD, ASSIGNMENT_VALID_FOR_EDIT, COURSE_ONGOING } from '../Constants';
 
 const emptyAnswer = {
     id: '',
@@ -15,8 +14,9 @@ const emptyAnswer = {
 
 const useStudentCourseAssignmentAnswer = (course_id, signature, id) => {
     const dispatch = useDispatch();
-
     const [assignments, setAssignments] = useState(null);
+    const [errMsg, setErrMsg] = useState(null);
+    const [courseDate, setCourseDate] = useState(null);
     //const [previousAssignments, setPreviousAssignments] = useState(null);
     const get = async (course_id) => {
         if (course_id) {
@@ -58,10 +58,17 @@ const useStudentCourseAssignmentAnswer = (course_id, signature, id) => {
                     return validatePeriod(assignment) === ASSIGNMENT_OLD;
                 }
             });
+
+    if (!(assignments[0]?.message === COURSE_ONGOING) && errMsg === null) {
+        // Näytä ruudulla notifikaatio
+        console.log('COURSE_NOT_ONGOING', assignments[0]?.message, assignments[0]?.course_date);
+        setErrMsg(assignments[0]?.message);
+        setCourseDate(assignments[0]?.course_date);
+    }
     const due_assignment = newassignments(true);
     const previous_assignment = newassignments(false);
 
-    return [due_assignment, previous_assignment];
+    return [due_assignment, previous_assignment, errMsg, courseDate];
 };
 
 export default useStudentCourseAssignmentAnswer;

@@ -5,6 +5,13 @@ import useAssignmentAnswers from '../../hooks/teacher/useAssignmentAnswers';
 import { ReactComponent as AscendingIcon } from '../utilities/icons/arrow-up.svg';
 import { ReactComponent as DescendingIcon } from '../utilities/icons/arrow-down.svg';
 import './TableData.css';
+import HyColors from '../utilities/HyColors';
+import { ReactComponent as Level0Icon } from '../utilities/icons/circle.svg';
+import { ReactComponent as Level1Icon } from '../utilities/icons/circle-fill.svg';
+import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vertical.svg';
+import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
+import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
+import { t } from 'i18next';
 import AssignmentAnswersDialog from '../dialog/AssignmentAnswersDialog';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
@@ -46,6 +53,25 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic }) => {
         return null;
     };
 
+    const getIcon = (entry) => {
+        const style = { fill: HyColors.black };
+
+        switch (parseInt(entry)) {
+            case 0:
+                return <Level0Icon style={style} />;
+            case 1:
+                return <Level1Icon style={style} />;
+            case 2:
+                return <Level2Icon style={style} />;
+            case 3:
+                return <Level3Icon style={style} />;
+            case 4:
+                return <Level4Icon style={style} />;
+            default:
+                return <Level0Icon style={style} />;
+        }
+    };
+
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -70,22 +96,26 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic }) => {
                                         onClick={() => handleSort('user_name')}
                                         className="sortable"
                                     >
-                                        Name {getIndicator('user_name')}
+                                        {t('student')} {getIndicator('user_name')}
                                     </th>
                                     <th
                                         onClick={() => handleSort('order_nbr')}
                                         className="sortable"
                                     >
-                                        Number {getIndicator('order_nbr')}
+                                        {t('summary_level')} {getIndicator('order_nbr')}
                                     </th>
-                                    <th>{t('statistics_table_header_answers')}</th>
+                                    <th onClick={() => handleSort('value')} className="sortable">
+                                        {t('assignment_feedback_answer')}
+                                        {getIndicator('value')}
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {sortedAnswers.map((entry, index) => (
                                     <tr key={`row-${index}`}>
                                         <td>{entry.user_name}</td>
-                                        <td>{entry.order_nbr}</td>
+                                        <td>{getIcon(entry.order_nbr)}</td>
+                                        <td>{entry.value}</td>
                                         <td>
                                             <AssignmentAnswersDialog
                                                 value={entry.value}

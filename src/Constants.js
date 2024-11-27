@@ -30,3 +30,5 @@ export const LEVELS = [
 ];
 
 export const ROLE_TEACHER = 'faculty';
+
+export const COURSE_ONGOING = 'course_ongoing';

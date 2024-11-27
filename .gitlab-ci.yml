@@ -45,7 +45,7 @@ sonarqube-check:
         - sonar-scanner
     allow_failure: true
     only:
-        - main
+        - scheduled
     needs:
         - job: dependency-check
           artifacts: true
@@ -55,7 +55,7 @@ sonarqube-check:
 dependency-check:
     stage: dependency-check
     only:
-        - main
+        - scheduled
     tags:
         - ohtu-build-4
     allow_failure: true
@@ -65,7 +65,7 @@ dependency-check:
     script:
         - >
             /usr/share/dependency-check/bin/dependency-check.sh
-            --project compass-backend --scan . --enableExperimental
+            --project compass-frontend --scan . --enableExperimental
             --format HTML -nvdApiKey $NVD_API_KEY
     artifacts:
         when: always

@@ -6,6 +6,7 @@ import useStudentCourseAssignmentAnswer from '../../hooks/useStudentCourseAssign
 import useStudentCourse from '../../hooks/useStudentCourse';
 import TopBar from '../utilities/TopBar';
 import PropTypes from 'prop-types';
+import Notification from '../notes/Notification';
 
 const AssignmentListItem = ({ previous, assignment, href }) => {
     const { t } = useTranslation();
@@ -53,16 +54,21 @@ const Assignments = () => {
     const signature = queryParams.get('signature');
     const { t } = useTranslation();
     let [course] = useStudentCourse(id);
-    const [dueAssignments, previousAssignments] = useStudentCourseAssignmentAnswer(
-        course?.course_id,
-        signature,
-        id,
-    );
+    const [dueAssignments, previousAssignments, errMsg, courseDate] =
+        useStudentCourseAssignmentAnswer(course?.course_id, signature, id);
     const backBtnHref = '/student/courses';
     const backBtnLabels = {
         primary: t('assignments_back_to_course'),
         secondary: t('assignments_back_to_course_secondary'),
     };
+
+    if (errMsg) {
+        return (
+            <div className="assignments-message">
+                {t(errMsg)} {courseDate}
+            </div>
+        );
+    }
 
     if (
         !(
