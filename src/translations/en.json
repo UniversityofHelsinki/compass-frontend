@@ -81,5 +81,13 @@
     "assignment_feedback_edit": "Edit response",
     "assignment_feedback_remove": "Delete response",
     "assignment_feedback_back_to_course": "Course",
-    "assignment_feedback_back_to_course_secondary": "Back to course list"
+    "assignment_feedback_back_to_course_secondary": "Back to course list",
+    "summary_answers_header": "Written response",
+    "answer_dialog_show_link": "View",
+    "answer_dialog_course": "Course",
+    "answer_dialog_assignment": "Assignment",
+    "answer_dialog_student": "Student",
+    "answer_dialog_written_response_header": "Written response",
+    "answer_dialog_footer_level": "Level",
+    "answer_dialog_close_button": "Close"
 }

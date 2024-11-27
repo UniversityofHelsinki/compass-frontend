@@ -36,8 +36,8 @@
     "assignments_summary": "Sammandrag av svar",
     "student_no_courses": "Inga kurser än... fråga din läräre om mer information eller änvänd appen som lärare",
     "summary_time": "Answer saved at",
-    "summary_topic": "Topic",
-    "summary_level": "Level",
+    "summary_topic": "Rubrik",
+    "summary_level": "Nivå",
     "summary_description": "Description",
     "summary_description_link": "View",
     "chart_x_axis_label": "Assignment",
@@ -65,5 +65,12 @@
     "assignments_not_answered": "Not answered",
     "assignment_feedback_answer": "Svar",
     "assignment_feedback_choice": "Val",
-    "assignment_feedback_back_to_course": "Kurs"
+    "assignment_feedback_back_to_course": "Kurs",
+    "summary_answers_header": "Svar",
+    "answer_dialog_show_link": "View",
+    "answer_dialog_course": "Kurs",
+    "answer_dialog_assignment": "Uppgift",
+    "answer_dialog_student": "Student",
+    "answer_dialog_written_response_header": "Svar",
+    "answer_dialog_footer_level": "Nivå"
 }

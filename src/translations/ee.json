@@ -59,5 +59,12 @@
     "assignments_previous": "Lõppenud ülesanded",
     "assignment_feedback_answer": "Vastus",
     "assignment_feedback_choice": "Valik",
-    "assignment_feedback_back_to_course": "Kursus"
+    "assignment_feedback_back_to_course": "Kursus",
+    "summary_answers_header": "Vastus",
+    "answer_dialog_show_link": "View",
+    "answer_dialog_course": "Kursus",
+    "answer_dialog_student": "Tudeng",
+    "answer_dialog_assignment": "Ülesanne",
+    "answer_dialog_written_response_header": "Vastus",
+    "answer_dialog_footer_level": "Tase"
 }
