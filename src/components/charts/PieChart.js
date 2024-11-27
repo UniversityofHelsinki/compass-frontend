@@ -1,9 +1,8 @@
 import React from 'react';
-import { Cell, Legend, Pie, PieChart, ResponsiveContainer } from 'recharts';
+import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts';
 import './PieChart.css';
 import TableData from './TableData';
 import { useTranslation } from 'react-i18next';
-import CustomLegend from './CustomLegend';
 import HyColors from '../utilities/HyColors';
 
 import { ReactComponent as Level0Icon } from '../utilities/icons/circle.svg';
@@ -42,28 +41,31 @@ const getColorForValue = (value) => {
 
 const RADIAN = Math.PI / 180;
 
-const iconSize = 30;
+const renderCustomLabelLine = () => {
+    return <line stroke={HyColors.white} />;
+};
 
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, name, percent }) => {
-    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, name, percent }) => {
+    // Position the icon slightly inside the edge of the pie slice
+    const iconRadius = outerRadius - 20; // Slightly inside the outer edge
+    const iconX = cx + iconRadius * Math.cos(-midAngle * RADIAN);
+    const iconY = cy + iconRadius * Math.sin(-midAngle * RADIAN);
+
+    // Position the percent text outside the pie slice
+    const textRadius = outerRadius + 30; // Distance the text will be from the outer radius
+    const textX = cx + textRadius * Math.cos(-midAngle * RADIAN);
+    const textY = cy + textRadius * Math.sin(-midAngle * RADIAN);
 
     return (
         <g>
-            <foreignObject
-                x={x - iconSize / 2}
-                y={y - 1.5 * iconSize}
-                width={iconSize}
-                height={iconSize}
-            >
+            <foreignObject x={iconX - 10} y={iconY - 10} width={30} height={30}>
                 {getIcon(name)}
             </foreignObject>
             <text
-                x={x}
-                y={y}
-                fill={HyColors.white}
-                textAnchor={x > cx ? 'start' : 'end'}
+                x={textX}
+                y={textY}
+                fill={HyColors.black}
+                textAnchor={'middle'}
                 dominantBaseline="central"
             >
                 {`${(percent * 100).toFixed(0)}%`}
@@ -85,10 +87,12 @@ const renderPieChart = (data, index) => {
                         data={data}
                         cx="50%"
                         cy="50%"
+                        startAngle={90}
+                        endAngle={-270}
                         dataKey="value"
                         nameKey="name"
                         label={renderCustomizedLabel}
-                        labelLine={false}
+                        labelLine={renderCustomLabelLine}
                     >
                         {data.map((entry, idx) => (
                             <Cell
@@ -97,7 +101,6 @@ const renderPieChart = (data, index) => {
                             />
                         ))}
                     </Pie>
-                    <Legend content={CustomLegend} />
                 </PieChart>
             </ResponsiveContainer>
         </div>
