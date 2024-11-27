@@ -20,7 +20,6 @@ const useStudentCourseAssignmentAnswer = (course_id, signature, id) => {
     //const [previousAssignments, setPreviousAssignments] = useState(null);
     const get = async (course_id) => {
         if (course_id) {
-            console.log(signature);
             const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
             const URL = `${COMPASS_BACKEND_SERVER}/api/student/course/assignment/answer/${course_id}?id=${id}&signature=${signature}`;
             try {
@@ -59,9 +58,7 @@ const useStudentCourseAssignmentAnswer = (course_id, signature, id) => {
                 }
             });
 
-    if (!(assignments[0]?.message === COURSE_ONGOING) && errMsg === null) {
-        // Näytä ruudulla notifikaatio
-        console.log('COURSE_NOT_ONGOING', assignments[0]?.message, assignments[0]?.course_date);
+    if (assignments[0]?.message !== COURSE_ONGOING && errMsg === null) {
         setErrMsg(assignments[0]?.message);
         setCourseDate(assignments[0]?.course_date);
     }

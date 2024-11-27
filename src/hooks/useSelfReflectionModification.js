@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const useSelfReflectionModification = (object, validate) => {
     const [modifiedObject, setModifiedObject] = useState(null);
@@ -7,26 +7,23 @@ const useSelfReflectionModification = (object, validate) => {
     const [clearValues, setClearValues] = useState(false);
     const clearFormValues = () => {
         setClearValues(true);
-    }
+    };
     const onChange = (what, value) => {
         const newModifiedObject = {
             ...modifiedObject,
-            [what]: value
+            [what]: value,
         };
 
         if (clearValues) {
             setClearValues(false);
         }
 
-        const newTouchedFields = [
-            ...touchedFields,
-            what
-        ];
+        const newTouchedFields = [...touchedFields, what];
 
         const equalsOriginal = (() => {
             for (const field of newTouchedFields) {
-                const newValues = [ newModifiedObject[field] ].flat();
-                const originalValues = [ object[field] ].flat();
+                const newValues = [newModifiedObject[field]].flat();
+                const originalValues = [object[field]].flat();
 
                 if (newValues.length !== originalValues.length) {
                     return false;
@@ -52,20 +49,19 @@ const useSelfReflectionModification = (object, validate) => {
     };
 
     if (clearValues) {
-        setModifiedObject({...object});
+        setModifiedObject({ ...object });
         setTouchedFields([]);
         setModified(false);
         setClearValues(false);
         validate(object, modifiedObject);
-        return [{...object}, onChange, false];
+        return [{ ...object }, onChange, false];
     }
 
     const updateModObj = (updatedObj) => {
         if (updatedObj?.length > 0) {
-            setModifiedObject({...updatedObj[0]});
+            setModifiedObject({ ...updatedObj[0] });
         }
-        console.log('obj', updatedObj);
-    }
+    };
 
     if (modifiedObject?.id !== object?.id) {
         const objectHasChanged = modifiedObject?.id && object?.id;
@@ -76,10 +72,10 @@ const useSelfReflectionModification = (object, validate) => {
             validateAllFieldsAtFirst();
         }
 
-        setModifiedObject({...object});
+        setModifiedObject({ ...object });
         setTouchedFields([]);
         setModified(false);
-        return [{...object}, onChange, false, clearFormValues, updateModObj];
+        return [{ ...object }, onChange, false, clearFormValues, updateModObj];
     }
 
     return [modifiedObject, onChange, modified, clearFormValues, updateModObj];
