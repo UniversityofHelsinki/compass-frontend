@@ -42,8 +42,8 @@
     "summary_description_link": "View",
     "chart_x_axis_label": "Assignment",
     "chart_y_axis_label": "Level",
-    "summary_heading": "Answer summary",
-    "summary_back_to_forms": "Courses",
+    "summary_heading": "Sammandrag av svar",
+    "summary_back_to_forms": "Course",
     "summary_back_to_forms_secondary": "Back to course list",
     "loading": "Loading...",
     "error_loading_data": "Error loading data",
@@ -54,5 +54,11 @@
     "tooltip_bottom": "Level: ",
     "chart_average_answer_level": "Average level: ",
     "teacher_form_delete_assignment_button": "Delete assignment {{topic}}",
-    "student": "Student"
+    "student": "Student",
+    "student_courses_heading": "Kurslista",
+    "navigation_teacher/forms": "Lärare",
+    "navigation_student/courses": "Student",
+    "assignments_reflection_summary": "Sammandrag av svar",
+    "assignments_due": "Pågående uppgift",
+    "assignments_previous": "Avslutade uppgifter"
 }
