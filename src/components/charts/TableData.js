@@ -15,6 +15,7 @@ import { t } from 'i18next';
 import AssignmentAnswersDialog from '../dialog/AssignmentAnswersDialog';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const TableData = ({ assignmentId, courseTitle, assignmentTopic }) => {
     const { courseId } = useParams();
@@ -104,10 +105,7 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic }) => {
                                     >
                                         {t('summary_level')} {getIndicator('order_nbr')}
                                     </th>
-                                    <th onClick={() => handleSort('value')} className="sortable">
-                                        {t('assignment_feedback_answer')}
-                                        {getIndicator('value')}
-                                    </th>
+                                    <th>{t('statistics_table_header_answers')}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -115,7 +113,6 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic }) => {
                                     <tr key={`row-${index}`}>
                                         <td>{entry.user_name}</td>
                                         <td>{getIcon(entry.order_nbr)}</td>
-                                        <td>{entry.value}</td>
                                         <td>
                                             <AssignmentAnswersDialog
                                                 value={entry.value}
@@ -134,6 +131,11 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic }) => {
             </Row>
         </Container>
     );
+};
+TableData.propTypes = {
+    assignmentId: PropTypes.number.isRequired,
+    courseTitle: PropTypes.string.isRequired,
+    assignmentTopic: PropTypes.string.isRequired,
 };
 
 export default TableData;
