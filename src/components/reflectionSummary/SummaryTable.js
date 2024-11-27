@@ -4,10 +4,10 @@ import './SummaryTable.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
+import AssignmentAnswersDialog from '../dialog/AssignmentAnswersDialog';
 
 const SummaryRow = ({ assignment }) => {
-    const { t } = useTranslation();
-    const date = new Date(assignment?.answer.created);
+    const date = new Date(assignment.answer?.created);
     const formattedTime = date.toLocaleTimeString(['fi-FI'], {
         hour: '2-digit',
         minute: '2-digit',
@@ -16,11 +16,33 @@ const SummaryRow = ({ assignment }) => {
     return (
         <tr>
             <td>{formattedTime}</td>
-            <td>{assignment?.topic}</td>
-            <td>{assignment?.answer.order_nbr}</td>
-            <td>{t('summary_description_link')}</td>
+            <td>{assignment.topic}</td>
+            <td>{assignment.answer?.order_nbr}</td>
+            <td>
+                <AssignmentAnswersDialog
+                    assignmentTopic={assignment?.topic}
+                    value={assignment?.answer?.value}
+                    userName={assignment?.answer?.user_name}
+                    order_nbr={assignment?.answer?.order_nbr}
+                    courseTitle={assignment?.answer.title}
+                />
+            </td>
         </tr>
     );
+};
+
+SummaryRow.propTypes = {
+    assignment: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        topic: PropTypes.string.isRequired,
+        answer: PropTypes.shape({
+            created: PropTypes.string,
+            order_nbr: PropTypes.number,
+            value: PropTypes.string,
+            user_name: PropTypes.string,
+            title: PropTypes.string,
+        }),
+    }).isRequired,
 };
 
 const SummaryTable = ({ assignments }) => {
@@ -37,7 +59,7 @@ const SummaryTable = ({ assignments }) => {
                                     <th>{t('summary_time')}</th>
                                     <th>{t('summary_topic')}</th>
                                     <th>{t('summary_level')}</th>
-                                    <th>{t('summary_description')}</th>
+                                    <th>{t('summary_answers_header')}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -54,7 +76,19 @@ const SummaryTable = ({ assignments }) => {
 };
 
 SummaryTable.propTypes = {
-    assignments: PropTypes.any.isRequired,
+    assignments: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            topic: PropTypes.string.isRequired,
+            answer: PropTypes.shape({
+                created: PropTypes.string,
+                order_nbr: PropTypes.number,
+                value: PropTypes.string,
+                user_name: PropTypes.string,
+                title: PropTypes.string,
+            }),
+        }),
+    ).isRequired,
 };
 
 export default SummaryTable;

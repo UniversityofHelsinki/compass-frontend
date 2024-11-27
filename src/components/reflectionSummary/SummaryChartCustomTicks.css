@@ -1,5 +1,5 @@
 .y-axis-icons {
-    fill: #178feb;
+    fill: var(--huds-grayscale-black);
     width: 14px;
     height: auto;
     margin-bottom: 10px;

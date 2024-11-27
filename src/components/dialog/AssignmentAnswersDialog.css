@@ -1,0 +1,39 @@
+.written-response-header {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.written-response-content {
+    margin-bottom: 1em;
+}
+
+.bottom-left-content-header {
+    font-size: 1.5em;
+}
+
+.bottom-left-lower-content {
+    font-size: 1em;
+}
+
+.bottom-left-lower-content svg {
+    margin-left: 1px;
+    top: -6px;
+    position: relative;
+    width: 17px;
+    height: 17px;
+}
+
+.assignment-answers-list-item-link {
+    display: flex;
+}
+
+.assignment-answers-list-item-link a {
+    color: var(--huds-brand-main) !important;
+    text-decoration: none;
+    display: block;
+    min-width: 100%;
+}
+
+.assignment-answers-list-item-link a:hover {
+    text-decoration: underline;
+}
