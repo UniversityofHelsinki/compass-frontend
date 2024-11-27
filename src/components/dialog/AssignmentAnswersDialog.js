@@ -28,15 +28,17 @@ const AssignmentAnswersDialog = ({ value, order_nbr, userName, courseTitle, assi
     };
 
     const theViewLink = (
-        <Link
-            className="view-link"
-            as="button"
-            to={t('view_written_response')}
-            onClick={onButtonClick}
-            aria-haspopup="dialog"
-        >
-            {t('answer_dialog_show_link')}
-        </Link>
+        <div className="assignment-answers-list-item-link">
+            <Link
+                className="view-link"
+                as="button"
+                to={t('view_written_response')}
+                onClick={onButtonClick}
+                aria-haspopup="dialog"
+            >
+                {t('answer_dialog_show_link')}
+            </Link>
+        </div>
     );
 
     const answerLevelMap = {
@@ -85,7 +87,8 @@ const AssignmentAnswersDialog = ({ value, order_nbr, userName, courseTitle, assi
                         <Row>
                             <Col className="written-response-content" lg>
                                 <Form.Control
-                                    type="text"
+                                    as="textarea"
+                                    rows={6}
                                     aria-labelledby="answer-dialog-written-response-header"
                                     value={value}
                                     readOnly
