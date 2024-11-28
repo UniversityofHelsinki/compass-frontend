@@ -8,6 +8,7 @@
 .feedback-for-evaluation-answer {
     background-color: var(--huds-grayscale-light);
     width: 35%;
+    word-break: break-all;
 }
 
 .feedback-for-evaluation-rows {

@@ -4,7 +4,7 @@ import { FIELD_IS_VALID } from '../../../Constants';
 const validateDescriptionAnswer = (descriptionAnswer) => {
     if (!descriptionAnswer || descriptionAnswer.length === 0) {
         return 'validation_description_assignment_is_empty';
-    } else if (descriptionAnswer.length > 300) {
+    } else if (descriptionAnswer.length > 3000) {
         return 'validation_description_assignment_is_too_long';
     }
     return FIELD_IS_VALID;
