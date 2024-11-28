@@ -63,9 +63,7 @@
     "assignment_feedback_back": "Takaisin kurssille",
     "assignment_answer_back_to_course": "Kurssi",
     "assignment_answer_back_to_course_secondary": "Takaisin kurssille",
-    "validation_description_assignment_is_empty": "Vastaus puuttuu",
-    "validation_description_assignment_is_too_long": "Vastaus on liian pitkä",
-    "text-area-length": "Vastauksen pituus",
+    "text_area_length": "Vastauksen pituus",
     "summary_time": "Vastaus tallennettu",
     "summary_topic": "Aihe",
     "summary_level": "Taso",
@@ -169,5 +167,5 @@
     "level_3": "Relationaalinen",
     "level_4": "Laajannettu abstrakti",
     "validation_description_assignment_is_empty": "Vastaus ei voi olla tyhjä.",
-    "validation_description_assignment_is_too_long": "Vastauksen maksimipituus on 3000 merkkiä."
+    "validation_description_assignment_is_too_long": "Vastaus on liian pitkä."
 }
