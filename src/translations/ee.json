@@ -66,5 +66,8 @@
     "answer_dialog_student": "Tudeng",
     "answer_dialog_assignment": "Ülesanne",
     "answer_dialog_written_response_header": "Vastus",
-    "answer_dialog_footer_level": "Tase"
+    "answer_dialog_footer_level": "Tase",
+    "teacher_forms_table_title": "Kursus",
+    "teacher_forms_table_course_id": "Kursuse tunnus",
+    "teacher_forms_heading": "Kursuste nimekiri"
 }
