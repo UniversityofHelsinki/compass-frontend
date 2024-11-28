@@ -2,13 +2,15 @@ import { useGET } from './useHttp';
 
 const useGetSignature = (id) => {
     const [value, fetchError, reload] = useGET({
-        path: `/api/getUrlSignature/${id}`,
-        tag: `signature-${id}`,
+        path: id ? `/api/getUrlSignature/${id}` : null,
+        tag: id ? `signature-${id}` : 'signature-invalid',
     });
 
-    if (value === null) {
+    if (id && value === null) {
         reload();
     }
-    return [value];
+
+    return [id ? value : null, fetchError, reload];
 };
+
 export default useGetSignature;

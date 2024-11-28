@@ -22,10 +22,10 @@ const Assignment = ({ showBackBtn = true, levels }) => {
     const courseId = studentAnswerData?.id;
 
     const [signature, setSignature] = useState(null);
-    const [signatureValue] = useGetSignature(courseId || null);
+    const [signatureValue] = useGetSignature(courseId);
 
     useEffect(() => {
-        if (courseId && signatureValue !== null) {
+        if (courseId) {
             setSignature(signatureValue);
         }
     }, [courseId, signatureValue]);
@@ -41,13 +41,14 @@ const Assignment = ({ showBackBtn = true, levels }) => {
     const navigate = useNavigate();
 
     const { t } = useTranslation();
-    const [value, setValue] = useState('');
     const [isValid, messages, validate] = useAnswerValidation(
         ['value', 'order_nbr'],
         studentAnswer,
     );
-    const [modifiedObject, onChange, modified, clearFormValues, updateModObj] =
-        useSelfReflectionModification(studentAnswer, validate);
+    const [modifiedObject, onChange, modified, clearFormValues] = useSelfReflectionModification(
+        studentAnswer,
+        validate,
+    );
     const [_answer, _message, _messageStyle, addAnswer] = useSelfReflectionSave();
     const formRef = useRef();
     const disabled = false;
@@ -99,6 +100,7 @@ const Assignment = ({ showBackBtn = true, levels }) => {
             {t('form_clear')}
         </HyButton>
     );
+
     const theButtonSave = (
         <HyButton
             variant="primary"
