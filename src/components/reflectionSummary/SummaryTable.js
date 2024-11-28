@@ -51,7 +51,6 @@ const SummaryRow = ({ assignment }) => {
         <tr>
             <td>{formattedTime}</td>
             <td>{assignment?.topic}</td>
-            <td>{assignment.answer?.order_nbr}</td>
             <td>
                 <Level level={assignment?.answer.order_nbr} />
                 <span className="feedback-for-evaluation-order">
