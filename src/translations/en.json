@@ -100,7 +100,7 @@
     "assignment_answer_remove": "Delete",
     "assignment_answer_removed": "Response deleted.",
     "validation_description_assignment_is_empty": "Written response cannot be empty.",
-    "validation_description_assignment_is_too_long": "Written response maximum length is 3000 characters.",
+    "validation_description_assignment_is_too_long": "Written response is too long.",
     "level_0": "Pre-structural",
     "level_1": "Uni-structural",
     "level_2": "Multi-structural",
@@ -129,5 +129,6 @@
     "teacher_form_delete_delete_button_label": "Delete",
     "course_can_not_have_on_going_assignments": "Course can not have on going assignments.",
     "teacher_form_edit_saved_notification_success": "Saved",
-    "statistics_table_header_answers": "Answer"
+    "statistics_table_header_answers": "Answer",
+    "text_area_length": "Written response length"
 }
