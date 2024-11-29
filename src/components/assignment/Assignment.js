@@ -6,12 +6,10 @@ import './Assignment.css';
 import { useTranslation } from 'react-i18next';
 import FormFreeAnswer from '../../form/FormFreeAnswer';
 import RadioButtonGroup from '../../form/RadioButtonGroup';
-import Form from 'react-bootstrap/Form';
 import useSelfReflectionModification from '../../hooks/useSelfReflectionModification';
 import useSelfReflectionSave from '../../hooks/useSelfReflectionSave';
 import useAnswerValidation from '../../hooks/validation/answers/useAnswerValidation';
 import ButtonRow from '../actions/ButtonRow';
-import useUser from '../../hooks/useUser';
 import HyButton from '../utilities/HyButton';
 import { useNavigate, useParams } from 'react-router-dom';
 import useStudentAssignmentAnswer from '../../hooks/useStudentAssignmentAnswer';
@@ -20,10 +18,18 @@ import useGetSignature from '../../hooks/useGetSignature';
 
 const Assignment = ({ showBackBtn = true, levels }) => {
     const { assignment, id } = useParams();
-    const [user] = useUser();
     const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
-    const courseId = studentAnswerData.id;
-    const [signature] = useGetSignature(courseId);
+    const courseId = studentAnswerData?.id;
+
+    const [signature, setSignature] = useState(null);
+    const [signatureValue] = useGetSignature(courseId);
+
+    useEffect(() => {
+        if (courseId) {
+            setSignature(signatureValue);
+        }
+    }, [courseId, signatureValue]);
+
     const backBtnHref = `/student/assignments/${id}?signature=${signature}`;
     const studentAnswer = {
         ...studentAnswerData,
@@ -35,13 +41,14 @@ const Assignment = ({ showBackBtn = true, levels }) => {
     const navigate = useNavigate();
 
     const { t } = useTranslation();
-    const [value, setValue] = useState('');
     const [isValid, messages, validate] = useAnswerValidation(
         ['value', 'order_nbr'],
         studentAnswer,
     );
-    const [modifiedObject, onChange, modified, clearFormValues, updateModObj] =
-        useSelfReflectionModification(studentAnswer, validate);
+    const [modifiedObject, onChange, modified, clearFormValues] = useSelfReflectionModification(
+        studentAnswer,
+        validate,
+    );
     const [_answer, _message, _messageStyle, addAnswer] = useSelfReflectionSave();
     const formRef = useRef();
     const disabled = false;
@@ -93,6 +100,7 @@ const Assignment = ({ showBackBtn = true, levels }) => {
             {t('form_clear')}
         </HyButton>
     );
+
     const theButtonSave = (
         <HyButton
             variant="primary"
@@ -128,23 +136,21 @@ const Assignment = ({ showBackBtn = true, levels }) => {
                     </Row>
                     <Row>
                         <Col>
-                            <Form>
-                                <Form.Label> {t('option_header')}</Form.Label>
-                                <RadioButtonGroup
-                                    answerNotFound={
-                                        !radioButtonClicked && studentAssignmentAnswer.id === ''
-                                    }
-                                    options={levels ? levels : []}
-                                    validationMessage={messages?.order_nbr}
-                                    onChange={changeValue}
-                                    value={
-                                        modifiedObject && modifiedObject.order_nbr
-                                            ? modifiedObject.order_nbr
-                                            : '0'
-                                    }
-                                    aria-required
-                                />
-                            </Form>
+                            <label> {t('option_header')}</label>
+                            <RadioButtonGroup
+                                answerNotFound={
+                                    !radioButtonClicked && studentAssignmentAnswer.id === ''
+                                }
+                                options={levels ? levels : []}
+                                validationMessage={messages?.order_nbr}
+                                onChange={changeValue}
+                                value={String(
+                                    modifiedObject && modifiedObject.order_nbr
+                                        ? modifiedObject.order_nbr
+                                        : '0',
+                                )}
+                                aria-required
+                            />
                         </Col>
                     </Row>
                 </div>

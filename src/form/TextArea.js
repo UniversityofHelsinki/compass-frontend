@@ -29,7 +29,7 @@ const TextArea = ({ value, message, ...rest }) => {
                 </div>
                 <div>
                     <div>
-                        {t('text-area-length')}: {value?.length}/3000
+                        {t('text_area_length')}: {value?.length}/3000
                     </div>
                 </div>
             </div>
