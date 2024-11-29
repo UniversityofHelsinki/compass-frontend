@@ -1,27 +1,35 @@
-import {useGET} from "../useHttp";
-import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 const useStudentAnswers = ({ course }) => {
-
-    const [response] = useGET({
-        path: `/api/student/courses/${course}/answers`,
-        tag: 'STUDENT_ANSWERS'
-    });
-    const answers = useSelector(state => state.addedAnswer.studentAnswers);
+    const [answers, setAnswers] = useState(null);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        if (response !== answers) {
-            dispatch({
-                type: 'SET_STUDENT_ANSWERS',
-                payload: response
-            });
+    const get = async () => {
+        const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
+        const URL = `${COMPASS_BACKEND_SERVER}/api/student/courses/${course}/answers`;
+        try {
+            const response = await fetch(URL);
+            if (response.ok) {
+                return await response.json();
+            }
+            throw new Error(
+                `Unexpected status code ${response.status} while fetching student answers from ${URL}`,
+            );
+        } catch (error) {
+            console.error(error.message);
         }
-    }, [response]);
+    };
+
+    useEffect(() => {
+        if (!answers) {
+            (async () => {
+                setAnswers(await get());
+            })();
+        }
+    }, [answers, course, dispatch]);
 
     return answers;
-
 };
 
 export default useStudentAnswers;
