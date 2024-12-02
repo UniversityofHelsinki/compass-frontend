@@ -90,6 +90,22 @@ setup_stage:
             - build
         expire_in: 1 hour
 
+setup_stage-prod:
+    stage: setup
+    only:
+        - prod
+    tags:
+        - ohtu-build-4
+    image: node:20-alpine
+    script:
+        - npm ci
+        - CI=false npm run build
+    artifacts:
+        name: compass-build
+        paths:
+            - build
+        expire_in: 1 hour
+
 test:
     stage: test
     image: node:20-alpine
