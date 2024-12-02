@@ -130,5 +130,6 @@
     "course_can_not_have_on_going_assignments": "Course can not have on going assignments.",
     "teacher_form_edit_saved_notification_success": "Saved",
     "statistics_table_header_answers": "Answer",
-    "text_area_length": "Written response length"
+    "text_area_length": "Written response length",
+    "summary_table_aria_description": "Response summary"
 }

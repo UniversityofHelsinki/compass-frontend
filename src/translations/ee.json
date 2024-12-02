@@ -69,5 +69,6 @@
     "answer_dialog_footer_level": "Tase",
     "teacher_forms_table_title": "Kursus",
     "teacher_forms_table_course_id": "Kursuse tunnus",
-    "teacher_forms_heading": "Kursuste nimekiri"
+    "teacher_forms_heading": "Kursuste nimekiri",
+    "summary_table_aria_description": "Vastuste kokkuvõte"
 }

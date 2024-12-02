@@ -72,5 +72,6 @@
     "answer_dialog_assignment": "Uppgift",
     "answer_dialog_student": "Student",
     "answer_dialog_written_response_header": "Svar",
-    "answer_dialog_footer_level": "Nivå"
+    "answer_dialog_footer_level": "Nivå",
+    "summary_table_aria_description": "Sammandrag av svar"
 }
