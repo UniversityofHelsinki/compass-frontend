@@ -94,7 +94,7 @@ export const useGET = ({ path, tag }) => {
         get();
     }, []);
 
-    if (!cache.has(tag)) {
+    if (!cache.has(tag) && !error) {
         get();
     }
 
