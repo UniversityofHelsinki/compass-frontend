@@ -1,6 +1,6 @@
 import React from 'react';
 import { act, renderHook } from '../test/render';
-import { get, useGET } from './useHttp.js';
+import { get, useGET, usePOST } from './useHttp.js';
 
 describe('useHttp', () => {
     const responseBody = { body: 'hei' };
@@ -112,5 +112,57 @@ describe('get', () => {
             const response = await testGet();
             expect(response.ok).toBe(false);
         }
+        expect(window.fetch.mock.calls).toHaveLength(calls);
+    });
+});
+
+describe('usePOST', () => {
+    test('Makes a POST request', async () => {
+        let method;
+        window.fetch = jest.fn().mockImplementation((path, options) => {
+            method = options.method?.toLowerCase();
+        });
+
+        let result;
+        await act(() => {
+            result = renderHook(({ path }) => usePOST({ path }), {
+                initialProps: {
+                    path: '/asdf',
+                    tag: 'TESTI',
+                },
+            }).result;
+        });
+        expect(result.current).toBeTruthy();
+        result.current();
+        expect(method).toBe('post');
+    });
+
+    test('Invalidates tags', async () => {
+        window.fetch = jest.fn().mockImplementation(() => {
+            return {
+                ok: true,
+                status: 200,
+                json: Promise.resolve({}),
+            };
+        });
+
+        let result;
+        await act(() => {
+            result = renderHook((props) => usePOST({ path: '/asdf', invalidates: ['A'] }), {
+                initialProps: {
+                    path: '/asdf',
+                    tags: ['A', 'B'],
+                },
+            }).result;
+        });
+
+        await get({ path: '/asdf', tag: 'A' });
+        expect(window.fetch.mock.calls).toHaveLength(1);
+        await get({ path: '/asdf', tag: 'A' });
+        expect(window.fetch.mock.calls).toHaveLength(1);
+        await result.current({});
+        expect(window.fetch.mock.calls).toHaveLength(2);
+        await get({ path: '/asdf', tag: 'A' });
+        expect(window.fetch.mock.calls).toHaveLength(3);
     });
 });
