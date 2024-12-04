@@ -19,7 +19,6 @@ const useClipboardCopy = (id, courseId) => {
                 await navigator.clipboard.writeText(target);
                 setNotification(t('teacher_forms_table_share_copy_to_clipboard'), 'success', true);
             } catch (error) {
-                setError(error.message);
                 setNotification(t('error_copying_to_clipboard'), 'error', true);
             }
         } else {
