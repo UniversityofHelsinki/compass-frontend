@@ -41,16 +41,18 @@ const cache = (() => {
 })();
 
 const client = async (path, tag, options = {}) => {
-    if (!cache.has(tag)) {
+    let request;
+    if (!tag) {
+        request = fetch(`${baseUrl}${path}`, options);
+    } else if (!cache.has(tag)) {
         cache.set(tag, fetch(`${baseUrl}${path}`, options));
     }
+    request = request || cache.get(tag).response;
 
-    const response = (await cache.get(tag).response).clone();
+    const response = (await request).clone();
+
     if (!response.ok) {
         cache.remove(tag);
-    }
-
-    if (!response.ok) {
         throw new Error(`Unexpected status code ${response.status} from ${path}`, {
             cause: {
                 ok: response.ok,
@@ -107,6 +109,7 @@ export const get = async ({ path, tag }) => {
         return await client(path, tag);
     } catch (error) {
         console.error(error.message);
+        return error.cause || {};
     }
 };
 
