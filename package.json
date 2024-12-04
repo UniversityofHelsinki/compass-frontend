@@ -48,7 +48,7 @@
         ]
     },
     "simple-git-hooks": {
-        "pre-commit": "pretty-quick --staged"
+        "pre-commit": "npx pretty-quick --staged"
     },
     "devDependencies": {
         "@testing-library/dom": "^10.4.0",
