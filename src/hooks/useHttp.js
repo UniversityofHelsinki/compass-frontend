@@ -102,6 +102,14 @@ export const useGET = ({ path, tag }) => {
     return [value, error, reload];
 };
 
+export const get = async ({ path, tag }) => {
+    try {
+        return await client(path, tag);
+    } catch (error) {
+        console.error(error.message);
+    }
+};
+
 export const usePOST = ({ path, invalidates = [] }) => {
     const post = async (body) => {
         try {

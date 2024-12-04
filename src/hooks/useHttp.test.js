@@ -6,7 +6,6 @@ describe('useHttp', () => {
     const responseBody = { body: 'hei' };
     beforeEach(() => {
         window.fetch = jest.fn().mockImplementation((path, options) => {
-            console.log('fetch suoritus', path);
             if (path === '/asdf') {
                 return {
                     clone: () => ({
