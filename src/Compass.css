@@ -1,6 +1,3 @@
-.root {
-}
-
 .root-main-row {
     min-height: calc(100dvh - var(--header-height));
 }

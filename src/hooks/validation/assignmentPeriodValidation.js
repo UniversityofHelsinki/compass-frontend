@@ -1,8 +1,6 @@
 import { ASSIGNMENT_VALID_FOR_EDIT, ASSIGNMENT_OLD, ASSIGNMENT_FUTURE } from '../../Constants';
 
-const regExp = /\..{3}Z$/;
 const regExpYearMonthDay = /\T(.*)/;
-//const removeMillisecs = (dateString) => dateString.replace(regExp, 'Z');
 const removeRestAfterT = (dateString) => dateString.replace(regExpYearMonthDay, '');
 
 export const validatePeriod = (assignment) => {

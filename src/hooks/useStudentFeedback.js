@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 const emptyAnswer = {
@@ -15,10 +15,6 @@ const useStudentFeedback = (assignmentId, course) => {
 
     const dispatch = useDispatch();
 
-    //const answer = useSelector((state) => state.student.student_feedback);
-    /*if (answer) {
-        setData(answer);
-    }*/
     const get = async () => {
         const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
 
@@ -39,7 +35,6 @@ const useStudentFeedback = (assignmentId, course) => {
     useEffect(() => {
         if (!data) {
             (async () => {
-                //dispatch({ type: 'GET_STUDENT_FEEDBACK', payload: await get() })
                 setData(await get());
             })();
         }

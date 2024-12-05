@@ -1,7 +1,6 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import Header from './components/header/Header';
-import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 import Footer from './components/footer/Footer';
 import { useAuth } from './AuthContext';
 import { Outlet } from 'react-router-dom';
@@ -10,8 +9,7 @@ import NotificationProvider from './NotificationContext';
 import NotificationArea from './components/utilities/NotificationArea';
 
 const Compass = () => {
-    const { user, loading } = useAuth();
-    const { i18n } = useTranslation();
+    const { loading } = useAuth();
 
     if (loading) {
         return <div>Loading...</div>; // Render a loading spinner or similar component
@@ -21,12 +19,12 @@ const Compass = () => {
         <NotificationProvider>
             <Container className="root mx-0">
                 <Row className="header-row mb-2">
-                    <Col as="header" role="banner" className="px-0">
+                    <Col as="header" className="px-0">
                         <Header />
                     </Col>
                 </Row>
                 <Row className="root-main-row">
-                    <Col role="main">
+                    <Col as="main">
                         <div className="main-content">
                             <Outlet />
                             <div className="main-content-notification-area" aria-live="assertive">
@@ -36,7 +34,7 @@ const Compass = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col as="footer" role="contentinfo" className="px-0">
+                    <Col as="footer" className="px-0">
                         <Footer />
                     </Col>
                 </Row>

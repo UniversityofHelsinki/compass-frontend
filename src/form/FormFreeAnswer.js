@@ -5,9 +5,8 @@ import { Col, Container, Form, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import TextArea from './TextArea';
 import FormElementHeader from './FormElementHeader';
-//import HelpDialog from '../../dialog/HelpDialog';
 
-const FormFreeAnswer = ({ value, onChange, validationMessage, disabled }) => {
+const FormFreeAnswer = ({ value, onChange, validationMessage }) => {
     const { t } = useTranslation();
     const id = useId();
 
@@ -41,10 +40,7 @@ const FormFreeAnswer = ({ value, onChange, validationMessage, disabled }) => {
 };
 
 FormFreeAnswer.propTypes = {
-    answer: PropTypes.string,
     onChange: PropTypes.func,
-    message: PropTypes.object,
-    disabled: PropTypes.bool,
 };
 
 export default FormFreeAnswer;

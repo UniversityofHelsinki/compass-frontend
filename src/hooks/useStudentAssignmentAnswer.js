@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import useStudentAssignmentCourse from './useStudentAssignmentCourse';
 
@@ -24,7 +24,6 @@ const useStudentAssignmentAnswer = (assignmentId) => {
     }, [studentAnswerData, assignmentId, dispatch]);
 
     const [answer, setAnswer] = useState(null);
-    //const answer = useSelector((state) => state.student.course_assignment_answer);
 
     const get = async () => {
         if (studentAnswerData.course_id.length > 0) {
@@ -47,7 +46,6 @@ const useStudentAssignmentAnswer = (assignmentId) => {
     useEffect(() => {
         if (!answer || answer.assignment_id !== parseInt(assignmentId)) {
             (async () => {
-                //dispatch({ type: 'GET_STUDENT_COURSE_ASSIGNMENT_ANSWER', payload: await get() })
                 setAnswer(await get());
             })();
         }
