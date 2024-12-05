@@ -48,7 +48,7 @@ describe('NotificationArea', () => {
         const rendered = render(<TestComponent />);
         await rendered.user.click(screen.queryByText('Send'));
 
-        const closeButton = screen.queryByText('Sulje ilmoitus');
+        const closeButton = screen.queryByText('notification_area_close_button_label');
         expect(closeButton).toBeTruthy();
     });
 });

@@ -30,7 +30,7 @@ describe('TeacherFormDelete', () => {
     });
 
     test('has back button', () => {
-        expect(component.queryByText('Kurssit')).toBeTruthy();
+        expect(component.queryByText('teacher_forms_back_to_forms')).toBeTruthy();
     });
 
     test('course name is shown', () => {
@@ -38,14 +38,14 @@ describe('TeacherFormDelete', () => {
     });
 
     test('warning text is shown', () => {
-        expect(component.queryByText('Kaikki kurssiin liittyvät tiedot poistetaan.')).toBeTruthy();
+        expect(component.queryByText('teacher_form_delete_warning')).toBeTruthy();
     });
 
     test('Delete button is present', () => {
-        expect(component.queryByText('Poista')).toBeTruthy();
+        expect(component.queryByText('teacher_form_delete_delete_button_label')).toBeTruthy();
     });
 
     test('Cancel button is present', () => {
-        expect(component.queryByText('Peruuta')).toBeTruthy();
+        expect(component.queryByText('teacher_form_delete_cancel_button_label')).toBeTruthy();
     });
 });

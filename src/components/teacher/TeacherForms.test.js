@@ -3,34 +3,32 @@ import { screen, render } from '../../test/render';
 import TeacherForms from './TeacherForms';
 
 it('renders', () => {
-  render(
-    <TeacherForms />
-  );
+    render(<TeacherForms />);
 });
 
 test('teacher forms heading is shown', () => {
-  render(
-    <TeacherForms />,
-    {},
-    {
-      teacher: {
-        courses: []
-      }
-    }
-  );
-  expect(screen.queryByRole('heading')).toHaveTextContent('Lomakkeet');
+    render(
+        <TeacherForms />,
+        {},
+        {
+            teacher: {
+                courses: [],
+            },
+        },
+    );
+    expect(screen.queryByRole('heading')).toHaveTextContent('teacher_forms_heading');
 });
 
 test('No courses disclaimer is shown', () => {
-  render(
-    <TeacherForms />,
-    {},
-    {
-      teacher: {
-        courses: []
-      }
-    }
-  );
+    render(
+        <TeacherForms />,
+        {},
+        {
+            teacher: {
+                courses: [],
+            },
+        },
+    );
 
-  expect(document.querySelector('.teacher-forms-no-forms')).toBeDefined();
+    expect(document.querySelector('.teacher-forms-no-forms')).toBeDefined();
 });
