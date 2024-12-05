@@ -19,12 +19,12 @@ const RadioButtonGroup = ({
     return (
         <>
             {options &&
-                options.map((option) => (
+                options.map((option, index) => (
                     <Form.Check
                         className="radio-button-group"
                         type="radio"
                         checked={value.toString() === option.value && answerNotFound === false}
-                        key={option.value}
+                        key={`${option.value}-${index}`}
                         value={option.value}
                         id={`compass-${option.value}-${id}`}
                         label={t(option.label)}
