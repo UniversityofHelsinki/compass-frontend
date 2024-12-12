@@ -53,33 +53,25 @@ const AssignmentAnswersDialog = ({ value, order_nbr, userName, courseTitle, assi
 
     return (
         <FormDialog hide={hide} showComponent={theViewLink} show={showForm} size="xl">
-            <Modal.Header className="modal-header" {...closeButton}>
-                <Container className="title-container">
-                    <div>
-                        <Modal.Title>
-                            {t('answer_dialog_course')}: {courseTitle}{' '}
-                        </Modal.Title>
-                    </div>
-                    <div>
-                        <Modal.Title>
-                            {t('answer_dialog_assignment')}: {assignmentTopic}{' '}
-                        </Modal.Title>
-                    </div>
-                    <div>
-                        <Modal.Title>
-                            {t('answer_dialog_student')}: {userName}{' '}
-                        </Modal.Title>
-                    </div>
-                </Container>
+            <Modal.Header className="assignment-answer-dialog-header" {...closeButton}>
+                <Modal.Title as="h4" className="modal-title">
+                    {t('answer_dialog_student')}: {userName}
+                </Modal.Title>
             </Modal.Header>
             <Form className="answers-form">
                 <Modal.Body>
                     <Container>
                         <Row>
+                            <Col as="h5">{courseTitle}</Col>
+                        </Row>
+                        <Row>
+                            <Col as="h5">{assignmentTopic}</Col>
+                        </Row>
+                        <Row>
                             <Col
-                                className="written-response-header"
+                                as="h5"
                                 id="answer-dialog-written-response-header"
-                                lg
+                                className="written-response-header"
                             >
                                 {t('answer_dialog_written_response_header')}:
                             </Col>
@@ -91,17 +83,16 @@ const AssignmentAnswersDialog = ({ value, order_nbr, userName, courseTitle, assi
                                     rows={6}
                                     aria-labelledby="answer-dialog-written-response-header"
                                     value={value}
-                                    readOnly
+                                    aria-disabled="true"
                                     disabled
                                 ></Form.Control>
                             </Col>
                         </Row>
                         <Row>
-                            <Col className="bottom-left-content-header">
+                            <Col as="h5">
                                 {t('answer_dialog_footer_level')}:
                                 <div className="bottom-left-lower-content">
-                                    {' '}
-                                    {icon} {text}{' '}
+                                    {icon} {text}
                                 </div>
                             </Col>
                         </Row>

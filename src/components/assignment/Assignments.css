@@ -116,6 +116,7 @@ ul.assignments-list {
 
 .assignments-list-item-link a:hover {
     text-decoration: underline;
+    color: var(--huds-brand-main-light) !important;
 }
 
 .assignments-list-item-secondary {

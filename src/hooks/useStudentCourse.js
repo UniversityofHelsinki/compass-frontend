@@ -1,19 +1,7 @@
-import useUser from './useUser';
-import { useGET } from './useHttp';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 const useStudentCourse = (id) => {
-    /*const [value, fetchError, reload] = useGET({
-        path: `/api/student/course/${id}`,
-        tag: `COURSE`,
-    });
-
-    useEffect(() => {
-    }, [value]);
-
-    return [value];*/
-
     const dispatch = useDispatch();
     const [course, setCourse] = useState(null);
     const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
@@ -36,7 +24,6 @@ const useStudentCourse = (id) => {
     useEffect(() => {
         if (!course) {
             (async () => {
-                //dispatch({ type: 'GET_STUDENT_ASSIGNMENT_COURSE', payload: await get() });
                 setCourse(await get());
             })();
         }

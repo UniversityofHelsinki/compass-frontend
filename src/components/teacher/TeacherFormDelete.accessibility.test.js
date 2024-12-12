@@ -12,7 +12,7 @@ describe('TeacherFormDelete', () => {
 
     test('Title is on heading level 2', async () => {
         const component = render(<TeacherFormDelete />, {}, { teacher: { course: {} } });
-        const title = component.getByText('Poista kurssi');
+        const title = component.getByText('teacher_form_delete');
         expect(title.tagName).toEqual('H2');
     });
 });

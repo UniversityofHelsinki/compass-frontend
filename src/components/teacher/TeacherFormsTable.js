@@ -36,18 +36,8 @@ const HeadingColumn = ({ children, onSortCriteriaChange, sorted, direction }) =>
 
 const Row = ({ teacherForm }) => {
     const { t } = useTranslation();
-    const { clipboardCopy, loading, error } = useClipboardCopy(
-        teacherForm.id,
-        teacherForm.course_id,
-    );
+    const { clipboardCopy } = useClipboardCopy(teacherForm.id, teacherForm.course_id);
     const { setNotification } = useNotification();
-
-    useEffect(() => {
-        if (error) {
-            // Display error notification if an error occurs
-            setNotification(t('error_generating_signed_url'), 'error', true);
-        }
-    }, [error, setNotification, t]);
 
     const handleShareClick = () => {
         clipboardCopy();
@@ -94,11 +84,7 @@ const Row = ({ teacherForm }) => {
 
     const Share = () => (
         <div className="teacher-forms-table-row-share-action">
-            <button
-                title={t('teacher_forms_table_share_title')}
-                onClick={handleShareClick}
-                disabled={loading}
-            >
+            <button title={t('teacher_forms_table_share_title')} onClick={handleShareClick}>
                 <span className="screenreader-only">
                     {t('teacher_forms_table_row_share', { title: teacherForm.title })}
                 </span>

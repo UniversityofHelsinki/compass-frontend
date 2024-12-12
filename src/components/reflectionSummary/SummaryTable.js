@@ -92,7 +92,7 @@ const SummaryTable = ({ assignments }) => {
             <Container className="table-container">
                 <Row className="table-row">
                     <Col className="table-col">
-                        <Table striped>
+                        <Table aria-description={t('summary_table_aria_description')}>
                             <thead>
                                 <tr>
                                     <th>{t('summary_time')}</th>

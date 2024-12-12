@@ -24,11 +24,11 @@ describe('Required fields are present', () => {
     });
 
     test('Title', () => {
-        expect(screen.queryByPlaceholderText('Syötä nimi')).toBeTruthy();
+        expect(screen.queryByPlaceholderText('teacher_form_title_placeholder')).toBeTruthy();
     });
 
     test('External Id', () => {
-        expect(screen.queryByPlaceholderText('Syötä tunniste')).toBeTruthy();
+        expect(screen.queryByPlaceholderText('teacher_form_course_id_placeholder')).toBeTruthy();
     });
 
     test('Start date', () => {
@@ -46,7 +46,7 @@ describe('Required fields are present', () => {
     });
 
     test('Add topic button', () => {
-        expect(screen.queryByText('Lisää aihe')).toBeTruthy();
+        expect(screen.queryByText('teacher_form_add_assignment')).toBeTruthy();
     });
 });
 

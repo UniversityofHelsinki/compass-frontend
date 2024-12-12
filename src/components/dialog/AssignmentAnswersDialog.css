@@ -1,23 +1,18 @@
 .written-response-header {
-    font-size: 1.5em;
-    margin-bottom: 5px;
+    margin: 0.5em 0 0.5em 0;
 }
 
 .written-response-content {
     margin-bottom: 1em;
 }
 
-.bottom-left-content-header {
-    font-size: 1.5em;
-}
-
 .bottom-left-lower-content {
-    font-size: 1em;
+    margin-top: 0.5em;
 }
 
 .bottom-left-lower-content svg {
     margin-left: 1px;
-    top: -6px;
+    top: -5px;
     position: relative;
     width: 17px;
     height: 17px;

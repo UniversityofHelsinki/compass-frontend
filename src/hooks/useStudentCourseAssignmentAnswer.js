@@ -17,7 +17,6 @@ const useStudentCourseAssignmentAnswer = (course_id, signature, id) => {
     const [assignments, setAssignments] = useState(null);
     const [errMsg, setErrMsg] = useState(null);
     const [courseDate, setCourseDate] = useState(null);
-    //const [previousAssignments, setPreviousAssignments] = useState(null);
     const get = async (course_id) => {
         if (course_id) {
             const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';

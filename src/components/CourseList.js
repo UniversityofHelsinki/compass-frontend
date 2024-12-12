@@ -1,20 +1,12 @@
-import useAllCourses from '../hooks/useAllCourses';
 import './CourseList.css';
-import DropDown from '../form/DropDown';
-import { Component, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import * as PropTypes from 'prop-types';
 import Course from './Course';
 import React from 'react';
 import useStudentCourses from '../hooks/student/useStudentCourses';
-import { Container } from 'react-bootstrap';
-import Row from 'react-bootstrap/Row';
 
 const CourseList = () => {
     const { t } = useTranslation();
-    const [courses, error] = useStudentCourses();
-
-    const [selectedOption, setSelectedOption] = useState('');
+    const [courses] = useStudentCourses();
 
     const listCourses = () => {
         return (
@@ -36,7 +28,5 @@ const CourseList = () => {
 
     return <div className="student-no-courses">{t('student_no_courses')}</div>;
 };
-
-CourseList.propTypes = {};
 
 export default CourseList;

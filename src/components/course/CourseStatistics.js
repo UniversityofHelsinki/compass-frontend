@@ -108,7 +108,6 @@ const CourseStatistics = () => {
                 heading={`${t('course_statistics_for_course')}: ${course?.title}`}
             />
             <div>
-                <h2></h2>
                 <div className="chart-selection">
                     <h3>{t('select_assignments_to_display')}</h3>
                     {chartData.map((assignment) => (
