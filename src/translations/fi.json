@@ -134,7 +134,7 @@
     "error_loading_data": "Virhe tietojen haussa",
     "no_statistic_data_available": "Ei tietoja saatavilla",
     "course_statistics_for_course": "Statistiikkaa kurssille",
-    "select_assignments_to_display": "Valitse tarkasteltavien tehtävien vastaukset",
+    "select_assignments_to_display": "Valitse tarkasteltavat tehtävät",
     "course_assignment_on_going_assignment_can_not_be_deleted": "Käynnissä olevaa tehtävää ei voi poistaa.",
     "course_assignment_on_going_assignment_topic_can_not_be_changed": "Käynnissä olevan tehtävän aihetta ei voi muuttaa.",
     "course_assignment_on_going_assignment_can_not_be_shortened": "Käynnissä olevan tehtävän voimassaoloa ei voi lyhentää.",
@@ -168,5 +168,6 @@
     "level_4": "Laajannettu abstrakti",
     "validation_description_assignment_is_empty": "Vastaus ei voi olla tyhjä.",
     "validation_description_assignment_is_too_long": "Vastaus on liian pitkä.",
-    "summary_table_aria_description": "Vastausten yhteenveto"
+    "summary_table_aria_description": "Vastausten yhteenveto",
+    "pie_chart_aria_description": "Kaavio tehtävän vastausten tasojakaumasta"
 }

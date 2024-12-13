@@ -13,22 +13,22 @@ import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
 
 const COLORS = ['#8B0000', '#8B4513', '#00008B', '#4B0082', '#006400'];
 
-const getIcon = (entry) => {
+const getIcon = (entry, t) => {
     const style = { fill: HyColors.white };
 
     switch (parseInt(entry)) {
         case 0:
-            return <Level0Icon style={style} />;
+            return { icon: <Level0Icon style={style} />, text: t('level_0') };
         case 1:
-            return <Level1Icon style={style} />;
+            return { icon: <Level1Icon style={style} />, text: t('level_1') };
         case 2:
-            return <Level2Icon style={style} />;
+            return { icon: <Level2Icon style={style} />, text: t('level_2') };
         case 3:
-            return <Level3Icon style={style} />;
+            return { icon: <Level3Icon style={style} />, text: t('level_3') };
         case 4:
-            return <Level4Icon style={style} />;
+            return { icon: <Level4Icon style={style} />, text: t('level_4') };
         default:
-            return <Level0Icon style={style} />;
+            return { icon: <Level0Icon style={style} />, text: '' };
     }
 };
 
@@ -45,7 +45,7 @@ const renderCustomLabelLine = () => {
     return <line stroke={HyColors.white} />;
 };
 
-const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, name, percent }) => {
+const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, name, percent, t }) => {
     // Position the icon slightly inside the edge of the pie slice
     const iconRadius = outerRadius - 20; // Slightly inside the outer edge
     const iconX = cx + iconRadius * Math.cos(-midAngle * RADIAN);
@@ -56,10 +56,13 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, name, percent })
     const textX = cx + textRadius * Math.cos(-midAngle * RADIAN);
     const textY = cy + textRadius * Math.sin(-midAngle * RADIAN);
 
+    const percentage = `${(percent * 100).toFixed(0)}%`;
+    const { icon, text } = getIcon(name, t);
+
     return (
         <g>
-            <foreignObject x={iconX - 10} y={iconY - 10} width={30} height={30}>
-                {getIcon(name)}
+            <foreignObject x={iconX - 10} y={iconY - 10} width={30} height={30} aria-label={text}>
+                {icon}
             </foreignObject>
             <text
                 x={textX}
@@ -74,13 +77,18 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, name, percent })
     );
 };
 
-const renderPieChart = (data, index) => {
+const renderPieChart = (data, index, t) => {
     if (!data || !Array.isArray(data)) {
-        return null; // Return nothing if data is undefined or not an array
+        return null;
     }
 
+    const customizedLabel = (props) => renderCustomizedLabel({ ...props, t });
+
     return (
-        <div style={{ width: '100%', height: 500 }}>
+        <div
+            style={{ width: '100%', height: 500 }}
+            aria-description={t('pie_chart_aria_description')}
+        >
             <ResponsiveContainer>
                 <PieChart key={`pie-${index}`}>
                     <Pie
@@ -91,15 +99,20 @@ const renderPieChart = (data, index) => {
                         endAngle={-270}
                         dataKey="value"
                         nameKey="name"
-                        label={renderCustomizedLabel}
+                        label={customizedLabel}
                         labelLine={renderCustomLabelLine}
                     >
-                        {data.map((entry, idx) => (
-                            <Cell
-                                key={`cell-${index}-${idx}`}
-                                fill={getColorForValue(entry.name)}
-                            />
-                        ))}
+                        {data.map((entry, idx) => {
+                            const { text } = getIcon(entry.name, t);
+
+                            return (
+                                <Cell
+                                    key={`cell-${index}-${idx}`}
+                                    fill={getColorForValue(entry.name)}
+                                    //aria-label={text}
+                                />
+                            );
+                        })}
                     </Pie>
                 </PieChart>
             </ResponsiveContainer>
@@ -128,7 +141,7 @@ const PieCharts = ({ data, selectedChartIds, courseTitle }) => {
                     <h3>
                         {assignment.assignmentTopic} ({assignment.answerCount})
                     </h3>
-                    {renderPieChart(assignment.data, index)}
+                    {renderPieChart(assignment.data, index, t)}
                     <TableData
                         assignmentId={assignment.assignmentId}
                         courseTitle={courseTitle}
