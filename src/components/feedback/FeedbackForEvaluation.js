@@ -41,7 +41,7 @@ const Level = ({ level = 4 }) => {
     return IconComponent ? <IconComponent /> : null;
 };
 
-const FeedbackForEvaluation = (showBackBtn = true) => {
+const FeedbackForEvaluation = () => {
     const { answer, course, id } = useParams();
     const [signature] = useGetSignature(id);
     const backBtnHref = `/student/assignments/${id}?signature=${signature}`;
@@ -97,6 +97,9 @@ const FeedbackForEvaluation = (showBackBtn = true) => {
                             {t(answer_evaluation_form_header + studentAnswer.order_nbr)}
                         </h4>
                     </div>
+                    <div className="feedback-for-evaluation-info">
+                        {t('answer_evaluation_form_info')}
+                    </div>
                     <div>{t(answer_evaluation_form_text + studentAnswer.order_nbr)}</div>
                     <FeedbackForEvaluationFooter
                         disabled={editable}
@@ -116,7 +119,6 @@ const FeedbackForEvaluation = (showBackBtn = true) => {
 
 FeedbackForEvaluation.propTypes = {
     showBackBtn: PropTypes.bool,
-    level: PropTypes.number,
 };
 
 export default FeedbackForEvaluation;
