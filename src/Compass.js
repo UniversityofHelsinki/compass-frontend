@@ -26,6 +26,12 @@ const Compass = () => {
                 <Row className="root-main-row">
                     <Col as="main">
                         <div className="main-content">
+                            <img
+                                src="/compass-logo.png"
+                                alt="Compass Logo"
+                                className="compass-logo"
+                                style={{ width: '200px', height: 'auto' }}
+                            />
                             <Outlet />
                             <div className="main-content-notification-area" aria-live="assertive">
                                 <NotificationArea />
