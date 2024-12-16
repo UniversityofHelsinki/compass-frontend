@@ -1,43 +1,38 @@
-import { useEffect, useState, useMemo } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useGET } from '../useHttp';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 const useCourseStatistics = (courseId) => {
     const dispatch = useDispatch();
-    const statistics = useSelector((state) => state.courses.statistics || {});
+    const [statistics, setStatistics] = useState(null);
+    const [error, setError] = useState(null);
 
-    const [loading, setLoading] = useState(true);
-
-    const [response, error] = useGET({
-        path: `/api/teacher/statistics/course/${courseId}`,
-        tag: `COURSE_STATISTICS_${courseId}`,
-    });
+    const get = async () => {
+        const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
+        const URL = `${COMPASS_BACKEND_SERVER}/api/teacher/statistics/course/${courseId}`;
+        const response = await fetch(URL);
+        if (response.ok) {
+            const result = await response.json();
+            return result || {};
+        }
+        throw new Error(
+            `Unexpected status code ${response.status} while fetching course assignment statistics from ${URL}`,
+        );
+    };
 
     useEffect(() => {
-        if (response) {
-            dispatch({
-                type: 'SET_COURSE_STATISTICS',
-                payload: {
-                    courseId,
-                    data: response,
-                },
-            });
-            setLoading(false);
+        if (!statistics) {
+            (async () => {
+                try {
+                    setStatistics(await get());
+                    setError(null);
+                } catch (error) {
+                    setStatistics(null);
+                    setError(error);
+                }
+            })();
         }
-        if (error) {
-            setLoading(false);
-        }
-    }, [response, error, dispatch, courseId]);
-
-    // Memoize the course statistics for the specific courseId
-    const courseStatistics = useMemo(() => {
-        if (courseId in statistics) {
-            return statistics[courseId];
-        }
-        return [];
-    }, [statistics, courseId]);
-
-    return { courseStatistics, loading, error };
+    }, [statistics, courseId, dispatch]);
+    return { courseStatistics: statistics, error };
 };
 
 export default useCourseStatistics;

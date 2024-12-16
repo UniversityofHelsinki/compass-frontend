@@ -11,14 +11,11 @@ import { ReactComponent as Level1Icon } from '../utilities/icons/circle-fill.svg
 import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vertical.svg';
 import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
 import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
-import { t } from 'i18next';
 import AssignmentAnswersDialog from '../dialog/AssignmentAnswersDialog';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const TableData = ({ assignmentId, courseTitle, assignmentTopic }) => {
-    const { courseId } = useParams();
     const { answers, loading, error } = useAssignmentAnswers(assignmentId);
     const [sortConfig, setSortConfig] = useState({ key: 'user_name', direction: 'asc' });
     const { t } = useTranslation();

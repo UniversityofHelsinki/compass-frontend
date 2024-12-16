@@ -139,7 +139,7 @@
     "teacher_form_edit_saved_notification_error": "Error modifying information.",
     "course_can_not_have_on_going_assignments": "Course cannot have ongoing assignments.",
     "teacher_form_edit_saved_notification_success": "Saved",
-    "statistics_table_header_answers": "Answer",
+    "statistics_table_header_answers": "Response",
     "text_area_length": "Written response length",
     "summary_table_aria_description": "Response summary",
     "course_course_id_already_in_use": "Course id is already in use.",
