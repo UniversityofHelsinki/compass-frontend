@@ -37,3 +37,8 @@
 svg {
     vertical-align: text-bottom;
 }
+
+.feedback-for-evaluation-info {
+    font-style: italic;
+    margin: 10px 0 10px 0;
+}
