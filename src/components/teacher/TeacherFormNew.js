@@ -7,14 +7,64 @@ import { useTranslation } from 'react-i18next';
 import useUser from '../../hooks/useUser';
 import useTeacherFormSave from '../../hooks/teacher/useTeacherFormSave';
 import TeacherForm from './TeacherForm';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useNotification } from '../../NotificationContext';
+import useTeacherCourse from '../../hooks/useTeacherCourse';
+
+const EmptyForm = ({ handleSave, teacherForm }) => {
+    const [user] = useUser();
+    const today = new Date().getTime();
+    const oneDay = 24 * 60 * 60 * 1000;
+    const threeMonths = 3 * 31 * 24 * 60 * 60 * 1000;
+
+    const empty = {
+        course_id: '',
+        user_name: user.eppn,
+        title: '',
+        description: '',
+        start_date: new Date(today - (today % oneDay)).toISOString(),
+        end_date: new Date(today - (today % oneDay) + threeMonths).toISOString(),
+    };
+
+    return <TeacherForm isNew={true} onSave={handleSave} teacherForm={teacherForm || empty} />;
+};
+
+const TemplateForm = ({ id, handleSave, teacherForm }) => {
+    const [course] = useTeacherCourse(id);
+
+    if (!course) {
+        return <></>;
+    }
+
+    const template = {
+        course_id: course.course_id,
+        user_name: course.user_name,
+        title: course.title,
+        description: '',
+        start_date: null,
+        end_date: null,
+        assignments: course.assignments.map((assignment) => ({
+            start_date: null,
+            end_date: null,
+            topic: assignment.topic,
+        })),
+    };
+
+    return <TeacherForm isNew={true} onSave={handleSave} teacherForm={teacherForm || template} />;
+};
+
+const Form = ({ id, handleSave, teacherForm }) => {
+    if (id) {
+        return <TemplateForm id={id} handleSave={handleSave} teacherForm={teacherForm} />;
+    }
+    return <EmptyForm handleSave={handleSave} teacherForm={teacherForm} />;
+};
 
 const TeacherFormNew = () => {
     const { t } = useTranslation();
-    const [user] = useUser();
     const navigate = useNavigate();
     const { setNotification } = useNotification();
+    const { course: id } = useParams();
 
     const [teacherForm, setTeacherForm] = useState(null);
 
@@ -28,19 +78,6 @@ const TeacherFormNew = () => {
     }, [saved]);
 
     const save = useTeacherFormSave();
-
-    const today = new Date().getTime();
-    const oneDay = 24 * 60 * 60 * 1000;
-    const threeMonths = 3 * 31 * 24 * 60 * 60 * 1000;
-
-    const empty = {
-        course_id: '',
-        user_name: user.eppn,
-        title: '',
-        description: '',
-        start_date: new Date(today - (today % oneDay)).toISOString(),
-        end_date: new Date(today - (today % oneDay) + threeMonths).toISOString(),
-    };
 
     const handleSave = async (teacherForm) => {
         const saved = await save(teacherForm);
@@ -71,7 +108,7 @@ const TeacherFormNew = () => {
                 }}
             />
             <div className="m-3"></div>
-            <TeacherForm isNew={true} onSave={handleSave} teacherForm={teacherForm || empty} />
+            <Form id={id} handleSave={handleSave} teacherForm={teacherForm} />
         </div>
     );
 };
