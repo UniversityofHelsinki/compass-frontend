@@ -9,3 +9,7 @@
 .feedback-for-evaluation-footer-buttons button {
     padding-right: 8px;
 }
+
+.feedback-for-evaluation-footer a {
+    color: var(--huds-brand-main) !important;
+}

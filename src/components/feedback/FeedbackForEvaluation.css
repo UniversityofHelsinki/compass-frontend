@@ -1,14 +1,17 @@
 .feedback-for-evaluation {
-    background-color: var(--huds-grayscale-light);
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    padding-top: 20px;
 }
 
 .feedback-for-evaluation-answer {
-    background-color: var(--huds-grayscale-light);
-    width: 35%;
-    word-break: break-all;
+    white-space: pre-wrap;
+    word-break: break-word;
+    border: 1.5px solid #ddd;
+    line-height: 1.5;
+    padding-bottom: 10px;
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 .feedback-for-evaluation-rows {
@@ -41,4 +44,8 @@ svg {
 .feedback-for-evaluation-info {
     font-style: italic;
     margin: 10px 0 10px 0;
+}
+
+.feedback-for-evaluation-choice-header {
+    padding-top: 10px;
 }

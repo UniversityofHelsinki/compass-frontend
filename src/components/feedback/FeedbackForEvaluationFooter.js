@@ -40,9 +40,7 @@ const FeedbackForEvaluationFooter = ({
                     </HyButton>
                 </Link>
                 <Link to={`/student/courses/${course}/summary`}>
-                    <HyButton variant="primary" type="submit" disabled={false}>
-                        {t('assignment_feedback_reflection_summary')}
-                    </HyButton>
+                    {t('assignment_feedback_reflection_summary')}
                 </Link>
             </div>
         </div>
