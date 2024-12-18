@@ -45,12 +45,15 @@ const Row = ({ teacherForm }) => {
 
     const Copy = () => (
         <div className="teacher-forms-table-row-copy-action">
-            <button title={t('teacher_forms_table_copy_title')}>
+            <Link
+                title={t('teacher_forms_table_copy_title')}
+                to={`/teacher/forms/new/${teacherForm.id}`}
+            >
                 <span className="screenreader-only">
                     {t('teacher_forms_table_row_copy', { title: teacherForm.title })}
                 </span>
                 <CopyIcon aria-hidden />
-            </button>
+            </Link>
         </div>
     );
 

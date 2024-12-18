@@ -64,6 +64,7 @@ const App = () => {
                 <Route path="teacher" element={<Teacher />}>
                     <Route path="forms" element={<TeacherForms />}></Route>
                     <Route path="forms/new" element={<TeacherFormNew />}></Route>
+                    <Route path="forms/new/:course" element={<TeacherFormNew />}></Route>
                     <Route path="forms/edit/:course" element={<TeacherFormEdit />}></Route>
                     <Route path="forms/delete/:course" element={<TeacherFormDelete />}></Route>
                     <Route path="statistics/course/:courseId" element={<CourseStatistics />} />
