@@ -50,3 +50,7 @@ svg {
 .feedback-for-evaluation-choice-header {
     padding-top: 10px;
 }
+
+.feedback-for-evaluation {
+    background-color: var(--huds-grayscale-white);
+}
