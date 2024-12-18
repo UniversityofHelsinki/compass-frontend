@@ -53,9 +53,9 @@ const SummaryRow = ({ assignment }) => {
         month: '2-digit'
     });*/
 
-    /*const updateRerender = (value) => {
-        setRerender(value);
-    }*/
+    const updateR = (value) => {
+        window.location.reload();
+    };
 
     return (
         <tr>
@@ -68,7 +68,7 @@ const SummaryRow = ({ assignment }) => {
                 </span>
             </td>
             <td>
-                {assignment?.feedback_order_nbr.toString() ? (
+                {assignment?.feedback_order_nbr?.toString() ? (
                     <Level level={assignment?.feedback_order_nbr} />
                 ) : (
                     t('summary_no_feedback')
@@ -83,10 +83,10 @@ const SummaryRow = ({ assignment }) => {
                     order_nbr={assignment?.answer_order_nbr}
                     courseTitle={assignment?.course_title}
                     course_id={assignment?.course_id}
-                    assignment_id={assignment?.assignmentId}
+                    assignment_id={assignment?.assignment_id}
                     feedback_value={assignment?.feedback_value}
                     feedback_order_nbr={assignment?.feedback_order_nbr}
-                    /*rerender={updateRerender}*/
+                    feedback_id={assignment?.feedbackid}
                 />
             </td>
         </tr>

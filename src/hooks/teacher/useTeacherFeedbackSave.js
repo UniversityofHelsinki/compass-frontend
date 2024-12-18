@@ -52,13 +52,14 @@ const useTeacherFeedbackSave = (course_id, assignment_id, feedback_value, feedba
         };
         setFeedback(newModifiedObject);
     };
-    const addFeedback = async (userName, course_id, assignment_id, feedbackId) => {
+    const addFeedback = async (userName, course_id, assignment_id, feedback_id) => {
         const addedFeedback = await post({
             ...feedback,
             user_name: userName,
             course_id: course_id,
             assignment_id: assignment_id,
-            id: feedbackId,
+            id: feedback_id,
+            student: userName,
         });
         dispatch({ type: 'SET_STUDENT_FEEDBACK', payload: addedFeedback });
         //return addedFeedback;

@@ -128,7 +128,7 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersFeedback
                                                 assignment_id={entry?.assignment_id}
                                                 feedback_value={entry?.feedback_value}
                                                 feedback_order_nbr={entry?.feedback_order_nbr}
-                                                feedbackId={entry?.feedbackid}
+                                                feedback_id={entry?.feedbackid}
                                             />
                                         </td>
                                     </tr>

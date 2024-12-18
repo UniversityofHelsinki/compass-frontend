@@ -27,7 +27,8 @@ const AssignmentAnswersDialog = ({
     assignment_id,
     feedback_value,
     feedback_order_nbr,
-    feedbackId,
+    feedback_id,
+    updateRer,
 }) => {
     const [showForm, setShowForm] = useState(false);
     const { t } = useTranslation();
@@ -50,7 +51,7 @@ const AssignmentAnswersDialog = ({
     } = useAuth();
 
     const saveFeedback = () => {
-        addFeedback(userName, course_id, assignment_id, feedbackId);
+        addFeedback(userName, course_id, assignment_id, feedback_id);
     };
     const changeValue = (property, value) => {
         //if (property && property === 'order_nbr') setRadioButtonClicked(value);
@@ -61,7 +62,6 @@ const AssignmentAnswersDialog = ({
     const hide = () => {
         resetValues();
         setShowForm(false);
-        //rerender(true);
     };
 
     const onButtonClick = (event) => {
@@ -130,7 +130,7 @@ const AssignmentAnswersDialog = ({
                                 rows={6}
                                 aria-labelledby="answer-dialog-written-response-header"
                                 onChange={(event) => changeValue('value', event.target.value)}
-                                value={stored?.value ? stored?.value : feedback_value}
+                                value={stored?.value}
                                 aria-disabled="false"
                             ></Form.Control>
                         </Col>
@@ -150,7 +150,6 @@ const AssignmentAnswersDialog = ({
                                         ? !!stored?.order_nbr
                                         : stored?.order_nbr
                                 }
-                                /*value={"3"}*/
                                 aria-required
                             />
                         </Col>
@@ -215,7 +214,7 @@ const AssignmentAnswersDialog = ({
                             <Col as="h5">
                                 <></>
                             </Col>
-                            <Col as="h5">{stored?.value}</Col>
+                            <Col as="h5">{stored?.value ? stored?.value : feedback_value}</Col>
                         </Row>
                         {feedBackToStudent(teacherUser)}
                     </Container>
