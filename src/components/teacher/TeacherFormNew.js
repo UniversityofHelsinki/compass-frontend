@@ -37,7 +37,7 @@ const TemplateForm = ({ id, handleSave, teacherForm }) => {
     }
 
     const template = {
-        course_id: course.course_id,
+        course_id: '',
         user_name: course.user_name,
         title: course.title,
         description: '',
