@@ -34,8 +34,6 @@ const CourseStatistics = () => {
             </p>
         );
     }
-
-    console.log('asd', courseStatistics);
     if (!Array.isArray(courseStatistics) || courseStatistics.length === 0) {
         return (
             <>
