@@ -6,8 +6,15 @@
     background-color: white;
 }
 
-.feedback-for-evaluation-footer-buttons button {
-    padding-right: 8px;
+.feedback-for-evaluation-footer-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.feedback-for-evaluation-footer-buttons a:last-child {
+    margin-left: auto;
 }
 
 .feedback-for-evaluation-footer a {
