@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
-import useAssignmentAnswers from '../../hooks/teacher/useAssignmentAnswers';
+//import useAssignmentAnswers from '../../hooks/teacher/useAssignmentAnswers';
+//import useTeacherFeedback from "../../hooks/teacher/useTeacherFeedback";
 import { ReactComponent as AscendingIcon } from '../utilities/icons/arrow-up.svg';
 import { ReactComponent as DescendingIcon } from '../utilities/icons/arrow-down.svg';
 import './TableData.css';
@@ -16,24 +17,27 @@ import AssignmentAnswersDialog from '../dialog/AssignmentAnswersDialog';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import useAnswersAndFeedbacks from '../../hooks/teacher/useAnswersAndFeedbacks';
 
-const TableData = ({ assignmentId, courseTitle, assignmentTopic }) => {
+const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersFeedbacks }) => {
     const { courseId } = useParams();
-    const { answers, loading, error } = useAssignmentAnswers(assignmentId);
-    const [sortConfig, setSortConfig] = useState({ key: 'user_name', direction: 'asc' });
+    //const { answers, loading, error } = useAssignmentAnswers(assignmentId);
+    //const [ answers, _loading, _error ] = useAnswersAndFeedbacks('11');
+
+    const [sortConfig, setSortConfig] = useState({ key: 'answer_user_name', direction: 'asc' });
     const { t } = useTranslation();
 
     const sortedAnswers = useMemo(() => {
-        if (!sortConfig.key || !answers) return answers;
+        if (!sortConfig.key || !answersFeedbacks) return answersFeedbacks;
 
-        return [...answers].sort((a, b) => {
+        return [...answersFeedbacks].sort((a, b) => {
             if (a[sortConfig.key] < b[sortConfig.key])
                 return sortConfig.direction === 'asc' ? -1 : 1;
             if (a[sortConfig.key] > b[sortConfig.key])
                 return sortConfig.direction === 'asc' ? 1 : -1;
             return 0;
         });
-    }, [answers, sortConfig]);
+    }, [answersFeedbacks, sortConfig]);
 
     const handleSort = (key) => {
         let direction = 'asc';
@@ -73,15 +77,15 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic }) => {
         }
     };
 
-    if (loading) {
+    /*if (loading) {
         return <p>Loading...</p>;
     }
 
     if (error) {
         return <p>Error: {error.message}</p>;
-    }
+    }*/
 
-    if (!answers || !Array.isArray(answers)) {
+    if (!answersFeedbacks || !Array.isArray(answersFeedbacks)) {
         return null;
     }
 
@@ -94,16 +98,16 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic }) => {
                             <thead>
                                 <tr>
                                     <th
-                                        onClick={() => handleSort('user_name')}
+                                        onClick={() => handleSort('answer_user_name')}
                                         className="sortable"
                                     >
-                                        {t('student')} {getIndicator('user_name')}
+                                        {t('student')} {getIndicator('answer_user_name')}
                                     </th>
                                     <th
-                                        onClick={() => handleSort('order_nbr')}
+                                        onClick={() => handleSort('answer_order_nbr')}
                                         className="sortable"
                                     >
-                                        {t('summary_level')} {getIndicator('order_nbr')}
+                                        {t('summary_level')} {getIndicator('answer_order_nbr')}
                                     </th>
                                     <th>{t('statistics_table_header_answers')}</th>
                                 </tr>
@@ -111,15 +115,20 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic }) => {
                             <tbody>
                                 {sortedAnswers.map((entry, index) => (
                                     <tr key={`row-${index}`}>
-                                        <td>{entry.user_name}</td>
-                                        <td>{getIcon(entry.order_nbr)}</td>
+                                        <td>{entry.name}</td>
+                                        <td>{getIcon(entry.answer_order_nbr)}</td>
                                         <td>
                                             <AssignmentAnswersDialog
-                                                value={entry.value}
-                                                userName={entry.user_name}
+                                                value={entry.answer_value}
+                                                userName={entry.answer_user_name}
                                                 courseTitle={courseTitle}
                                                 assignmentTopic={assignmentTopic}
-                                                order_nbr={entry.order_nbr}
+                                                order_nbr={entry.answer_order_nbr}
+                                                course_id={entry?.course_id}
+                                                assignment_id={entry?.assignment_id}
+                                                feedback_value={entry?.feedback_value}
+                                                feedback_order_nbr={entry?.feedback_order_nbr}
+                                                feedbackId={entry?.feedbackid}
                                             />
                                         </td>
                                     </tr>

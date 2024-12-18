@@ -141,7 +141,9 @@ const Assignment = ({ showBackBtn = true, levels }) => {
                                 answerNotFound={
                                     !radioButtonClicked && studentAssignmentAnswer.id === ''
                                 }
-                                options={levels ? levels : []}
+                                options={
+                                    levels ? levels.map((l) => ({ ...l, label: t(l.label) })) : []
+                                }
                                 validationMessage={messages?.order_nbr}
                                 onChange={changeValue}
                                 value={String(

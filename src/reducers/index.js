@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
 
 import coursesReducer from './coursesReducer';
-import userReducer from "./userReducer";
+import userReducer from './userReducer';
 import studentReducer from './studentReducer';
 import teacherReducer from './teacherReducer';
-import answersReducer from "./answersReducer";
-import assignmentsReducer from "./assignmentsReducer";
+import answersReducer from './answersReducer';
+import assignmentsReducer from './assignmentsReducer';
+import answerFeedbackReducer from './answerFeedbackReducer';
 
 const reducers = {
     users: userReducer,
@@ -13,7 +14,8 @@ const reducers = {
     student: studentReducer,
     teacher: teacherReducer,
     addedAnswer: answersReducer,
-    assignments: assignmentsReducer
+    assignments: assignmentsReducer,
+    anwersAndFeedbacks: answerFeedbackReducer,
 };
 
 export default combineReducers(reducers);

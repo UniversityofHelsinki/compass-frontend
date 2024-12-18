@@ -6,6 +6,8 @@ const studentReducer = (state = {}, action) => {
             return { ...state, assignments: action.payload };
         case 'SET_STUDENT_ANSWER':
             return { ...state, answer: action.payload };
+        case 'SET_STUDENT_FEEDBACK':
+            return { ...state, feedback: action.payload };
         case 'GET_STUDENT_ANSWER':
             return { ...state, answer_found: action.payload };
         case 'GET_STUDENT_COURSE':

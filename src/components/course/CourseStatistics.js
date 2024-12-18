@@ -6,6 +6,7 @@ import './CourseStatistics.css';
 import useTeacherCourse from '../../hooks/useTeacherCourse';
 import { useTranslation } from 'react-i18next';
 import TopBar from '../utilities/TopBar';
+import * as courseStatistics from 'react-bootstrap/ElementChildren';
 
 const CourseStatistics = () => {
     const { courseId } = useParams();
@@ -34,6 +35,23 @@ const CourseStatistics = () => {
             </p>
         );
     }
+
+    const answerfeedbacks = [];
+    courseStatistics.forEach((statistic) => {
+        answerfeedbacks.push(statistic.answers);
+    });
+    let seen = new Set();
+
+    let filteredArray = answerfeedbacks.filter((array) => {
+        // Copy the array and sort each copied object's properties by key
+        let copy = array.map((innerObj) => Object.fromEntries(Object.entries(innerObj).sort()));
+        // Sort the copied array by the 'answerid' property in each object
+        copy.sort((a, b) => a.answerid - b.answerid);
+        // Stringify the copied and sorted array to create a key
+        let key = JSON.stringify(copy);
+        // If we've seen this key before, filter out the array; otherwise, add the key to the set
+        return !seen.has(key) && seen.add(key);
+    });
 
     if (!Array.isArray(courseStatistics) || courseStatistics.length === 0) {
         return (
@@ -125,6 +143,7 @@ const CourseStatistics = () => {
                         data={chartData}
                         selectedChartIds={selectedCharts}
                         courseTitle={course?.title}
+                        answersFeedbacks={filteredArray}
                     />
                 ) : (
                     <p>No assignment data available.</p>

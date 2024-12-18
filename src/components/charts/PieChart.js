@@ -107,7 +107,7 @@ const renderPieChart = (data, index) => {
     );
 };
 
-const PieCharts = ({ data, selectedChartIds, courseTitle }) => {
+const PieCharts = ({ data, selectedChartIds, courseTitle, answersFeedbacks }) => {
     const { t } = useTranslation();
 
     if (!data || !Array.isArray(data) || data.length === 0) {
@@ -117,6 +117,13 @@ const PieCharts = ({ data, selectedChartIds, courseTitle }) => {
     const filteredData = data.filter((assignment) =>
         selectedChartIds.includes(assignment.assignmentId),
     );
+
+    const answersAndFeedbacksOfAssignmentId = (assignmentId) => {
+        let filteredArray = answersFeedbacks.filter((outerArray) =>
+            outerArray.some((innerObject) => innerObject.assignment_id === assignmentId),
+        );
+        return [...filteredArray[0]];
+    };
 
     return (
         <div className="pie-charts-container">
@@ -133,6 +140,9 @@ const PieCharts = ({ data, selectedChartIds, courseTitle }) => {
                         assignmentId={assignment.assignmentId}
                         courseTitle={courseTitle}
                         assignmentTopic={assignment.assignmentTopic}
+                        answersFeedbacks={answersAndFeedbacksOfAssignmentId(
+                            assignment.assignmentId,
+                        )}
                     />
                 </div>
             ))}
