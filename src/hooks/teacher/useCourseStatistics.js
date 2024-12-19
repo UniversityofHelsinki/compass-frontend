@@ -4,60 +4,21 @@ import { useGET } from '../useHttp';
 
 const useCourseStatistics = (courseId) => {
     const dispatch = useDispatch();
-    //const [statistics, setStatistics] = useState(null);
-    const statistics = useSelector((state) => state.courses.statistics || {});
+    const statistics = useSelector((state) => state.courses.statistics);
 
-    const [loading, setLoading] = useState(true);
-
-    const [response, error] = useGET({
+    const [response, error, reload] = useGET({
         path: `/api/teacher/statistics/course/${courseId}`,
-        tag: `COURSE_STATISTICS_${courseId}`,
+        tag: `COURSE_STATISTICS_OR_ASSIGNMENTS_${courseId}`,
     });
-    /*const get = async () => {
-        const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
-        const URL = `${COMPASS_BACKEND_SERVER}/api/teacher/statistics/course/${courseId}`;
-        try {
-            const response = await fetch(URL);
-            if (response.ok) {
-                return await response.json();
-            }
-            throw new Error(
-                `Unexpected status code ${response.status} while fetching course statistics from ${URL}`,
-            );
-        } catch (error) {
-            console.error(error.message);
-        }
-    };*/
-
     useEffect(() => {
-        //if (statistics  === undefined || statistics === null) {
-        if (response) {
+        if (response !== statistics) {
             dispatch({
                 type: 'SET_COURSE_STATISTICS',
-                payload: {
-                    courseId,
-                    data: response,
-                },
+                payload: response,
             });
-            setLoading(false);
-            /*(async () => {
-                setStatistics({[courseId]: await get()});
-            })();*/
         }
-        if (error) {
-            setLoading(false);
-        }
-    }, [response, error, dispatch, courseId]);
-
-    // Memoize the course statistics for the specific courseId
-    const courseStatistics = useMemo(() => {
-        if (courseId in statistics) {
-            return statistics[courseId];
-        }
-        return [];
-    }, [statistics, courseId]);
-
-    return { courseStatistics, loading, error };
+    }, [statistics, response, dispatch]);
+    return { courseStatistics: statistics || [], error, reload };
 };
 
 export default useCourseStatistics;

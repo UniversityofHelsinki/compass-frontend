@@ -15,9 +15,9 @@ import useTeacherFeedbackSave from '../../hooks/teacher/useTeacherFeedbackSave';
 import RadioButtonGroup from '../../form/RadioButtonGroup';
 import { useAuth } from '../../AuthContext';
 import Message from '../../form/Message';
-//import useTeacherFeedback from "../../hooks/teacher/useTeacherFeedback";
-
 const AssignmentAnswersDialog = ({
+    reload,
+    id,
     value,
     order_nbr,
     userName,
@@ -28,7 +28,6 @@ const AssignmentAnswersDialog = ({
     feedback_value,
     feedback_order_nbr,
     feedback_id,
-    updateRer,
 }) => {
     const [showForm, setShowForm] = useState(false);
     const { t } = useTranslation();
@@ -42,20 +41,20 @@ const AssignmentAnswersDialog = ({
         msg,
         resetValues,
         saveDisabled,
-    ] = useTeacherFeedbackSave(course_id, assignment_id, feedback_value, feedback_order_nbr);
-    //const [radioButtonClicked, setRadioButtonClicked] = useState(false);
+        setFeedbackvalues,
+    ] = useTeacherFeedbackSave(id, course_id, assignment_id, feedback_value, feedback_order_nbr);
     const closeButton = { closeButton: true };
 
     const {
         user: { isTeacher, eppn },
     } = useAuth();
 
-    const saveFeedback = () => {
-        addFeedback(userName, course_id, assignment_id, feedback_id);
+    const saveFeedback = async () => {
+        await addFeedback(userName, course_id, assignment_id, feedback_id);
+        reload();
     };
+
     const changeValue = (property, value) => {
-        //if (property && property === 'order_nbr') setRadioButtonClicked(value);
-        //if (property && value) onChange(property, value);
         onChange(property, value);
     };
 
@@ -66,6 +65,7 @@ const AssignmentAnswersDialog = ({
 
     const onButtonClick = (event) => {
         event.preventDefault();
+        setFeedbackvalues(feedback_value, feedback_order_nbr);
         setShowForm(true);
     };
 

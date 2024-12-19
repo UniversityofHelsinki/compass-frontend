@@ -3,13 +3,14 @@ import SummaryChart from './SummaryChart.js';
 import { Col, Container, Row } from 'react-bootstrap';
 import SummaryTable from './SummaryTable';
 import { useParams } from 'react-router-dom';
-import useStudentReflectionSummary from '../../hooks/student/useStudentReflectionSummary';
 import TopBar from '../utilities/TopBar';
 import { useTranslation } from 'react-i18next';
+import useStudentAssignments from '../../hooks/student/useStudentAssignments';
 
 const SummaryPage = () => {
     const { course } = useParams();
-    const assignments = useStudentReflectionSummary({ course });
+    //const assignments = useStudentReflectionSummary({ course });
+    const [assignments, error, reload] = useStudentAssignments({ course });
     const { t } = useTranslation();
 
     return (
@@ -30,7 +31,7 @@ const SummaryPage = () => {
             </Row>
             <Row className="summary-table-row">
                 <Col>
-                    <SummaryTable assignments={assignments} />
+                    <SummaryTable course={course} reload={reload} assignments={assignments} />
                 </Col>
             </Row>
         </Container>

@@ -1,48 +1,36 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
-//import useTeacherFeedback from "./useTeacherFeedback";
-//import useUser from "../useUser";
+import { useEffect, useState } from 'react';
+import { usePOST } from '../useHttp';
 
 const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
 let style = '';
 let message = '';
 
-const post = async (feedback) => {
-    const URL = `${COMPASS_BACKEND_SERVER}/api/saveFeedback`;
-    try {
-        const response = await fetch(URL, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify(feedback),
-        });
-        if (response.status === 200) {
-            style = 'neutral';
-            message = 'student_feedback_message';
-            return await response.json();
-        } else if (response.status === 500) {
-            style = 'warning';
-            message = 'student_feedback_err_message';
-            return await response.json();
-        }
-    } catch (error) {
-        console.error(error);
-        throw new Error('error_feedback_add', {
-            cause: error,
-        });
-    }
-};
-
-const useTeacherFeedbackSave = (course_id, assignment_id, feedback_value, feedback_order_nbr) => {
-    //const [feedback_from_database] = useTeacherFeedback(course_id, assignment_id);
-    const [feedback, setFeedback] = useState({
-        value: feedback_value,
-        order_nbr: feedback_order_nbr,
+const useTeacherFeedbackSave = (
+    id,
+    course_id,
+    assignment_id,
+    feedback_value,
+    feedback_order_nbr,
+) => {
+    const [feedback, setFeedback] = useState(null);
+    const post = usePOST({
+        path: `/api/saveFeedback`,
+        invalidates: [`COURSE_STATISTICS_OR_ASSIGNMENTS_${id}`],
     });
+    useEffect(() => {
+        if (feedback === null)
+            setFeedback({ value: feedback_value, order_nbr: feedback_order_nbr });
+    }, [feedback]); // re-run the effect when 'count' changes
+
+    if (feedback === null) setFeedback({ value: feedback_value, order_nbr: feedback_order_nbr });
+
     const [radioButtonClicked, setRadioButtonClicked] = useState(false);
     const dispatch = useDispatch();
     const storedFeedback = useSelector((state) => state.student.feedback);
+    const setFeedbackvalues = (feedback_value, feedback_order_nbr) => {
+        setFeedback({ value: feedback_value, order_nbr: feedback_order_nbr });
+    };
     const onChange = (what, value) => {
         if (what && what === 'order_nbr') setRadioButtonClicked(true);
 
@@ -61,14 +49,16 @@ const useTeacherFeedbackSave = (course_id, assignment_id, feedback_value, feedba
             id: feedback_id,
             student: userName,
         });
+        if (addedFeedback.ok) {
+            style = 'neutral';
+            message = 'student_feedback_message';
+        } else if (addedFeedback.status === 500) {
+            style = 'warning';
+            message = 'student_feedback_err_message';
+        }
         dispatch({ type: 'SET_STUDENT_FEEDBACK', payload: addedFeedback });
-        //return addedFeedback;
     };
 
-    /*if (feedback_from_database && !feedback) {
-        setFeedback(feedback_from_database);
-        setRadioButtonClicked(true);
-    }*/
     if (feedback && !radioButtonClicked) {
         setRadioButtonClicked(true);
     }
@@ -106,6 +96,7 @@ const useTeacherFeedbackSave = (course_id, assignment_id, feedback_value, feedba
         message,
         resetValues,
         saveDisabled,
+        setFeedbackvalues,
     ];
 };
 

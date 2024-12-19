@@ -40,7 +40,7 @@ const Level = ({ level = 4 }) => {
     return IconComponent ? <IconComponent /> : null;
 };
 
-const SummaryRow = ({ assignment }) => {
+const SummaryRow = ({ course, reload, assignment }) => {
     //const [feedback] = useTeacherFeedback(assignment?.course_id, assignment?.id);
     //const [rerender, setRerender] = useState(false);
     const { t } = useTranslation();
@@ -52,11 +52,6 @@ const SummaryRow = ({ assignment }) => {
         day: '2-digit',
         month: '2-digit'
     });*/
-
-    const updateR = (value) => {
-        window.location.reload();
-    };
-
     return (
         <tr>
             <td>{`${day}.${month}.${year}`}</td>
@@ -77,6 +72,8 @@ const SummaryRow = ({ assignment }) => {
             </td>
             <td>
                 <AssignmentAnswersDialog
+                    reload={reload}
+                    id={course}
                     assignmentTopic={assignment?.assignment_topic}
                     value={assignment?.answer_value}
                     userName={assignment?.answer_user_name}
@@ -112,7 +109,7 @@ SummaryRow.propTypes = {
     }).isRequired,
 };
 
-const SummaryTable = ({ assignments }) => {
+const SummaryTable = ({ course, reload, assignments }) => {
     const { t } = useTranslation();
 
     return (
@@ -133,6 +130,8 @@ const SummaryTable = ({ assignments }) => {
                             <tbody>
                                 {(assignments || []).map((assignment) => (
                                     <SummaryRow
+                                        course={course}
+                                        reload={reload}
                                         assignment={assignment}
                                         key={assignment.assignmentId}
                                     />

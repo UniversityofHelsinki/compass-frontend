@@ -10,11 +10,10 @@ import * as courseStatistics from 'react-bootstrap/ElementChildren';
 
 const CourseStatistics = () => {
     const { courseId } = useParams();
-    const { courseStatistics, loading, error } = useCourseStatistics(courseId);
+    const { courseStatistics, loading, error, reload } = useCourseStatistics(courseId);
     const [course] = useTeacherCourse(courseId);
     const [selectedCharts, setSelectedCharts] = useState([]);
     const { t } = useTranslation();
-
     useEffect(() => {
         if (Array.isArray(courseStatistics) && courseStatistics.length > 0) {
             const allChartIds = courseStatistics.map((statistic) => statistic.assignment_id);
@@ -144,6 +143,7 @@ const CourseStatistics = () => {
                         selectedChartIds={selectedCharts}
                         courseTitle={course?.title}
                         answersFeedbacks={filteredArray}
+                        reload={reload}
                     />
                 ) : (
                     <p>No assignment data available.</p>

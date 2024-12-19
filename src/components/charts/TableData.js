@@ -1,8 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
-//import useAssignmentAnswers from '../../hooks/teacher/useAssignmentAnswers';
-//import useTeacherFeedback from "../../hooks/teacher/useTeacherFeedback";
 import { ReactComponent as AscendingIcon } from '../utilities/icons/arrow-up.svg';
 import { ReactComponent as DescendingIcon } from '../utilities/icons/arrow-down.svg';
 import './TableData.css';
@@ -12,32 +10,28 @@ import { ReactComponent as Level1Icon } from '../utilities/icons/circle-fill.svg
 import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vertical.svg';
 import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
 import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
-import { t } from 'i18next';
 import AssignmentAnswersDialog from '../dialog/AssignmentAnswersDialog';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import useAnswersAndFeedbacks from '../../hooks/teacher/useAnswersAndFeedbacks';
 
-const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersFeedbacks }) => {
+const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersAndFeedbacks, reload }) => {
     const { courseId } = useParams();
-    //const { answers, loading, error } = useAssignmentAnswers(assignmentId);
-    //const [ answers, _loading, _error ] = useAnswersAndFeedbacks('11');
 
     const [sortConfig, setSortConfig] = useState({ key: 'answer_user_name', direction: 'asc' });
     const { t } = useTranslation();
 
     const sortedAnswers = useMemo(() => {
-        if (!sortConfig.key || !answersFeedbacks) return answersFeedbacks;
+        if (!sortConfig.key || !answersAndFeedbacks) return answersAndFeedbacks;
 
-        return [...answersFeedbacks].sort((a, b) => {
+        return [...answersAndFeedbacks].sort((a, b) => {
             if (a[sortConfig.key] < b[sortConfig.key])
                 return sortConfig.direction === 'asc' ? -1 : 1;
             if (a[sortConfig.key] > b[sortConfig.key])
                 return sortConfig.direction === 'asc' ? 1 : -1;
             return 0;
         });
-    }, [answersFeedbacks, sortConfig]);
+    }, [answersAndFeedbacks, sortConfig]);
 
     const handleSort = (key) => {
         let direction = 'asc';
@@ -85,7 +79,7 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersFeedback
         return <p>Error: {error.message}</p>;
     }*/
 
-    if (!answersFeedbacks || !Array.isArray(answersFeedbacks)) {
+    if (!answersAndFeedbacks || !Array.isArray(answersAndFeedbacks)) {
         return null;
     }
 
@@ -119,6 +113,8 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersFeedback
                                         <td>{getIcon(entry.answer_order_nbr)}</td>
                                         <td>
                                             <AssignmentAnswersDialog
+                                                reload={reload}
+                                                id={courseId}
                                                 value={entry.answer_value}
                                                 userName={entry.answer_user_name}
                                                 courseTitle={courseTitle}
