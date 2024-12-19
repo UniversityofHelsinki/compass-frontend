@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { invalidate } from './useHttp';
 
 let style = '';
 
@@ -36,6 +37,7 @@ const useSelfReflectionSave = () => {
     const addAnswer = async (record) => {
         const addedRecord = await post(record);
         dispatch({ type: 'SET_STUDENT_ANSWER', payload: addedRecord });
+        invalidate(['signatures']);
         return addedRecord.assignment_id;
     };
 

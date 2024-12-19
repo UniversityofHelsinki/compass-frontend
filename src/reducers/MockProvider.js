@@ -1,28 +1,30 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-import { thunk } from "redux-thunk";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
+import { thunk } from 'redux-thunk';
 import compassReducer from '.';
 import PropTypes from 'prop-types';
 
-const mockCourses =  [{
-        value: "eka",
-        label: "Kurssi1"
+const mockCourses = [
+    {
+        value: 'eka',
+        label: 'Kurssi1',
     },
     {
-        value: "toka",
-        label: "Kurssi2",
+        value: 'toka',
+        label: 'Kurssi2',
     },
     {
-        value: "kolmas",
-        label: "Kurssi3",
-    }];
+        value: 'kolmas',
+        label: 'Kurssi3',
+    },
+];
 
 const mockUser = {
     eppn: 'baabenom',
     hyGroupCn: ['hy-employees', 'hyad-employees'],
     preferredLanguage: '',
-    displayName: 'Baabe Nomypeevo'
+    displayName: 'Baabe Nomypeevo',
 };
 
 const mockUserCourseAnswer = {
@@ -40,10 +42,10 @@ const mockAssignments = {
     id: 1,
     assignment_id: 3,
     course_id: 1234,
-    topic: "Assignment topic",
+    topic: 'Assignment topic',
     start_date: 12121212,
     end_date: 1313131313,
-    created: 1111111111
+    created: 1111111111,
 };
 
 const defaultMockReducers = {
@@ -52,25 +54,33 @@ const defaultMockReducers = {
     },
 
     courses: {
-        allCourses: mockCourses
+        allCourses: mockCourses,
     },
     users: {
-        user: mockUser
+        user: mockUser,
     },
     student: {
-      courses: []
+        courses: [],
     },
     userCourseAnswers: {
-        userCourseAnswers: [mockUserCourseAnswer]
+        userCourseAnswers: [mockUserCourseAnswer],
     },
     assignments: {
-        assignments: [mockAssignments]
-    }
+        assignments: [mockAssignments],
+    },
+    signatures: {
+        signatures: {},
+    },
 };
 
 export const MockProvider = ({ children, mockReducers }) => {
     return (
-        <Provider store={createStore(() => ({ ...compassReducer, ...defaultMockReducers, ...mockReducers }), applyMiddleware(thunk))}>
+        <Provider
+            store={createStore(
+                () => ({ ...compassReducer, ...defaultMockReducers, ...mockReducers }),
+                applyMiddleware(thunk),
+            )}
+        >
             {children}
         </Provider>
     );
