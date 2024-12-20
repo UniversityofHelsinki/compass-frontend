@@ -41,17 +41,11 @@ const Level = ({ level = 4 }) => {
 };
 
 const SummaryRow = ({ course, reload, assignment }) => {
-    //const [feedback] = useTeacherFeedback(assignment?.course_id, assignment?.id);
-    //const [rerender, setRerender] = useState(false);
     const { t } = useTranslation();
     const date = new Date(assignment?.answer_created);
     let day = String(date.getDate()).padStart(2, '0');
     let month = String(date.getMonth() + 1).padStart(2, '0'); //Months are zero based
     let year = date.getFullYear();
-    /*const formattedTime = date.toLocaleTimeString(['fi-FI'], {
-        day: '2-digit',
-        month: '2-digit'
-    });*/
     return (
         <tr>
             <td>{`${day}.${month}.${year}`}</td>
@@ -63,12 +57,16 @@ const SummaryRow = ({ course, reload, assignment }) => {
                 </span>
             </td>
             <td>
-                {assignment?.feedback_order_nbr?.toString() ? (
-                    <Level level={assignment?.feedback_order_nbr} />
+                {assignment?.feedback_order_nbr ? (
+                    <>
+                        <Level level={assignment.feedback_order_nbr} />
+                        <span className="feedback-for-evaluation-order">
+                            {t(`${assignment_feedback_level}${assignment.feedback_order_nbr}`)}
+                        </span>
+                    </>
                 ) : (
                     t('summary_no_feedback')
                 )}
-                {/* {feedback?.order_nbr.toString() ? <Level level={feedback?.order_nbr}/>  : t('summary_no_feedback')} */}
             </td>
             <td>
                 <AssignmentAnswersDialog

@@ -6,7 +6,6 @@ import './CourseStatistics.css';
 import useTeacherCourse from '../../hooks/useTeacherCourse';
 import { useTranslation } from 'react-i18next';
 import TopBar from '../utilities/TopBar';
-import * as courseStatistics from 'react-bootstrap/ElementChildren';
 
 const CourseStatistics = () => {
     const { courseId } = useParams();
@@ -35,22 +34,14 @@ const CourseStatistics = () => {
         );
     }
 
-    const answerfeedbacks = [];
-    courseStatistics.forEach((statistic) => {
-        answerfeedbacks.push(statistic.answers);
-    });
-    let seen = new Set();
+    // Step 1: Extract all answer arrays from courseStatistics
+    const extractAnswerFeedbacks = (statistics) => {
+        return statistics
+            .filter((statistic) => statistic.answers && Array.isArray(statistic.answers)) // Ensure statistic.answers is a valid array
+            .map((statistic) => statistic.answers); // Collect the answers arrays
+    };
 
-    let filteredArray = answerfeedbacks.filter((array) => {
-        // Copy the array and sort each copied object's properties by key
-        let copy = array.map((innerObj) => Object.fromEntries(Object.entries(innerObj).sort()));
-        // Sort the copied array by the 'answerid' property in each object
-        copy.sort((a, b) => a.answerid - b.answerid);
-        // Stringify the copied and sorted array to create a key
-        let key = JSON.stringify(copy);
-        // If we've seen this key before, filter out the array; otherwise, add the key to the set
-        return !seen.has(key) && seen.add(key);
-    });
+    const answerFeedbacks = extractAnswerFeedbacks(courseStatistics);
 
     if (!Array.isArray(courseStatistics) || courseStatistics.length === 0) {
         return (
@@ -146,7 +137,7 @@ const CourseStatistics = () => {
                         data={chartData}
                         selectedChartIds={selectedCharts}
                         courseTitle={course?.title}
-                        answersFeedbacks={filteredArray}
+                        answersFeedbacks={answerFeedbacks}
                         reload={reload}
                     />
                 ) : (
