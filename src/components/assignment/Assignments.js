@@ -93,7 +93,7 @@ const Assignments = () => {
 
                 <ul className="assignments-list">
                     {dueAssignments.map((assignment) => (
-                        <li key={assignment.id}>
+                        <li key={assignment.id} className="mb-3">
                             <AssignmentListItem
                                 previous={false}
                                 assignment={assignment}
@@ -110,7 +110,7 @@ const Assignments = () => {
                 <h3>{t('assignments_previous')}</h3>
                 <ul className="assignments-list">
                     {previousAssignments.map((assignment) => (
-                        <li key={assignment.id}>
+                        <li key={assignment.id} className="mb-3">
                             <AssignmentListItem
                                 previous={true}
                                 key={assignment.id}

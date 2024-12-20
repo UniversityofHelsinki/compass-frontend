@@ -6,9 +6,8 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import useGetSignature from '../hooks/useGetSignature';
 
-const Course = ({ course }) => {
+const Course = ({ course, signature }) => {
     const { t } = useTranslation();
-    const [signature] = useGetSignature(course.id);
     const target = `/student/assignments/${course.id}?signature=${signature}`;
 
     return (
@@ -31,5 +30,6 @@ const Course = ({ course }) => {
 
 Course.propTypes = {
     course: PropTypes.object,
+    signature: PropTypes.string,
 };
 export default Course;

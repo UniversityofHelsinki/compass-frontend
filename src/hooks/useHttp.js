@@ -76,7 +76,7 @@ const client = async (path, tag, options = {}) => {
     }
 };
 
-export const useGET = ({ path, tag }) => {
+export const useGET = ({ path, tag, fetchOnlyIf = true }) => {
     const [value, setValue] = useState(null);
     const [error, setError] = useState(null);
 
@@ -93,11 +93,15 @@ export const useGET = ({ path, tag }) => {
     };
 
     useEffect(() => {
-        get();
+        if (fetchOnlyIf) {
+            get();
+        }
     }, []);
 
     if (!cache.has(tag) && !error) {
-        get();
+        if (fetchOnlyIf) {
+            get();
+        }
     }
 
     const reload = get;
@@ -186,4 +190,10 @@ export const useDELETE = ({ path, invalidates = [] }) => {
     };
 
     return deleteFn;
+};
+
+export const invalidate = (tags = []) => {
+    tags.forEach((tag) => {
+        cache.invalidate(tag);
+    });
 };
