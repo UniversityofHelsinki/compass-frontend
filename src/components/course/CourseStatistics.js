@@ -34,7 +34,6 @@ const CourseStatistics = () => {
             </p>
         );
     }
-
     if (!Array.isArray(courseStatistics) || courseStatistics.length === 0) {
         return (
             <>
@@ -109,16 +108,20 @@ const CourseStatistics = () => {
             />
             <div>
                 <div className="chart-selection">
-                    <h3>{t('select_assignments_to_display')}</h3>
-                    {chartData.map((assignment) => (
-                        <button
-                            key={assignment.assignmentId}
-                            className={`tag-button ${selectedCharts.includes(assignment.assignmentId) ? 'selected' : ''}`}
-                            onClick={() => handleSelectChart(assignment.assignmentId)}
-                        >
-                            {assignment.assignmentTopic}
-                        </button>
-                    ))}
+                    <div className="chart-selection-title">
+                        {t('select_assignments_to_display')}
+                    </div>
+                    <div className="chart-selection-buttons">
+                        {chartData.map((assignment) => (
+                            <button
+                                key={assignment.assignmentId}
+                                className={`tag-button ${selectedCharts.includes(assignment.assignmentId) ? 'selected' : ''}`}
+                                onClick={() => handleSelectChart(assignment.assignmentId)}
+                            >
+                                {assignment.assignmentTopic}
+                            </button>
+                        ))}
+                    </div>
                 </div>
                 {Array.isArray(chartData) && chartData.length > 0 ? (
                     <PieCharts

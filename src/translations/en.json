@@ -76,8 +76,8 @@
     "assignments_reflection_summary": "Response summary",
     "assignments_answered": "Answered",
     "assignments_not_answered": "Not answered",
-    "assignment_feedback_answer": "Response",
-    "assignment_feedback_choice": "Choice",
+    "assignment_feedback_answer": "Written response",
+    "assignment_feedback_choice": "Level of understanding",
     "assignment_feedback_edit": "Edit response",
     "assignment_feedback_remove": "Delete response",
     "assignment_feedback_back_to_course": "Assignments",
@@ -139,10 +139,12 @@
     "teacher_form_edit_saved_notification_error": "Error modifying information.",
     "course_can_not_have_on_going_assignments": "Course cannot have ongoing assignments.",
     "teacher_form_edit_saved_notification_success": "Saved",
-    "statistics_table_header_answers": "Answer",
+    "statistics_table_header_answers": "Response",
     "text_area_length": "Written response length",
     "summary_table_aria_description": "Response summary",
     "course_course_id_already_in_use": "Course id is already in use.",
     "unknown_error": "Unknown error.",
-    "answer_evaluation_form_info": "Please read the feedback and compare your response to it. If you feel that the feedback and your response do not match, go back and edit your answer - you can either modify the reflection text or choose another statement."
+    "answer_evaluation_form_info": "Please read the feedback and compare your response to it. If you feel that the feedback and your response do not match, go back and edit your answer - you can either modify the reflection text or choose another statement.",
+    "teacher_forms_table_copy_title": "Create a new course using the course as a template",
+    "teacher_form_delete_course_deleted_notification": "Course deleted."
 }
