@@ -75,10 +75,7 @@ const App = () => {
                         <Route path="summary" element={<SummaryPage />}></Route>
                     </Route>
                     <Route path="assignments/:id" element={<Assignments />}></Route>
-                    <Route
-                        path="assignment/:assignment/:id"
-                        element={<Assignment levels={LEVELS} />}
-                    ></Route>
+                    <Route path="assignment/:assignment/:id" element={<Assignment />}></Route>
                     <Route
                         path="feedback/:answer/:course/:id"
                         element={<FeedbackForEvaluation />}

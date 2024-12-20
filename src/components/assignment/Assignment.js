@@ -15,20 +15,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import useStudentAssignmentAnswer from '../../hooks/useStudentAssignmentAnswer';
 import TopBar from '../utilities/TopBar';
 import useGetSignature from '../../hooks/useGetSignature';
+import { LEVELS } from '../../Constants';
 
-const Assignment = ({ showBackBtn = true, levels }) => {
+const Assignment = ({ showBackBtn = true, levels = LEVELS }) => {
     const { assignment, id } = useParams();
     const [studentAnswerData, studentAssignmentAnswer] = useStudentAssignmentAnswer(assignment);
     const courseId = studentAnswerData?.id;
 
-    const [signature, setSignature] = useState(null);
-    const [signatureValue] = useGetSignature(courseId);
-
-    useEffect(() => {
-        if (courseId) {
-            setSignature(signatureValue);
-        }
-    }, [courseId, signatureValue]);
+    const [signature] = useGetSignature(id);
 
     const backBtnHref = `/student/assignments/${id}?signature=${signature}`;
     const studentAnswer = {
@@ -116,7 +110,7 @@ const Assignment = ({ showBackBtn = true, levels }) => {
         <form ref={formRef}>
             <TopBar
                 heading={studentAnswer.topic}
-                showBackBtn={true}
+                showBackBtn={Boolean(signature)}
                 backBtnHref={backBtnHref}
                 backBtnLabels={backBtnLabels}
             />
@@ -168,7 +162,7 @@ const Assignment = ({ showBackBtn = true, levels }) => {
 };
 
 Assignment.propTypes = {
-    levels: PropTypes.array.isRequired,
+    levels: PropTypes.array,
     showBackBtn: PropTypes.bool,
 };
 
