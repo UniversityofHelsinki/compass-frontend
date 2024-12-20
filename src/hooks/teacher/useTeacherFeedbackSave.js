@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { usePOST } from '../useHttp';
+import useUser from '../useUser';
 
 const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
 let style = '';
@@ -25,6 +26,7 @@ const useTeacherFeedbackSave = (
 
     if (feedback === null) setFeedback({ value: feedback_value, order_nbr: feedback_order_nbr });
 
+    const [user] = useUser();
     const [radioButtonClicked, setRadioButtonClicked] = useState(false);
     const dispatch = useDispatch();
     const storedFeedback = useSelector((state) => state.student.feedback);
@@ -43,7 +45,7 @@ const useTeacherFeedbackSave = (
     const addFeedback = async (userName, course_id, assignment_id, feedback_id) => {
         const addedFeedback = await post({
             ...feedback,
-            user_name: userName,
+            user_name: user.eppn,
             course_id: course_id,
             assignment_id: assignment_id,
             id: feedback_id,
