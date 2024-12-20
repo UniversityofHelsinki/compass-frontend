@@ -75,20 +75,6 @@ const FeedbackForEvaluation = () => {
             />
             <div className="m-3"></div>
             <div className="responsive-margins">
-                <div className="feedback-for-evaluation">
-                    <div className="feedback-for-evaluation-answer">
-                        <strong>{t('assignment_feedback_answer')}:</strong> {studentAnswer.value}
-                    </div>
-                    <div className="feedback-for-evaluation-answer">
-                        <strong className="feedback-for-evaluation-choice">
-                            {t('assignment_feedback_choice')}:
-                        </strong>
-                        <Level level={studentAnswer.order_nbr} />
-                        <span className="feedback-for-evaluation-order">
-                            {t(assignment_feedback_level + studentAnswer.order_nbr)}
-                        </span>
-                    </div>
-                </div>
                 <div className="feedback-for-evaluation-rows">
                     <div>{studentAnswer.title}</div>
                     <div className="m-2"></div>
@@ -101,6 +87,25 @@ const FeedbackForEvaluation = () => {
                         {t('answer_evaluation_form_info')}
                     </div>
                     <div>{t(answer_evaluation_form_text + studentAnswer.order_nbr)}</div>
+                    <div className="feedback-for-evaluation">
+                        <div>
+                            <h5 className="student-response-header">
+                                {t('assignment_feedback_answer')}
+                            </h5>
+                        </div>
+                        <div className="feedback-for-evaluation-answer">{studentAnswer.value}</div>
+                        <div>
+                            <h5 className="feedback-for-evaluation-choice-header">
+                                {t('assignment_feedback_choice')}
+                            </h5>
+                        </div>
+                        <div className="feedback-for-evaluation-answer-choice">
+                            <Level level={studentAnswer.order_nbr} />
+                            <span className="feedback-for-evaluation-order">
+                                {t(assignment_feedback_level + studentAnswer.order_nbr)}
+                            </span>
+                        </div>
+                    </div>
                     <FeedbackForEvaluationFooter
                         disabled={editable}
                         message={''}
