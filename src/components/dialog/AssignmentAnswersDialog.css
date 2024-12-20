@@ -32,3 +32,17 @@
 .assignment-answers-list-item-link a:hover {
     text-decoration: underline;
 }
+
+.form-message {
+    font-weight: bold;
+}
+/*.modal-footer  {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}*/
+/*
+.modal-footer-message {
+    display: flex;
+    justify-content: flex-end;
+}*/

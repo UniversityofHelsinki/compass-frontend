@@ -11,7 +11,7 @@ const CustomTooltip = ({ active, payload }) => {
             <div className="custom-tooltip">
                 <p className="tooltip-top">
                     {' '}
-                    {t('tooltip_top')} {`${payload[0].payload.id}`}{' '}
+                    {t('tooltip_top')} {`${payload[0].payload.assignment_id}`}{' '}
                 </p>
                 <p className="tooltip-bottom">
                     {' '}
