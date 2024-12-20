@@ -9,11 +9,10 @@ import TopBar from '../utilities/TopBar';
 
 const CourseStatistics = () => {
     const { courseId } = useParams();
-    const { courseStatistics, loading, error } = useCourseStatistics(courseId);
+    const { courseStatistics, loading, error, reload } = useCourseStatistics(courseId);
     const [course] = useTeacherCourse(courseId);
     const [selectedCharts, setSelectedCharts] = useState([]);
     const { t } = useTranslation();
-
     useEffect(() => {
         if (Array.isArray(courseStatistics) && courseStatistics.length > 0) {
             const allChartIds = courseStatistics.map((statistic) => statistic.assignment_id);
@@ -34,6 +33,16 @@ const CourseStatistics = () => {
             </p>
         );
     }
+
+    // Step 1: Extract all answer arrays from courseStatistics
+    const extractAnswerFeedbacks = (statistics) => {
+        return statistics
+            .filter((statistic) => statistic.answers && Array.isArray(statistic.answers)) // Ensure statistic.answers is a valid array
+            .map((statistic) => statistic.answers); // Collect the answers arrays
+    };
+
+    const answerFeedbacks = extractAnswerFeedbacks(courseStatistics);
+
     if (!Array.isArray(courseStatistics) || courseStatistics.length === 0) {
         return (
             <>
@@ -128,6 +137,8 @@ const CourseStatistics = () => {
                         data={chartData}
                         selectedChartIds={selectedCharts}
                         courseTitle={course?.title}
+                        answersFeedbacks={answerFeedbacks}
+                        reload={reload}
                     />
                 ) : (
                     <p>No assignment data available.</p>

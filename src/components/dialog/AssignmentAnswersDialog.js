@@ -11,19 +11,61 @@ import { ReactComponent as Level1Icon } from '../utilities/icons/circle-fill.svg
 import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vertical.svg';
 import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
 import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
-
-const AssignmentAnswersDialog = ({ value, order_nbr, userName, courseTitle, assignmentTopic }) => {
+import useTeacherFeedbackSave from '../../hooks/teacher/useTeacherFeedbackSave';
+import RadioButtonGroup from '../../form/RadioButtonGroup';
+import { useAuth } from '../../AuthContext';
+import Message from '../../form/Message';
+const AssignmentAnswersDialog = ({
+    reload,
+    id,
+    value,
+    order_nbr,
+    userName,
+    courseTitle,
+    assignmentTopic,
+    course_id,
+    assignment_id,
+    feedback_value,
+    feedback_order_nbr,
+    feedback_id,
+}) => {
     const [showForm, setShowForm] = useState(false);
     const { t } = useTranslation();
-
+    const [
+        storedFeedback,
+        stored,
+        style,
+        addFeedback,
+        onChange,
+        radioButtonClicked,
+        msg,
+        resetValues,
+        saveDisabled,
+        setFeedbackvalues,
+    ] = useTeacherFeedbackSave(id, course_id, assignment_id, feedback_value, feedback_order_nbr);
     const closeButton = { closeButton: true };
 
+    const {
+        user: { isTeacher, eppn },
+    } = useAuth();
+
+    const saveFeedback = async () => {
+        await addFeedback(userName, course_id, assignment_id, feedback_id);
+        reload();
+    };
+
+    const changeValue = (property, value) => {
+        onChange(property, value);
+    };
+
     const hide = () => {
+        resetValues();
         setShowForm(false);
     };
 
     const onButtonClick = (event) => {
         event.preventDefault();
+        setFeedbackvalues(feedback_value, feedback_order_nbr);
         setShowForm(true);
     };
 
@@ -48,8 +90,76 @@ const AssignmentAnswersDialog = ({ value, order_nbr, userName, courseTitle, assi
         3: { text: t('level_3'), icon: <Level3Icon /> },
         4: { text: t('level_4'), icon: <Level4Icon /> },
     };
+    const teachernswerLevelMap = {
+        0: { teacher_text: t('level_0'), teacher_icon: <Level0Icon /> },
+        1: { teacher_text: t('level_1'), teacher_icon: <Level1Icon /> },
+        2: { teacher_text: t('level_2'), teacher_icon: <Level2Icon /> },
+        3: { teacher_text: t('level_3'), teacher_icon: <Level3Icon /> },
+        4: { teacher_text: t('level_4'), teacher_icon: <Level4Icon /> },
+    };
 
     const { text = '', icon = null } = answerLevelMap[order_nbr] || {};
+    const { teacher_text = '', teacher_icon = null } =
+        teachernswerLevelMap[feedback_order_nbr] || {};
+
+    const answerLevelArray = [
+        { label: <Level0Icon />, value: '0' },
+        { label: <Level1Icon />, value: '1' },
+        { label: <Level2Icon />, value: '2' },
+        { label: <Level3Icon />, value: '3' },
+        { label: <Level4Icon />, value: '4' },
+    ];
+    const teacherUser = isTeacher && isTeacher !== undefined;
+    const feedBackToStudent = (teacherUser) => {
+        if (teacherUser === true) {
+            return (
+                <>
+                    <Row>
+                        <Col
+                            as="h5"
+                            id="answer-dialog-written-response-header"
+                            className="written-response-header"
+                        >
+                            {t('answer_dialog_written_feedback_header')}:
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col className="written-response-content" lg>
+                            <Form.Control
+                                as="textarea"
+                                rows={6}
+                                aria-labelledby="answer-dialog-written-response-header"
+                                onChange={(event) => changeValue('value', event.target.value)}
+                                value={stored?.value}
+                                aria-disabled="false"
+                            ></Form.Control>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <label> {t('answer_dialog_feedback_option_header')}</label>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <RadioButtonGroup
+                                inline
+                                answerNotFound={!radioButtonClicked}
+                                options={answerLevelArray}
+                                onChange={changeValue}
+                                value={
+                                    stored?.order_nbr === null
+                                        ? !!stored?.order_nbr
+                                        : stored?.order_nbr
+                                }
+                                aria-required
+                            />
+                        </Col>
+                    </Row>
+                </>
+            );
+        } else {
+            return <></>;
+        }
+    };
 
     return (
         <FormDialog hide={hide} showComponent={theViewLink} show={showForm} size="xl">
@@ -95,10 +205,32 @@ const AssignmentAnswersDialog = ({ value, order_nbr, userName, courseTitle, assi
                                     {icon} {text}
                                 </div>
                             </Col>
+                            <Col as="h5" className={teacherUser ? 'hidden' : ''}>
+                                {t('answer_dialog_feedback_level')}:
+                                <div className="bottom-left-lower-content">
+                                    {teacher_icon} {teacher_text}
+                                </div>
+                            </Col>
                         </Row>
+                        <Row className={teacherUser ? 'hidden' : ''}>
+                            <Col as="h5">
+                                <></>
+                            </Col>
+                            <Col>{stored?.value ? stored?.value : feedback_value}</Col>
+                        </Row>
+                        {feedBackToStudent(teacherUser)}
                     </Container>
                 </Modal.Body>
-                <Modal.Footer className="footer-container ps-0 pe-0">
+                <Modal.Footer>
+                    <Message type={style}>{t(`${msg}`)}</Message>
+                    <HyButton
+                        onClick={saveFeedback}
+                        variant="primary"
+                        disabled={saveDisabled()}
+                        className={!teacherUser ? 'hidden' : ''}
+                    >
+                        {t('answer_dialog_feedback_button')}
+                    </HyButton>
                     <HyButton onClick={hide} variant="primary">
                         {t('answer_dialog_close_button')}
                     </HyButton>

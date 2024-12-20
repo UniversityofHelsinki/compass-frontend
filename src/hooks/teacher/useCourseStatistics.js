@@ -1,38 +1,24 @@
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useState, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useGET } from '../useHttp';
 
 const useCourseStatistics = (courseId) => {
     const dispatch = useDispatch();
-    const [statistics, setStatistics] = useState(null);
-    const [error, setError] = useState(null);
+    const statistics = useSelector((state) => state.courses.statistics);
 
-    const get = async () => {
-        const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
-        const URL = `${COMPASS_BACKEND_SERVER}/api/teacher/statistics/course/${courseId}`;
-        const response = await fetch(URL);
-        if (response.ok) {
-            const result = await response.json();
-            return result || {};
-        }
-        throw new Error(
-            `Unexpected status code ${response.status} while fetching course assignment statistics from ${URL}`,
-        );
-    };
-
+    const [response, error, reload] = useGET({
+        path: `/api/teacher/statistics/course/${courseId}`,
+        tag: `COURSE_STATISTICS_OR_ASSIGNMENTS_${courseId}`,
+    });
     useEffect(() => {
-        if (!statistics) {
-            (async () => {
-                try {
-                    setStatistics(await get());
-                    setError(null);
-                } catch (error) {
-                    setStatistics(null);
-                    setError(error);
-                }
-            })();
+        if (response !== statistics) {
+            dispatch({
+                type: 'SET_COURSE_STATISTICS',
+                payload: response,
+            });
         }
-    }, [statistics, courseId, dispatch]);
-    return { courseStatistics: statistics, error };
+    }, [statistics, response, dispatch]);
+    return { courseStatistics: statistics || [], error, reload };
 };
 
 export default useCourseStatistics;

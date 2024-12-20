@@ -6,6 +6,7 @@ import studentReducer from './studentReducer';
 import teacherReducer from './teacherReducer';
 import answersReducer from './answersReducer';
 import assignmentsReducer from './assignmentsReducer';
+import answerFeedbackReducer from './answerFeedbackReducer';
 import signatureReducer from './signatureReducer';
 
 const reducers = {
@@ -15,6 +16,7 @@ const reducers = {
     teacher: teacherReducer,
     addedAnswer: answersReducer,
     assignments: assignmentsReducer,
+    anwersAndFeedbacks: answerFeedbackReducer,
     signatures: signatureReducer,
 };
 

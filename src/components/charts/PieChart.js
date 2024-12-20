@@ -120,16 +120,43 @@ const renderPieChart = (data, index, t) => {
     );
 };
 
-const PieCharts = ({ data, selectedChartIds, courseTitle }) => {
+const PieCharts = ({ data, selectedChartIds, courseTitle, answersFeedbacks, reload }) => {
     const { t } = useTranslation();
 
     if (!data || !Array.isArray(data) || data.length === 0) {
+        return null;
+    }
+    if (!answersFeedbacks || !Array.isArray(answersFeedbacks) || answersFeedbacks.length === 0) {
         return null;
     }
 
     const filteredData = data.filter((assignment) =>
         selectedChartIds.includes(assignment.assignmentId),
     );
+
+    let feedbacksMap = new Map();
+
+    answersFeedbacks.forEach((outerArray) => {
+        outerArray.forEach((innerObject) => {
+            const assignmentExists = filteredData.some(
+                (assignment) => assignment.assignmentId === innerObject.assignment_id,
+            );
+            if (assignmentExists) {
+                let mapData = feedbacksMap.get(innerObject.assignment_id) || new Set();
+                // Converting object to a JSON string prevents duplicates based on assignment_id.
+                mapData.add(JSON.stringify(innerObject));
+                feedbacksMap.set(innerObject.assignment_id, mapData);
+            }
+        });
+    });
+
+    // Convert back to object form from JSON string.
+    for (let [key, value] of feedbacksMap) {
+        feedbacksMap.set(
+            key,
+            Array.from(value).map((entry) => JSON.parse(entry)),
+        );
+    }
 
     return (
         <div className="pie-charts-container">
@@ -143,9 +170,11 @@ const PieCharts = ({ data, selectedChartIds, courseTitle }) => {
                     </h3>
                     {renderPieChart(assignment.data, index, t)}
                     <TableData
+                        reload={reload}
                         assignmentId={assignment.assignmentId}
                         courseTitle={courseTitle}
                         assignmentTopic={assignment.assignmentTopic}
+                        answersAndFeedbacks={feedbacksMap.get(assignment.assignmentId) || []}
                     />
                 </div>
             ))}

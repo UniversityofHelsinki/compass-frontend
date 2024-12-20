@@ -17,7 +17,7 @@ import HyColors from '../utilities/HyColors';
 
 const SummaryChart = ({ assignments }) => {
     const { t } = useTranslation();
-    const sortedAssignmentsData = assignments.sort((a, b) => a.id - b.id);
+    const sortedAssignmentsData = assignments.sort((a, b) => a.assignment_id - b.assignment_id);
 
     return (
         <div className="chart-responsive-margins">
@@ -40,7 +40,7 @@ const SummaryChart = ({ assignments }) => {
                                     }}
                                 />
                                 <YAxis
-                                    dataKey="order_nbr"
+                                    dataKey="answer_order_nbr"
                                     domain={[0, 4]}
                                     tickCount={5}
                                     tick={<CustomTick />}
@@ -56,7 +56,7 @@ const SummaryChart = ({ assignments }) => {
                                 <Tooltip isAnimationActive={false} content={<CustomTooltip />} />
                                 <Line
                                     type="linear"
-                                    dataKey="order_nbr"
+                                    dataKey="answer_order_nbr"
                                     stroke={HyColors.hudsBrandMainLight}
                                 />
                             </LineChart>
