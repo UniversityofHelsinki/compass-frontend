@@ -4,19 +4,19 @@ const processUserAnswers = (userAnswersList, assignmentsList) => {
         return map;
     }, {});
 
-    const chartData = userAnswersList.map(answer => ({
+    const chartData = userAnswersList.map((answer) => ({
         userName: answer.user_name,
-        value: answer.value,
+        answer_value: answer.answer_value,
         orderNumber: answer.order_nbr,
-        courseId: answer.course_id
+        courseId: answer.course_id,
     }));
 
-    const tableData = userAnswersList.map(answer => {
+    const tableData = userAnswersList.map((answer) => {
         const assignment = assignmentsMap[answer.assignment.id];
         return {
             created: answer.created,
             assignmentTopic: assignment ? assignment.topic : null,
-            orderNumber: answer.order_nbr
+            orderNumber: answer.order_nbr,
         };
     });
 

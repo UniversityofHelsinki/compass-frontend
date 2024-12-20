@@ -18,7 +18,7 @@ import Message from '../../form/Message';
 const AssignmentAnswersDialog = ({
     reload,
     id,
-    value,
+    answer_value,
     order_nbr,
     userName,
     courseTitle,
@@ -129,8 +129,10 @@ const AssignmentAnswersDialog = ({
                                 as="textarea"
                                 rows={6}
                                 aria-labelledby="answer-dialog-written-response-header"
-                                onChange={(event) => changeValue('value', event.target.value)}
-                                value={stored?.value}
+                                onChange={(event) =>
+                                    changeValue('feedback_value', event.target.value)
+                                }
+                                value={stored?.feedback_value}
                                 aria-disabled="false"
                             ></Form.Control>
                         </Col>
@@ -192,7 +194,7 @@ const AssignmentAnswersDialog = ({
                                     as="textarea"
                                     rows={6}
                                     aria-labelledby="answer-dialog-written-response-header"
-                                    value={value}
+                                    value={answer_value}
                                     aria-disabled="true"
                                     disabled
                                 ></Form.Control>
@@ -214,7 +216,9 @@ const AssignmentAnswersDialog = ({
                             <Col as="h5">
                                 <></>
                             </Col>
-                            <Col as="h5">{stored?.value ? stored?.value : feedback_value}</Col>
+                            <Col as="h5">
+                                {stored?.feedback_value ? stored?.feedback_value : feedback_value}
+                            </Col>
                         </Row>
                         {feedBackToStudent(teacherUser)}
                     </Container>

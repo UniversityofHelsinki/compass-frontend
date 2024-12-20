@@ -33,7 +33,7 @@ const Assignment = ({ showBackBtn = true, levels }) => {
     const backBtnHref = `/student/assignments/${id}?signature=${signature}`;
     const studentAnswer = {
         ...studentAnswerData,
-        value: studentAssignmentAnswer?.value,
+        answer_value: studentAssignmentAnswer?.answer_value,
         order_nbr: studentAssignmentAnswer?.order_nbr,
         id: studentAssignmentAnswer?.id,
         assignment_id: studentAssignmentAnswer?.assignment_id,
@@ -42,7 +42,7 @@ const Assignment = ({ showBackBtn = true, levels }) => {
 
     const { t } = useTranslation();
     const [isValid, messages, validate] = useAnswerValidation(
-        ['value', 'order_nbr'],
+        ['answer_value', 'order_nbr'],
         studentAnswer,
     );
     const [modifiedObject, onChange, modified, clearFormValues] = useSelfReflectionModification(
@@ -129,8 +129,8 @@ const Assignment = ({ showBackBtn = true, levels }) => {
                         <Col>
                             <FormFreeAnswer
                                 onChange={changeValue}
-                                value={modifiedObject && modifiedObject.value}
-                                validationMessage={messages?.value}
+                                value={modifiedObject && modifiedObject.answer_value}
+                                validationMessage={messages?.answer_value}
                             />
                         </Col>
                     </Row>

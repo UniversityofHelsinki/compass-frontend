@@ -21,17 +21,18 @@ const useTeacherFeedbackSave = (
     });
     useEffect(() => {
         if (feedback === null)
-            setFeedback({ value: feedback_value, order_nbr: feedback_order_nbr });
+            setFeedback({ feedback_value: feedback_value, order_nbr: feedback_order_nbr });
     }, [feedback]); // re-run the effect when 'count' changes
 
-    if (feedback === null) setFeedback({ value: feedback_value, order_nbr: feedback_order_nbr });
+    if (feedback === null)
+        setFeedback({ feedback_value: feedback_value, order_nbr: feedback_order_nbr });
 
     const [user] = useUser();
     const [radioButtonClicked, setRadioButtonClicked] = useState(false);
     const dispatch = useDispatch();
     const storedFeedback = useSelector((state) => state.student.feedback);
     const setFeedbackvalues = (feedback_value, feedback_order_nbr) => {
-        setFeedback({ value: feedback_value, order_nbr: feedback_order_nbr });
+        setFeedback({ feedback_value: feedback_value, order_nbr: feedback_order_nbr });
     };
     const onChange = (what, value) => {
         if (what && what === 'order_nbr') setRadioButtonClicked(true);
@@ -67,9 +68,9 @@ const useTeacherFeedbackSave = (
 
     const saveDisabled = () => {
         return (
-            ((feedback?.value === undefined ||
-                feedback?.value === null ||
-                feedback?.value.length === 0 ||
+            ((feedback?.feedback_value === undefined ||
+                feedback?.feedback_value === null ||
+                feedback?.feedback_value.length === 0 ||
                 feedback?.order_nbr === undefined ||
                 feedback?.order_nbr === null) &&
                 (feedback_value === undefined ||
@@ -77,7 +78,8 @@ const useTeacherFeedbackSave = (
                     feedback_value.length === 0 ||
                     feedback_order_nbr === undefined ||
                     feedback_order_nbr === null)) ||
-            (feedback?.value === feedback_value && feedback?.order_nbr === feedback_order_nbr)
+            (feedback?.feedback_value === feedback_value &&
+                feedback?.order_nbr === feedback_order_nbr)
         );
     };
 

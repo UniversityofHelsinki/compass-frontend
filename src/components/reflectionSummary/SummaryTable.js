@@ -75,7 +75,7 @@ const SummaryRow = ({ course, reload, assignment }) => {
                     reload={reload}
                     id={course}
                     assignmentTopic={assignment?.assignment_topic}
-                    value={assignment?.answer_value}
+                    answer_value={assignment?.answer_value}
                     userName={assignment?.answer_user_name}
                     order_nbr={assignment?.answer_order_nbr}
                     courseTitle={assignment?.course_title}

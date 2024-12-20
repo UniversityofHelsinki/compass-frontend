@@ -11,7 +11,7 @@ const FormFreeAnswer = ({ value, onChange, validationMessage }) => {
     const id = useId();
 
     const changeFreeAnswerTextValue = (event) => {
-        onChange('value', event.target.value);
+        onChange('answer_value', event.target.value);
     };
 
     return (

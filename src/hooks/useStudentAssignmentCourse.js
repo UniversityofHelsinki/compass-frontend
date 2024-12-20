@@ -9,7 +9,7 @@ const emptyAnswer = {
     user_name: '',
     title: '',
     topic: '',
-    value: '',
+    answer_value: '',
     order_nbr: '',
 };
 const useStudentAssignmentCourse = (assignmentId) => {

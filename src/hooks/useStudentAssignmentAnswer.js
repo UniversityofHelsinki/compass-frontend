@@ -7,7 +7,7 @@ let emptyAnswer = {
     assignment_id: 1,
     course_id: '',
     user_name: '',
-    value: '',
+    answer_value: '',
     order_nbr: '',
 };
 

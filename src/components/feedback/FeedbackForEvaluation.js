@@ -60,7 +60,7 @@ const FeedbackForEvaluation = () => {
     if (
         studentAnswer === undefined ||
         studentAnswer === null ||
-        studentAnswer.value === undefined
+        studentAnswer.answer_value === undefined
     ) {
         return <></>;
     }
@@ -93,7 +93,9 @@ const FeedbackForEvaluation = () => {
                                 {t('assignment_feedback_answer')}
                             </h5>
                         </div>
-                        <div className="feedback-for-evaluation-answer">{studentAnswer.value}</div>
+                        <div className="feedback-for-evaluation-answer">
+                            {studentAnswer.answer_value}
+                        </div>
                         <div>
                             <h5 className="feedback-for-evaluation-choice-header">
                                 {t('assignment_feedback_choice')}
