@@ -207,14 +207,16 @@ const AssignmentAnswersDialog = ({
                             </Col>
                             <Col as="h5" className={teacherUser ? 'hidden' : ''}>
                                 {t('answer_dialog_feedback_level')}:
-                                <div className="bottom-left-lower-content">{teacher_icon}</div>
+                                <div className="bottom-left-lower-content">
+                                    {teacher_icon} {teacher_text}
+                                </div>
                             </Col>
                         </Row>
                         <Row className={teacherUser ? 'hidden' : ''}>
                             <Col as="h5">
                                 <></>
                             </Col>
-                            <Col as="h5">{stored?.value ? stored?.value : feedback_value}</Col>
+                            <Col>{stored?.value ? stored?.value : feedback_value}</Col>
                         </Row>
                         {feedBackToStudent(teacherUser)}
                     </Container>
