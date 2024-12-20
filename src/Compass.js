@@ -7,6 +7,7 @@ import { Outlet } from 'react-router-dom';
 import './Compass.css';
 import NotificationProvider from './NotificationContext';
 import NotificationArea from './components/utilities/NotificationArea';
+import LogoImage from './components/logo/LogoImage';
 
 const Compass = () => {
     const { loading } = useAuth();
@@ -26,6 +27,7 @@ const Compass = () => {
                 <Row className="root-main-row">
                     <Col as="main">
                         <div className="main-content">
+                            <LogoImage />
                             <Outlet />
                             <div className="main-content-notification-area" aria-live="assertive">
                                 <NotificationArea />
