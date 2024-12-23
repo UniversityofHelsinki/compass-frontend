@@ -116,39 +116,43 @@ const Assignment = ({ showBackBtn = true, levels = LEVELS }) => {
             />
             <div className="responsive-margins">
                 <div className="assignment-form-area">
-                    <div className="m-3"></div>
-                    <div className="assignment-form-row">{studentAnswer.title}</div>
-                    <div className="m-2"></div>
-                    <Row>
-                        <Col>
-                            <FormFreeAnswer
-                                onChange={changeValue}
-                                value={modifiedObject && modifiedObject.answer_value}
-                                validationMessage={messages?.answer_value}
-                            />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <label> {t('option_header')}</label>
-                            <RadioButtonGroup
-                                answerNotFound={
-                                    !radioButtonClicked && studentAssignmentAnswer.id === ''
-                                }
-                                options={
-                                    levels ? levels.map((l) => ({ ...l, label: t(l.label) })) : []
-                                }
-                                validationMessage={messages?.order_nbr}
-                                onChange={changeValue}
-                                value={String(
-                                    modifiedObject && modifiedObject.order_nbr
-                                        ? modifiedObject.order_nbr
-                                        : '0',
-                                )}
-                                aria-required
-                            />
-                        </Col>
-                    </Row>
+                    <div className="assignment-form-area-cols">
+                        <div className="m-3"></div>
+                        <div className="assignment-form-row">{studentAnswer.title}</div>
+                        <div className="m-2"></div>
+                        <Row>
+                            <Col>
+                                <FormFreeAnswer
+                                    onChange={changeValue}
+                                    value={modifiedObject && modifiedObject.answer_value}
+                                    validationMessage={messages?.answer_value}
+                                />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <label> {t('option_header')}</label>
+                                <RadioButtonGroup
+                                    answerNotFound={
+                                        !radioButtonClicked && studentAssignmentAnswer.id === ''
+                                    }
+                                    options={
+                                        levels
+                                            ? levels.map((l) => ({ ...l, label: t(l.label) }))
+                                            : []
+                                    }
+                                    validationMessage={messages?.order_nbr}
+                                    onChange={changeValue}
+                                    value={String(
+                                        modifiedObject && modifiedObject.order_nbr
+                                            ? modifiedObject.order_nbr
+                                            : '0',
+                                    )}
+                                    aria-required
+                                />
+                            </Col>
+                        </Row>
+                    </div>
                 </div>
                 <Row>
                     <Col>

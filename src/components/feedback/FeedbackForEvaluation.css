@@ -19,6 +19,10 @@
     background-color: var(--huds-grayscale-light);
 }
 
+.feedback-for-evaluation-cols {
+    padding: 10px;
+}
+
 .feedback-for-evaluation-back-col {
     flex: 0;
 }
@@ -51,6 +55,6 @@ svg {
     padding-top: 10px;
 }
 
-.feedback-for-evaluation {
+/*.feedback-for-evaluation {
     background-color: var(--huds-grayscale-white);
-}
+}*/

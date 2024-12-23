@@ -2,6 +2,10 @@
     background-color: var(--huds-grayscale-light);
 }
 
+.assignment-form-area-cols {
+    padding: 10px;
+}
+
 .assignment-form-header-row {
     display: flex;
     width: 100%;
