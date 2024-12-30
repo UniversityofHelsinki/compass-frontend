@@ -4,11 +4,13 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import TopBar from '../utilities/TopBar';
 import { useTranslation } from 'react-i18next';
+import './StudentSummary.css';
 import useStudentAssignmentsForStudent from '../../hooks/teacher/useStudentAssignmentsForStudent';
 
 const StudentSummaryPage = () => {
     const { courseId, studentId } = useParams();
     const [assignments, error, reload] = useStudentAssignmentsForStudent(courseId, studentId);
+    const uniqueAnswerUserName = [...new Set(assignments.map((entry) => entry.user_name))][0];
     const { t } = useTranslation();
 
     return (
@@ -24,6 +26,7 @@ const StudentSummaryPage = () => {
             />
             <Row className="summary-chart-row">
                 <Col>
+                    <h3 className="center-text">{uniqueAnswerUserName}</h3>
                     <SummaryChart assignments={assignments} />
                 </Col>
             </Row>
