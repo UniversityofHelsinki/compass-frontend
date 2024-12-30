@@ -60,7 +60,7 @@ const FeedbackForEvaluation = () => {
     if (
         studentAnswer === undefined ||
         studentAnswer === null ||
-        studentAnswer.value === undefined
+        studentAnswer.answer_value === undefined
     ) {
         return <></>;
     }
@@ -76,34 +76,38 @@ const FeedbackForEvaluation = () => {
             <div className="m-3"></div>
             <div className="responsive-margins">
                 <div className="feedback-for-evaluation-rows">
-                    <div>{studentAnswer.title}</div>
-                    <div className="m-2"></div>
-                    <div>
-                        <h4 className="feedback-for-evaluation-header">
-                            {t(answer_evaluation_form_header + studentAnswer.order_nbr)}
-                        </h4>
-                    </div>
-                    <div className="feedback-for-evaluation-info">
-                        {t('answer_evaluation_form_info')}
-                    </div>
-                    <div>{t(answer_evaluation_form_text + studentAnswer.order_nbr)}</div>
-                    <div className="feedback-for-evaluation">
+                    <div className="feedback-for-evaluation-cols">
+                        <div>{studentAnswer.title}</div>
+                        <div className="m-2"></div>
                         <div>
-                            <h5 className="student-response-header">
-                                {t('assignment_feedback_answer')}
-                            </h5>
+                            <h4 className="feedback-for-evaluation-header">
+                                {t(answer_evaluation_form_header + studentAnswer.order_nbr)}
+                            </h4>
                         </div>
-                        <div className="feedback-for-evaluation-answer">{studentAnswer.value}</div>
-                        <div>
-                            <h5 className="feedback-for-evaluation-choice-header">
-                                {t('assignment_feedback_choice')}
-                            </h5>
+                        <div className="feedback-for-evaluation-info">
+                            {t('answer_evaluation_form_info')}
                         </div>
-                        <div className="feedback-for-evaluation-answer-choice">
-                            <Level level={studentAnswer.order_nbr} />
-                            <span className="feedback-for-evaluation-order">
-                                {t(assignment_feedback_level + studentAnswer.order_nbr)}
-                            </span>
+                        <div>{t(answer_evaluation_form_text + studentAnswer.order_nbr)}</div>
+                        <div className="feedback-for-evaluation">
+                            <div>
+                                <h5 className="student-response-header">
+                                    {t('assignment_feedback_answer')}
+                                </h5>
+                            </div>
+                            <div className="feedback-for-evaluation-answer">
+                                {studentAnswer.answer_value}
+                            </div>
+                            <div>
+                                <h5 className="feedback-for-evaluation-choice-header">
+                                    {t('assignment_feedback_choice')}
+                                </h5>
+                            </div>
+                            <div className="feedback-for-evaluation-answer-choice">
+                                <Level level={studentAnswer.order_nbr} />
+                                <span className="feedback-for-evaluation-order">
+                                    {t(assignment_feedback_level + studentAnswer.order_nbr)}
+                                </span>
+                            </div>
                         </div>
                     </div>
                     <FeedbackForEvaluationFooter

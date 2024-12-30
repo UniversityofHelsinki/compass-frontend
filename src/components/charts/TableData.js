@@ -116,7 +116,7 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersAndFeedb
                                             <AssignmentAnswersDialog
                                                 reload={reload}
                                                 id={courseId}
-                                                value={entry.answer_value}
+                                                answer_value={entry.answer_value}
                                                 userName={entry.answer_user_name}
                                                 courseTitle={courseTitle}
                                                 assignmentTopic={assignmentTopic}
