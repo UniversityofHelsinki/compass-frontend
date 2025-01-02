@@ -133,7 +133,7 @@ const AssignmentAnswersDialog = ({
                                 onChange={(event) =>
                                     changeValue('feedback_value', event.target.value)
                                 }
-                                value={stored?.feedback_value}
+                                value={stored?.feedback_value ?? ''}
                                 aria-disabled="false"
                             ></Form.Control>
                         </Col>
@@ -149,9 +149,9 @@ const AssignmentAnswersDialog = ({
                                 options={answerLevelArray}
                                 onChange={changeValue}
                                 value={
-                                    stored?.order_nbr === null
-                                        ? !!stored?.order_nbr
-                                        : stored?.order_nbr
+                                    stored?.order_nbr !== null && stored?.order_nbr !== undefined
+                                        ? String(stored?.order_nbr)
+                                        : '0'
                                 }
                                 aria-required
                             />
@@ -227,7 +227,11 @@ const AssignmentAnswersDialog = ({
                     </Container>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Message type={style}>{t(`${msg}`)}</Message>
+                    <Message
+                        type={['light', 'neutral', 'warning'].includes(style) ? style : 'neutral'}
+                    >
+                        {t(`${msg}`)}
+                    </Message>
                     <HyButton
                         onClick={saveFeedback}
                         variant="primary"

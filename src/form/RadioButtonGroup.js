@@ -1,45 +1,70 @@
-import React, { useId, useState } from 'react';
+import React, { useId } from 'react';
 import Form from 'react-bootstrap/Form';
 import PropTypes from 'prop-types';
 import './RadioButtonGroup.css';
-import { useTranslation } from 'react-i18next';
 import Message from './Message';
 
 const RadioButtonGroup = ({
-    answerNotFound,
+    answerNotFound = false,
     options = [],
-    validationMessage,
+    validationMessage = { type: 'neutral', content: '' },
     onChange,
     value = '0',
     ...rest
 }) => {
-    const { t } = useTranslation();
     const id = useId();
 
     return (
         <>
-            {options &&
-                options.map((option, index) => (
-                    <Form.Check
-                        className="radio-button-group"
-                        type="radio"
-                        checked={value.toString() === option.value && answerNotFound === false}
-                        key={`${option.value}-${index}`}
-                        value={option.value}
-                        id={`compass-${option.value}-${id}`}
-                        label={option.label}
-                        onChange={(e) => onChange('order_nbr', e.target.value)}
-                        {...rest}
-                    />
-                ))}
-            <Message type={validationMessage?.type}>{validationMessage?.content}</Message>
+            <>
+                {options?.length > 0 &&
+                    options.map((option, index) => {
+                        const { value: optionValue, label: optionLabel } = option || {}; // Safely destructure option properties
+
+                        return (
+                            <Form.Check
+                                className="radio-button-group"
+                                type="radio"
+                                checked={
+                                    value?.toString() === optionValue && answerNotFound === false
+                                }
+                                key={`${optionValue || 'unknown'}-${index}`} // Fallback for key
+                                value={optionValue || ''}
+                                id={`compass-${optionValue || 'unknown'}-${id}`}
+                                label={optionLabel || ''}
+                                onChange={(e) => onChange?.('order_nbr', e.target.value)} // Safely call onChange
+                                {...rest}
+                            />
+                        );
+                    })}
+            </>
+            <Message
+                type={
+                    ['light', 'neutral', 'warning'].includes(validationMessage?.type)
+                        ? validationMessage.type
+                        : 'neutral'
+                }
+            >
+                {validationMessage?.content}
+            </Message>
         </>
     );
 };
 
 RadioButtonGroup.propTypes = {
-    options: PropTypes.array.isRequired,
+    options: PropTypes.arrayOf(
+        PropTypes.shape({
+            value: PropTypes.string.isRequired,
+            label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+        }),
+    ).isRequired,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
+    validationMessage: PropTypes.shape({
+        type: PropTypes.oneOf(['light', 'neutral', 'warning']),
+        content: PropTypes.string,
+    }),
+    answerNotFound: PropTypes.bool,
 };
+
 export default RadioButtonGroup;
