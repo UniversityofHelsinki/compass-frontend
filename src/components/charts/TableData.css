@@ -1,8 +1,7 @@
 .pie-chart-item {
-    border: 2px solid #000; /* Black border with 2px thickness */
-    border-radius: 8px; /* Optional: Add rounded corners */
-    padding: 10px; /* Optional: Add padding inside the border */
-    margin-top: 20px; /* Optional: Add margin to separate from other elements */
+    border: 1px solid ;
+    padding: 10px;
+    margin-top: 20px;
 }
 
 .table-container {
@@ -31,5 +30,5 @@
 }
 
 .sort-icon .st0 {
-    fill: black;
+    fill: var(--hy-black);
 }
