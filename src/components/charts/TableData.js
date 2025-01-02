@@ -13,7 +13,7 @@ import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
 import { t } from 'i18next';
 import AssignmentAnswersDialog from '../dialog/AssignmentAnswersDialog';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersAndFeedbacks, reload }) => {
@@ -72,14 +72,6 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersAndFeedb
         }
     };
 
-    /*if (loading) {
-        return <p>Loading...</p>;
-    }
-
-    if (error) {
-        return <p>Error: {error.message}</p>;
-    }*/
-
     if (!answersAndFeedbacks || !Array.isArray(answersAndFeedbacks)) {
         return null;
     }
@@ -110,14 +102,20 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersAndFeedb
                             <tbody>
                                 {sortedAnswers.map((entry, index) => (
                                     <tr key={`row-${index}`}>
-                                        <td>{entry.name}</td>
+                                        <td>
+                                            <Link
+                                                to={`/teacher/summaryForStudent/${courseId}/${entry.answer_user_id}`}
+                                            >
+                                                {entry.name}
+                                            </Link>
+                                        </td>
                                         <td>{getIcon(entry.answer_order_nbr)}</td>
                                         <td>
                                             <AssignmentAnswersDialog
                                                 reload={reload}
                                                 id={courseId}
                                                 answer_value={entry.answer_value}
-                                                userName={entry.answer_user_name}
+                                                userName={entry.name}
                                                 courseTitle={courseTitle}
                                                 assignmentTopic={assignmentTopic}
                                                 order_nbr={entry.answer_order_nbr}
