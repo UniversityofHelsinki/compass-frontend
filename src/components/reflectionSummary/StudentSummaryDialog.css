@@ -1,0 +1,16 @@
+.center-text {
+    text-align: center;
+}
+
+.student-summary-list-item-link {
+    display: flex;
+    cursor: pointer; /* Makes the div behave like a link */
+    color: var(--huds-brand-main); /* Matches link color */
+    text-decoration: none;
+}
+
+.student-summary-list-item-link:hover {
+    text-decoration: underline; /* Adds link-like hover effect */
+}
+
+

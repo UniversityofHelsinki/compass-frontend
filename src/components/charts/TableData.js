@@ -15,6 +15,7 @@ import AssignmentAnswersDialog from '../dialog/AssignmentAnswersDialog';
 import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import StudentSummaryDialog from '../reflectionSummary/StudentSummaryDialog';
 
 const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersAndFeedbacks, reload }) => {
     const { courseId } = useParams();
@@ -103,11 +104,11 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersAndFeedb
                                 {sortedAnswers.map((entry, index) => (
                                     <tr key={`row-${index}`}>
                                         <td>
-                                            <Link
-                                                to={`/teacher/summaryForStudent/${courseId}/${entry.answer_user_id}`}
-                                            >
-                                                {entry.name}
-                                            </Link>
+                                            <StudentSummaryDialog
+                                                courseId={courseId}
+                                                studentId={entry.answer_user_id}
+                                                studentName={entry.name}
+                                            />
                                         </td>
                                         <td>{getIcon(entry.answer_order_nbr)}</td>
                                         <td>
