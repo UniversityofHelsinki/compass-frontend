@@ -21,6 +21,7 @@ const AssignmentAnswersDialog = ({
     answer_value,
     order_nbr,
     userName,
+    displayName,
     courseTitle,
     assignmentTopic,
     course_id,
@@ -167,7 +168,7 @@ const AssignmentAnswersDialog = ({
         <FormDialog hide={hide} showComponent={theViewLink} show={showForm} size="xl">
             <Modal.Header className="assignment-answer-dialog-header" {...closeButton}>
                 <Modal.Title as="h4" className="modal-title">
-                    {t('answer_dialog_student')}: {userName}
+                    {t('answer_dialog_student')}: {displayName}
                 </Modal.Title>
             </Modal.Header>
             <Form className="answers-form">
