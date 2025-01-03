@@ -6,10 +6,10 @@ const StudentsInCourseList = ({ student }) => {
     const { t } = useTranslation();
 
     return (
-        <div className="student-item">
-            <div className="column-1">{student.display_name}</div>
-            <div className="column-2">{student.user_name}</div>
-            <div className="column-3">{student.count}</div>
+        <div className="studentlist-in-course-student-item">
+            <div className="studentlist-in-course-column-1">{student.display_name}</div>
+            <div className="studentlist-in-course-column-2">{student.user_name}</div>
+            <div className="studentlist-in-course-column-3">{student.count}</div>
         </div>
     );
 };

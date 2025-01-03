@@ -28,10 +28,14 @@ const StudentListInCourse = () => {
                 </div>
                 <div className="m-3"></div>
                 <div className="studentlist-in-course-container">
-                    <div className="column-header">
-                        <div className="header-1">{t('teacher_student_in_course_name')}</div>
-                        <div className="header-2">{t('teacher_student_in_course_user_name')}</div>
-                        <div className="header-3">
+                    <div className="studentlist-in-course-column-header">
+                        <div className="studentlist-in-course-header-1">
+                            {t('teacher_student_in_course_name')}
+                        </div>
+                        <div className="studentlist-in-course-header-2">
+                            {t('teacher_student_in_course_user_name')}
+                        </div>
+                        <div className="studentlist-in-course-header-3">
                             {t('teacher_student_in_course_assignment_count')}
                         </div>
                     </div>
