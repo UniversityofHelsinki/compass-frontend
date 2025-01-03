@@ -34,6 +34,7 @@ import Assignments from './components/assignment/Assignments';
 import CourseStatistics from './components/course/CourseStatistics';
 import TeacherFormDelete from './components/teacher/TeacherFormDelete';
 import StudentSummaryDialog from './components/reflectionSummary/StudentSummaryDialog';
+import StudentListInCourse from './components/student/StudentListInCourse';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -69,6 +70,7 @@ const App = () => {
                     <Route path="forms/edit/:course" element={<TeacherFormEdit />}></Route>
                     <Route path="forms/delete/:course" element={<TeacherFormDelete />}></Route>
                     <Route path="statistics/course/:courseId" element={<CourseStatistics />} />
+                    <Route path="studentsincourse/:courseId" element={<StudentListInCourse />} />
                 </Route>
                 <Route path="student" element={<Student />}>
                     <Route path="courses" element={<StudentCourses />}></Route>

@@ -1,0 +1,68 @@
+.studentlist-in-course-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.studentlist-in-course-container ul li:nth-child(odd) {
+    background-color: var(--huds-grayscale-light);
+}
+
+.studentlist-in-course-container ul {
+    padding-left: 5px;
+    list-style: none;
+}
+
+.studentlist-in-course-container ul li {
+    margin-bottom: 10px;
+    margin-right: 5px;
+    list-style: none;
+}
+
+.student-item {
+    display: flex;
+    justify-content: space-between;
+    /*width: 90%;*/
+}
+
+.column-header {
+    display: flex;
+    font-weight: bold;
+    color: black;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+.header-1 {
+    font-weight: bold;
+    flex: 1;
+    max-width: 30%;
+    margin-left: 5px;
+}
+.header-2 {
+    font-weight: bold;
+    flex: 1;
+    max-width: 20%;
+}
+.header-3 {
+    font-weight: bold;
+    flex: 1;
+    max-width: 21%;
+}
+
+.column-1 {
+    flex: 1;
+    max-width: 30%;
+    margin-left: 5px;
+}
+.column-2 {
+    flex: 1;
+    max-width: 30%;
+    padding-left: 5px;
+}
+.column-3 {
+    flex: 1;
+    max-width: 20%;
+    padding-left: 5px;
+}

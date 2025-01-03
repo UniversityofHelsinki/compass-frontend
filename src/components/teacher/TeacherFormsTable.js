@@ -8,6 +8,8 @@ import { ReactComponent as EditIcon } from '../utilities/icons/edit.svg';
 import { ReactComponent as TrashIcon } from '../utilities/icons/trash.svg';
 import { ReactComponent as ShareIcon } from '../utilities/icons/share.svg';
 import { ReactComponent as StatisticsIcon } from '../utilities/icons/pie-chart.svg';
+import { ReactComponent as ListIcon } from '../utilities/icons/list.svg';
+
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useNotification } from '../../NotificationContext';
@@ -96,6 +98,17 @@ const Row = ({ teacherForm }) => {
         </div>
     );
 
+    const StudentsInCourse = () => (
+        <div className="teacher-forms-table-row-edit-action">
+            <Link
+                to={`/teacher/studentsincourse/${teacherForm.course_id}`}
+                title={t('teacher_students_in_course')}
+            >
+                <ListIcon aria-hidden />
+            </Link>
+        </div>
+    );
+
     const Statistics = () => (
         <div className="teacher-forms-table-row-statistics-action">
             <Link
@@ -110,7 +123,14 @@ const Row = ({ teacherForm }) => {
         </div>
     );
 
-    const actions = [<Copy />, <Edit />, <Delete />, <Statistics />, <Share />];
+    const actions = [
+        <Copy />,
+        <Edit />,
+        <Delete />,
+        <Statistics />,
+        <Share />,
+        <StudentsInCourse />,
+    ];
 
     const period = (startDate, endDate) => {
         return (
