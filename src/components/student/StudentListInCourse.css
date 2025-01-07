@@ -9,8 +9,7 @@
 }
 
 .studentlist-in-course-container ul {
-    padding-left: 5px;
-    list-style: none;
+    padding-left: 0px;
 }
 
 .studentlist-in-course-container ul li {
@@ -22,7 +21,8 @@
 .studentlist-in-course-student-item {
     display: flex;
     justify-content: space-between;
-    /*width: 90%;*/
+    width: 90%;
+    margin-left: 5px;
 }
 
 .studentlist-in-course-column-header {
@@ -32,7 +32,7 @@
     justify-content: space-between;
     width: 90%;
     margin-bottom: 10px;
-    margin-left: 5px;
+    margin-left: 3px;
 }
 .studentlist-in-course-header-1 {
     font-weight: bold;
@@ -44,11 +44,12 @@
     font-weight: bold;
     flex: 1;
     max-width: 20%;
+    min-width: 150px;
 }
 .studentlist-in-course-header-3 {
     font-weight: bold;
     flex: 1;
-    max-width: 21%;
+    max-width: 20%;
 }
 
 .studentlist-in-course-column-1 {
@@ -58,11 +59,10 @@
 }
 .studentlist-in-course-column-2 {
     flex: 1;
-    max-width: 30%;
-    padding-left: 5px;
+    max-width: 20%;
+    min-width: 150px;
 }
 .studentlist-in-course-column-3 {
     flex: 1;
     max-width: 20%;
-    padding-left: 5px;
 }
