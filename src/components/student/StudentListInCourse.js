@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
 import './StudentListInCourse.css';
 
 const StudentListInCourse = () => {
-    const { courseId } = useParams();
+    const { title, courseId } = useParams();
     const { t } = useTranslation();
     const [students] = useStudentsInCourse(courseId);
 
@@ -17,7 +17,7 @@ const StudentListInCourse = () => {
             <>
                 <div className="">
                     <TopBar
-                        heading={t('teacher_students_in_course')}
+                        heading={title}
                         showBackBtn={true}
                         backBtnHref="/teacher/forms"
                         backBtnLabels={{

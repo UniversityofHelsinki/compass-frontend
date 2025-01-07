@@ -101,7 +101,7 @@ const Row = ({ teacherForm }) => {
     const StudentsInCourse = () => (
         <div className="teacher-forms-table-row-edit-action">
             <Link
-                to={`/teacher/studentsincourse/${teacherForm.course_id}`}
+                to={`/teacher/studentsincourse/${teacherForm.title}/${teacherForm.course_id}`}
                 title={t('teacher_students_in_course')}
             >
                 <ListIcon aria-hidden />

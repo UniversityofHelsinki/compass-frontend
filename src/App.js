@@ -70,7 +70,10 @@ const App = () => {
                     <Route path="forms/edit/:course" element={<TeacherFormEdit />}></Route>
                     <Route path="forms/delete/:course" element={<TeacherFormDelete />}></Route>
                     <Route path="statistics/course/:courseId" element={<CourseStatistics />} />
-                    <Route path="studentsincourse/:courseId" element={<StudentListInCourse />} />
+                    <Route
+                        path="studentsincourse/:title/:courseId"
+                        element={<StudentListInCourse />}
+                    />
                 </Route>
                 <Route path="student" element={<Student />}>
                     <Route path="courses" element={<StudentCourses />}></Route>
