@@ -146,5 +146,7 @@
     "unknown_error": "Unknown error.",
     "answer_evaluation_form_info": "Please read the feedback and compare your response to it. If you feel that the feedback and your response do not match, go back and edit your answer - you can either modify the reflection text or choose another statement.",
     "teacher_forms_table_copy_title": "Create a new course using the course as a template",
-    "teacher_form_delete_course_deleted_notification": "Course deleted."
+    "teacher_form_delete_course_deleted_notification": "Course deleted.",
+    "instructions_heading": "Instructions",
+    "footer_compass_instructions_link_label": "Instructions"
 }
