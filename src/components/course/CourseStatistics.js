@@ -14,13 +14,27 @@ const CourseStatistics = () => {
     const [selectedCharts, setSelectedCharts] = useState([]);
     const { t } = useTranslation();
     useEffect(() => {
-        if (Array.isArray(courseStatistics) && courseStatistics.length > 0) {
-            const allChartIds = courseStatistics.map((statistic) => statistic.assignment_id);
-            setSelectedCharts(allChartIds);
-        } else {
-            setSelectedCharts([]);
-        }
-    }, [courseStatistics]);
+        const shouldUpdateCharts = (allChartIds) => {
+            return (
+                selectedCharts.length !== allChartIds.length ||
+                !selectedCharts.every((id, index) => id === allChartIds[index])
+            );
+        };
+
+        const updateSelectedCharts = () => {
+            if (Array.isArray(courseStatistics) && courseStatistics.length > 0) {
+                const allChartIds = courseStatistics.map((statistic) => statistic.assignment_id);
+
+                if (shouldUpdateCharts(allChartIds)) {
+                    setSelectedCharts(allChartIds);
+                }
+            } else if (selectedCharts.length > 0) {
+                setSelectedCharts([]);
+            }
+        };
+
+        updateSelectedCharts();
+    }, [courseStatistics, selectedCharts]);
 
     if (loading) {
         return <p>{t('loading')}</p>;

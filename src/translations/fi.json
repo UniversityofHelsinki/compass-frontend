@@ -176,7 +176,7 @@
     "answer_dialog_feedback_level": "Opettajan palaute",
     "answer_dialog_written_feedback_header": "Palaute",
     "answer_dialog_feedback_button": "Tallenna palaute",
-    "answer_dialog_feedback_option_header": "Valitse väite, joka mielestäsi kuvaa parhaiten oppilaan nykyistä ymmärrystä:",
+    "answer_dialog_feedback_option_header": "Valitse taso, joka mielestäsi kuvaa parhaiten opiskelijan nykyistä ymmärrystä:",
     "student_feedback_message": "Tallennettu",
     "student_feedback_err_message": "Tallennus epäonnistui",
     "level_0": "Tarvitaan tukea ymmärryksen muodostamiseen",
@@ -187,5 +187,7 @@
     "validation_description_assignment_is_empty": "Vastaus ei voi olla tyhjä.",
     "validation_description_assignment_is_too_long": "Vastaus on liian pitkä.",
     "summary_table_aria_description": "Vastausten yhteenveto",
-    "pie_chart_aria_description": "Kaavio tehtävän vastausten tasojakaumasta"
+    "pie_chart_aria_description": "Kaavio tehtävän vastausten tasojakaumasta",
+    "teacher_forms_table_statistics_title": "Katso ja vertaile kurssin tehtävien statistiikkaa",
+    "student_summary_chart": "Vastausten yhteenveto"
 }
