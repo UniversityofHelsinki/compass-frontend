@@ -13,7 +13,8 @@
 }
 
 .studentlist-in-course-container ul li {
-    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin-right: 5px;
     list-style: none;
 }
