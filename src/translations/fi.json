@@ -121,6 +121,7 @@
     "teacher_student_in_course_user_name": "Käyttäjätunnus",
     "teacher_student_in_course_assignment_count": "Tehtävien lukumäärä",
     "teacher_students_in_course": "Kurssin oppilaat",
+    "teacher_students_empty_course": "Kurssilla ei ole vielä oppilaita",
     "teacher_student_in_course_delete_student": "Poista oppilas",
     "teacher_form_assignment_end_label": "Loppupäivämäärä",
     "student_from_course_delete_dialog_delete": "Poista",

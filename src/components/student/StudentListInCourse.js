@@ -74,7 +74,7 @@ const StudentListInCourse = () => {
                 }}
             />
             <div className="m-3"></div>
-            {t('student_no_courses')}
+            <div className="studentlist-in-course-empty">{t('teacher_students_empty_course')}</div>
         </div>
     );
 };
