@@ -148,5 +148,14 @@
     "teacher_forms_table_copy_title": "Create a new course using the course as a template",
     "teacher_form_delete_course_deleted_notification": "Course deleted.",
     "instructions_heading": "Instructions",
-    "footer_compass_instructions_link_label": "Instructions"
+    "footer_compass_instructions_link_label": "Instructions",
+    "teacher_forms_table_statistics_title": "View and compare assignment statistics for course",
+    "student_summary_chart": "Response summary",
+    "answer_dialog_written_feedback_header": "Written response feedback",
+    "answer_dialog_feedback_option_header": "Choose the level that you think best describes the student's current understanding:",
+    "answer_dialog_feedback_button": "Save feedback",
+    "answer_dialog_feedback_level": "Teacher's evaluation for level of understanding",
+    "student_feedback_message": "Feedback saved",
+    "summary_feedback_header": "Teacher's evaluation",
+    "summary_no_feedback": "No feedback"
 }
