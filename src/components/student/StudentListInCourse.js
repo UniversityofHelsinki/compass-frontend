@@ -10,7 +10,7 @@ import './StudentListInCourse.css';
 const StudentListInCourse = () => {
     const { title, courseId } = useParams();
     const { t } = useTranslation();
-    const [students] = useStudentsInCourse(courseId);
+    const [students, _error, reload] = useStudentsInCourse(courseId);
 
     const listStudents = () => {
         return (
@@ -38,11 +38,18 @@ const StudentListInCourse = () => {
                         <div className="studentlist-in-course-header-3">
                             {t('teacher_student_in_course_assignment_count')}
                         </div>
+                        <div className="studentlist-in-course-header-4">
+                            {t('teacher_student_in_course_delete_student')}
+                        </div>
                     </div>
                     <ul>
                         {students.map((student) => (
                             <li key={student.user_name}>
-                                <StudentsInCourseList student={student} />
+                                <StudentsInCourseList
+                                    student={student}
+                                    courseId={courseId}
+                                    reload={reload}
+                                />
                             </li>
                         ))}
                     </ul>

@@ -52,6 +52,13 @@
     max-width: 20%;
 }
 
+.studentlist-in-course-header-4 {
+    font-weight: bold;
+    flex: 1;
+    max-width: 10%;
+    min-width: 120px;
+}
+
 .studentlist-in-course-column-1 {
     flex: 1;
     max-width: 30%;
@@ -65,4 +72,23 @@
 .studentlist-in-course-column-3 {
     flex: 1;
     max-width: 20%;
+}
+
+.studentlist-in-course-column-delete {
+    flex: 1;
+    max-width: 10%;
+    min-width: 120px;
+}
+
+.studentlist-in-course-column-delete svg {
+    fill: var(--huds-grayscale-black);
+    min-width: 1.2em;
+    max-width: 1.2em;
+    width: 1.2em;
+    max-height: 1.2em;
+}
+
+.studentlist-in-course-column-delete button {
+    border: unset;
+    background-color: unset;
 }
