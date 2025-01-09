@@ -188,6 +188,8 @@
     "validation_description_assignment_is_too_long": "Vastaus on liian pitkä.",
     "summary_table_aria_description": "Vastausten yhteenveto",
     "pie_chart_aria_description": "Kaavio tehtävän vastausten tasojakaumasta",
+    "instructions_heading": "Käyttöohjeet",
+    "footer_compass_instructions_link_label": "Käyttöohjeet",
     "teacher_forms_table_statistics_title": "Katso ja vertaile kurssin tehtävien statistiikkaa",
     "student_summary_chart": "Vastausten yhteenveto"
 }
