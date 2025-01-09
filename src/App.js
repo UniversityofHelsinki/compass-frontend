@@ -34,6 +34,7 @@ import Assignments from './components/assignment/Assignments';
 import CourseStatistics from './components/course/CourseStatistics';
 import TeacherFormDelete from './components/teacher/TeacherFormDelete';
 import StudentSummaryDialog from './components/reflectionSummary/StudentSummaryDialog';
+import Instructions from './components/instructions/Instructions';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -83,6 +84,7 @@ const App = () => {
                     ></Route>
                     <Route path="delete/:answer/:id" element={<DeleteStudentAnswer />}></Route>
                 </Route>
+                <Route path="instructions" element={<Instructions />}></Route>
             </Route>,
         ),
     );
