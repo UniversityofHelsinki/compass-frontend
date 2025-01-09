@@ -57,7 +57,7 @@
     font-weight: bold;
     flex: 1;
     max-width: 10%;
-    min-width: 120px;
+    min-width: 130px;
 }
 
 .studentlist-in-course-column-1 {
@@ -78,7 +78,7 @@
 .studentlist-in-course-column-delete {
     flex: 1;
     max-width: 10%;
-    min-width: 120px;
+    min-width: 130px;
 }
 
 .studentlist-in-course-column-delete svg {
