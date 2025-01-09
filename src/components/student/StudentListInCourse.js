@@ -65,7 +65,7 @@ const StudentListInCourse = () => {
     return (
         <div>
             <TopBar
-                heading={t('teacher_students_in_course')}
+                heading={title}
                 showBackBtn={true}
                 backBtnHref="/teacher/forms"
                 backBtnLabels={{
