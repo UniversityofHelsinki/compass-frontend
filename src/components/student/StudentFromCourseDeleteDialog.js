@@ -7,6 +7,7 @@ import { Container, Modal } from 'react-bootstrap';
 import './StudentFromCourseDeleteDialog.css';
 import Message from '../../form/Message';
 import HyButton from '../utilities/HyButton';
+import PropTypes from 'prop-types';
 
 const StudentFromCourseDeleteDialog = ({ student, courseId, reload }) => {
     const [showDialog, setShowDialog] = useState(false);
@@ -81,6 +82,12 @@ const StudentFromCourseDeleteDialog = ({ student, courseId, reload }) => {
             )}
         </>
     );
+};
+
+StudentFromCourseDeleteDialog.propTypes = {
+    student: PropTypes.object,
+    courseId: PropTypes.string,
+    reload: PropTypes.func,
 };
 
 export default StudentFromCourseDeleteDialog;

@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import React from 'react';
 import './StudentListInCourse.css';
 import StudentFromCourseDeleteDialog from './StudentFromCourseDeleteDialog';
+import PropTypes from 'prop-types';
 
 const StudentsInCourseList = ({ student, courseId, reload }) => {
     const { t } = useTranslation();
@@ -27,6 +28,10 @@ const StudentsInCourseList = ({ student, courseId, reload }) => {
     );
 };
 
-StudentsInCourseList.propTypes = {};
+StudentsInCourseList.propTypes = {
+    student: PropTypes.object,
+    courseId: PropTypes.string,
+    reload: PropTypes.func,
+};
 
 export default StudentsInCourseList;

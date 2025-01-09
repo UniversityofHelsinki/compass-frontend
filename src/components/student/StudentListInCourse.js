@@ -79,4 +79,6 @@ const StudentListInCourse = () => {
     );
 };
 
+StudentListInCourse.propTypes = {};
+
 export default StudentListInCourse;
