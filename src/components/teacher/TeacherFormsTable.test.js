@@ -111,7 +111,7 @@ describe('Teacher has courses', () => {
                 return;
             }
             expect(row.querySelectorAll('button').length).toBe(1);
-            expect(row.querySelectorAll('a').length).toBe(4);
+            expect(row.querySelectorAll('a').length).toBe(5);
         });
     });
 });

@@ -1,0 +1,14 @@
+.student-from-course-delete-center-text {
+    text-align: center;
+}
+
+.student-from-course-delete-link {
+    display: flex;
+    cursor: pointer; /* Makes the div behave like a link */
+    color: var(--huds-brand-main); /* Matches link color */
+    text-decoration: none;
+}
+
+.student-from-course-delete-link:hover {
+    text-decoration: underline; /* Adds link-like hover effect */
+}
