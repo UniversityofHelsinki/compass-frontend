@@ -167,6 +167,7 @@
     "answer_dialog_written_feedback_header": "Palaute",
     "answer_dialog_feedback_button": "Tallenna palaute",
     "answer_dialog_feedback_option_header": "Valitse taso, joka mielestäsi kuvaa parhaiten opiskelijan nykyistä ymmärrystä:",
+    "answer_dialog_feedback_is_too_long": "Palaute on liian pitkä",
     "student_feedback_message": "Tallennettu",
     "student_feedback_err_message": "Tallennus epäonnistui",
     "level_0": "Tarvitaan tukea ymmärryksen muodostamiseen",
