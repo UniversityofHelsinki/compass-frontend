@@ -177,6 +177,7 @@
     "answer_dialog_written_feedback_header": "Palaute",
     "answer_dialog_feedback_button": "Tallenna palaute",
     "answer_dialog_feedback_option_header": "Valitse taso, joka mielestäsi kuvaa parhaiten opiskelijan nykyistä ymmärrystä:",
+    "answer_dialog_feedback_is_too_long": "Palaute on liian pitkä",
     "student_feedback_message": "Tallennettu",
     "student_feedback_err_message": "Tallennus epäonnistui",
     "level_0": "Tarvitaan tukea ymmärryksen muodostamiseen",
@@ -191,5 +192,10 @@
     "instructions_heading": "Käyttöohjeet",
     "footer_compass_instructions_link_label": "Käyttöohjeet",
     "teacher_forms_table_statistics_title": "Katso ja vertaile kurssin tehtävien statistiikkaa",
-    "student_summary_chart": "Vastausten yhteenveto"
+    "student_summary_chart": "Vastausten yhteenveto",
+    "summary_description": "summary_description",
+    "summary_description_link": "summary_description_link",
+    "view": "view",
+    "teacher_forms_statistics_title": "teacher_forms_statistics_title",
+    "answer_evaluation_form_info": "answer_evaluation_form_info"
 }
