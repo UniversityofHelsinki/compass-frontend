@@ -176,6 +176,7 @@
     "answer_dialog_feedback_level": "answer_dialog_feedback_level",
     "answer_dialog_written_feedback_header": "answer_dialog_written_feedback_header",
     "answer_dialog_feedback_button": "answer_dialog_feedback_button",
+    "answer_dialog_feedback_is_too_long": "Feedback är för lång",
     "answer_dialog_feedback_option_header": "answer_dialog_feedback_option_header",
     "student_feedback_message": "student_feedback_message",
     "student_feedback_err_message": "student_feedback_err_message",

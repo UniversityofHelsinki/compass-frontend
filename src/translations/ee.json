@@ -177,6 +177,7 @@
     "answer_dialog_written_feedback_header": "answer_dialog_written_feedback_header",
     "answer_dialog_feedback_button": "answer_dialog_feedback_button",
     "answer_dialog_feedback_option_header": "answer_dialog_feedback_option_header",
+    "answer_dialog_feedback_is_too_long": "answer_dialog_feedback_is_too_long",
     "student_feedback_message": "student_feedback_message",
     "student_feedback_err_message": "student_feedback_err_message",
     "validation_description_assignment_is_empty": "validation_description_assignment_is_empty",
