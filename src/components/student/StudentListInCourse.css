@@ -1,88 +1,14 @@
-.studentlist-in-course-container {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
+.student-list-table {
+    width: 100%;
 }
 
-.studentlist-in-course-container ul li:nth-child(odd) {
+.student-list-table tbody > :nth-child(even) {
     background-color: var(--huds-grayscale-light);
 }
 
-.studentlist-in-course-container ul {
-    padding-left: 0px;
-}
-
-.studentlist-in-course-container ul li {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-right: 5px;
-    list-style: none;
-}
-
-.studentlist-in-course-student-item {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    margin-left: 5px;
-}
-
-.studentlist-in-course-column-header {
-    display: flex;
-    font-weight: bold;
-    color: black;
-    justify-content: space-between;
-    width: 90%;
-    margin-bottom: 10px;
-    margin-left: 3px;
-}
-.studentlist-in-course-header-1 {
-    font-weight: bold;
-    flex: 1;
-    max-width: 30%;
-    margin-left: 5px;
-    min-width: 120px;
-}
-.studentlist-in-course-header-2 {
-    font-weight: bold;
-    flex: 1;
-    max-width: 20%;
-    min-width: 160px;
-}
-.studentlist-in-course-header-3 {
-    font-weight: bold;
-    flex: 1;
-    max-width: 20%;
-    min-width: 110px;
-}
-
-.studentlist-in-course-header-4 {
-    font-weight: bold;
-    flex: 1;
-    max-width: 10%;
-    min-width: 130px;
-}
-
-.studentlist-in-course-column-1 {
-    flex: 1;
-    max-width: 30%;
-    margin-left: 5px;
-    min-width: 120px;
-}
-.studentlist-in-course-column-2 {
-    flex: 1;
-    max-width: 20%;
-    min-width: 160px;
-}
-.studentlist-in-course-column-3 {
-    flex: 1;
-    max-width: 20%;
-    min-width: 110px;
-}
-
-.studentlist-in-course-column-delete {
-    flex: 1;
-    max-width: 10%;
-    min-width: 130px;
+.student-list-table tbody tr {
+    max-width: 20em;
+    border-bottom: 1px solid var(--huds-grayscale-black);
 }
 
 .studentlist-in-course-column-delete svg {
@@ -91,11 +17,6 @@
     max-width: 1.2em;
     width: 1.2em;
     max-height: 1.2em;
-}
-
-.studentlist-in-course-column-delete button {
-    border: unset;
-    background-color: unset;
 }
 
 .studentlist-in-course-empty {
