@@ -34,20 +34,10 @@ const StudentFromCourseDeleteDialog = ({ student, courseId, reload }) => {
     };
 
     return (
-        <>
-            <a
-                href="#"
-                className="student-from-course-delete-link"
-                onClick={(e) => {
-                    e.preventDefault();
-                    handleOpenDialog();
-                }}
-                aria-haspopup="dialog"
-            >
-                <button>
-                    <TrashIcon aria-hidden />
-                </button>
-            </a>
+        <div>
+            <button className="student-from-course-delete-dialog-button" onClick={handleOpenDialog}>
+                <TrashIcon aria-hidden />
+            </button>
             {showDialog && (
                 <Dialog
                     show={showDialog}
@@ -80,7 +70,7 @@ const StudentFromCourseDeleteDialog = ({ student, courseId, reload }) => {
                     </Modal.Footer>
                 </Dialog>
             )}
-        </>
+        </div>
     );
 };
 

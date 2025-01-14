@@ -6,6 +6,7 @@ import useStudentsInCourse from '../../hooks/student/useStudentsInCourse';
 import StudentsInCourseList from './StudentsInCourseList';
 import { useParams } from 'react-router-dom';
 import './StudentListInCourse.css';
+import StudentFromCourseDeleteDialog from './StudentFromCourseDeleteDialog';
 
 const StudentListInCourse = () => {
     const { title, courseId } = useParams();
@@ -14,53 +15,49 @@ const StudentListInCourse = () => {
 
     const listStudents = () => {
         return (
-            <>
-                <div className="">
-                    <TopBar
-                        heading={title}
-                        showBackBtn={true}
-                        backBtnHref="/teacher/forms"
-                        backBtnLabels={{
-                            primary: t('teacher_forms_back_to_forms'),
-                            secondary: t('teacher_forms_back_to_forms_secondary'),
-                        }}
-                    />
-                </div>
-                <div className="m-3"></div>
-                <div className="studentlist-in-course-container">
-                    <div className="studentlist-in-course-column-header">
-                        <div className="studentlist-in-course-header-1">
-                            {t('teacher_student_in_course_name')}
-                        </div>
-                        <div className="studentlist-in-course-header-2">
-                            {t('teacher_student_in_course_user_name')}
-                        </div>
-                        <div className="studentlist-in-course-header-3">
-                            {t('teacher_student_in_course_assignment_count')}
-                        </div>
-                        <div className="studentlist-in-course-header-4">
-                            {t('teacher_student_in_course_delete_student')}
-                        </div>
-                    </div>
-                    <ul>
-                        {students.map((student) => (
-                            <li key={student.user_name}>
-                                <StudentsInCourseList
-                                    student={student}
-                                    courseId={courseId}
-                                    reload={reload}
-                                />
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </>
+            <div className="responsive-margins">
+                <table className="student-list-table">
+                    <caption className="screenreader-only">
+                        {t('student_list_table_description')}
+                    </caption>
+                    <thead>
+                        <tr>
+                            {[
+                                'teacher_student_in_course_name',
+                                'teacher_student_in_course_user_name',
+                                'teacher_student_in_course_assignment_count',
+                                'teacher_student_in_course_delete_student',
+                            ].map((headerColumn) => {
+                                return (
+                                    <th key={headerColumn} scope="col">
+                                        {t(headerColumn)}
+                                    </th>
+                                );
+                            })}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {students.map((student) => {
+                            return (
+                                <tr key={student.user_name}>
+                                    <td>{student.display_name}</td>
+                                    <td>{student.user_name}</td>
+                                    <td>{student.count}</td>
+                                    <td>
+                                        <StudentFromCourseDeleteDialog
+                                            student={student}
+                                            courseId={courseId}
+                                            reload={reload}
+                                        />
+                                    </td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
         );
     };
-
-    if (students && students.length > 0) {
-        return listStudents();
-    }
 
     return (
         <div>
@@ -74,7 +71,11 @@ const StudentListInCourse = () => {
                 }}
             />
             <div className="m-3"></div>
-            <div className="studentlist-in-course-empty">{t('teacher_students_empty_course')}</div>
+            {(students && students.length > 0 && listStudents()) || (
+                <div className="studentlist-in-course-empty">
+                    {t('teacher_students_empty_course')}
+                </div>
+            )}
         </div>
     );
 };
