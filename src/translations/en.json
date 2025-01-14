@@ -129,7 +129,6 @@
     "teacher_students_in_course": "teacher_students_in_course",
     "teacher_students_empty_course": "teacher_students_empty_course",
     "teacher_student_in_course_delete_student": "teacher_student_in_course_delete_student",
-    "teacher_form_assignment_end_label": "teacher_form_assignment_end_label",
     "student_from_course_delete_dialog_delete": "student_from_course_delete_dialog_delete",
     "student_from_course_delete_dialog_cancel": "student_from_course_delete_dialog_cancel",
     "student_from_course_delete_ok": "student_from_course_delete_ok",
@@ -162,7 +161,7 @@
     "footer_compass_instructions_link_label": "Instructions",
     "teacher_forms_table_statistics_title": "View and compare assignment statistics for course",
     "student_summary_chart": "Response summary",
-    "answer_dialog_written_feedback_header": "Written response feedback",
+    "answer_dialog_written_feedback_header": "Response feedback",
     "answer_dialog_feedback_option_header": "Choose the level that you think best describes the student's current understanding:",
     "answer_dialog_feedback_button": "Save feedback",
     "answer_dialog_feedback_is_too_long": "Feedback is too long",
@@ -198,5 +197,7 @@
     "course_list_item_period_label": "course_list_item_period_label",
     "teacher_form_table_delete_title": "teacher_form_table_delete_title",
     "student_feedback_err_message": "student_feedback_err_message",
-    "pie_chart_aria_description": "pie_chart_aria_description"
+    "pie_chart_aria_description": "pie_chart_aria_description",
+    "statistics_table_teacher_feedback": "Teacher's evaluation",
+    "statistics_table_teacher_no_feedback": "No feedback"
 }

@@ -10,16 +10,14 @@ import { ReactComponent as Level1Icon } from '../utilities/icons/circle-fill.svg
 import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vertical.svg';
 import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
 import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
-import { t } from 'i18next';
 import AssignmentAnswersDialog from '../dialog/AssignmentAnswersDialog';
 import { useTranslation } from 'react-i18next';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import StudentSummaryDialog from '../reflectionSummary/StudentSummaryDialog';
 
-const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersAndFeedbacks, reload }) => {
+const TableData = ({ courseTitle, assignmentTopic, answersAndFeedbacks, reload }) => {
     const { courseId } = useParams();
-
     const [sortConfig, setSortConfig] = useState({ key: 'answer_user_name', direction: 'asc' });
     const { t } = useTranslation();
 
@@ -97,6 +95,7 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersAndFeedb
                                     >
                                         {t('summary_level')} {getIndicator('answer_order_nbr')}
                                     </th>
+                                    <th>{t('statistics_table_teacher_feedback')}</th>
                                     <th>{t('statistics_table_header_answers')}</th>
                                 </tr>
                             </thead>
@@ -111,6 +110,14 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersAndFeedb
                                             />
                                         </td>
                                         <td>{getIcon(entry.answer_order_nbr)}</td>
+                                        <td>
+                                            {entry?.feedback_order_nbr !== undefined &&
+                                            entry?.feedback_order_nbr !== null ? (
+                                                <span>{getIcon(entry.feedback_order_nbr)}</span>
+                                            ) : (
+                                                t('statistics_table_teacher_no_feedback')
+                                            )}
+                                        </td>
                                         <td>
                                             <AssignmentAnswersDialog
                                                 reload={reload}
@@ -139,9 +146,10 @@ const TableData = ({ assignmentId, courseTitle, assignmentTopic, answersAndFeedb
     );
 };
 TableData.propTypes = {
-    assignmentId: PropTypes.number.isRequired,
     courseTitle: PropTypes.string.isRequired,
     assignmentTopic: PropTypes.string.isRequired,
+    answersAndFeedbacks: PropTypes.array,
+    reload: PropTypes.func,
 };
 
 export default TableData;

@@ -157,7 +157,6 @@
     "student_from_course_delete_dialog_cancel": "student_from_course_delete_dialog_cancel",
     "student_from_course_delete_ok": "student_from_course_delete_ok",
     "student_from_course_delete_failed": "student_from_course_delete_failed",
-    "teacher_form_assignment_end_label": "teacher_form_assignment_end_label",
     "summary_no_feedback": "summary_no_feedback",
     "summary_feedback_header": "summary_feedback_header",
     "teacher_form_new_saved_notification_success": "teacher_form_new_saved_notification_success",
@@ -198,5 +197,6 @@
     "teacher_forms_table_statistics_title": "teacher_forms_table_statistics_title",
     "student_summary_chart": "student_summary_chart",
     "teacher_forms_statistics_title": "teacher_forms_statistics_title",
-    "answer_evaluation_form_info": "answer_evaluation_form_info"
+    "answer_evaluation_form_info": "answer_evaluation_form_info",
+    "statistics_table_teacher_no_feedback": "statistics_table_teacher_no_feedback"
 }

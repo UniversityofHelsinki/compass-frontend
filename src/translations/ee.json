@@ -197,5 +197,6 @@
     "teacher_forms_table_statistics_title": "teacher_forms_table_statistics_title",
     "student_summary_chart": "student_summary_chart",
     "teacher_forms_statistics_title": "teacher_forms_statistics_title",
-    "answer_evaluation_form_info": "answer_evaluation_form_info"
+    "answer_evaluation_form_info": "answer_evaluation_form_info",
+    "statistics_table_teacher_no_feedback": "statistics_table_teacher_no_feedback"
 }

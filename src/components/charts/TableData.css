@@ -1,5 +1,5 @@
 .pie-chart-item {
-    border: 1px solid ;
+    border: 1px solid;
     padding: 10px;
     margin-top: 20px;
 }
@@ -18,7 +18,7 @@
 .sort-icon {
     width: 12px;
     height: 12px;
-    margin-left: 8px;
+    margin-left: 4px;
     vertical-align: middle;
     transition:
         transform 0.2s,
@@ -31,4 +31,10 @@
 
 .sort-icon .st0 {
     fill: var(--hy-black);
+}
+
+.table th {
+    align-items: center; /* Vertically aligns text and the icon */
+    white-space: nowrap; /* Prevents breaking into multiple lines */
+    flex-direction: row;
 }
