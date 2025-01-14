@@ -187,6 +187,7 @@
     "teacher_form_assignment_topic_label": "teacher_form_assignment_topic_label",
     "teacher_form_assignment_start_label": "teacher_form_assignment_start_label",
     "teacher_form_start_date_can_not_be_empty": "teacher_form_start_date_can_not_be_empty",
+    "teacher_form_assignment_end_label": "teacher_form_assignment_end_label",
     "teacher_form_new_saved_notification_success": "teacher_form_new_saved_notification_success",
     "notification_area_close_button_label": "notification_area_close_button_label",
     "teacher_forms_table_row_share": "teacher_forms_table_row_share",
