@@ -153,7 +153,14 @@ const AssignmentAnswersDialog = ({
                                         ? String(stored?.order_nbr)
                                         : '0'
                                 }
-                                aria-required
+                                aria-label={
+                                    answerLevelMap[
+                                        stored?.order_nbr !== null &&
+                                        stored?.order_nbr !== undefined
+                                            ? stored.order_nbr
+                                            : 0
+                                    ]?.text
+                                }
                             />
                         </Col>
                     </Row>
@@ -216,9 +223,6 @@ const AssignmentAnswersDialog = ({
                             </Col>
                         </Row>
                         <Row className={teacherUser ? 'hidden' : ''}>
-                            <Col as="h5">
-                                <></>
-                            </Col>
                             <Col>
                                 {stored?.feedback_value ? stored?.feedback_value : feedback_value}
                             </Col>
@@ -229,6 +233,7 @@ const AssignmentAnswersDialog = ({
                 <Modal.Footer>
                     <Message
                         type={['light', 'neutral', 'warning'].includes(style) ? style : 'neutral'}
+                        aria-live="assertive"
                     >
                         {t(`${msg}`)}
                     </Message>
