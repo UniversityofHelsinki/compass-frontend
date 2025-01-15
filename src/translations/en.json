@@ -197,5 +197,7 @@
     "course_list_item_period_label": "Date of the course",
     "teacher_form_table_delete_title": "Delete the course",
     "student_feedback_err_message": "Failed to save",
-    "pie_chart_aria_description": "Diagram of the level distribution of the answers to the task"
+    "pie_chart_aria_description": "Diagram of the level distribution of the answers to the task",
+    "statistics_table_teacher_feedback": "Teacher feedback",
+    "statistics_table_teacher_no_feedback": "No feedback"
 }
