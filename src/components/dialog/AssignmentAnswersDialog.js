@@ -45,6 +45,7 @@ const AssignmentAnswersDialog = ({
         setFeedbackvalues,
     ] = useTeacherFeedbackSave(id, course_id, assignment_id, feedback_value, feedback_order_nbr);
     const closeButton = { closeButton: true };
+    const isTooLong = !!(stored?.feedback_value?.length > 3000);
 
     const {
         user: { isTeacher, eppn },
@@ -124,11 +125,11 @@ const AssignmentAnswersDialog = ({
                             {t('answer_dialog_written_feedback_header')}:
                         </Col>
                     </Row>
-                    <Row>
-                        <Col className="written-response-content" lg>
+                    <Row className="divBelow">
+                        <Col lg>
                             <Form.Control
                                 as="textarea"
-                                rows={6}
+                                rows={4}
                                 aria-labelledby="answer-dialog-written-response-header"
                                 onChange={(event) =>
                                     changeValue('feedback_value', event.target.value)
@@ -138,6 +139,14 @@ const AssignmentAnswersDialog = ({
                             ></Form.Control>
                         </Col>
                     </Row>
+                    <div className="customRowDiv">
+                        <div className="warning">
+                            {isTooLong ? t('answer_dialog_feedback_is_too_long') : ''}
+                        </div>
+                        <div className="customRowEnd">
+                            {t('text_area_length')}: {stored?.feedback_value?.length}/3000
+                        </div>
+                    </div>
                     <Row>
                         <label> {t('answer_dialog_feedback_option_header')}</label>
                     </Row>
@@ -153,7 +162,14 @@ const AssignmentAnswersDialog = ({
                                         ? String(stored?.order_nbr)
                                         : '0'
                                 }
-                                aria-required
+                                aria-label={
+                                    answerLevelMap[
+                                        stored?.order_nbr !== null &&
+                                        stored?.order_nbr !== undefined
+                                            ? stored.order_nbr
+                                            : 0
+                                    ]?.text
+                                }
                             />
                         </Col>
                     </Row>
@@ -208,7 +224,12 @@ const AssignmentAnswersDialog = ({
                                     {icon} {text}
                                 </div>
                             </Col>
-                            <Col as="h5" className={teacherUser ? 'hidden' : ''}>
+                        </Row>
+                        <Row>
+                            <Col
+                                as="h5"
+                                className={teacherUser ? 'hidden' : 'assignment-answers-padding'}
+                            >
                                 {t('answer_dialog_feedback_level')}:
                                 <div className="bottom-left-lower-content">
                                     {teacher_icon} {teacher_text}
@@ -216,9 +237,6 @@ const AssignmentAnswersDialog = ({
                             </Col>
                         </Row>
                         <Row className={teacherUser ? 'hidden' : ''}>
-                            <Col as="h5">
-                                <></>
-                            </Col>
                             <Col>
                                 {stored?.feedback_value ? stored?.feedback_value : feedback_value}
                             </Col>
@@ -229,13 +247,14 @@ const AssignmentAnswersDialog = ({
                 <Modal.Footer>
                     <Message
                         type={['light', 'neutral', 'warning'].includes(style) ? style : 'neutral'}
+                        aria-live="assertive"
                     >
                         {t(`${msg}`)}
                     </Message>
                     <HyButton
                         onClick={saveFeedback}
                         variant="primary"
-                        disabled={saveDisabled()}
+                        disabled={saveDisabled() || isTooLong}
                         className={!teacherUser ? 'hidden' : ''}
                     >
                         {t('answer_dialog_feedback_button')}
