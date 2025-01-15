@@ -34,7 +34,7 @@ const CourseStatistics = () => {
         };
 
         updateSelectedCharts();
-    }, [courseStatistics, selectedCharts]);
+    }, [courseStatistics]);
 
     if (loading) {
         return <p>{t('loading')}</p>;
