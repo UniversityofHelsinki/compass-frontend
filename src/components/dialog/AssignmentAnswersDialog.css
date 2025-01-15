@@ -36,3 +36,25 @@
 .form-message {
     font-weight: bold;
 }
+
+.divBelow {
+    margin-bottom: 0px;
+}
+
+.customRowDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.warning {
+    color: #c21f39;
+    font-weight: bold;
+}
+
+.customRowEnd {
+    text-align: end;
+}
+
+.assignment-answers-padding {
+    padding-top: 10px;
+}
