@@ -133,6 +133,7 @@ const TableData = ({ courseTitle, assignmentTopic, answersAndFeedbacks, reload }
                                                 feedback_value={entry?.feedback_value}
                                                 feedback_order_nbr={entry?.feedback_order_nbr}
                                                 feedback_id={entry?.feedbackid}
+                                                feedbackAllowed={true}
                                             />
                                         </td>
                                     </tr>

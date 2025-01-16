@@ -29,6 +29,7 @@ const AssignmentAnswersDialog = ({
     feedback_value,
     feedback_order_nbr,
     feedback_id,
+    feedbackAllowed,
 }) => {
     const [showForm, setShowForm] = useState(false);
     const { t } = useTranslation();
@@ -113,71 +114,66 @@ const AssignmentAnswersDialog = ({
     ];
     const teacherUser = isTeacher && isTeacher !== undefined;
     const feedBackToStudent = (teacherUser) => {
-        if (teacherUser === true) {
-            return (
-                <>
-                    <Row>
-                        <Col
-                            as="h5"
-                            id="answer-dialog-written-response-header"
-                            className="written-response-header"
-                        >
-                            {t('answer_dialog_written_feedback_header')}:
-                        </Col>
-                    </Row>
-                    <Row className="divBelow">
-                        <Col lg>
-                            <Form.Control
-                                as="textarea"
-                                rows={4}
-                                aria-labelledby="answer-dialog-written-response-header"
-                                onChange={(event) =>
-                                    changeValue('feedback_value', event.target.value)
-                                }
-                                value={stored?.feedback_value ?? ''}
-                                aria-disabled="false"
-                            ></Form.Control>
-                        </Col>
-                    </Row>
-                    <div className="customRowDiv">
-                        <div className="warning">
-                            {isTooLong ? t('answer_dialog_feedback_is_too_long') : ''}
-                        </div>
-                        <div className="customRowEnd">
-                            {t('text_area_length')}: {stored?.feedback_value?.length}/3000
-                        </div>
+        return (
+            <>
+                <Row>
+                    <Col
+                        as="h5"
+                        id="answer-dialog-written-response-header"
+                        className="written-response-header"
+                    >
+                        {t('answer_dialog_written_feedback_header')}:
+                    </Col>
+                </Row>
+                <Row className="divBelow">
+                    <Col lg>
+                        <Form.Control
+                            disabled={!feedbackAllowed}
+                            as="textarea"
+                            rows={4}
+                            aria-labelledby="answer-dialog-written-response-header"
+                            onChange={(event) => changeValue('feedback_value', event.target.value)}
+                            value={stored?.feedback_value ?? ''}
+                            aria-disabled="false"
+                        ></Form.Control>
+                    </Col>
+                </Row>
+                <div className="customRowDiv">
+                    <div className="warning">
+                        {isTooLong ? t('answer_dialog_feedback_is_too_long') : ''}
                     </div>
-                    <Row>
-                        <label> {t('answer_dialog_feedback_option_header')}</label>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <RadioButtonGroup
-                                inline
-                                answerNotFound={!radioButtonClicked}
-                                options={answerLevelArray}
-                                onChange={changeValue}
-                                value={
+                    <div className="customRowEnd">
+                        {t('text_area_length')}: {stored?.feedback_value?.length}/3000
+                    </div>
+                </div>
+                <Row>
+                    <label> {t('answer_dialog_feedback_option_header')}</label>
+                </Row>
+                <Row>
+                    <Col>
+                        <RadioButtonGroup
+                            disabled={!feedbackAllowed}
+                            inline
+                            answerNotFound={!radioButtonClicked}
+                            options={answerLevelArray}
+                            onChange={changeValue}
+                            value={
+                                stored?.order_nbr !== null && stored?.order_nbr !== undefined
+                                    ? String(stored?.order_nbr)
+                                    : '0'
+                            }
+                            aria-label={
+                                answerLevelMap[
                                     stored?.order_nbr !== null && stored?.order_nbr !== undefined
-                                        ? String(stored?.order_nbr)
-                                        : '0'
-                                }
-                                aria-label={
-                                    answerLevelMap[
-                                        stored?.order_nbr !== null &&
-                                        stored?.order_nbr !== undefined
-                                            ? stored.order_nbr
-                                            : 0
-                                    ]?.text
-                                }
-                            />
-                        </Col>
-                    </Row>
-                </>
-            );
-        } else {
-            return <></>;
-        }
+                                        ? stored.order_nbr
+                                        : 0
+                                ]?.text
+                            }
+                        />
+                    </Col>
+                </Row>
+            </>
+        );
     };
 
     return (
