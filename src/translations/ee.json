@@ -198,6 +198,6 @@
     "view": "Vaata",
     "teacher_forms_statistics_title": "Vaata statistikat",
     "answer_evaluation_form_info": "Palun loe tagasisidet ja võrdle seda oma vastusega. Kui sul on tunne, et sinu vastus ja tagasisdie ei lähe kokku, siis mnine tagasi ja muuda oma vastust - sa võid täiendada oma kirjalikku reflesiooni või valida teise väite oma arusaamise kohta.",
-    "statistics_table_teacher_feedback": "statistics_table_teacher_feedback",
-    "statistics_table_teacher_no_feedback": "statistics_table_teacher_no_feedback"
+    "statistics_table_teacher_feedback": "Juhendaja tagasiside",
+    "statistics_table_teacher_no_feedback": "Tagasiside puudub"
 }
