@@ -123,7 +123,7 @@ const Row = ({ teacherForm }) => {
         </div>
     );
 
-    const actions = [<Copy />, <Edit />, <Delete />, <Statistics />, <Share />, <StudentList />];
+    const actions = [<Edit />, <Copy />, <Delete />, <Statistics />, <Share />, <StudentList />];
 
     const period = (startDate, endDate) => {
         return (
