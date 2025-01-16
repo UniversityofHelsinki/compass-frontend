@@ -193,11 +193,11 @@
     "footer_compass_instructions_link_label": "Käyttöohjeet",
     "teacher_forms_table_statistics_title": "Katso ja vertaile kurssin tehtävien statistiikkaa",
     "student_summary_chart": "Vastausten yhteenveto",
-    "summary_description": "summary_description",
-    "summary_description_link": "summary_description_link",
-    "view": "view",
-    "teacher_forms_statistics_title": "teacher_forms_statistics_title",
-    "answer_evaluation_form_info": "answer_evaluation_form_info",
+    "summary_description": "Kuvaus",
+    "summary_description_link": "Katso",
+    "view": "Katso",
+    "teacher_forms_statistics_title": "Katso statistiikka",
+    "answer_evaluation_form_info": "Lue palaute ja vertaa vastaustasi siihen. Jos koet, että palaute ei sovi vastaukseesi, voit palata ja muuttaa vastaustasi - voit joko muuttaa tekstiäsi tai valita toisen tason kuvaamaan ymmärtämistäsi.",
     "statistics_table_teacher_feedback": "Opettajan palaute",
     "statistics_table_teacher_no_feedback": "Ei palautetta"
 }
