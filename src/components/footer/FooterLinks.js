@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import ExternalLink from '../utilities/ExternalLink';
 import Feedback from './Feedback';
 import './FooterLinks.css';
-import ReleaseNotesDialog from '../dialog/ReleaseNotesDialog';
 
 const FooterLinks = () => {
     const { t } = useTranslation();
@@ -44,9 +43,6 @@ const FooterLinks = () => {
                     to="mailto:self-reflection-compass@helsinki.fi"
                     label={t('footer_compass_feedback')}
                 />
-            </li>
-            <li>
-                <ReleaseNotesDialog label={t('footer_release_notes_label')} />
             </li>
         </ul>
     );
