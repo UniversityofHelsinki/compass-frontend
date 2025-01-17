@@ -29,6 +29,7 @@ const AssignmentAnswersDialog = ({
     feedback_value,
     feedback_order_nbr,
     feedback_id,
+    feedbackAllowed,
 }) => {
     const [showForm, setShowForm] = useState(false);
     const { t } = useTranslation();
@@ -113,8 +114,8 @@ const AssignmentAnswersDialog = ({
     ];
     const teacherUser = isTeacher && isTeacher !== undefined;
     const feedBackToStudent = (teacherUser) => {
-        if (teacherUser === true) {
-            return (
+        return (
+            (teacherUser && feedbackAllowed && (
                 <>
                     <Row>
                         <Col
@@ -128,6 +129,7 @@ const AssignmentAnswersDialog = ({
                     <Row className="divBelow">
                         <Col lg>
                             <Form.Control
+                                disabled={!feedbackAllowed}
                                 as="textarea"
                                 rows={4}
                                 aria-labelledby="answer-dialog-written-response-header"
@@ -153,6 +155,7 @@ const AssignmentAnswersDialog = ({
                     <Row>
                         <Col>
                             <RadioButtonGroup
+                                disabled={!feedbackAllowed}
                                 inline
                                 answerNotFound={!radioButtonClicked}
                                 options={answerLevelArray}
@@ -174,10 +177,8 @@ const AssignmentAnswersDialog = ({
                         </Col>
                     </Row>
                 </>
-            );
-        } else {
-            return <></>;
-        }
+            )) || <></>
+        );
     };
 
     return (

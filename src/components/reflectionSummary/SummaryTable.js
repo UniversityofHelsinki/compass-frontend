@@ -82,6 +82,7 @@ const SummaryRow = ({ course, reload, assignment }) => {
                     feedback_value={assignment?.feedback_value}
                     feedback_order_nbr={assignment?.feedback_order_nbr}
                     feedback_id={assignment?.feedbackid}
+                    feedbackAllowed={false}
                 />
             </td>
         </tr>
