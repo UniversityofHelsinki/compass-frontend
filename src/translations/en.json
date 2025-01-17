@@ -136,7 +136,7 @@
     "student_from_course_delete_failed": "Delete failed",
     "teacher_form_assignment_topic_placeholder": "Topic",
     "teacher_form_assignment_topic_can_not_be_empty": "Assigment topic cannot be empty.",
-    "teacher_form_start_date_after_end_date": "Course start date cannot start before course end date.",
+    "teacher_form_start_date_after_end_date": "Course start date must be before course end date.",
     "teacher_form_end_date_can_not_be_empty": "End date cannot be empty.",
     "teacher_form_assignment_start_date_can_not_be_empty": "Assignment start date cannot be empty.",
     "teacher_form_assignment_end_date_can_not_be_empty": "Assignment end date cannot be empty.",
