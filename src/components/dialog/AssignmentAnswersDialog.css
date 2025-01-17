@@ -10,6 +10,10 @@
     margin-top: 0.5em;
 }
 
+.bottom-padding-content {
+    padding-bottom: 20px;
+}
+
 .bottom-left-lower-content svg {
     margin-left: 1px;
     top: -5px;

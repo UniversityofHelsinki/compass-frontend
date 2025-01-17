@@ -221,7 +221,7 @@ const AssignmentAnswersDialog = ({
                         <Row>
                             <Col as="h5">
                                 {t('answer_dialog_footer_level')}:
-                                <div className="bottom-left-lower-content">
+                                <div className="bottom-left-lower-content bottom-padding-content">
                                     {icon} {text}
                                 </div>
                             </Col>
