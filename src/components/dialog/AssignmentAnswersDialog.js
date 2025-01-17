@@ -146,7 +146,7 @@ const AssignmentAnswersDialog = ({
                             {isTooLong ? t('answer_dialog_feedback_is_too_long') : ''}
                         </div>
                         <div className="customRowEnd">
-                            {t('text_area_length')}: {stored?.feedback_value?.length}/3000
+                            {t('text_area_length')}: {stored?.feedback_value?.length || 0}/3000
                         </div>
                     </div>
                     <Row>
