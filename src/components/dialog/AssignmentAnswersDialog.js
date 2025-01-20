@@ -246,6 +246,8 @@ const AssignmentAnswersDialog = ({
                                         stored?.feedback_value
                                             ? stored?.feedback_value
                                             : feedback_value
+                                              ? feedback_value
+                                              : t('answer_dialog_no_feedback')
                                     }
                                     aria-label={t('answer_dialog_feedback_level')}
                                 ></FormControl>

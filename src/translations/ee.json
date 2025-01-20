@@ -175,6 +175,7 @@
     "answer_dialog_footer_level": "Arusaamise tase",
     "answer_dialog_close_button": "Sulge",
     "answer_dialog_feedback_level": "Juhendaja tagasiside",
+    "answer_dialog_no_feedback": "answer_dialog_no_feedback",
     "answer_dialog_written_feedback_header": "Tagasiside vastusele",
     "answer_dialog_feedback_button": "Salvesta tagasiside",
     "answer_dialog_feedback_option_header": "Vali tase, mis sinu arvates kõige paremini kirjeldab õppija praegust arusaamist",

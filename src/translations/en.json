@@ -167,6 +167,7 @@
     "answer_dialog_feedback_button": "Save feedback",
     "answer_dialog_feedback_is_too_long": "Feedback is too long",
     "answer_dialog_feedback_level": "Teacher's evaluation for level of understanding",
+    "answer_dialog_no_feedback": "The teacher has not left you feedback.",
     "student_feedback_message": "Feedback saved",
     "summary_feedback_header": "Teacher's evaluation",
     "summary_no_feedback": "No feedback",
