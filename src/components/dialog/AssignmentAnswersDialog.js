@@ -1,6 +1,6 @@
 import HyButton from '../utilities/HyButton';
 import React, { useState } from 'react';
-import { Col, Container, Form, Modal, Row } from 'react-bootstrap';
+import { Col, Container, Form, FormControl, Modal, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import FormDialog from '../dialog/FormDialog';
 import PropTypes from 'prop-types';
@@ -131,7 +131,7 @@ const AssignmentAnswersDialog = ({
                             <Form.Control
                                 disabled={!feedbackAllowed}
                                 as="textarea"
-                                rows={4}
+                                rows={5}
                                 aria-labelledby="answer-dialog-written-response-header"
                                 onChange={(event) =>
                                     changeValue('feedback_value', event.target.value)
@@ -194,8 +194,8 @@ const AssignmentAnswersDialog = ({
                         <Row>
                             <Col as="h5">{courseTitle}</Col>
                         </Row>
-                        <Row>
-                            <Col as="h5">{assignmentTopic}</Col>
+                        <Row className="assignment-topic-header-row">
+                            <Col as="h6">{assignmentTopic}</Col>
                         </Row>
                         <Row>
                             <Col
@@ -218,12 +218,14 @@ const AssignmentAnswersDialog = ({
                                 ></Form.Control>
                             </Col>
                         </Row>
-                        <Row>
-                            <Col as="h5">
+                        <Row className="assignment-answer-level-row">
+                            <Col as="h6">
                                 {t('answer_dialog_footer_level')}:
-                                <div className="bottom-left-lower-content bottom-padding-content">
-                                    {icon} {text}
-                                </div>
+                                <span className="bottom-left-lower-content bottom-padding-content">
+                                    {icon}
+                                    {text}
+                                </span>
+                                <hr className="assignment-answers-divider"></hr>
                             </Col>
                         </Row>
                         <Row>
@@ -232,14 +234,28 @@ const AssignmentAnswersDialog = ({
                                 className={teacherUser ? 'hidden' : 'assignment-answers-padding'}
                             >
                                 {t('answer_dialog_feedback_level')}:
-                                <div className="bottom-left-lower-content">
-                                    {teacher_icon} {teacher_text}
-                                </div>
                             </Col>
                         </Row>
                         <Row className={teacherUser ? 'hidden' : ''}>
                             <Col>
-                                {stored?.feedback_value ? stored?.feedback_value : feedback_value}
+                                <FormControl
+                                    as="textarea"
+                                    rows={6}
+                                    disabled
+                                    value={
+                                        stored?.feedback_value
+                                            ? stored?.feedback_value
+                                            : feedback_value
+                                    }
+                                    aria-label={t('answer_dialog_feedback_level')}
+                                ></FormControl>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col as="h6">
+                                <span className={teacherUser ? 'hidden' : 'feedback-level'}>
+                                    Ymmärtämisen taso: {teacher_icon} {teacher_text}
+                                </span>
                             </Col>
                         </Row>
                         {feedBackToStudent(teacherUser)}

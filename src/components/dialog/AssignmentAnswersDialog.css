@@ -15,11 +15,12 @@
 }
 
 .bottom-left-lower-content svg {
-    margin-left: 1px;
-    top: -5px;
+    margin-left: 10px;
+    margin-right: 5px;
+    top: -4px;
     position: relative;
-    width: 17px;
-    height: 17px;
+    width: 16px;
+    height: 16px;
 }
 
 .assignment-answers-list-item-link {
@@ -42,7 +43,7 @@
 }
 
 .divBelow {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .customRowDiv {
@@ -60,5 +61,27 @@
 }
 
 .assignment-answers-padding {
-    padding-top: 10px;
+    padding-top: 30px;
+}
+
+.assignment-topic-header-row {
+    padding-bottom: 1em;
+}
+
+.assignment-answer-level-row {
+    padding-bottom: 1em;
+}
+
+.assignment-answers-divider {
+    border-top: 1px solid var(--hy-dark-gray);
+}
+
+.feedback-level svg {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 1em;
+    top: -4px;
+    position: relative;
+    width: 16px;
+    height: 16px;
 }
