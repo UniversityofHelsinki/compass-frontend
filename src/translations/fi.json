@@ -204,12 +204,12 @@
     "footer_compass_instructions_link_label": "Käyttöohjeet",
     "footer_accessibility_statement_link_label": "Saavutettavuusseloste",
     "footer_compass_feedback": "Anna palautetta",
-    "footer_compass_link_label": "Tietosuojailmoitus",
+    "footer_compass_data_protection_statement_link_label": "Tietosuojailmoitus",
     "footer_hy_address_line_1": "PL 4 (Yliopistonkatu 3)",
     "footer_hy_address_line_2": "00014 Helsingin yliopisto",
     "footer_hy_phone_switchboard": "Puhelinvaihde: 02941 911",
     "footer_contact_info_link": "https://helpdesk.it.helsinki.fi/help/7003",
-    "footer_compass_link": "footer_compass_link",
+    "footer_compass_data_protection_statement_link": "https://www.helsinki.fi/fi/tutustu-meihin/tietojen-kasittely-yliopistolla/tietosuoja",
     "footer_accessibility_statement_link": "footer_accessibility_statement_link",
     "opens_in_new_tab": "Avautuu uuteen välilehteen"
 }

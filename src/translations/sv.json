@@ -204,12 +204,12 @@
     "footer_compass_instructions_link_label": "Instruktioner",
     "footer_accessibility_statement_link_label": "Tillgänglighetsutlåtande",
     "footer_compass_feedback": "Ge respons",
-    "footer_compass_link_label": "Dataskyddsmeddelande",
+    "footer_compass_data_protection_statement_link_label": "Dataskyddsmeddelande",
     "footer_hy_address_line_1": "PB 4 (Universitetsgatan 3)",
     "footer_hy_address_line_2": "00014 Helsingfors universitet",
     "footer_hy_phone_switchboard": "Telefonväxel: 02941 911",
     "footer_contact_info_link": "https://helpdesk.it.helsinki.fi/sv/help/7003",
-    "footer_compass_link": "footer_compass_link",
+    "footer_compass_data_protection_statement_link": "https://www.helsinki.fi/sv/om-oss/behandling-av-uppgifter-vid-universitetet/dataskydd",
     "footer_accessibility_statement_link": "footer_accessibility_statement_link",
     "opens_in_new_tab": "Öppnas i ny flik"
 }

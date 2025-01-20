@@ -204,12 +204,12 @@
     "footer_compass_instructions_link_label": "Instructions",
     "footer_accessibility_statement_link_label": "Accessibility statement",
     "footer_compass_feedback": "Give feedback",
-    "footer_compass_link_label": "Data protection statement",
+    "footer_compass_data_protection_statement_link_label": "Data protection statement",
     "footer_hy_address_line_1": "PO Box 4 (Yliopistonkatu 3)",
     "footer_hy_address_line_2": "FI-00014 University of Helsinki",
     "footer_hy_phone_switchboard": "Telephone exchange: +358 (0)2 941 911",
     "footer_contact_info_link": "https://helpdesk.it.helsinki.fi/en/help/7003",
-    "footer_compass_link": "data-protection-statement",
+    "footer_compass_data_protection_statement_link": "https://www.helsinki.fi/en/about-us/processing-data-university/data-protection",
     "footer_accessibility_statement_link": "accessibility-statement",
     "opens_in_new_tab": "Opens in new tab"
 }
