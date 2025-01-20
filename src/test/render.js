@@ -12,7 +12,11 @@ import NotificationProvider from '../NotificationContext';
 
 const router = (ui) =>
     createBrowserRouter(
-        createRoutesFromElements(<Route path="/" element={ui} errorElement={<p>error</p>}></Route>),
+        createRoutesFromElements(
+            <Route path="/" element={ui} errorElement={<p>error</p>}>
+                <Route path="/teacher/forms" element={<span>/teacher/forms</span>} />
+            </Route>,
+        ),
     );
 
 const Mock = ({ children, mockReducers }) => {
