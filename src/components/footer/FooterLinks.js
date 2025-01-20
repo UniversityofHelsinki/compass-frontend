@@ -16,12 +16,6 @@ const FooterLinks = () => {
             </li>
             <li>
                 <ExternalLink
-                    to={t('footer_terms_of_use_link')}
-                    label={t('footer_terms_of_use_link_label')}
-                />
-            </li>
-            <li>
-                <ExternalLink
                     to={'/instructions'}
                     label={t('footer_compass_instructions_link_label')}
                 />

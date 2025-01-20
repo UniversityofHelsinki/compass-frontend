@@ -201,7 +201,6 @@
     "statistics_table_teacher_no_feedback": "No feedback",
     "footer_hy": "University of Helsinki",
     "footer_contact_info_link_label": "Contact information",
-    "footer_terms_of_use_link_label": "Terms of use",
     "footer_compass_instructions_link_label": "Instructions",
     "footer_accessibility_statement_link_label": "Accessibility statement",
     "footer_compass_feedback": "Give feedback",
@@ -210,7 +209,6 @@
     "footer_hy_address_line_2": "FI-00014 University of Helsinki",
     "footer_hy_phone_switchboard": "Telephone exchange: +358 (0)2 941 911",
     "footer_contact_info_link": "https://helpdesk.it.helsinki.fi/en/help/7003",
-    "footer_terms_of_use_link": "terms-of-use",
     "footer_compass_link": "data-protection-statement",
     "footer_accessibility_statement_link": "accessibility-statement",
     "opens_in_new_tab": "Opens in new tab"

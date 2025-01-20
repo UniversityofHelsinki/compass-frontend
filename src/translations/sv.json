@@ -190,7 +190,6 @@
     "summary_table_aria_description": "Sammandrag av svar",
     "pie_chart_aria_description": "pie_chart_aria_description",
     "instructions_heading": "instructions_heading",
-    "footer_compass_instructions_link_label": "footer_compass_instructions_link_label",
     "teacher_forms_table_statistics_title": "teacher_forms_table_statistics_title",
     "student_summary_chart": "student_summary_chart",
     "summary_description": "Description",
@@ -202,7 +201,6 @@
     "statistics_table_teacher_no_feedback": "Ingen feedback",
     "footer_hy": "Helsingfors universitet",
     "footer_contact_info_link_label": "Kontaktuppgifter",
-    "footer_terms_of_use_link_label": "Användningsvillkor",
     "footer_compass_instructions_link_label": "Instruktioner",
     "footer_accessibility_statement_link_label": "Tillgänglighetsutlåtande",
     "footer_compass_feedback": "Ge respons",
@@ -211,7 +209,6 @@
     "footer_hy_address_line_2": "00014 Helsingfors universitet",
     "footer_hy_phone_switchboard": "Telefonväxel: 02941 911",
     "footer_contact_info_link": "https://helpdesk.it.helsinki.fi/sv/help/7003",
-    "footer_terms_of_use_link": "footer_terms_of_use_link",
     "footer_compass_link": "footer_compass_link",
     "footer_accessibility_statement_link": "footer_accessibility_statement_link",
     "opens_in_new_tab": "Öppnas i ny flik"

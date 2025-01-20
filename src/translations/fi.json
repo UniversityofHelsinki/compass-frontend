@@ -201,7 +201,6 @@
     "statistics_table_teacher_no_feedback": "Ei palautetta",
     "footer_hy": "Helsingin yliopisto",
     "footer_contact_info_link_label": "Yhteystiedot",
-    "footer_terms_of_use_link_label": "Käyttöehdot",
     "footer_compass_instructions_link_label": "Käyttöohjeet",
     "footer_accessibility_statement_link_label": "Saavutettavuusseloste",
     "footer_compass_feedback": "Anna palautetta",
@@ -210,7 +209,6 @@
     "footer_hy_address_line_2": "00014 Helsingin yliopisto",
     "footer_hy_phone_switchboard": "Puhelinvaihde: 02941 911",
     "footer_contact_info_link": "https://helpdesk.it.helsinki.fi/help/7003",
-    "footer_terms_of_use_link": "footer_terms_of_use_link",
     "footer_compass_link": "footer_compass_link",
     "footer_accessibility_statement_link": "footer_accessibility_statement_link",
     "opens_in_new_tab": "Avautuu uuteen välilehteen"
