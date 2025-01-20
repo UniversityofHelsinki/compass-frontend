@@ -82,6 +82,12 @@ ul.assignments-list {
     padding-left: unset;
 }
 
+.assignments-header-empty {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--huds-grayscale-light);
+}
+
 .assignments-list-item {
     display: flex;
     flex-direction: column;
