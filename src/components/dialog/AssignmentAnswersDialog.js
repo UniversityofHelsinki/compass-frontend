@@ -254,7 +254,8 @@ const AssignmentAnswersDialog = ({
                         <Row>
                             <Col as="h6">
                                 <span className={teacherUser ? 'hidden' : 'feedback-level'}>
-                                    Ymmärtämisen taso: {teacher_icon} {teacher_text}
+                                    {t('answer_dialog_teacher_level_feedback')} {teacher_icon}{' '}
+                                    {teacher_text}
                                 </span>
                             </Col>
                         </Row>
