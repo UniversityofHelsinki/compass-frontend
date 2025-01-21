@@ -104,7 +104,8 @@ Identifier.propTypes = {
 };
 
 const StartDate = ({ onChange, value, validationError }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const currentLanguage = i18n.language;
     const id = useId();
     const validationErrorId = useId();
     const validationAttributes = validationError
@@ -122,6 +123,7 @@ const StartDate = ({ onChange, value, validationError }) => {
                 ref={ref}
                 date={value}
                 onChange={onChange}
+                locale={currentLanguage}
                 {...validationAttributes}
             />
             <ValidationMessage id={validationErrorId}>{t(validationError)}</ValidationMessage>
@@ -130,12 +132,14 @@ const StartDate = ({ onChange, value, validationError }) => {
 };
 StartDate.propTypes = {
     onChange: PropTypes.func,
+    locale: PropTypes.string,
     value: PropTypes.string,
     validationError: PropTypes.string,
 };
 
 const EndDate = ({ onChange, value, validationError }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const currentLanguage = i18n.language;
     const id = useId();
     const ref = useRef();
     const validationErrorId = useId();
@@ -153,6 +157,7 @@ const EndDate = ({ onChange, value, validationError }) => {
                 ref={ref}
                 date={value}
                 onChange={onChange}
+                locale={currentLanguage}
                 {...validationAttributes}
             />
             <ValidationMessage id={validationErrorId}>{t(validationError)}</ValidationMessage>
@@ -163,6 +168,7 @@ const EndDate = ({ onChange, value, validationError }) => {
 EndDate.propTypes = {
     onChange: PropTypes.func,
     value: PropTypes.string,
+    locale: PropTypes.string,
     validationError: PropTypes.string,
 };
 
@@ -174,7 +180,8 @@ const Assignment = ({
     validationError,
     onAssignmentRemove,
 }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const currentLanguage = i18n.language;
 
     const type = (() => {
         if (!assignment.id) {
@@ -249,6 +256,7 @@ const Assignment = ({
                     aria-label={t('teacher_form_assignment_start_label')}
                     date={assignment.start_date}
                     onChange={(date) => handleChange('start_date', date)}
+                    locale={currentLanguage}
                     {...validationAttributes[1]}
                     disabled={type === 'past'}
                 />
@@ -268,6 +276,7 @@ const Assignment = ({
                     id={`assignment-end-date-${ordinal}`}
                     date={assignment.end_date}
                     onChange={(date) => handleChange('end_date', date)}
+                    locale={currentLanguage}
                     {...validationAttributes[2]}
                     disabled={type === 'past'}
                 />
@@ -294,6 +303,7 @@ const Assignment = ({
 };
 Assignment.propTypes = {
     onChange: PropTypes.func,
+    locale: PropTypes.string,
     assignment: PropTypes.object,
     ordinal: PropTypes.number,
     teacherForm: PropTypes.object,
