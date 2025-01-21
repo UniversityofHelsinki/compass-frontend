@@ -1,6 +1,16 @@
 import React from 'react';
-import { render } from '../../test/render';
+import { render, act, screen } from '../../test/render';
+import NotificationArea from '../utilities/NotificationArea';
 import TeacherFormDelete from './TeacherFormDelete';
+
+jest.mock('react-router-dom', () => {
+    const original = jest.requireActual('react-router-dom');
+    return {
+        __esModule: true,
+        ...original,
+        useParams: () => ({ course: 123 }),
+    };
+});
 
 const course = {
     id: 'AAA',
@@ -8,8 +18,20 @@ const course = {
 };
 
 const r = (props = {}) => {
+    window.fetch = jest.fn().mockImplementation(async (path, options) => {
+        return {
+            clone: () => ({
+                ok: true,
+                status: 200,
+                json: async () => course,
+            }),
+        };
+    });
     return render(
-        <TeacherFormDelete {...props} />,
+        <div>
+            <TeacherFormDelete {...props} />
+            <NotificationArea />
+        </div>,
         {},
         {
             teacher: {
@@ -19,14 +41,18 @@ const r = (props = {}) => {
     );
 };
 
-it('renders', () => {
-    r();
+it('renders', async () => {
+    await act(async () => {
+        r();
+    });
 });
 
 describe('TeacherFormDelete', () => {
     let component;
-    beforeEach(() => {
-        component = r();
+    beforeEach(async () => {
+        await act(async () => {
+            component = r();
+        });
     });
 
     test('has back button', () => {
@@ -47,5 +73,19 @@ describe('TeacherFormDelete', () => {
 
     test('Cancel button is present', () => {
         expect(component.queryByText('teacher_form_delete_cancel_button_label')).toBeTruthy();
+    });
+
+    test('Delete button sends DELETE request', async () => {
+        window.fetch = jest.fn().mockImplementation(async (path, options) => {
+            return {
+                clone: () => ({ ok: true, body: course }),
+            };
+        });
+
+        const deleteBtn = screen.queryByRole('button', {
+            name: 'teacher_form_delete_delete_button_label',
+        });
+        await component.user.click(deleteBtn);
+        expect(document.querySelector('.notification-area')).toBeInTheDocument();
     });
 });
