@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import ReactDatePicker, {
-    getDefaultLocale,
-    registerLocale,
-    setDefaultLocale,
-} from 'react-datepicker';
+import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { fi } from 'date-fns/locale/fi';
+import { enGB } from 'date-fns/locale/en-GB';
+import { sv } from 'date-fns/locale/sv';
+import { et } from 'date-fns/locale/et';
 import 'react-datepicker/dist/react-datepicker.css';
 import './DatePicker.css';
 
 registerLocale('fi', fi);
-setDefaultLocale('fi');
+registerLocale('en', enGB);
+registerLocale('sv', sv);
+registerLocale('ee', et);
 
 const DatePicker = React.forwardRef(
     (
         {
             date,
             onChange,
+            locale,
             'aria-errormessage': ariaErrorMessage,
             'aria-invalid': ariaInvalid,
             ...rest
@@ -24,6 +26,13 @@ const DatePicker = React.forwardRef(
         ref,
     ) => {
         const [value, setValue] = useState(date);
+        const [localeLanguage, setLocaleLanguage] = useState('fi');
+
+        useEffect(() => {
+            if (locale) {
+                setLocaleLanguage(locale);
+            }
+        }, [locale]);
 
         if (ref.current) {
             if (ariaErrorMessage && ariaInvalid) {
@@ -48,7 +57,7 @@ const DatePicker = React.forwardRef(
                 <ReactDatePicker
                     ref={ref}
                     dateFormat="d.M.yyyy"
-                    locale="fi"
+                    locale={localeLanguage}
                     selected={(date && new Date(date)) || ''}
                     onChange={handleChange}
                     {...rest}
@@ -61,6 +70,7 @@ const DatePicker = React.forwardRef(
 DatePicker.propTypes = {
     date: PropTypes.string,
     onChange: PropTypes.func,
+    locale: PropTypes.string,
 };
 
 export default DatePicker;
