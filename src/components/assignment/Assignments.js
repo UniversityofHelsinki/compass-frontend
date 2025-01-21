@@ -79,6 +79,12 @@ const Assignments = () => {
         return <></>;
     }
 
+    const dueAssignmentsHeader = () => {
+        if (dueAssignments.length > 0) return t('assignments_due');
+
+        return <div className="assignments-header-empty">{t('assignments_no_ongoing')}</div>;
+    };
+
     return (
         <>
             <TopBar
@@ -89,7 +95,7 @@ const Assignments = () => {
             ></TopBar>
             <div className="m-3"></div>
             <div className="responsive-margins">
-                <h3>{t('assignments_due')}</h3>
+                <h3>{dueAssignmentsHeader()}</h3>
 
                 <ul className="assignments-list">
                     {dueAssignments.map((assignment) => (
