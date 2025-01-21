@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import ReactDatePicker, {
-    getDefaultLocale,
-    registerLocale,
-    setDefaultLocale,
-} from 'react-datepicker';
+import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import { fi } from 'date-fns/locale/fi';
 import { enGB } from 'date-fns/locale/en-GB';
 import { sv } from 'date-fns/locale/sv';
