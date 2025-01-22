@@ -5,7 +5,11 @@ import { render, screen } from '../../test/render.js';
 
 describe('TeacherFormDelete', () => {
     it('has no accessibility violations', async () => {
-        const { container, rerender } = render(<TeacherFormDelete />);
+        const { container, rerender } = render(
+            <TeacherFormDelete />,
+            {},
+            { teacher: { course: { title: 'AAA', id: 123 } } },
+        );
         const results = await axe(container);
         expect(results).toHaveNoViolations();
     });

@@ -9,11 +9,13 @@ import {
 import { MockProvider } from './../reducers/MockProvider';
 import userEvent from '@testing-library/user-event';
 import NotificationProvider from '../NotificationContext';
+import { AuthProvider } from '../AuthContext';
+import ErrorPage from '../Error';
 
 const router = (ui) =>
     createBrowserRouter(
         createRoutesFromElements(
-            <Route path="/" element={ui} errorElement={<p>error</p>}>
+            <Route path="/" element={ui} errorElement={<ErrorPage />}>
                 <Route path="/teacher/forms" element={<span>/teacher/forms</span>} />
             </Route>,
         ),
@@ -22,17 +24,28 @@ const router = (ui) =>
 const Mock = ({ children, mockReducers }) => {
     return (
         <MockProvider mockReducers={mockReducers}>
-            <NotificationProvider>
-                <RouterProvider router={router(children)} />
-            </NotificationProvider>
+            <AuthProvider>
+                <NotificationProvider>
+                    <RouterProvider router={router(children)} />
+                </NotificationProvider>
+            </AuthProvider>
         </MockProvider>
     );
+};
+
+const wrapper = (mockReducers) => {
+    return function Component({ children }) {
+        return <Mock mockReducers={mockReducers}>{children}</Mock>;
+    };
 };
 
 const render = (ui, options = {}, mockReducers = {}) => {
     return {
         user: userEvent.setup(),
-        ...testingLibraryRender(<Mock mockReducers={mockReducers}>{ui}</Mock>, { ...options }),
+        ...testingLibraryRender(ui, {
+            wrapper: wrapper(mockReducers),
+            ...options,
+        }),
     };
 };
 
