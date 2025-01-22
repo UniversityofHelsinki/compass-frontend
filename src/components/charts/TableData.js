@@ -53,7 +53,7 @@ const TableData = ({ courseTitle, assignmentTopic, answersAndFeedbacks, reload }
     };
 
     const getIcon = (entry) => {
-        const style = HyColors.white;
+        const style = HyColors.black;
 
         switch (parseInt(entry)) {
             case 0:
