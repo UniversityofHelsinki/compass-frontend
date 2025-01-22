@@ -1,3 +1,7 @@
 svg.footer-external-link-icon * {
     fill: var(--hy-white);
 }
+
+.external-link-style {
+    padding-right: 8px
+}

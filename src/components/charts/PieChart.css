@@ -23,3 +23,8 @@
         max-width: none;
     }
 }
+
+.pie-chart-description {
+    width: 100%;
+    height: 500px
+}
