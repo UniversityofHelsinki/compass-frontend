@@ -1,8 +1,10 @@
 import React from 'react';
+import { mockFetch } from '../../test/mockFetch.js';
 import { act, render, renderHook } from '../../test/render.js';
 import { invalidate } from '../useHttp.js';
 import useTeacherForms from './useTeacherForms.js';
 
+const fetchMock = mockFetch();
 describe('useTeacherForms', () => {
     const courses = [];
 
@@ -16,30 +18,8 @@ describe('useTeacherForms', () => {
     };
 
     beforeEach(() => {
-        window.fetch = jest.fn().mockImplementation(async (path, options) => {
-            if (path === '/api/user') {
-                return {
-                    ok: true,
-                    status: 200,
-                    json: async () => ({
-                        eppn: 'baabenom',
-                        hyGroupCn: ['hy-employees', 'hyad-employees'],
-                        preferredLanguage: '',
-                        displayName: 'Baabe Nomypeevo',
-                        eduPersonAffiliation: ['faculty'],
-                    }),
-                };
-            }
-            return {
-                ok: true,
-                status: 200,
-                clone: () => ({
-                    ok: true,
-                    status: 200,
-                    json: async () => courses,
-                }),
-            };
-        });
+        fetchMock.addPath('/api/teacher/courses', courses);
+        window.fetch = fetchMock.build();
     });
 
     test('Makes a single request to /api/teacher/courses', async () => {

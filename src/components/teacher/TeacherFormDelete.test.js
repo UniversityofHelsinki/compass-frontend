@@ -1,32 +1,22 @@
 import React from 'react';
+import { mockFetch } from '../../test/mockFetch';
+import { mockRouter } from '../../test/reactRouter';
 import { render, act, screen } from '../../test/render';
 import NotificationArea from '../utilities/NotificationArea';
 import TeacherFormDelete from './TeacherFormDelete';
 
-jest.mock('react-router-dom', () => {
-    const original = jest.requireActual('react-router-dom');
-    return {
-        __esModule: true,
-        ...original,
-        useParams: () => ({ course: 123 }),
-    };
-});
+jest.mock('react-router-dom', () => mockRouter({ useParams: { course: 123 } }));
 
 const course = {
     id: 'AAA',
     title: 'AAAA BBBB CCCC',
 };
 
+const fetchMock = mockFetch();
 const r = (props = {}) => {
-    window.fetch = jest.fn().mockImplementation(async (path, options) => {
-        return {
-            clone: () => ({
-                ok: true,
-                status: 200,
-                json: async () => course,
-            }),
-        };
-    });
+    fetchMock.addPath('/api/teacher/courses/123', course);
+    window.fetch = fetchMock.build();
+
     return render(
         <div>
             <TeacherFormDelete {...props} />
@@ -76,11 +66,7 @@ describe('TeacherFormDelete', () => {
     });
 
     test('Delete button sends DELETE request', async () => {
-        window.fetch = jest.fn().mockImplementation(async (path, options) => {
-            return {
-                clone: () => ({ ok: true, body: course }),
-            };
-        });
+        fetchMock.addPath('/api/teacher/courses', course, 'DELETE');
 
         const deleteBtn = screen.queryByRole('button', {
             name: 'teacher_form_delete_delete_button_label',
