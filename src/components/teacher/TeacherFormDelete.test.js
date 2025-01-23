@@ -14,7 +14,7 @@ const course = {
 
 const fetchMock = mockFetch();
 const r = (props = {}) => {
-    fetchMock.addPath('/api/teacher/courses/123', course);
+    fetchMock.addPath('/api/teacher/courses/123', { body: course });
     window.fetch = fetchMock.build();
 
     return render(
@@ -66,12 +66,38 @@ describe('TeacherFormDelete', () => {
     });
 
     test('Delete button sends DELETE request', async () => {
-        fetchMock.addPath('/api/teacher/courses', course, 'DELETE');
+        fetchMock.addPath('/api/teacher/courses', { body: course, method: 'DELETE' });
 
         const deleteBtn = screen.queryByRole('button', {
             name: 'teacher_form_delete_delete_button_label',
         });
         await component.user.click(deleteBtn);
         expect(document.querySelector('.notification-area')).toBeInTheDocument();
+    });
+
+    test('Delete button shows error on DELETE request', async () => {
+        fetchMock.addPath('/api/teacher/courses', {
+            body: { reason: 'invalid request' },
+            status: 400,
+            method: 'DELETE',
+        });
+        const deleteBtn = screen.queryByRole('button', {
+            name: 'teacher_form_delete_delete_button_label',
+        });
+        await component.user.click(deleteBtn);
+        expect(component.getByText('invalid request')).toBeInTheDocument();
+    });
+
+    test('Delete button shows notification of an unknown error on DELETE request', async () => {
+        fetchMock.addPath('/api/teacher/courses', {
+            body: {},
+            status: 500,
+            method: 'DELETE',
+        });
+        const deleteBtn = screen.queryByRole('button', {
+            name: 'teacher_form_delete_delete_button_label',
+        });
+        await component.user.click(deleteBtn);
+        expect(component.getByText('unknown_error')).toBeInTheDocument();
     });
 });

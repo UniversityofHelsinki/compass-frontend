@@ -5,6 +5,7 @@ import {
     createRoutesFromElements,
     RouterProvider,
     Route,
+    createMemoryRouter,
 } from 'react-router-dom';
 import { MockProvider } from './../reducers/MockProvider';
 import userEvent from '@testing-library/user-event';
@@ -13,7 +14,7 @@ import { AuthProvider } from '../AuthContext';
 import ErrorPage from '../Error';
 
 const router = (ui) =>
-    createBrowserRouter(
+    createMemoryRouter(
         createRoutesFromElements(
             <Route path="/" element={ui} errorElement={<ErrorPage />}>
                 <Route path="/teacher/forms" element={<span>/teacher/forms</span>} />
