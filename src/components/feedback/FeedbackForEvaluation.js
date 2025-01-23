@@ -103,10 +103,16 @@ const FeedbackForEvaluation = () => {
                                 </h5>
                             </div>
                             <div className="feedback-for-evaluation-answer-choice">
-                                <Level level={studentAnswer.order_nbr} />
-                                <span className="feedback-for-evaluation-order">
-                                    {t(assignment_feedback_level + studentAnswer.order_nbr)}
-                                </span>
+                                {studentAnswer.order_nbr !== null ? (
+                                    <>
+                                        <Level level={studentAnswer.order_nbr} />
+                                        <span className="feedback-for-evaluation-order">
+                                            {t(assignment_feedback_level + studentAnswer.order_nbr)}
+                                        </span>
+                                    </>
+                                ) : (
+                                    ''
+                                )}
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { usePOST } from '../useHttp';
+import { usePOST_DATA } from '../useHttp';
 import useUser from '../useUser';
 
 const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
@@ -15,7 +15,7 @@ const useTeacherFeedbackSave = (
     feedback_order_nbr,
 ) => {
     const [feedback, setFeedback] = useState(null);
-    const post = usePOST({
+    const post = usePOST_DATA({
         path: `/api/saveFeedback`,
         invalidates: [`COURSE_STATISTICS_OR_ASSIGNMENTS_${id}`],
     });
@@ -52,9 +52,13 @@ const useTeacherFeedbackSave = (
             id: feedback_id,
             student: userName,
         });
-        if (addedFeedback.ok) {
+        if ((addedFeedback.status = 200)) {
             style = 'neutral';
-            message = 'student_feedback_message';
+            if (addedFeedback.message) {
+                message = addedFeedback.message;
+            } else {
+                message = 'student_feedback_message';
+            }
         } else if (addedFeedback.status === 500) {
             style = 'warning';
             message = 'student_feedback_err_message';
@@ -70,14 +74,12 @@ const useTeacherFeedbackSave = (
         return (
             ((feedback?.feedback_value === undefined ||
                 feedback?.feedback_value === null ||
-                feedback?.feedback_value.length === 0 ||
-                feedback?.order_nbr === undefined ||
-                feedback?.order_nbr === null) &&
+                feedback?.feedback_value.length === 0) &&
+                (feedback?.order_nbr === undefined || feedback?.order_nbr === null) &&
                 (feedback_value === undefined ||
                     feedback_value === null ||
-                    feedback_value.length === 0 ||
-                    feedback_order_nbr === undefined ||
-                    feedback_order_nbr === null)) ||
+                    feedback_value.length === 0) &&
+                (feedback_order_nbr === undefined || feedback_order_nbr === null)) ||
             (feedback?.feedback_value === feedback_value &&
                 feedback?.order_nbr === feedback_order_nbr)
         );

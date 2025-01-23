@@ -176,6 +176,8 @@
     "answer_dialog_close_button": "Sulje",
     "answer_dialog_feedback_level": "Opettajan palaute",
     "answer_dialog_no_feedback": "Opettaja ei ole antanut palautetta.",
+    "answer_dialog_no_feedback_level": "Opettaja ei ole antanut tasoa.",
+    "answer_dialog_feedback_removed_ok": "Palaute poistettu",
     "answer_dialog_written_feedback_header": "Palaute",
     "answer_dialog_feedback_button": "Tallenna palaute",
     "answer_dialog_feedback_option_header": "Valitse taso, joka mielestäsi kuvaa parhaiten opiskelijan nykyistä ymmärrystä:",

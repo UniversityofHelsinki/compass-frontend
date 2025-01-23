@@ -176,6 +176,8 @@
     "answer_dialog_close_button": "answer_dialog_close_button",
     "answer_dialog_feedback_level": "answer_dialog_feedback_level",
     "answer_dialog_no_feedback": "Läraren har inte gett feedback.",
+    "answer_dialog_no_feedback_level": "answer_dialog_no_feedback_level",
+    "answer_dialog_feedback_removed_ok": "answer_dialog_feedback_removed_ok",
     "answer_dialog_written_feedback_header": "answer_dialog_written_feedback_header",
     "answer_dialog_feedback_button": "answer_dialog_feedback_button",
     "answer_dialog_feedback_option_header": "answer_dialog_feedback_option_header",

@@ -176,6 +176,8 @@
     "answer_dialog_close_button": "Sulge",
     "answer_dialog_feedback_level": "Juhendaja tagasiside",
     "answer_dialog_no_feedback": "Juhendaja ei ole tagasisidet jätnud.",
+    "answer_dialog_no_feedback_level": "Juhendaja ei ole taset hinnanud.",
+    "answer_dialog_feedback_removed_ok": "Tase kustutatud",
     "answer_dialog_written_feedback_header": "Tagasiside vastusele",
     "answer_dialog_feedback_button": "Salvesta tagasiside",
     "answer_dialog_feedback_option_header": "Vali tase, mis sinu arvates kõige paremini kirjeldab õppija praegust arusaamist",

@@ -9,10 +9,18 @@ const RadioButtonGroup = ({
     options = [],
     validationMessage = { type: 'neutral', content: '' },
     onChange,
-    value = '0',
+    value = null,
     ...rest
 }) => {
     const id = useId();
+    const handleClick = (field, newValue) => {
+        if (value === newValue) {
+            // Uncheck the radio button when current value was previously selected
+            onChange(field, null);
+        } else {
+            onChange(field, newValue);
+        }
+    };
 
     return (
         <>
@@ -26,13 +34,15 @@ const RadioButtonGroup = ({
                                 className="radio-button-group"
                                 type="radio"
                                 checked={
-                                    value?.toString() === optionValue && answerNotFound === false
+                                    (value?.toString() === optionValue &&
+                                        answerNotFound === false) ||
+                                    value === null
                                 }
                                 key={`${optionValue || 'unknown'}-${index}`} // Fallback for key
                                 value={optionValue || ''}
                                 id={`compass-${optionValue || 'unknown'}-${id}`}
                                 label={optionLabel || ''}
-                                onChange={(e) => onChange?.('order_nbr', e.target.value)} // Safely call onChange
+                                onClick={(e) => handleClick('order_nbr', e.target.value)}
                                 {...rest}
                             />
                         );

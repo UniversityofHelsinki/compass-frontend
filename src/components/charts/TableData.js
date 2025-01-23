@@ -56,6 +56,8 @@ const TableData = ({ courseTitle, assignmentTopic, answersAndFeedbacks, reload }
         const style = { fill: HyColors.black };
 
         switch (parseInt(entry)) {
+            case null:
+                return <></>;
             case 0:
                 return <Level0Icon style={style} />;
             case 1:
