@@ -81,7 +81,7 @@ setup_stage:
         - ohtu-build-4
     image: node:20-alpine
     script:
-        - npm ci --only=production
+        - npm ci --omit=dev
         - yes | cp -f -v .env.test .env.production || true
         - CI=false NODE_ENV=production npm run build
     artifacts:
