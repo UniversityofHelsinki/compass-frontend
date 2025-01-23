@@ -9,7 +9,6 @@ import useStudentAssignments from '../../hooks/student/useStudentAssignments';
 
 const SummaryPage = () => {
     const { course } = useParams();
-    //const assignments = useStudentReflectionSummary({ course });
     const [assignments, error, reload] = useStudentAssignments({ course });
     const { t } = useTranslation();
 
