@@ -53,23 +53,23 @@ const TableData = ({ courseTitle, assignmentTopic, answersAndFeedbacks, reload }
     };
 
     const getIcon = (entry) => {
-        const style = { fill: HyColors.black };
+        const style = HyColors.black;
 
         switch (parseInt(entry)) {
             case null:
                 return <></>;
             case 0:
-                return <Level0Icon style={style} />;
+                return <Level0Icon fill={style} />;
             case 1:
-                return <Level1Icon style={style} />;
+                return <Level1Icon fill={style} />;
             case 2:
-                return <Level2Icon style={style} />;
+                return <Level2Icon fill={style} />;
             case 3:
-                return <Level3Icon style={style} />;
+                return <Level3Icon fill={style} />;
             case 4:
-                return <Level4Icon style={style} />;
+                return <Level4Icon fill={style} />;
             default:
-                return <Level0Icon style={style} />;
+                return <Level0Icon fill={style} />;
         }
     };
 

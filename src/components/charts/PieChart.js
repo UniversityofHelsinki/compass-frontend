@@ -14,21 +14,21 @@ import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
 const COLORS = ['#8B0000', '#8B4513', '#00008B', '#4B0082', '#006400'];
 
 const getIcon = (entry, t) => {
-    const style = { fill: HyColors.white };
+    const style = HyColors.white;
 
     switch (parseInt(entry)) {
         case 0:
-            return { icon: <Level0Icon style={style} />, text: t('level_0') };
+            return { icon: <Level0Icon fill={style} />, text: t('level_0') };
         case 1:
-            return { icon: <Level1Icon style={style} />, text: t('level_1') };
+            return { icon: <Level1Icon fill={style} />, text: t('level_1') };
         case 2:
-            return { icon: <Level2Icon style={style} />, text: t('level_2') };
+            return { icon: <Level2Icon fill={style} />, text: t('level_2') };
         case 3:
-            return { icon: <Level3Icon style={style} />, text: t('level_3') };
+            return { icon: <Level3Icon fill={style} />, text: t('level_3') };
         case 4:
-            return { icon: <Level4Icon style={style} />, text: t('level_4') };
+            return { icon: <Level4Icon fill={style} />, text: t('level_4') };
         default:
-            return { icon: <Level0Icon style={style} />, text: '' };
+            return { icon: <Level0Icon fill={style} />, text: '' };
     }
 };
 
@@ -85,10 +85,7 @@ const renderPieChart = (data, index, t) => {
     const customizedLabel = (props) => renderCustomizedLabel({ ...props, t });
 
     return (
-        <div
-            style={{ width: '100%', height: 500 }}
-            aria-description={t('pie_chart_aria_description')}
-        >
+        <div className="pie-chart-description" aria-description={t('pie_chart_aria_description')}>
             <ResponsiveContainer>
                 <PieChart key={`pie-${index}`}>
                     <Pie

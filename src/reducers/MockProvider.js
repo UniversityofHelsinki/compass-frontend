@@ -25,6 +25,7 @@ const mockUser = {
     hyGroupCn: ['hy-employees', 'hyad-employees'],
     preferredLanguage: '',
     displayName: 'Baabe Nomypeevo',
+    eduPersonAffiliation: ['faculty'],
 };
 
 const mockUserCourseAnswer = {
@@ -52,7 +53,6 @@ const defaultMockReducers = {
     location: {
         path: '/',
     },
-
     courses: {
         allCourses: mockCourses,
     },
@@ -71,6 +71,7 @@ const defaultMockReducers = {
     signatures: {
         signatures: {},
     },
+    teacher: {},
 };
 
 export const MockProvider = ({ children, mockReducers }) => {

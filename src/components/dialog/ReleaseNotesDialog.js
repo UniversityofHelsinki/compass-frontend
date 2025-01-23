@@ -4,7 +4,6 @@ import { Button, Col, Container, Modal, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import Dialog from './Dialog';
 import './HelpDialog.css';
-//import useReleaseNotes from "../../hooks/useReleaseNotes";
 import Markdown from 'markdown-to-jsx';
 import { ReactComponent as InfoDialog } from '../utilities/icons/info-dialog-inverted-colors.svg';
 
@@ -77,9 +76,7 @@ const ReleaseNotesDialog = ({ label }) => {
                 <Container>
                     <Row>
                         <Col>
-                            <div style={{ overflowY: 'auto', maxHeight: '50vh' }}>
-                                {markdownNotes}
-                            </div>
+                            <div className="markdown-notes">{markdownNotes}</div>
                         </Col>
                     </Row>
                 </Container>
