@@ -6,8 +6,11 @@ import '@testing-library/jest-dom';
 import { initReactI18next } from 'react-i18next';
 import { toHaveNoViolations } from 'jest-axe';
 import i18n from 'i18next';
+import { mockFetch } from './test/mockFetch';
 
 expect.extend(toHaveNoViolations);
+
+global.IS_REACT_ACT_ENVIRONMENT = true;
 
 const translations = {
     fi: {
