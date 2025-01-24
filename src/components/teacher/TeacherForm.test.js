@@ -78,7 +78,7 @@ describe('Assignments', () => {
         expect(deleteBtn).toBeInTheDocument();
     });
 
-    test.only('Assignment row is deleted on trash button press', async () => {
+    test('Assignment row is deleted on trash button press', async () => {
         const addAssignmentButton = screen.getByRole('button', {
             name: 'teacher_form_add_assignment',
         });
