@@ -142,6 +142,42 @@ export const usePOST = ({ path, invalidates = [] }) => {
     return post;
 };
 
+export const usePOST_DATA = ({ path, invalidates = [] }) => {
+    const post = async (body) => {
+        try {
+            const response = await fetch(`${baseUrl}${path}`, {
+                method: 'POST',
+                body: JSON.stringify(body),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            const data = await response.json(); // Parse the JSON from the response
+
+            if (response.ok) {
+                invalidates.forEach((tag) => {
+                    cache.invalidate(tag);
+                });
+            } else {
+                console.error(`Error ${response.status}: ${data.message}`);
+            }
+
+            return {
+                status: response.status,
+                message: data?.message,
+            };
+        } catch (error) {
+            console.error(error.message);
+            return {
+                status: 'error',
+                message: error.message,
+            };
+        }
+    };
+    return post;
+};
+
 export const usePUT = ({ path, invalidates = [] }) => {
     const put = async (body) => {
         try {

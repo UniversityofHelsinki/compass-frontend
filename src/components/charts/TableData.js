@@ -55,7 +55,9 @@ const TableData = ({ courseTitle, assignmentTopic, answersAndFeedbacks, reload }
     const getIcon = (entry) => {
         const style = HyColors.black;
 
-        switch (parseInt(entry)) {
+        switch (entry === null ? (entry = null) : parseInt(entry)) {
+            case null:
+                return <></>;
             case 0:
                 return <Level0Icon fill={style} />;
             case 1:
@@ -111,11 +113,12 @@ const TableData = ({ courseTitle, assignmentTopic, answersAndFeedbacks, reload }
                                         </td>
                                         <td>{getIcon(entry.answer_order_nbr)}</td>
                                         <td>
-                                            {entry?.feedback_order_nbr !== undefined &&
-                                            entry?.feedback_order_nbr !== null ? (
-                                                <span>{getIcon(entry.feedback_order_nbr)}</span>
-                                            ) : (
+                                            {entry.feedback_order_nbr === null &&
+                                            (entry.feedback_value?.length === 0 ||
+                                                entry.feedback_value === null) ? (
                                                 t('statistics_table_teacher_no_feedback')
+                                            ) : (
+                                                <span> {getIcon(entry.feedback_order_nbr)}</span>
                                             )}
                                         </td>
                                         <td>

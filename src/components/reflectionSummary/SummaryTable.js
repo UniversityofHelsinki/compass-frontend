@@ -10,7 +10,6 @@ import { ReactComponent as Level1Icon } from '../utilities/icons/circle-fill.svg
 import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vertical.svg';
 import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
 import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
-//import useTeacherFeedback from "../../hooks/teacher/useTeacherFeedback";
 
 let assignment_feedback_level = 'assignment_feedback_level_';
 
@@ -57,16 +56,26 @@ const SummaryRow = ({ course, reload, assignment }) => {
                 </span>
             </td>
             <td>
-                {assignment?.feedback_order_nbr ? (
-                    <>
-                        <Level level={assignment.feedback_order_nbr} />
-                        <span className="feedback-for-evaluation-order">
-                            {t(`${assignment_feedback_level}${assignment.feedback_order_nbr}`)}
-                        </span>
-                    </>
+                {assignment.feedback_order_nbr !== null ? (
+                    <Level level={assignment.feedback_order_nbr} />
                 ) : (
-                    t('summary_no_feedback')
+                    ''
                 )}
+                <span
+                    className={
+                        assignment.feedback_order_nbr !== null
+                            ? 'feedback-for-evaluation-order'
+                            : ''
+                    }
+                >
+                    {assignment.feedback_order_nbr !== null
+                        ? t(`${assignment_feedback_level}${assignment.feedback_order_nbr}`)
+                        : ''}
+                </span>
+                {assignment.feedback_order_nbr === null &&
+                (assignment.feedback_value?.length === 0 || assignment.feedback_value === null)
+                    ? t('summary_no_feedback')
+                    : ''}
             </td>
             <td>
                 <AssignmentAnswersDialog
@@ -83,6 +92,7 @@ const SummaryRow = ({ course, reload, assignment }) => {
                     feedback_order_nbr={assignment?.feedback_order_nbr}
                     feedback_id={assignment?.feedbackid}
                     feedbackAllowed={false}
+                    studentTab={true}
                 />
             </td>
         </tr>
