@@ -8,6 +8,7 @@ const useStudentAssignments = ({ course }) => {
 
     const [response, error, reload] = useGET({
         path: `/api/student/courses/${course}/assignments`,
+        tag: `COURSE_STATISTICS_OR_ASSIGNMENTS_${course}`,
     });
     useEffect(() => {
         if (response !== assignments) {
