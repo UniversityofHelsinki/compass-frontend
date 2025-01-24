@@ -1,0 +1,9 @@
+.tag-button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--hy-blue-light);
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--hy-white);
+}
