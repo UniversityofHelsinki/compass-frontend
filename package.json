@@ -27,7 +27,7 @@
         "test": "react-scripts test",
         "coverage": "npm test -- --coverage",
         "eject": "react-scripts eject",
-        "prepare": "simple-git-hooks"
+        "prepare": "if [ \"$CI\" != 'true' ]; then simple-git-hooks; fi"
     },
     "eslintConfig": {
         "extends": [
