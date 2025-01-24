@@ -30,6 +30,7 @@ const AssignmentAnswersDialog = ({
     feedback_order_nbr,
     feedback_id,
     feedbackAllowed,
+    studentTab,
 }) => {
     const [showForm, setShowForm] = useState(false);
     const { t } = useTranslation();
@@ -112,72 +113,63 @@ const AssignmentAnswersDialog = ({
         { label: <Level3Icon />, value: '3' },
         { label: <Level4Icon />, value: '4' },
     ];
-    const teacherUser = isTeacher && isTeacher !== undefined;
-    const feedBackToStudent = (teacherUser) => {
+    //const teacherUser = isTeacher && isTeacher !== undefined;
+    const feedBackToStudent = () => {
         return (
-            (teacherUser && feedbackAllowed && (
-                <>
-                    <Row>
-                        <Col
-                            as="h5"
-                            id="answer-dialog-written-response-header"
-                            className="written-response-header"
-                        >
-                            {t('answer_dialog_written_feedback_header')}:
-                        </Col>
-                    </Row>
-                    <Row className="divBelow">
-                        <Col lg>
-                            <Form.Control
-                                disabled={!feedbackAllowed}
-                                as="textarea"
-                                rows={5}
-                                aria-labelledby="answer-dialog-written-response-header"
-                                onChange={(event) =>
-                                    changeValue('feedback_value', event.target.value)
-                                }
-                                value={stored?.feedback_value ?? ''}
-                                aria-disabled="false"
-                            ></Form.Control>
-                        </Col>
-                    </Row>
-                    <div className="customRowDiv">
-                        <div className="warning">
-                            {isTooLong ? t('answer_dialog_feedback_is_too_long') : ''}
-                        </div>
-                        <div className="customRowEnd">
-                            {t('text_area_length')}: {stored?.feedback_value?.length || 0}/3000
-                        </div>
+            <>
+                <Row>
+                    <Col
+                        as="h5"
+                        id="answer-dialog-written-response-header"
+                        className="written-response-header"
+                    >
+                        {t('answer_dialog_written_feedback_header')}:
+                    </Col>
+                </Row>
+                <Row className="divBelow">
+                    <Col lg>
+                        <Form.Control
+                            disabled={!feedbackAllowed}
+                            as="textarea"
+                            rows={5}
+                            aria-labelledby="answer-dialog-written-response-header"
+                            onChange={(event) => changeValue('feedback_value', event.target.value)}
+                            value={stored?.feedback_value ?? ''}
+                            aria-disabled="false"
+                        ></Form.Control>
+                    </Col>
+                </Row>
+                <div className="customRowDiv">
+                    <div className="warning">
+                        {isTooLong ? t('answer_dialog_feedback_is_too_long') : ''}
                     </div>
-                    <Row>
-                        <label> {t('answer_dialog_feedback_option_header')}</label>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <RadioButtonGroup
-                                disabled={!feedbackAllowed}
-                                inline
-                                answerNotFound={!radioButtonClicked}
-                                options={answerLevelArray}
-                                onChange={changeValue}
-                                value={
-                                    stored?.order_nbr !== null && stored?.order_nbr !== undefined
-                                        ? String(stored?.order_nbr)
-                                        : '0'
-                                }
-                                aria-label={
-                                    answerLevelMap[
-                                        stored?.order_nbr !== null &&
-                                        stored?.order_nbr !== undefined
-                                            ? stored.order_nbr
-                                            : 0
-                                    ]?.text
-                                }
-                            />
-                        </Col>
-                    </Row>
-                </>
-            )) || <></>
+                    <div className="customRowEnd">
+                        {t('text_area_length')}: {stored?.feedback_value?.length || 0}/3000
+                    </div>
+                </div>
+                <Row>
+                    <label> {t('answer_dialog_feedback_option_header')}</label>
+                </Row>
+                <Row>
+                    <Col>
+                        <RadioButtonGroup
+                            disabled={!feedbackAllowed}
+                            inline
+                            answerNotFound={!radioButtonClicked}
+                            options={answerLevelArray}
+                            onChange={changeValue}
+                            value={
+                                stored?.order_nbr !== undefined ? String(stored?.order_nbr) : '0'
+                            }
+                            aria-label={
+                                answerLevelMap[
+                                    stored?.order_nbr !== undefined ? stored.order_nbr : 0
+                                ]?.text
+                            }
+                        />
+                    </Col>
+                </Row>
+            </>
         );
     };
 
@@ -231,12 +223,12 @@ const AssignmentAnswersDialog = ({
                         <Row>
                             <Col
                                 as="h5"
-                                className={teacherUser ? 'hidden' : 'assignment-answers-padding'}
+                                className={studentTab ? 'assignment-answers-padding' : 'hidden'}
                             >
                                 {t('answer_dialog_feedback_level')}:
                             </Col>
                         </Row>
-                        <Row className={teacherUser ? 'hidden' : ''}>
+                        <Row className={studentTab ? '' : 'hidden'}>
                             <Col>
                                 <FormControl
                                     as="textarea"
@@ -255,13 +247,21 @@ const AssignmentAnswersDialog = ({
                         </Row>
                         <Row>
                             <Col as="h6">
-                                <span className={teacherUser ? 'hidden' : 'feedback-level'}>
-                                    {t('answer_dialog_teacher_level_feedback')} {teacher_icon}{' '}
-                                    {teacher_text}
+                                <span className={studentTab ? 'feedback-level' : 'hidden'}>
+                                    {feedback_order_nbr !== null ? (
+                                        <>
+                                            {t('answer_dialog_teacher_level_feedback')}{' '}
+                                            {teacher_icon} {teacher_text}
+                                        </>
+                                    ) : (
+                                        t('answer_dialog_teacher_level_feedback') +
+                                        ' ' +
+                                        t('answer_dialog_no_feedback_level')
+                                    )}
                                 </span>
                             </Col>
                         </Row>
-                        {feedBackToStudent(teacherUser)}
+                        {studentTab ? null : feedBackToStudent()}
                     </Container>
                 </Modal.Body>
                 <Modal.Footer>
@@ -275,7 +275,7 @@ const AssignmentAnswersDialog = ({
                         onClick={saveFeedback}
                         variant="primary"
                         disabled={saveDisabled() || isTooLong}
-                        className={!teacherUser ? 'hidden' : ''}
+                        className={studentTab ? 'hidden' : ''}
                     >
                         {t('answer_dialog_feedback_button')}
                     </HyButton>
@@ -294,6 +294,7 @@ AssignmentAnswersDialog.propTypes = {
     courseTitle: PropTypes.string,
     userName: PropTypes.string,
     assignmentTopic: PropTypes.string,
+    studentTab: PropTypes.bool,
 };
 
 export default AssignmentAnswersDialog;
