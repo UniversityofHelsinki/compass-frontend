@@ -223,5 +223,6 @@
     "footer_contact_info_link": "https://helpdesk.it.helsinki.fi/sv/help/7003",
     "footer_compass_link": "footer_compass_link",
     "footer_accessibility_statement_link": "footer_accessibility_statement_link",
-    "opens_in_new_tab": "Öppnas i ny flik"
+    "opens_in_new_tab": "Öppnas i ny flik",
+    "answer_dialog_teacher_level_feedback": "Nivå av förståelse:"
 }
