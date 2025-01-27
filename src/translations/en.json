@@ -224,5 +224,8 @@
     "footer_compass_link": "footer_compass_link",
     "footer_accessibility_statement_link": "footer_accessibility_statement_link",
     "opens_in_new_tab": "Opens in new tab",
-    "answer_dialog_teacher_level_feedback": "Level of understanding:"
+    "answer_dialog_teacher_level_feedback": "Level of understanding:",
+    "download_instructions": "download_instructions",
+    "download_slides": "download_slides",
+    "download_slides_powerpoint": "download_slides_powerpoint"
 }
