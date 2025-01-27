@@ -7,89 +7,71 @@ import { ReactComponent as DownloadIcon } from '../utilities/icons/download.svg'
 import HyColors from '../utilities/HyColors';
 import PropTypes from 'prop-types';
 
-const style = HyColors.white;
+const style = HyColors.blue;
 
-const DownloadButton = ({ fileUrl, fileName, buttonText }) => {
-    const handleDownload = () => {
-        const link = document.createElement('a');
-        link.href = fileUrl;
-        link.download = fileName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
-
+const DownloadLink = ({ fileUrl, fileName, linkText }) => {
     return (
-        <button
-            type="button"
-            className="tag-button d-flex align-items-center"
-            onClick={handleDownload}
-            aria-label={`Download ${fileName}`}
-        >
-            {buttonText}
+        <a href={fileUrl} download={fileName} aria-label={`Download ${fileName}`}>
+            {linkText}
             <DownloadIcon fill={style} className="ms-2" width="16" height="16" aria-hidden="true" />
-        </button>
+        </a>
     );
 };
 
-// Instructions Component
 const Instructions = () => {
     const { t } = useTranslation();
 
     return (
         <Container>
-            {/* Center the buttons */}
             <Row className="justify-content-center mb-4">
-                {/* Column for First Download Button */}
                 <Col className="col-auto">
-                    <DownloadButton
+                    <DownloadLink
                         fileUrl="/instructions.pdf"
                         fileName="instructions.pdf"
-                        buttonText="Download Instructions"
+                        linkText="Download Instructions"
                     />
                 </Col>
 
-                {/* Column for Second Download Button */}
                 <Col className="col-auto">
-                    <DownloadButton
+                    <DownloadLink
                         fileUrl="/report.pdf"
                         fileName="report.pdf"
-                        buttonText="Download Report"
+                        linkText="Download Report"
                     />
                 </Col>
 
-                {/* Column for Third Download Button */}
                 <Col className="col-auto">
-                    <DownloadButton
+                    <DownloadLink
                         fileUrl="/overview.pdf"
                         fileName="overview.pdf"
-                        buttonText="Download Overview"
+                        linkText="Download Overview"
                     />
                 </Col>
             </Row>
 
-            {/* Embed the PDF viewer below the buttons */}
             <Row>
                 <Col>
                     <TopBar heading={t('instructions_heading')} />
-                    <embed
-                        src="/instructions.pdf"
-                        width="100%"
-                        height="800px"
-                        type="application/pdf"
-                        frameBorder="0"
-                        title="PDF Viewer"
-                    />
+                    <div className="embed-responsive-container">
+                        <embed
+                            src="/instructions.pdf"
+                            width="100%"
+                            height="100%"
+                            type="application/pdf"
+                            frameBorder="0"
+                            title="PDF Viewer"
+                        />
+                    </div>
                 </Col>
             </Row>
         </Container>
     );
 };
 
-DownloadButton.propTypes = {
-    fileUrl: PropTypes.string.isRequired, // URL must be a string and is required
-    fileName: PropTypes.string.isRequired, // File name must be a string and is required
-    buttonText: PropTypes.string.isRequired, // Button text must be a string and is required
+DownloadLink.propTypes = {
+    fileUrl: PropTypes.string.isRequired,
+    fileName: PropTypes.string.isRequired,
+    linkText: PropTypes.string.isRequired,
 };
 
 export default Instructions;
