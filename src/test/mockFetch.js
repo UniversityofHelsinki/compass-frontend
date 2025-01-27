@@ -24,7 +24,7 @@ export const mockFetch = () => {
                     return defaultResponse(response);
                 }
             }
-            console.log(`Path ${fetchPath} not mocked. Returning 500`);
+            console.log(`Path ${fetchPath} (${fetchOptions?.method}) not mocked. Returning 500`);
             return defaultResponse({ status: 500, body: undefined });
         });
     };

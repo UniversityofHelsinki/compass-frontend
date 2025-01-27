@@ -63,33 +63,37 @@ describe('TeacherForms', () => {
         expect(screen.queryByText('REE')).toBeVisible();
     });
 
-    test.only('Table is sorted by course name on name header button press', async () => {
+    test('Table is sorted by course name on name header button press', async () => {
         let component;
         const today = new Date();
         const future = new Date(today);
         future.setFullYear(today.getFullYear() + 1);
         const past = new Date(today);
         past.setFullYear(today.getFullYear() - 1);
+
+        const courses = [
+            {
+                title: 'BBBB',
+                course_id: 'REE',
+                start_date: today,
+                end_date: future,
+            },
+            {
+                title: 'AAAA',
+                course_id: 'REE',
+                start_date: past,
+                end_date: today,
+            },
+        ];
+        fetchMock.addPath('/api/teacher/courses', { body: courses, status: 200 });
+
         await act(async () => {
             component = render(
                 <TeacherForms />,
                 {},
                 {
                     teacher: {
-                        courses: [
-                            {
-                                title: 'BBBB',
-                                course_id: 'REE',
-                                start_date: today,
-                                end_date: future,
-                            },
-                            {
-                                title: 'AAAA',
-                                course_id: 'REE',
-                                start_date: past,
-                                end_date: today,
-                            },
-                        ],
+                        courses,
                     },
                 },
             );

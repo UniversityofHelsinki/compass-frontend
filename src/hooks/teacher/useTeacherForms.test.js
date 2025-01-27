@@ -18,7 +18,7 @@ describe('useTeacherForms', () => {
     };
 
     beforeEach(() => {
-        fetchMock.addPath('/api/teacher/courses', courses);
+        fetchMock.addPath('/api/teacher/courses', { body: courses, status: 200 });
         window.fetch = fetchMock.build();
     });
 
