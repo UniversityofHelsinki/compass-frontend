@@ -31,7 +31,7 @@ const Instructions = () => {
                     <DownloadLink
                         fileUrl="/instructions.pdf"
                         fileName="instructions.pdf"
-                        linkText="Download Instructions"
+                        linkText={t('download_instructions')}
                     />
                 </Col>
 
@@ -39,7 +39,7 @@ const Instructions = () => {
                     <DownloadLink
                         fileUrl="/slides.pdf"
                         fileName="slides.pdf"
-                        linkText="Download Slides"
+                        linkText={t('download_slides')}
                     />
                 </Col>
 
@@ -47,7 +47,7 @@ const Instructions = () => {
                     <DownloadLink
                         fileUrl="/slides.pptx"
                         fileName="slides.pptx"
-                        linkText="Download PowerPoint"
+                        linkText={t('download_slides_powerpoint')}
                     />
                 </Col>
             </Row>
