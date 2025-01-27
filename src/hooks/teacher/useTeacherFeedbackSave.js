@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { usePOST_DATA } from '../useHttp';
+import { usePOST } from '../useHttp';
 import useUser from '../useUser';
 
 const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
@@ -15,7 +15,7 @@ const useTeacherFeedbackSave = (
     feedback_order_nbr,
 ) => {
     const [feedback, setFeedback] = useState(null);
-    const post = usePOST_DATA({
+    const post = usePOST({
         path: `/api/saveFeedback`,
         invalidates: [`COURSE_STATISTICS_OR_ASSIGNMENTS_${id}`],
     });
@@ -44,7 +44,7 @@ const useTeacherFeedbackSave = (
         setFeedback(newModifiedObject);
     };
     const addFeedback = async (userName, course_id, assignment_id, feedback_id) => {
-        const addedFeedback = await post({
+        const response = await post({
             ...feedback,
             user_name: user.eppn,
             course_id: course_id,
@@ -52,18 +52,19 @@ const useTeacherFeedbackSave = (
             id: feedback_id,
             student: userName,
         });
-        if ((addedFeedback.status = 200)) {
+        if (response.status === 200) {
             style = 'neutral';
-            if (addedFeedback.message) {
-                message = addedFeedback.message;
+            const data = await response.json();
+            if (data.message) {
+                message = data.message;
             } else {
                 message = 'student_feedback_message';
             }
-        } else if (addedFeedback.status === 500) {
+        } else if (response.status === 500) {
             style = 'warning';
             message = 'student_feedback_err_message';
         }
-        dispatch({ type: 'SET_STUDENT_FEEDBACK', payload: addedFeedback });
+        dispatch({ type: 'SET_STUDENT_FEEDBACK', payload: response });
     };
 
     if (feedback && !radioButtonClicked) {
