@@ -4,16 +4,19 @@ import { useTranslation } from 'react-i18next';
 import TopBar from '../utilities/TopBar';
 import { Col, Container, Row } from 'react-bootstrap';
 import { ReactComponent as DownloadIcon } from '../utilities/icons/download.svg';
-import HyColors from '../utilities/HyColors';
 import PropTypes from 'prop-types';
-
-const style = HyColors.blue;
 
 const DownloadLink = ({ fileUrl, fileName, linkText }) => {
     return (
         <a href={fileUrl} download={fileName} aria-label={`Download ${fileName}`}>
             {linkText}
-            <DownloadIcon fill={style} className="ms-2" width="16" height="16" aria-hidden="true" />
+            <DownloadIcon
+                className="ms-2"
+                width="16"
+                height="16"
+                aria-hidden="true"
+                focusable="false"
+            />
         </a>
     );
 };
@@ -34,17 +37,17 @@ const Instructions = () => {
 
                 <Col className="col-auto">
                     <DownloadLink
-                        fileUrl="/report.pdf"
-                        fileName="report.pdf"
-                        linkText="Download Report"
+                        fileUrl="/slides.pdf"
+                        fileName="slides.pdf"
+                        linkText="Download Slides"
                     />
                 </Col>
 
                 <Col className="col-auto">
                     <DownloadLink
-                        fileUrl="/overview.pdf"
-                        fileName="overview.pdf"
-                        linkText="Download Overview"
+                        fileUrl="/slides.pptx"
+                        fileName="slides.pptx"
+                        linkText="Download PowerPoint"
                     />
                 </Col>
             </Row>
