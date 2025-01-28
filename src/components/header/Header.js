@@ -2,32 +2,33 @@ import React from 'react';
 import Languages from './Languages';
 import Logo from './Logo';
 import User from './User';
-import { useTranslation } from 'react-i18next';
 import './Header.css';
 import Navigation from './navigation/Navigation';
 import { useAuth } from '../../AuthContext';
+import { Col, Container, Row } from 'react-bootstrap';
 
 const Header = () => {
-    const { t } = useTranslation();
     const {
         user: { isTeacher },
     } = useAuth();
 
     return (
-        <div className="header">
-            <div className="header-left">
-                <div className="header-logo">
-                    <Logo />
-                </div>
-            </div>
-            <div className="header-center">
-                <div className="header-navigation">{<Navigation isTeacher={isTeacher} />}</div>
-            </div>
-            <div className="header-right">
-                <Languages />
-                <User />
-            </div>
-        </div>
+        <header className="header">
+            <Container>
+                <Row className="align-items-center">
+                    <Col md={4} sm={12} className="header-left">
+                        <Logo />
+                    </Col>
+                    <Col md={4} sm={6} className="header-center">
+                        <Navigation isTeacher={isTeacher} />
+                    </Col>
+                    <Col md={4} sm={6} className="header-right">
+                        <Languages />
+                        <User />
+                    </Col>
+                </Row>
+            </Container>
+        </header>
     );
 };
 

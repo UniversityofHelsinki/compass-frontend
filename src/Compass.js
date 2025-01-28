@@ -20,7 +20,7 @@ const Compass = () => {
         <NotificationProvider>
             <Container className="root mx-0">
                 <Row className="header-row mb-2">
-                    <Col as="header" className="px-0">
+                    <Col as="header">
                         <Header />
                     </Col>
                 </Row>
