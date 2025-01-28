@@ -49,7 +49,6 @@ describe('useHttp', () => {
             });
         });
         const [value, error, reload] = result.result.current;
-        console.log(result.result);
         expect(error.ok).toBeFalsy();
         expect(error.status).toBe(400);
         expect(typeof reload).toBe('function');
