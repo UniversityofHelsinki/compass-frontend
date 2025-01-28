@@ -1,30 +1,23 @@
 import React from 'react';
+import { mockFetch } from '../test/mockFetch';
 import { act, renderHook } from '../test/render';
 import { get, useGET, usePOST } from './useHttp.js';
 
 describe('useHttp', () => {
     const responseBody = { body: 'hei' };
     beforeEach(() => {
-        window.fetch = jest.fn().mockImplementation((path, options) => {
-            if (path === '/asdf') {
-                return {
-                    clone: () => ({
-                        ok: true,
-                        status: 200,
-                        json: () => Promise.resolve(responseBody),
-                    }),
-                };
-            }
-            if (path === '/error') {
-                return {
-                    clone: () => ({
-                        ok: false,
-                        status: 400,
-                        json: () => Promise.resolve(responseBody),
-                    }),
-                };
-            }
+        const fetchMock = mockFetch();
+        fetchMock.addPath('/asdf', {
+            body: responseBody,
+            status: 200,
+            method: 'GET',
         });
+        fetchMock.addPath('/error', {
+            body: responseBody,
+            status: 400,
+            method: 'GET',
+        });
+        window.fetch = fetchMock.build();
     });
 
     test('value is returned if response is ok', async () => {
@@ -56,6 +49,7 @@ describe('useHttp', () => {
             });
         });
         const [value, error, reload] = result.result.current;
+        console.log(result.result);
         expect(error.ok).toBeFalsy();
         expect(error.status).toBe(400);
         expect(typeof reload).toBe('function');
@@ -65,25 +59,17 @@ describe('useHttp', () => {
 describe('get', () => {
     let response = {};
     beforeEach(() => {
-        window.fetch = jest.fn().mockImplementation((path) => {
-            if (path === '/AAA') {
-                return {
-                    clone: () => ({
-                        ok: true,
-                        status: 200,
-                        json: () => Promise.resolve(response),
-                    }),
-                };
-            } else if (path === '/BBB') {
-                return {
-                    clone: () => ({
-                        ok: false,
-                        status: 400,
-                        json: () => Promise.resolve(response),
-                    }),
-                };
-            }
+        const fetchMock = mockFetch();
+        fetchMock.addPath('/AAA', {
+            status: 200,
+            method: 'GET',
+            body: response,
         });
+        fetchMock.addPath('/BBB', {
+            status: 400,
+            body: null,
+        });
+        window.fetch = fetchMock.build();
     });
 
     test('fetched only once with the same tag', async () => {
@@ -118,10 +104,7 @@ describe('get', () => {
 
 describe('usePOST', () => {
     test('Makes a POST request', async () => {
-        let method;
-        window.fetch = jest.fn().mockImplementation((path, options) => {
-            method = options.method?.toLowerCase();
-        });
+        window.fetch = mockFetch().build();
 
         let result;
         await act(() => {
@@ -134,17 +117,24 @@ describe('usePOST', () => {
         });
         expect(result.current).toBeTruthy();
         result.current();
-        expect(method).toBe('post');
+        expect(window.fetch.mock.calls).toHaveLength(1);
+        expect(window.fetch.mock.calls[0][0]).toBeDefined();
+        expect(window.fetch.mock.calls[0][1].method).toEqual('POST');
     });
 
     test('Invalidates tags', async () => {
-        window.fetch = jest.fn().mockImplementation(() => {
-            return {
-                ok: true,
-                status: 200,
-                json: Promise.resolve({}),
-            };
+        const fetchMock = mockFetch();
+        fetchMock.addPath('/asdf', {
+            status: 200,
+            body: {},
+            method: 'GET',
         });
+        fetchMock.addPath('/asdf', {
+            status: 200,
+            body: {},
+            method: 'POST',
+        });
+        window.fetch = fetchMock.build();
 
         let result;
         await act(() => {
