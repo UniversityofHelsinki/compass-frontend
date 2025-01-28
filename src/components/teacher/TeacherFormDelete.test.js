@@ -2,7 +2,6 @@ import React from 'react';
 import { mockFetch } from '../../test/mockFetch';
 import { mockRouter } from '../../test/reactRouter';
 import { render, act, screen } from '../../test/render';
-import NotificationArea from '../utilities/NotificationArea';
 import TeacherFormDelete from './TeacherFormDelete';
 
 jest.mock('react-router-dom', () => mockRouter({ useParams: { course: 123 } }));
@@ -20,7 +19,6 @@ const r = (props = {}) => {
     return render(
         <div>
             <TeacherFormDelete {...props} />
-            <NotificationArea />
         </div>,
         {},
         {

@@ -12,6 +12,7 @@ import userEvent from '@testing-library/user-event';
 import NotificationProvider from '../NotificationContext';
 import { AuthProvider } from '../AuthContext';
 import ErrorPage from '../Error';
+import NotificationArea from '../components/utilities/NotificationArea';
 
 const router = (ui) =>
     createMemoryRouter(
@@ -36,7 +37,12 @@ const Mock = ({ children, mockReducers }) => {
 
 const wrapper = (mockReducers) => {
     return function Component({ children }) {
-        return <Mock mockReducers={mockReducers}>{children}</Mock>;
+        return (
+            <Mock mockReducers={mockReducers}>
+                {children}
+                <NotificationArea />
+            </Mock>
+        );
     };
 };
 
