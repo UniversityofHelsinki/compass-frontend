@@ -143,11 +143,11 @@ const Assignment = ({ showBackBtn = true, levels = LEVELS }) => {
                                     }
                                     validationMessage={messages?.order_nbr}
                                     onChange={changeValue}
-                                    value={String(
-                                        modifiedObject && modifiedObject.order_nbr
-                                            ? modifiedObject.order_nbr
-                                            : '0',
-                                    )}
+                                    value={
+                                        modifiedObject?.order_nbr !== undefined
+                                            ? String(modifiedObject?.order_nbr)
+                                            : '0'
+                                    }
                                     aria-required
                                 />
                             </Col>
