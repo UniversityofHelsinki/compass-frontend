@@ -4,26 +4,17 @@ const EnglishPage = () => {
     return (
         <div>
             <p>
-                <a name="_Hlk188388862"></a>
-                <span lang="FI">
-                    <img
-                        width="140"
-                        height="37"
-                        src="/image002.png"
-                        alt="A green and black logoDescription automatically generated"
-                    />
-                </span>
-                <span lang="EN-US">   </span>
-            </p>
-
-            <p>
-                <span lang="EN-US">Dear University Teacher!</span>
+                <b>
+                    <span lang="EN-US">Dear University Teacher!</span>
+                </b>
             </p>
 
             <p>
                 <span lang="EN-US">
-                    Welcome using the <i>Reflection Compass</i> in research ethics and integrity
-                    teaching!
+                    <b>
+                        Welcome using the <i>Reflection Compass</i> in research ethics and integrity
+                        teaching!
+                    </b>
                 </span>
             </p>
 
