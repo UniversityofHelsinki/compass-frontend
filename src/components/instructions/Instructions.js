@@ -73,7 +73,7 @@ const Instructions = () => {
             <Row>
                 <Col>
                     <TopBar heading={t('instructions_heading')} />
-                    <div className="embed-responsive-container">{renderContent(i18n.language)}</div>
+                    {renderContent(i18n.language)}
                 </Col>
             </Row>
         </Container>

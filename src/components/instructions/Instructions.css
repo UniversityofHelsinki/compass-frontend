@@ -1,9 +1,1 @@
-.embed-responsive-container {
-    max-height: 500px; /* Set the maximum height for scrolling */
-    max-width: 100%; /* Optional, controls width */
-    overflow-y: auto; /* Adds vertical scrollbar when content overflows */
-    overflow-x: hidden; /* Hides horizontal scrollbar (optional) */
-    padding: 10px; /* Adds space inside the div, optional */
-    border: 1px solid #ccc; /* Optional, adds a border for visibility */
-}
 
