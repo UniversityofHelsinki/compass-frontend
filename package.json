@@ -52,6 +52,11 @@
     "simple-git-hooks": {
         "pre-commit": "npx pretty-quick --staged"
     },
+    "jest": {
+        "transformIgnorePatterns": [
+            "node_modules/(?!(date-fns|react-datepicker)/)"
+        ]
+    },
     "devDependencies": {
         "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.6.3",
