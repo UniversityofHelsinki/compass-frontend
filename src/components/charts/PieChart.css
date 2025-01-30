@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     justify-content: center;
     padding: 20px;
+    width: 100%;
 }
 
 .pie-chart-item {
@@ -13,7 +14,7 @@
     flex: 1 1 calc(50% - 20px);
     box-sizing: border-box;
     max-width: 450px;
-    min-width: fit-content;
+    width: 100%;
     margin: 10px;
 }
 

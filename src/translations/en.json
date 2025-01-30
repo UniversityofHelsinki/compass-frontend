@@ -166,7 +166,7 @@
     "answer_dialog_feedback_option_header": "Choose the level that you think best describes the student's current understanding:",
     "answer_dialog_feedback_button": "Save feedback",
     "answer_dialog_feedback_is_too_long": "Feedback is too long",
-    "answer_dialog_feedback_level": "Teacher's evaluation for level of understanding",
+    "answer_dialog_feedback_level": "Teacher's feedback for response",
     "answer_dialog_no_feedback": "The teacher has not left you feedback.",
     "student_feedback_message": "Feedback saved",
     "summary_feedback_header": "Teacher's evaluation",
@@ -214,5 +214,7 @@
     "footer_compass_data_protection_statement_link": "https://www.helsinki.fi/en/about-us/processing-data-university/data-protection",
     "footer_accessibility_statement_link": "accessibility-statement",
     "opens_in_new_tab": "Opens in new tab",
-    "answer_dialog_teacher_level_feedback": "Level of understanding:"
+    "answer_dialog_teacher_level_feedback": "Teacher's evaluation for level of understanding:",
+    "reflection_compass_logo_alt_text": "Reflection Compass logo",
+    "course_statistics_no_assignments_to_display": "No assignments to display."
 }
