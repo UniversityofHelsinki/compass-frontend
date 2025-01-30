@@ -116,7 +116,7 @@ const AssignmentAnswersDialog = ({
     const feedBackToStudent = (teacherUser) => {
         return (
             (teacherUser && feedbackAllowed && (
-                <>
+                <div>
                     <Row>
                         <Col
                             as="h5"
@@ -150,7 +150,9 @@ const AssignmentAnswersDialog = ({
                         </div>
                     </div>
                     <Row>
-                        <label> {t('answer_dialog_feedback_option_header')}</label>
+                        <Col className="answer-dialog-feedback-option-header">
+                            {t('answer_dialog_feedback_option_header')}
+                        </Col>
                     </Row>
                     <Row>
                         <Col>
@@ -176,7 +178,7 @@ const AssignmentAnswersDialog = ({
                             />
                         </Col>
                     </Row>
-                </>
+                </div>
             )) || <></>
         );
     };
@@ -207,7 +209,7 @@ const AssignmentAnswersDialog = ({
                             </Col>
                         </Row>
                         <Row>
-                            <Col className="written-response-content" lg>
+                            <Col className="written-response-content">
                                 <Form.Control
                                     as="textarea"
                                     rows={6}
@@ -254,14 +256,14 @@ const AssignmentAnswersDialog = ({
                             </Col>
                         </Row>
                         <Row>
-                            <Col as="h6">
-                                <span className={teacherUser ? 'hidden' : 'feedback-level'}>
-                                    {t('answer_dialog_teacher_level_feedback')} {teacher_icon}{' '}
-                                    {teacher_text}
-                                </span>
+                            <Col as="h6" className={teacherUser ? 'hidden' : 'feedback-level'}>
+                                {t('answer_dialog_teacher_level_feedback')} {teacher_icon}{' '}
+                                {teacher_text}
                             </Col>
                         </Row>
-                        {feedBackToStudent(teacherUser)}
+                        <Row>
+                            <Col>{feedBackToStudent(teacherUser)}</Col>
+                        </Row>
                     </Container>
                 </Modal.Body>
                 <Modal.Footer>
@@ -294,6 +296,16 @@ AssignmentAnswersDialog.propTypes = {
     courseTitle: PropTypes.string,
     userName: PropTypes.string,
     assignmentTopic: PropTypes.string,
+    reload: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
+    answer_value: PropTypes.string,
+    displayName: PropTypes.string,
+    course_id: PropTypes.string.isRequired,
+    assignment_id: PropTypes.number.isRequired,
+    feedback_value: PropTypes.string,
+    feedback_order_nbr: PropTypes.number,
+    feedback_id: PropTypes.number,
+    feedbackAllowed: PropTypes.bool.isRequired,
 };
 
 export default AssignmentAnswersDialog;
