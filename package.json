@@ -54,7 +54,7 @@
     },
     "jest": {
         "transformIgnorePatterns": [
-            "node_modules/(?!(date-fns|react-datepicker)/)"
+            "node_modules/(?!(date-fns|react-datepicker|bootstrap)/)"
         ]
     },
     "devDependencies": {
