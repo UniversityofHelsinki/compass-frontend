@@ -45,11 +45,12 @@ const DatePicker = React.forwardRef(
         }
 
         const handleChange = (input, event) => {
-            const day = input?.getDate();
-            const month = input?.getMonth() + 1;
-            const year = input?.getFullYear();
-            const date = `${year}-${month}-${day}`;
-            onChange((input && date) || '', event);
+            if (input) {
+                input.setUTCHours(0, 0, 0, 0);
+                onChange(input.toISOString(), event);
+            } else {
+                onChange(null, event);
+            }
         };
 
         return (
@@ -58,7 +59,7 @@ const DatePicker = React.forwardRef(
                     ref={ref}
                     dateFormat="d.M.yyyy"
                     locale={localeLanguage}
-                    selected={(date && new Date(date)) || ''}
+                    selected={date}
                     onChange={handleChange}
                     {...rest}
                 />
