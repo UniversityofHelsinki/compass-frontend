@@ -79,10 +79,13 @@ const Assignments = () => {
         return <></>;
     }
 
-    const dueAssignmentsHeader = () => {
-        if (dueAssignments.length > 0) return t('assignments_due');
-
-        return <div className="assignments-header-empty">{t('assignments_no_ongoing')}</div>;
+    const noDueAssignments = () => {
+        if (dueAssignments.length === 0)
+            return <h5 className="assignments-header-empty">{t('assignments_no_ongoing')}</h5>;
+    };
+    const noPreviousAssignments = () => {
+        if (previousAssignments.length === 0)
+            return <h5 className="assignments-header-empty">{t('assignments_no_previous')}</h5>;
     };
 
     return (
@@ -95,7 +98,8 @@ const Assignments = () => {
             ></TopBar>
             <div className="m-3"></div>
             <div className="responsive-margins">
-                <h3>{dueAssignmentsHeader()}</h3>
+                <h3>{t('assignments_due')}</h3>
+                {noDueAssignments()}
 
                 <ul className="assignments-list">
                     {dueAssignments.map((assignment) => (
@@ -114,6 +118,7 @@ const Assignments = () => {
                 </ul>
 
                 <h3>{t('assignments_previous')}</h3>
+                {noPreviousAssignments()}
                 <ul className="assignments-list">
                     {previousAssignments.map((assignment) => (
                         <li key={assignment.id} className="mb-3">

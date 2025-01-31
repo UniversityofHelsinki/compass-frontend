@@ -51,6 +51,7 @@
     "assignments_due": "Pågående uppgifter",
     "assignments_no_ongoing": "Inga pågående uppgifter",
     "assignments_previous": "Avslutade uppgifter",
+    "assignments_no_previous": "Inga avslutade uppgifter",
     "assignments_back_to_course": "assignments_back_to_course",
     "assignments_back_to_course_secondary": "assignments_back_to_course_secondary",
     "assignments_answered": "assignments_answered",

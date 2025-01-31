@@ -86,6 +86,7 @@ ul.assignments-list {
     display: flex;
     flex-direction: column;
     background-color: var(--huds-grayscale-light);
+    padding: 16px;
 }
 
 .assignments-list-item {

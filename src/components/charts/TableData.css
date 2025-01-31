@@ -38,3 +38,7 @@
     white-space: nowrap; /* Prevents breaking into multiple lines */
     flex-direction: row;
 }
+
+.table tbody td {
+    text-align: center;
+}
