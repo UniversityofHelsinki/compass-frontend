@@ -29,7 +29,7 @@
         "test": "react-scripts test",
         "coverage": "npm test -- --coverage",
         "eject": "react-scripts eject",
-        "prepare": "cross-env CI=$CI node -e \"if (process.env.CI !== 'true') require('child_process').execSync('npx simple-git-hooks', { stdio: 'inherit' });\""
+        "prepare": "cross-env node src/scripts/prepare.js"
     },
     "eslintConfig": {
         "extends": [
