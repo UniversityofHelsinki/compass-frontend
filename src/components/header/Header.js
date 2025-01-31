@@ -16,13 +16,13 @@ const Header = () => {
         <header className="header">
             <Container>
                 <Row className="align-items-center">
-                    <Col md={4} sm={12} className="header-left">
+                    <Col md={4} xs={12} className="header-left">
                         <Logo />
                     </Col>
-                    <Col md={4} sm={6} className="header-center">
+                    <Col md={4} xs={6} className="header-center mx-auto text-center">
                         <Navigation isTeacher={isTeacher} />
                     </Col>
-                    <Col md={4} sm={6} className="header-right">
+                    <Col md={4} xs={6} className="header-right text-md-end text-center">
                         <Languages />
                         <User />
                     </Col>

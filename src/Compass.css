@@ -8,7 +8,7 @@
 }
 
 .root-main-row > aside {
-    padding-right: 0px;
+    padding-right: 0;
 }
 
 .width-transition {
@@ -19,7 +19,7 @@
 
 .hide-after-slide {
     width: 400px;
-    opacity: 0%;
+    opacity: 0;
 }
 
 .main-content-notification-area {
@@ -27,4 +27,13 @@
     max-width: fit-content;
     bottom: 2dvh;
     left: 2dvw;
+}
+
+@media (max-width: 576px) {
+    .main-content .compass-logo {
+        margin-top: 20px;
+        justify-self: center;
+        display: flex;
+        flex-direction: column;
+    }
 }

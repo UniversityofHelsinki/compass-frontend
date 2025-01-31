@@ -3,6 +3,8 @@ footer {
     padding-top: 20px;
     padding-bottom: 20px;
     flex-flow: column wrap;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-hy-logo {
@@ -26,6 +28,8 @@ footer li > a {
 @media (max-width: 992px) {
     footer {
         text-align: center;
+        position: relative;
+        width: 100%;
     }
 
     .footer-hy-logo {
