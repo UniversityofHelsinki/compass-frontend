@@ -155,6 +155,8 @@
     "error_loading_data": "Error loading data",
     "no_statistic_data_available": "No statistic data available",
     "course_statistics_for_course": "Statistics for course",
+    "course_statistics_selected": "selected",
+    "course_statistics_not_selected": "not selected",
     "select_assignments_to_display": "Select which assignments to display",
     "course_assignment_on_going_assignment_can_not_be_deleted": "A running task cannot be deleted.",
     "course_assignment_on_going_assignment_topic_can_not_be_changed": "The subject of an ongoing task cannot be changed.",
