@@ -81,9 +81,9 @@ setup_stage:
         - ohtu-build-4
     image: node:20-alpine
     script:
-        - npm ci
+        - npm ci --omit=dev
         - yes | cp -f -v .env.test .env.production || true
-        - CI=false npm run build
+        - CI=false NODE_ENV=production npm run build
     artifacts:
         name: compass-build
         paths:
@@ -98,8 +98,8 @@ setup_stage-prod:
         - ohtu-build-4
     image: node:20-alpine
     script:
-        - npm ci
-        - CI=false npm run build
+        - npm ci --omit=dev
+        - CI=false NODE_ENV=production npm run build
     artifacts:
         name: compass-build
         paths:

@@ -3,7 +3,7 @@ import { get, useGET } from '../useHttp';
 import { useNotification } from '../../NotificationContext';
 import { useTranslation } from 'react-i18next';
 
-const useClipboardCopy = (id, courseId) => {
+const useClipboardCopy = (id) => {
     const { t } = useTranslation();
     const { setNotification } = useNotification();
 

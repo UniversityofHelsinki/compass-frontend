@@ -1,7 +1,9 @@
 import React from 'react';
-import { render, screen } from '../../test/render';
+import { mockFetch } from '../../test/mockFetch';
+import { act, render, screen } from '../../test/render';
 import TeacherForm from './TeacherForm';
 
+window.fetch = mockFetch().build();
 it('renders', () => {
     render(<TeacherForm onSave={() => {}} teacherForm={{}} />);
 });
@@ -47,6 +49,48 @@ describe('Required fields are present', () => {
 
     test('Add topic button', () => {
         expect(screen.queryByText('teacher_form_add_assignment')).toBeTruthy();
+    });
+});
+
+describe('Assignments', () => {
+    let component;
+
+    beforeEach(() => {
+        component = render(
+            <TeacherForm isNew={false} onSave={() => {}} teacherForm={teacherForm} />,
+        );
+    });
+
+    test('Assignment row is created on Add topic button press', async () => {
+        const addAssignmentButton = screen.getByRole('button', {
+            name: 'teacher_form_add_assignment',
+        });
+        await act(async () => {
+            await component.user.click(addAssignmentButton);
+        });
+        const topic = component.getByLabelText('teacher_form_assignment_topic_label');
+        const startDate = component.getByLabelText('teacher_form_assignment_start_label');
+        const endDate = component.getByLabelText('teacher_form_assignment_end_label');
+        const deleteBtn = component.getByLabelText('teacher_form_delete_assignment_button');
+        expect(topic).toBeInTheDocument();
+        expect(startDate).toBeInTheDocument();
+        expect(endDate).toBeInTheDocument();
+        expect(deleteBtn).toBeInTheDocument();
+    });
+
+    test('Assignment row is deleted on trash button press', async () => {
+        const addAssignmentButton = screen.getByRole('button', {
+            name: 'teacher_form_add_assignment',
+        });
+        await act(async () => {
+            await component.user.click(addAssignmentButton);
+        });
+        const deleteBtn = component.getByLabelText('teacher_form_delete_assignment_button');
+        expect(deleteBtn).toBeInTheDocument();
+        await act(async () => {
+            await component.user.click(deleteBtn);
+        });
+        expect(deleteBtn).not.toBeInTheDocument();
     });
 });
 

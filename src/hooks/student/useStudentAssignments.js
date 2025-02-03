@@ -1,24 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGET } from '../useHttp';
+import { validatePeriod } from '../validation/assignmentPeriodValidation';
+import { ASSIGNMENT_OLD, ASSIGNMENT_VALID_FOR_EDIT } from '../../Constants';
 
 const useStudentAssignments = ({ course }) => {
     const dispatch = useDispatch();
-    /*const get = async () => {
-        const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
-        const URL = `${COMPASS_BACKEND_SERVER}/api/student/courses/${course}/assignments`;
-        try {
-            const response = await fetch(URL);
-            if (response.ok) {
-                return await response.json();
-            }
-            throw new Error(
-                `Unexpected status code ${response.status} while fetching student assignments from ${URL}`,
-            );
-        } catch (error) {
-            console.error(error.message);
-        }
-    };*/
     const assignments = useSelector((state) => state.student.assignments);
 
     const [response, error, reload] = useGET({
@@ -34,6 +21,20 @@ const useStudentAssignments = ({ course }) => {
         }
     }, [assignments, response, dispatch]);
 
-    return [assignments || [], error, reload];
+    const filterValidAssignments = () =>
+        assignments
+            ?.map((assignment) => {
+                return { ...assignment };
+            })
+            .filter((assignment) => {
+                return (
+                    validatePeriod(assignment) === ASSIGNMENT_VALID_FOR_EDIT ||
+                    validatePeriod(assignment) === ASSIGNMENT_OLD
+                );
+            });
+
+    const valid_assignments = filterValidAssignments();
+
+    return [valid_assignments || [], error, reload];
 };
 export default useStudentAssignments;

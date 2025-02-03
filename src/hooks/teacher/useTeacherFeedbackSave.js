@@ -44,7 +44,7 @@ const useTeacherFeedbackSave = (
         setFeedback(newModifiedObject);
     };
     const addFeedback = async (userName, course_id, assignment_id, feedback_id) => {
-        const addedFeedback = await post({
+        const response = await post({
             ...feedback,
             user_name: user.eppn,
             course_id: course_id,
@@ -52,14 +52,19 @@ const useTeacherFeedbackSave = (
             id: feedback_id,
             student: userName,
         });
-        if (addedFeedback.ok) {
+        if (response.status === 200) {
             style = 'neutral';
-            message = 'student_feedback_message';
-        } else if (addedFeedback.status === 500) {
+            const data = await response.json();
+            if (data.message) {
+                message = data.message;
+            } else {
+                message = 'student_feedback_message';
+            }
+        } else if (response.status === 500) {
             style = 'warning';
             message = 'student_feedback_err_message';
         }
-        dispatch({ type: 'SET_STUDENT_FEEDBACK', payload: addedFeedback });
+        dispatch({ type: 'SET_STUDENT_FEEDBACK', payload: response });
     };
 
     if (feedback && !radioButtonClicked) {
@@ -70,14 +75,12 @@ const useTeacherFeedbackSave = (
         return (
             ((feedback?.feedback_value === undefined ||
                 feedback?.feedback_value === null ||
-                feedback?.feedback_value.length === 0 ||
-                feedback?.order_nbr === undefined ||
-                feedback?.order_nbr === null) &&
+                feedback?.feedback_value.length === 0) &&
+                (feedback?.order_nbr === undefined || feedback?.order_nbr === null) &&
                 (feedback_value === undefined ||
                     feedback_value === null ||
-                    feedback_value.length === 0 ||
-                    feedback_order_nbr === undefined ||
-                    feedback_order_nbr === null)) ||
+                    feedback_value.length === 0) &&
+                (feedback_order_nbr === undefined || feedback_order_nbr === null)) ||
             (feedback?.feedback_value === feedback_value &&
                 feedback?.order_nbr === feedback_order_nbr)
         );

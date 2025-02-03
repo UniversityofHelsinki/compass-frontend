@@ -1,3 +1,7 @@
 svg.footer-feedback-icon * {
     fill: var(--hy-white);
 }
+
+.feedback-padding {
+    padding-right: 10px;
+}

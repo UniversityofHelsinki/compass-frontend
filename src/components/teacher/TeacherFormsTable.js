@@ -38,7 +38,7 @@ const HeadingColumn = ({ children, onSortCriteriaChange, sorted, direction }) =>
 
 const Row = ({ teacherForm }) => {
     const { t } = useTranslation();
-    const { clipboardCopy } = useClipboardCopy(teacherForm.id, teacherForm.course_id);
+    const { clipboardCopy } = useClipboardCopy(teacherForm.id);
     const { setNotification } = useNotification();
 
     const handleShareClick = () => {

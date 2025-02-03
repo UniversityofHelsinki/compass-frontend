@@ -35,5 +35,9 @@
 .markdown-container {
     padding-top: 10px;
     padding-left: 30px;
+}
 
+.markdown-notes {
+    overflow-y: auto;
+    max-height: 50vh;
 }
