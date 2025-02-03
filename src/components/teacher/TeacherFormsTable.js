@@ -159,7 +159,7 @@ const TeacherFormsTable = ({ teacherForms = [], onSortCriteriaChange, sortOpts }
     const { t } = useTranslation();
 
     return (
-        <div>
+        <div className="responsive-margins">
             <table className="teacher-forms-table">
                 <caption className="screenreader-only">
                     {t('teacher_forms_table_description')}
