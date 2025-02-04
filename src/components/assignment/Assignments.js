@@ -6,7 +6,6 @@ import useStudentCourseAssignmentAnswer from '../../hooks/useStudentCourseAssign
 import useStudentCourse from '../../hooks/useStudentCourse';
 import TopBar from '../utilities/TopBar';
 import PropTypes from 'prop-types';
-import Notification from '../notes/Notification';
 
 const AssignmentListItem = ({ previous, assignment, href }) => {
     const { t } = useTranslation();
@@ -81,11 +80,11 @@ const Assignments = () => {
 
     const noDueAssignments = () => {
         if (dueAssignments.length === 0)
-            return <h5 className="assignments-header-empty">{t('assignments_no_ongoing')}</h5>;
+            return <div className="assignments-header-empty">{t('assignments_no_ongoing')}</div>;
     };
     const noPreviousAssignments = () => {
         if (previousAssignments.length === 0)
-            return <h5 className="assignments-header-empty">{t('assignments_no_previous')}</h5>;
+            return <div className="assignments-header-empty">{t('assignments_no_previous')}</div>;
     };
 
     return (

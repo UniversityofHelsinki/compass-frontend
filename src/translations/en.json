@@ -183,7 +183,7 @@
     "statistics_table_header_answers": "Response",
     "answer_dialog_footer_level": "Level of understanding",
     "answer_dialog_close_button": "Close",
-    "answer_dialog_feedback_level": "Teacher's evaluation for level of understanding",
+    "answer_dialog_feedback_level": "Teacher's feedback",
     "answer_dialog_no_feedback": "The teacher has not left you feedback.",
     "answer_dialog_no_feedback_level": "The teacher has not evaluated level of understanding",
     "answer_dialog_feedback_removed_ok": "Feedback removed",

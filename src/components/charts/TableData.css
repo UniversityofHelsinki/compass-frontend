@@ -34,9 +34,10 @@
 }
 
 .table th {
-    align-items: center; /* Vertically aligns text and the icon */
-    white-space: nowrap; /* Prevents breaking into multiple lines */
+    align-items: center;
+    white-space: nowrap;
     flex-direction: row;
+    text-align: center;
 }
 
 .table tbody td {
