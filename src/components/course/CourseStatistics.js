@@ -6,6 +6,7 @@ import './CourseStatistics.css';
 import useTeacherCourse from '../../hooks/useTeacherCourse';
 import { useTranslation } from 'react-i18next';
 import TopBar from '../utilities/TopBar';
+import { Col, Row } from 'react-bootstrap';
 
 const CourseStatistics = () => {
     const { courseId } = useParams();
@@ -119,18 +120,20 @@ const CourseStatistics = () => {
     };
 
     return (
-        <div>
-            <TopBar
-                showBackBtn={true}
-                backBtnLabels={{
-                    primary: t('teacher_forms_back_to_forms'),
-                    secondary: t('teacher_forms_back_to_forms_secondary'),
-                }}
-                backBtnHref="/teacher/forms"
-                heading={`${t('course_statistics_for_course')}: ${course?.title}`}
-            />
-            <div>
-                <div className="chart-selection">
+        <Row>
+            <Col>
+                <TopBar
+                    showBackBtn={true}
+                    backBtnLabels={{
+                        primary: t('teacher_forms_back_to_forms'),
+                        secondary: t('teacher_forms_back_to_forms_secondary'),
+                    }}
+                    backBtnHref="/teacher/forms"
+                    heading={`${t('course_statistics_for_course')}: ${course?.title}`}
+                />
+            </Col>
+            <Row>
+                <Col className="chart-selection">
                     <div className="chart-selection-title">
                         {t('select_assignments_to_display')}
                     </div>
@@ -145,20 +148,24 @@ const CourseStatistics = () => {
                             </button>
                         ))}
                     </div>
-                </div>
-                {Array.isArray(chartData) && chartData.length > 0 ? (
-                    <PieCharts
-                        data={chartData}
-                        selectedChartIds={selectedCharts}
-                        courseTitle={course?.title}
-                        answersFeedbacks={answerFeedbacks}
-                        reload={reload}
-                    />
-                ) : (
-                    <p>No assignment data available.</p>
-                )}
-            </div>
-        </div>
+                </Col>
+            </Row>
+            <Row>
+                <Col className="pie-charts">
+                    {Array.isArray(chartData) && chartData.length > 0 ? (
+                        <PieCharts
+                            data={chartData}
+                            selectedChartIds={selectedCharts}
+                            courseTitle={course?.title}
+                            answersFeedbacks={answerFeedbacks}
+                            reload={reload}
+                        />
+                    ) : (
+                        <p>{t('course_statistics_no_assignments_to_display')}</p>
+                    )}
+                </Col>
+            </Row>
+        </Row>
     );
 };
 
