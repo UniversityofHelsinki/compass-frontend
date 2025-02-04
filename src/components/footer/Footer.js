@@ -10,15 +10,15 @@ import Colors from '../utilities/HyColors';
 
 const Footer = () => {
     return (
-        <Container>
+        <Container fluid>
             <Row>
-                <Col className="text-start footer-hy-logo col-md-1">
+                <Col className="text-start footer-hy-logo col-sm-1">
                     <HyLogo fill={Colors.white} />
                 </Col>
-                <Col className="col-md-3">
+                <Col className="col-lg-3">
                     <ContactDetails />
                 </Col>
-                <Col className="col-md-3">
+                <Col className="col-lg-3">
                     <FooterLinks />
                 </Col>
             </Row>

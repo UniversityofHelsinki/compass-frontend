@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import HyButton from '../utilities/HyButton';
 import Notification from '../notes/Notification';
 import { Link } from 'react-router-dom';
+import { Col, Container, Row } from 'react-bootstrap';
 
 const FeedbackForEvaluationFooter = ({
     disabled,
@@ -18,32 +19,34 @@ const FeedbackForEvaluationFooter = ({
     const { t } = useTranslation();
 
     return (
-        <div className="feedback-for-evaluation-footer">
-            <Notification msg={t(message)} type={msgStyle} />
-            <div className="feedback-for-evaluation-footer-buttons">
-                <Link to={`/student/assignment/${answer}/${id}`}>
-                    <HyButton
-                        variant="primary"
-                        onClick={null}
-                        type="submit"
-                        disabled={disabled !== 'valid'}
+        <Row className="feedback-for-evaluation-footer">
+            <Col>
+                <Notification msg={t(message)} type={msgStyle} />
+                <div className="feedback-for-evaluation-footer-buttons">
+                    <Link to={`/student/assignment/${answer}/${id}`}>
+                        <HyButton
+                            variant="primary"
+                            onClick={null}
+                            type="submit"
+                            disabled={disabled !== 'valid'}
+                        >
+                            {t('assignment_feedback_edit')}
+                        </HyButton>
+                    </Link>
+                    <Link
+                        to={`/student/delete/${answer}/${id}`}
+                        state={{ studentAnswer: { ...studentAnswer } }}
                     >
-                        {t('assignment_feedback_edit')}
-                    </HyButton>
-                </Link>
-                <Link
-                    to={`/student/delete/${answer}/${id}`}
-                    state={{ studentAnswer: { ...studentAnswer } }}
-                >
-                    <HyButton variant="primary" type="submit" disabled={disabled !== 'valid'}>
-                        {t('assignment_feedback_remove')}
-                    </HyButton>
-                </Link>
-                <Link to={`/student/courses/${course}/summary`}>
-                    {t('assignment_feedback_reflection_summary')}
-                </Link>
-            </div>
-        </div>
+                        <HyButton variant="primary" type="submit" disabled={disabled !== 'valid'}>
+                            {t('assignment_feedback_remove')}
+                        </HyButton>
+                    </Link>
+                    <Link to={`/student/courses/${course}/summary`}>
+                        {t('assignment_feedback_reflection_summary')}
+                    </Link>
+                </div>
+            </Col>
+        </Row>
     );
 };
 

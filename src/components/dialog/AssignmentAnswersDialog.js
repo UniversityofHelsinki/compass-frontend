@@ -148,7 +148,9 @@ const AssignmentAnswersDialog = ({
                     </div>
                 </div>
                 <Row>
-                    <label> {t('answer_dialog_feedback_option_header')}</label>
+                    <Col className="answer-dialog-feedback-option-header">
+                        {t('answer_dialog_feedback_option_header')}
+                    </Col>
                 </Row>
                 <Row>
                     <Col>
@@ -295,6 +297,16 @@ AssignmentAnswersDialog.propTypes = {
     userName: PropTypes.string,
     assignmentTopic: PropTypes.string,
     studentTab: PropTypes.bool,
+    reload: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
+    answer_value: PropTypes.string,
+    displayName: PropTypes.string,
+    course_id: PropTypes.string.isRequired,
+    assignment_id: PropTypes.number.isRequired,
+    feedback_value: PropTypes.string,
+    feedback_order_nbr: PropTypes.number,
+    feedback_id: PropTypes.number,
+    feedbackAllowed: PropTypes.bool.isRequired,
 };
 
 export default AssignmentAnswersDialog;
