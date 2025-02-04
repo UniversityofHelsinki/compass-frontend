@@ -85,3 +85,7 @@
     width: 16px;
     height: 16px;
 }
+
+.modal-content {
+    overflow: auto;
+}

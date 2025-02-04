@@ -7,14 +7,15 @@ import useStudentCourse from '../../hooks/useStudentCourse';
 import TopBar from '../utilities/TopBar';
 import PropTypes from 'prop-types';
 import Notification from '../notes/Notification';
+import { Col, Container, Row } from 'react-bootstrap';
 
 const AssignmentListItem = ({ previous, assignment, href }) => {
     const { t } = useTranslation();
     let anwer =
         assignment?.answered === true ? t('assignments_answered') : t('assignments_not_answered');
     return (
-        <div className="assignments-list-item">
-            <div className="assignments-list-item-link">
+        <Row className="assignments-list-item">
+            <Col className="assignments-list-item-link">
                 <Link
                     to={href}
                     className={
@@ -23,19 +24,20 @@ const AssignmentListItem = ({ previous, assignment, href }) => {
                             : 'assignments-list-item-link'
                     }
                 >
-                    {' '}
                     {assignment?.topic}{' '}
                 </Link>
-                <span
-                    className={
-                        assignment?.answered === true
-                            ? 'assignments-list-item-answered'
-                            : 'assignments-list-item-not-answered'
-                    }
-                >
-                    {anwer}
-                </span>
-            </div>
+                <Col className="assignments-list-item-answer-status text-md-end">
+                    <span
+                        className={
+                            assignment?.answered === true
+                                ? 'assignments-list-item-answered'
+                                : 'assignments-list-item-not-answered'
+                        }
+                    >
+                        {anwer}
+                    </span>
+                </Col>
+            </Col>
             <div className="assignments-list-item-secondary">
                 <span className="screenreader-only">{t('assignment_list_item_period')}</span>
                 <span>
@@ -43,7 +45,7 @@ const AssignmentListItem = ({ previous, assignment, href }) => {
                     {new Date(assignment?.end_date).toLocaleDateString('fi-FI')}
                 </span>
             </div>
-        </div>
+        </Row>
     );
 };
 
