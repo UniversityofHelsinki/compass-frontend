@@ -218,16 +218,18 @@
     "footer_contact_info_link_label": "Kontaktuppgifter",
     "footer_accessibility_statement_link_label": "Tillgänglighetsutlåtande",
     "footer_compass_feedback": "Ge respons",
-    "footer_compass_link_label": "Dataskyddsmeddelande",
+    "footer_compass_data_protection_statement_link_label": "Dataskyddsmeddelande",
     "footer_hy_address_line_1": "PB 4 (Universitetsgatan 3)",
     "footer_hy_address_line_2": "00014 Helsingfors universitet",
     "footer_hy_phone_switchboard": "Telefonväxel: 02941 911",
     "footer_contact_info_link": "https://helpdesk.it.helsinki.fi/sv/help/7003",
-    "footer_compass_link": "footer_compass_link",
+    "footer_compass_data_protection_statement_link": "https://www.helsinki.fi/sv/om-oss/behandling-av-uppgifter-vid-universitetet/dataskydd",
     "footer_accessibility_statement_link": "footer_accessibility_statement_link",
     "opens_in_new_tab": "Öppnas i ny flik",
     "answer_dialog_teacher_level_feedback": "Nivå av förståelse:",
     "download_instructions": "???download_instructions???",
     "download_slides": "???download_slides???",
-    "download_slides_powerpoint": "???download_slides_powerpoint???"
+    "download_slides_powerpoint": "???download_slides_powerpoint???",
+    "reflection_compass_logo_alt_text": "Reflection Compass logo",
+    "course_statistics_no_assignments_to_display": "Inga uppgifter att visa."
 }

@@ -10,6 +10,8 @@ import { ReactComponent as Level1Icon } from '../utilities/icons/circle-fill.svg
 import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vertical.svg';
 import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
 import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
+import { Col, Container, Row } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 const COLORS = ['#8B0000', '#8B4513', '#00008B', '#4B0082', '#006400'];
 
@@ -156,27 +158,55 @@ const PieCharts = ({ data, selectedChartIds, courseTitle, answersFeedbacks, relo
     }
 
     return (
-        <div className="pie-charts-container">
-            {filteredData.map((assignment, index) => (
-                <div
-                    className="pie-chart-item"
-                    key={`assignment-${assignment.assignmentId}-${index}`}
-                >
-                    <h3>
-                        {assignment.assignmentTopic} ({assignment.answerCount})
-                    </h3>
-                    {renderPieChart(assignment.data, index, t)}
-                    <TableData
-                        reload={reload}
-                        assignmentId={assignment.assignmentId}
-                        courseTitle={courseTitle}
-                        assignmentTopic={assignment.assignmentTopic}
-                        answersAndFeedbacks={feedbacksMap.get(assignment.assignmentId) || []}
-                    />
-                </div>
-            ))}
-        </div>
+        <Container>
+            <Row className="pie-charts-container">
+                {filteredData.map((assignment, index) => (
+                    <Col
+                        className="pie-chart-item"
+                        key={`assignment-${assignment.assignmentId}-${index}`}
+                    >
+                        <h3>
+                            {assignment.assignmentTopic} ({assignment.answerCount})
+                        </h3>
+                        {renderPieChart(assignment.data, index, t)}
+                        <TableData
+                            reload={reload}
+                            assignmentId={assignment.assignmentId}
+                            courseTitle={courseTitle}
+                            assignmentTopic={assignment.assignmentTopic}
+                            answersAndFeedbacks={feedbacksMap.get(assignment.assignmentId) || []}
+                        />
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     );
+};
+PieCharts.propTypes = {
+    data: PropTypes.arrayOf(
+        PropTypes.shape({
+            assignmentId: PropTypes.number.isRequired,
+            assignmentTopic: PropTypes.string.isRequired,
+            answerCount: PropTypes.string.isRequired,
+            data: PropTypes.arrayOf(
+                PropTypes.shape({
+                    name: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+                    value: PropTypes.number.isRequired,
+                }),
+            ).isRequired,
+        }),
+    ).isRequired,
+    selectedChartIds: PropTypes.arrayOf(PropTypes.number).isRequired,
+    courseTitle: PropTypes.string.isRequired,
+    answersFeedbacks: PropTypes.arrayOf(
+        PropTypes.arrayOf(
+            PropTypes.shape({
+                assignment_id: PropTypes.number.isRequired,
+                feedback: PropTypes.string,
+            }),
+        ),
+    ).isRequired,
+    reload: PropTypes.func.isRequired,
 };
 
 export default PieCharts;
