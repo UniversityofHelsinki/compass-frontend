@@ -93,8 +93,7 @@ ul.assignments-list {
     display: flex;
     flex-direction: column;
     background-color: var(--huds-grayscale-light);
-    padding: 16px;
-    padding-top: 12px;
+    padding: 12px 16px 16px;
 }
 
 .assignments-list-item-link {

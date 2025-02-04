@@ -1,5 +1,5 @@
 .compass-logo {
-    width: 200px;
+    max-width: 200px;
     height: auto;
-    padding-bottom: 20px
+    padding-bottom: 20px;
 }
