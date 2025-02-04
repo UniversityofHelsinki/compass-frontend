@@ -51,6 +51,7 @@
     "assignments_due": "Käynnissä olevat tehtävät",
     "assignments_no_ongoing": "Ei käynnissä olevia tehtäviä",
     "assignments_previous": "Päättyneet tehtävät",
+    "assignments_no_previous": "Ei päättyneitä tehtäviä",
     "assignments_back_to_course": "Kurssi",
     "assignments_back_to_course_secondary": "Takaisin kurssilistaan",
     "assignments_answered": "Vastattu",
