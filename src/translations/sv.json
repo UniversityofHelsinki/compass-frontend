@@ -156,6 +156,8 @@
     "error_loading_data": "Error loading data",
     "no_statistic_data_available": "No statistic data available",
     "course_statistics_for_course": "Statistics for course",
+    "course_statistics_selected": "valt",
+    "course_statistics_not_selected": "inte valt",
     "select_assignments_to_display": "Select which assignments to display",
     "course_assignment_on_going_assignment_can_not_be_deleted": "course_assignment_on_going_assignment_can_not_be_deleted",
     "course_assignment_on_going_assignment_topic_can_not_be_changed": "course_assignment_on_going_assignment_topic_can_not_be_changed",

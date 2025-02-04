@@ -156,6 +156,8 @@
     "error_loading_data": "Viga andmete laadimisel",
     "no_statistic_data_available": "Statistika pole kättesaadav",
     "course_statistics_for_course": "Kursuse statistika",
+    "course_statistics_selected": "valitud",
+    "course_statistics_not_selected": "pole valitud",
     "select_assignments_to_display": "Vali esitatav ülesanne",
     "course_assignment_on_going_assignment_can_not_be_deleted": "Käimasolevat ülesannet ei saa kustutada",
     "course_assignment_on_going_assignment_topic_can_not_be_changed": "Käimasoleva ülesande teemat ei saa muuta",
