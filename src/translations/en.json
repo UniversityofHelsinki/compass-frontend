@@ -162,7 +162,7 @@
     "answer_dialog_feedback_button": "Save feedback",
     "answer_dialog_feedback_is_too_long": "Feedback is too long",
     "student_feedback_message": "Feedback saved",
-    "teacher_forms_table_row_share": "Copy the course {{title}} to the clipboard",
+    "teacher_forms_table_row_share": "Copy the course {{title}} link to the clipboard",
     "teacher_forms_table_share_copy_to_clipboard": "Copied to clipboard!",
     "loading": "Loading...",
     "error_loading_data": "Error loading data",
