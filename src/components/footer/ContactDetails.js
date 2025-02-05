@@ -15,6 +15,7 @@ const ContactDetails = () => {
                 {t('footer_hy_address_line_2')}
             </p>
             <p>{t('footer_hy_phone_switchboard')}</p>
+            <p>{t('footer_hy_maintenance')}</p>
         </>
     );
 };
