@@ -86,6 +86,7 @@ ul.assignments-list {
     display: flex;
     flex-direction: column;
     background-color: var(--huds-grayscale-light);
+    padding: 16px;
 }
 
 .assignments-list-item {
@@ -107,7 +108,7 @@ ul.assignments-list {
 .assignments-list-item-not-answered {
     padding-top: 5px;
     width: fit-content;
-    color: red;
+    color: #b22222;
 }
 
 .assignments-list-item-link a {
@@ -141,7 +142,7 @@ ul.assignments-list {
 .disabled {
     pointer-events: none;
     cursor: default;
-    opacity: 0.6;
+    opacity: 0.9;
 }
 
 .assignments-message {

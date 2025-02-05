@@ -142,6 +142,7 @@ const CourseStatistics = () => {
                             <button
                                 key={assignment.assignmentId}
                                 className={`tag-button ${selectedCharts.includes(assignment.assignmentId) ? 'selected' : ''}`}
+                                aria-label={`${assignment.assignmentTopic},${selectedCharts.includes(assignment.assignmentId) ? t('course_statistics_selected') : t('course_statistics_not_selected')}`}
                                 onClick={() => handleSelectChart(assignment.assignmentId)}
                             >
                                 {assignment.assignmentTopic}
