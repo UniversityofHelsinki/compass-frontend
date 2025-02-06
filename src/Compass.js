@@ -28,6 +28,7 @@ const Compass = () => {
                     <Col as="main">
                         <div className="main-content">
                             <LogoImage />
+                            <div className="py-2"></div>
                             <Outlet />
                             <div className="main-content-notification-area" aria-live="assertive">
                                 <NotificationArea />

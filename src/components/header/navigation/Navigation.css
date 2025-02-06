@@ -1,38 +1,39 @@
 .navigation {
-  display: flex;
+    display: flex;
 }
 
 .navigation ol {
-  display: inherit;
-  padding-left: unset;
-  margin-bottom: unset;
+    display: inherit;
+    padding-left: unset;
+    margin-bottom: unset;
 }
 
 .navigation li {
-  list-style: none;
-  display: flex;
-  margin-left: 4px;
-  margin-right: 4px;
+    list-style: none;
+    display: flex;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 .navigation-link a {
-  font-size: 1.2em;
-  text-decoration: none;
-  color: var(--huds-grayscale-dark);
+    font-size: 1.2em;
+    text-decoration: none;
+    color: var(--huds-grayscale-dark);
+    word-break: break-all;
 }
 
 .navigation-link a:hover {
-  color: var(--huds-grayscale-black);
+    color: var(--huds-grayscale-black);
 }
 
 .navigation-link a.active ~ .navigation-link-underline {
-  height: 4px;
-  background-color: var(--huds-brand-main);
-  width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
+    height: 4px;
+    background-color: var(--huds-brand-main);
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
 }
 
 .navigation-link a.active {
-  color: var(--huds-grayscale-dark);
+    color: var(--huds-grayscale-dark);
 }
