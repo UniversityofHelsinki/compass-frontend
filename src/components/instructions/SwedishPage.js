@@ -3,24 +3,14 @@ import React from 'react';
 const SwedishPage = () => {
     return (
         <div>
-            <p>
-                <span lang="sv">&nbsp;</span>
-            </p>
-
-            <p>
-                <b>
-                    <span lang="sv">Bästa universitetslärare!</span>
-                </b>
-            </p>
-
-            <p>
-                <b>
-                    <span lang="sv">
-                        Välkommen att använda Reflektionskompassen i undervisningen om
-                        forskningsetik!
-                    </span>
-                </b>
-            </p>
+            <h3>
+                <span lang="sv">Bästa universitetslärare!</span>
+            </h3>
+            <h3>
+                <span lang="sv">
+                    Välkommen att använda Reflektionskompassen i undervisningen om forskningsetik!
+                </span>
+            </h3>
 
             <p>
                 <span lang="sv">
@@ -46,11 +36,9 @@ const SwedishPage = () => {
                 </span>
             </p>
 
-            <p>
-                <b>
-                    <span lang="sv">Vad gör applikationen? </span>
-                </b>
-            </p>
+            <h3>
+                <span lang="sv">Vad gör applikationen? </span>
+            </h3>
 
             <p>
                 <span lang="sv">
@@ -105,11 +93,9 @@ const SwedishPage = () => {
                 </span>
             </p>
 
-            <p>
-                <b>
-                    <span lang="sv">Hur fungerar applikationen? </span>
-                </b>
-            </p>
+            <h3>
+                <span lang="sv">Hur fungerar applikationen? </span>
+            </h3>
 
             <p>
                 <span lang="sv">

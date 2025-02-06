@@ -3,21 +3,15 @@ import React from 'react';
 const EnglishPage = () => {
     return (
         <div>
-            <p>
-                <b>
-                    <span lang="en">Dear University Teacher!</span>
-                </b>
-            </p>
-
-            <p>
+            <h3>
+                <span lang="en">Dear University Teacher!</span>
+            </h3>
+            <h3>
                 <span lang="en">
-                    <b>
-                        Welcome using the <i>Reflection Compass</i> in research ethics and integrity
-                        teaching!
-                    </b>
+                    Welcome using the <i>Reflection Compass</i> in research ethics and integrity
+                    teaching!
                 </span>
-            </p>
-
+            </h3>
             <p>
                 <span lang="en">
                     The <i>Reflection Compass</i> application is designed to support teachers in
@@ -41,11 +35,9 @@ const EnglishPage = () => {
                 </span>
             </p>
 
-            <p>
-                <b>
-                    <span lang="en">What does the application do?</span>
-                </b>
-            </p>
+            <h3>
+                <span lang="en">What does the application do?</span>
+            </h3>
 
             <p>
                 <span lang="en">
@@ -102,11 +94,9 @@ const EnglishPage = () => {
                 </span>
             </p>
 
-            <p>
-                <b>
-                    <span lang="en">How does the application work?</span>
-                </b>
-            </p>
+            <h3>
+                <span lang="en">How does the application work?</span>
+            </h3>
 
             <p>
                 <span lang="en">
@@ -294,11 +284,9 @@ const EnglishPage = () => {
                 </span>
             </p>
 
-            <p>
-                <b>
-                    <span lang="en">What background is the application based on?</span>
-                </b>
-            </p>
+            <h3>
+                <span lang="en">What background is the application based on?</span>
+            </h3>
 
             <p>
                 <i>

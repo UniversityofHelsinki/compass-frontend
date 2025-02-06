@@ -3,23 +3,14 @@ import React from 'react';
 const FinnishPage = () => {
     return (
         <div>
-            <p>
-                <span lang="fi">&nbsp;</span>
-            </p>
-
-            <p>
-                <b>
-                    <span lang="fi">Hyvä yliopiston opettaja!</span>
-                </b>
-            </p>
-
-            <p>
-                <b>
-                    <span lang="fi">
-                        Tervetuloa käyttämään Reflektiokompassia tutkimusetiikan opetuksessa!
-                    </span>
-                </b>
-            </p>
+            <h3>
+                <span lang="fi">Hyvä yliopiston opettaja!</span>
+            </h3>
+            <h3>
+                <span lang="fi">
+                    Tervetuloa käyttämään Reflektiokompassia tutkimusetiikan opetuksessa!
+                </span>
+            </h3>
 
             <p>
                 <span lang="fi">
@@ -46,11 +37,9 @@ const FinnishPage = () => {
                 </span>
             </p>
 
-            <p>
-                <b>
-                    <span lang="fi">Mitä sovellus tekee? </span>
-                </b>
-            </p>
+            <h3>
+                <span lang="fi">Mitä sovellus tekee? </span>
+            </h3>
 
             <p>
                 <span lang="fi">
@@ -106,11 +95,9 @@ const FinnishPage = () => {
                 <span lang="fi">tukemaan opiskelijoita itsearviointitaitojen kehittämisessä.</span>
             </p>
 
-            <p>
-                <b>
-                    <span lang="fi">Miten sovellus toimii? </span>
-                </b>
-            </p>
+            <h3>
+                <span lang="fi">Miten sovellus toimii? </span>
+            </h3>
 
             <p>
                 <span lang="fi">
@@ -315,11 +302,9 @@ const FinnishPage = () => {
                 </span>
             </p>
 
-            <p>
-                <b>
-                    <span lang="fi">Mihin tutkimustietoon sovellus perustuu? </span>
-                </b>
-            </p>
+            <h3>
+                <span lang="fi">Mihin tutkimustietoon sovellus perustuu? </span>
+            </h3>
 
             <p>
                 <span lang="fi">

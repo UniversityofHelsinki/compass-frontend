@@ -3,28 +3,14 @@ import React from 'react';
 const EstonianPage = () => {
     return (
         <div>
-            <p>
-                <b>
-                    <span lang="et">Lugupeetud </span>
-                </b>
-                <b>
-                    <span lang="et">õp</span>
-                    <span lang="et">pej</span>
-                </b>
-                <b>
-                    <span lang="et">õu</span>
-                    <span lang="et">d!</span>
-                </b>
-            </p>
-
-            <p>
-                <b>
-                    <span lang="et">
-                        Tere tulemast kasutama Refleksioonikompassi teaduseetika õpetamisel!
-                    </span>
-                </b>
-            </p>
-
+            <h3>
+                <span lang="et">Lugupeetud õppejõud!</span>
+            </h3>
+            <h3>
+                <span lang="et">
+                    Tere tulemast kasutama Refleksioonikompassi teaduseetika õpetamisel!
+                </span>
+            </h3>
             <p>
                 <span lang="et">
                     Refleksioonikompassi rakendus on loodud toetama õpetajaid teaduseetika
@@ -52,11 +38,9 @@ const EstonianPage = () => {
                 </span>
             </p>
 
-            <p>
-                <b>
-                    <span lang="et">Mis rakendus see on? </span>
-                </b>
-            </p>
+            <h3>
+                <span lang="et">Mis rakendus see on? </span>
+            </h3>
 
             <p>
                 <span lang="et">
@@ -110,11 +94,9 @@ const EstonianPage = () => {
                 <span lang="et">toetada üliõpilasi oma arusaamise hindamise õppimisel.</span>
             </p>
 
-            <p>
-                <b>
-                    <span lang="et">Kuidas rakendus töötab? </span>
-                </b>
-            </p>
+            <h3>
+                <span lang="et">Kuidas rakendus töötab? </span>
+            </h3>
 
             <p>
                 <span lang="et">
@@ -291,11 +273,9 @@ const EstonianPage = () => {
                 </span>
             </p>
 
-            <p>
-                <b>
-                    <span lang="et">Millistel uuringutel rakendus tugineb? </span>
-                </b>
-            </p>
+            <h3>
+                <span lang="et">Millistel uuringutel rakendus tugineb? </span>
+            </h3>
 
             <p>
                 <span lang="et">Refleksioonikompass on üles ehitatud uurimis- ja disainip</span>
