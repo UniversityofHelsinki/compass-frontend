@@ -8,6 +8,7 @@ const Message = ({ type, children, messageId }) => {
         {
             light: 'text-secondary',
             neutral: '',
+            info: 'text-info',
             warning: 'text-danger',
         }[type] || '';
 

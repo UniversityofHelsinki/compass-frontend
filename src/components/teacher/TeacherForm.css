@@ -76,3 +76,11 @@
 .validation-message {
     color: var(--hy-red);
 }
+
+.teacher-form-checkbox {
+    padding-bottom: 0.5em;
+}
+
+.teacher-form-buttons-with-link {
+    display: flex;
+}

@@ -24,6 +24,7 @@ const EmptyForm = ({ handleSave, teacherForm }) => {
         description: '',
         start_date: new Date(today - (today % oneDay)).toISOString(),
         end_date: new Date(today - (today % oneDay) + threeMonths).toISOString(),
+        research_authorization: false,
     };
 
     return <TeacherForm isNew={true} onSave={handleSave} teacherForm={teacherForm || empty} />;
@@ -43,6 +44,7 @@ const TemplateForm = ({ id, handleSave, teacherForm }) => {
         description: '',
         start_date: null,
         end_date: null,
+        research_authorization: course.research_authorization,
         assignments: course.assignments.map((assignment) => ({
             start_date: null,
             end_date: null,

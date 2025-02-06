@@ -5,8 +5,11 @@ import { useTranslation } from 'react-i18next';
 import DatePicker from '../../form/DatePicker';
 import { ReactComponent as TrashIcon } from '../utilities/icons/trash.svg';
 import useValidation from '../../hooks/validation/useTeacherFormValidation';
-import { Form } from 'react-bootstrap';
+import { Col, Form } from 'react-bootstrap';
 import HyButton from '../utilities/HyButton';
+import RadioButtonGroup from '../../form/RadioButtonGroup';
+import Message from '../../form/Message';
+import ExternalLink from '../utilities/ExternalLink';
 
 const FormField = ({ children, field, fieldId }) => {
     const { t } = useTranslation();
@@ -101,6 +104,63 @@ Identifier.propTypes = {
     value: PropTypes.string,
     validationError: PropTypes.string,
     disabled: PropTypes.bool,
+};
+
+const CheckBoxes = ({
+    radioButtonClicked,
+    onChange,
+    value,
+    validationError,
+    disableCheckBoxes,
+}) => {
+    const { t } = useTranslation();
+    const validationErrorId = useId();
+    const validationAttributes = validationError
+        ? {
+              'aria-invalid': true,
+              'aria-errormessage': validationErrorId,
+          }
+        : {};
+
+    const answerLevelMap = {
+        0: { text: t('teacher_form_research_authorization_denied'), value: '0' },
+        1: { text: t('teacher_form_research_authorization_allowed'), value: '1' },
+    };
+
+    const answerLevelArray = [
+        { label: t('teacher_form_research_authorization_denied'), value: '0' },
+        { label: t('teacher_form_research_authorization_allowed'), value: '1' },
+    ];
+
+    return (
+        <div>
+            <div className="teacher-form-buttons-with-link">
+                <RadioButtonGroup
+                    inline
+                    answerNotFound={!radioButtonClicked}
+                    options={answerLevelArray}
+                    onChange={onChange}
+                    value={value !== null ? String(value) : ''}
+                    field="research_authorization"
+                    aria-label={answerLevelMap[value]?.text}
+                    disabled={disableCheckBoxes}
+                ></RadioButtonGroup>
+                <ExternalLink to={'/researchpermission'} label={t('research_permission')} />
+            </div>
+            <ValidationMessage id={validationErrorId}>
+                {t(validationError) ? t(validationError) : t(disableCheckBoxes) ? null : <br></br>}
+            </ValidationMessage>
+            <Message id={`${validationErrorId}-message`} type={'info'}>
+                {t(disableCheckBoxes)}
+            </Message>
+        </div>
+    );
+};
+CheckBoxes.propTypes = {
+    radioButtonClicked: PropTypes.bool,
+    onChange: PropTypes.func,
+    value: PropTypes.string,
+    validationError: PropTypes.string,
 };
 
 const StartDate = ({ onChange, value, validationError }) => {
@@ -319,12 +379,35 @@ const createAssignment = (startDate, endDate) => {
     };
 };
 
+let now = new Date();
+let year = now.getUTCFullYear();
+let month = now.getUTCMonth();
+let day = now.getUTCDate();
+let today = new Date(Date.UTC(year, month, day));
+
 const TeacherForm = ({ teacherForm, onSave, isNew }) => {
     const { t } = useTranslation();
     const [modified, setModified] = useState(teacherForm);
 
+    const [disableSave] = useValidation(
+        {
+            research_authorization_disable: [
+                () =>
+                    modified.start_date &&
+                    new Date(today) > new Date(modified.start_date) &&
+                    'teacher_form_research_authorization_can_not_be_changed',
+            ],
+        },
+        [modified],
+    );
     const [validationErrors] = useValidation(
         {
+            research_authorization: [
+                (research_authorization) =>
+                    new Date(today) <= new Date(modified.start_date) &&
+                    !research_authorization &&
+                    'teacher_form_research_authorization_can_not_be_empty',
+            ],
             title: [
                 (title) => !title && 'teacher_form_title_can_not_be_empty',
                 (title) => title.length > 50 && 'teacher_form_title_is_too_long',
@@ -370,7 +453,10 @@ const TeacherForm = ({ teacherForm, onSave, isNew }) => {
 
     const isValid = (ve) => Object.values(ve).every((value) => !value);
     const formIsValid = isValid(validationErrors);
+    const researchAuthValid = isValid(disableSave);
     const assignmentsAreValid = assignmentValidationErrors.map(isValid).every((value) => value);
+
+    const [radioButtonClicked, setRadioButtonClicked] = useState(true);
 
     useEffect(() => {
         if (modified !== teacherForm) {
@@ -383,6 +469,7 @@ const TeacherForm = ({ teacherForm, onSave, isNew }) => {
     }
 
     const onChange = (property, value, element) => {
+        setRadioButtonClicked(true);
         setModified({
             ...modified,
             [property]: value,
@@ -430,6 +517,14 @@ const TeacherForm = ({ teacherForm, onSave, isNew }) => {
     return (
         <div className="teacher-form">
             <form onSubmit={submit}>
+                <CheckBoxes
+                    className="teacher-form-checkbox"
+                    onChange={(field, value) => onChange('research_authorization', value, null)}
+                    radioButtonClicked={radioButtonClicked}
+                    value={modified?.research_authorization}
+                    validationError={validationErrors.research_authorization}
+                    disableCheckBoxes={disableSave.research_authorization_disable}
+                />
                 <Title
                     onChange={(event) => onChange('title', event.target.value, event.target)}
                     value={modified.title}
