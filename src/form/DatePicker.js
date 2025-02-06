@@ -59,6 +59,7 @@ const DatePicker = React.forwardRef(
                     ref={ref}
                     dateFormat="d.M.yyyy"
                     locale={localeLanguage}
+                    preventOpenOnFocus={true}
                     selected={date}
                     onChange={handleChange}
                     {...rest}
@@ -69,7 +70,7 @@ const DatePicker = React.forwardRef(
 );
 
 DatePicker.propTypes = {
-    date: PropTypes.string,
+    date: PropTypes.object,
     onChange: PropTypes.func,
     locale: PropTypes.string,
 };
