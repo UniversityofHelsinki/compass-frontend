@@ -1,5 +1,8 @@
-.compass-logo {
+.logo-image {
     max-width: 200px;
-    height: auto;
-    padding-bottom: 20px;
+}
+
+.compass-logo {
+    max-width: 100%;
+    object-fit: scale-down;
 }
