@@ -406,19 +406,6 @@ const SwedishPage = () => {
                     </a>
                 </span>
             </p>
-
-            <p>
-                <span lang="SV">Länk till applikationen: </span>
-                <span lang="FI">
-                    <a href="https://reflection-compass.it.helsinki.fi">
-                        <span lang="SV">https://reflection-compass.it.helsinki.fi</span>
-                    </a>
-                </span>
-            </p>
-
-            <p>
-                <span lang="SV">&nbsp;</span>
-            </p>
         </div>
     );
 };

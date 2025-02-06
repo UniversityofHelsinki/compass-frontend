@@ -4,25 +4,25 @@ const FinnishPage = () => {
     return (
         <div>
             <p>
-                <span lang="EN-US">&nbsp;</span>
+                <span lang="fi">&nbsp;</span>
             </p>
 
             <p>
                 <b>
-                    <span lang="FI">Hyvä yliopiston opettaja!</span>
+                    <span lang="fi">Hyvä yliopiston opettaja!</span>
                 </b>
             </p>
 
             <p>
                 <b>
-                    <span lang="FI">
+                    <span lang="fi">
                         Tervetuloa käyttämään Reflektiokompassia tutkimusetiikan opetuksessa!
                     </span>
                 </b>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Reflektiokompassisovellus on suunniteltu tukemaan opettajia tutkimusetiikan
                     opetuksessa sekä tukemaan opiskelijoiden reflektiota tutkimusetiikan
                     oppimistehtävissä.{' '}
@@ -30,7 +30,7 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Tutkimuseettisiä teemoja käsitellään monella opintojaksolla, esimerkiksi
                     tutkimusseminaareissa, menetelmäkursseilla, tieteellisen kirjoittamisen
                     kursseilla sekä vertaisarviointia ja julkaisemista käsittelevissä seminaareissa.
@@ -48,12 +48,12 @@ const FinnishPage = () => {
 
             <p>
                 <b>
-                    <span lang="FI">Mitä sovellus tekee? </span>
+                    <span lang="fi">Mitä sovellus tekee? </span>
                 </b>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Esittelemme tutkimuspohjaisen työkalun yliopisto-opettajille, jotka käsittelevät
                     tutkimusetiikkaa opetuksessaan. Sovelluksen ovat kehittäneet tutkimusetiikan
                     asiantuntijat ja pedagogit opettajan tueksi. Sovellus auttaa opettajaa{' '}
@@ -61,59 +61,59 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="FI">
+                <span lang="fi">
                     selvittämään, mitä opiskelijat oppivat ja miten toimivaa opetus on;{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="FI">
+                <span lang="fi">
                     seuraamaan, miten opiskelijat ymmärtävät kurssilla käsiteltyjä tutkimusetiikan
                     sisältöjä;{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="FI">
+                <span lang="fi">
                     toteuttamaan formatiivista arviointia ja antamaan palautetta opiskelijoille
                     kurssin aikana;{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="FI">
+                <span lang="fi">
                     kannustamaan opiskelijoita pohtimaan oppimistaan ja tukemaan heidän
                     reflektiotaitojensa kehittymistä;{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="FI">tukemaan opiskelijoita itsearviointitaitojen kehittämisessä.</span>
+                <span lang="fi">tukemaan opiskelijoita itsearviointitaitojen kehittämisessä.</span>
             </p>
 
             <p>
                 <b>
-                    <span lang="FI">Miten sovellus toimii? </span>
+                    <span lang="fi">Miten sovellus toimii? </span>
                 </b>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Sovellus ohjaa opettajaa luomaan kurssin, jossa on opiskelijan reflektiota
                     vaativia tehtäviä. Kurssin ja tehtävien luomisen jälkeen opettaja kopioi kutsun,
                     joka jaetaan opiskelijoille. Kurssiin kannattaa sisällyttää useita tehtäviä.
@@ -125,7 +125,7 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Opiskelijat kirjautuvat sisään tunnuksillaan ja voivat siirtyä tehtävään, jonka
                     opettaja on ilmoittanut kutsulinkissä. Opiskelijalle tehtävä sisältää kaksi
                     vaihetta. Ensin he pohtivat tehtävässä ilmoitettua aihetta kirjoittamalla
@@ -141,52 +141,52 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Sovellus analysoi opiskelijan itse arvioiman ymmärryksenä tason ja esittää
                     tulokset piirakkakaaviona opettajalle (katso kuvio 1).
                 </span>
             </p>
 
             <p align="center">
-                <span lang="FI">
+                <span lang="fi">
                     <img border="0" width="347" height="253" src="/image014.png" />
                 </span>
             </p>
 
             <p>
-                <span lang="FI">Kuvio 1. Opettajan näkymä suoritetuista tehtävistä.</span>
+                <span lang="fi">Kuvio 1. Opettajan näkymä suoritetuista tehtävistä.</span>
             </p>
 
             <p>
-                <span lang="FI">&nbsp;</span>
+                <span lang="fi">&nbsp;</span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Sekä opettaja että opiskelijat voivat nähdä oppimisen edistymisen myös
                     lineaarisessa kaaviossa (katso kuvio 2).
                 </span>
             </p>
 
             <p align="center">
-                <span lang="FI">
+                <span lang="fi">
                     <img border="0" width="343" height="163" src="/image015.png" />
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Kuvio 2. Lineaarinen kaavio opiskelijoiden edistymisestä (esimerkki kahden
                     tehtävän tuloksista).
                 </span>
             </p>
 
             <p>
-                <span lang="FI">&nbsp;</span>
+                <span lang="fi">&nbsp;</span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Opettaja voi myös lukea opiskelijoiden tuottamat tekstit ja antaa
                     henkilökohtaisempaa palautetta kirjoittamalla omin sanoin palautteen
                     opiskelijalle ja/tai valitsemalla valikosta sen ymmärryksen tason, jota
@@ -195,7 +195,7 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Sovelluksen käyttö tukee pääasiassa opiskelijoiden reflektiivistä oppimista ja
                     formatiivista arviointia kurssin aikana, mutta yksittäisen opiskelijan
                     oppimisprosessia kuvaava kaavio (kuvio 2) toimii hyvin perustana myöhemmälle
@@ -208,7 +208,7 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Sovelluksen toistuva käyttö antaa opettajille tietoa siitä, miten opiskelijat
                     edistyvät, mitkä aiheet ovat hyvin hallussa ja mitkä ovat opiskelijoille
                     haastavampia. Opiskelijat voivat myös nähdä oman edistymisensä kaaviossa, ja
@@ -218,19 +218,19 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">&nbsp;</span>
+                <span lang="fi">&nbsp;</span>
             </p>
 
             <p>
-                <span lang="FI">Ymmärryksen tasot perustuvat SOLO-taksonomiaan: </span>
+                <span lang="fi">Ymmärryksen tasot perustuvat SOLO-taksonomiaan: </span>
             </p>
 
             <p>
-                <span lang="FI">Symboli </span>
-                <span lang="FI">
+                <span lang="fi">Symboli </span>
+                <span lang="fi">
                     <img border="0" width="12" height="12" src="/image005.png" />
                 </span>
-                <span lang="FI">
+                <span lang="fi">
                      merkitsee, että opiskelija tarvitsee apua ymmärryksen muodostamiseen
                     opiskeltavasta tutkimusetiikan sisällöstä. Kehittääkseen ymmärrystään
                     tutkimusetiikasta, oppijan on hyvä tutustua esimerkiksi asiaankuuluviin
@@ -240,12 +240,12 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">Symboli </span>
+                <span lang="fi">Symboli </span>
                 <span lang="EN-GB">
                     <img border="0" width="13" height="13" src="/image006.png" />
                 </span>
                 <span lang="EN-GB"> </span>
-                <span lang="FI">
+                <span lang="fi">
                     merkitsee orastavan ymmärryksen tasoa. Oppijalla on jonkinlainen käsitys
                     aiheesta, mutta se voi olla yksipuolista. Opiskelijaa kannustetaan ajattelemaan
                     minkälaisia muita ulottuvuuksia tai kysymyksiä aiheeseen voisi liittyä tai jotka
@@ -256,12 +256,12 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">Symboli </span>
+                <span lang="fi">Symboli </span>
                 <span lang="EN-GB">
                     <img border="0" width="17" height="17" src="/image007.png" />
                 </span>
                 <span lang="EN-GB"> </span>
-                <span lang="FI">
+                <span lang="fi">
                     merkitsee kohtalaisen ymmärryksen tasoa. Oppijalla on ymmärrystä monista
                     aiheeseen liittyvistä seikoista, ja seuraava askel on kehittää ymmärrystä
                     asioiden välisistä yhteyksistä.{' '}
@@ -269,7 +269,7 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">Symboli </span>
+                <span lang="fi">Symboli </span>
                 <span lang="EN-GB">
                     <img
                         border="0"
@@ -280,7 +280,7 @@ const FinnishPage = () => {
                     />
                 </span>
                 <span lang="EN-GB"> </span>
-                <span lang="FI">
+                <span lang="fi">
                     merkitsee asioiden välisten suhteiden ymmärtämistä. Tällä tasolla oppija kykenee
                     soveltamaan tietojaan uusissa tai erilaisissa yhteyksissä ja myös neuvomaan
                     muita.{' '}
@@ -288,12 +288,12 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">Symboli </span>
+                <span lang="fi">Symboli </span>
                 <span lang="EN-GB">
                     <img border="0" width="19" height="19" src="/image009.png" />
                 </span>
                 <span lang="EN-GB"> </span>
-                <span lang="FI">
+                <span lang="fi">
                     merkitsee syvällisen ymmärryksen tasoa. Oppija on saattanut ajatella itseään
                     roolimallina ja ymmärtää miten hän omalla toiminnallaan voi edistää
                     tutkimuseettisestä kestävää toimintatapaa.
@@ -302,12 +302,12 @@ const FinnishPage = () => {
 
             <p>
                 <b>
-                    <span lang="FI">Mihin tutkimustietoon sovellus perustuu? </span>
+                    <span lang="fi">Mihin tutkimustietoon sovellus perustuu? </span>
                 </b>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Reflektiokompassi pohjautuu tutkimuksellisiin suunnitteluperiaatteisiin ja
                     tutkittuun tietoon. Se hyödyntää
                     <i>Structure of Observed Learning Outcomes</i> (SOLO) -taksonomiaa ymmärryksen
@@ -319,14 +319,14 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     Täältä voit lukea lisää SOLO-taksonomiasta tai sovelluksen taustalla olevasta
                     tutkimuksesta:{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="fi">
                     SOLO-taksonomia:{' '}
                     <a href="https://www.johnbiggs.com.au/academic/solo-taxonomy/">
                         https://www.johnbiggs.com.au/academic/solo-taxonomy/
@@ -335,7 +335,7 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="EN-US">
+                <span lang="fi">
                     Artikkeli: John Biggs (1999){' '}
                     <a href="https://www.tandfonline.com/doi/pdf/10.1080/0729436990180105">
                         What the Student Does: teaching for enhanced learning
@@ -346,11 +346,11 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="EN-US">Tutkimus reflektiosovelluksen kehittämisestä: </span>
+                <span lang="fi">Tutkimus reflektiosovelluksen kehittämisestä: </span>
             </p>
 
             <p>
-                <span lang="EN-US">
+                <span lang="fi">
                     Artikkeli: Anu Tammeleht &amp; Erika Löfström (2024){' '}
                     <a href="https://www.tandfonline.com/doi/pdf/10.1080/10508422.2023.2266073">
                         Learners’ self-assessment as a measure to evaluate the effectiveness of
@@ -362,19 +362,18 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">Seuraavat tahot ovat tukeneet sovelluksen kehittämistä: </span>
+                <span lang="fi">Seuraavat tahot ovat tukeneet sovelluksen kehittämistä: </span>
             </p>
 
             <p>
-                <img width="106" height="106" src="/image010.jpg" align="left" hspace="9" />
-                <span lang="FI">
+                <span lang="fi">
                     <img border="0" width="114" height="43" src="/image011.png" />
                 </span>
-                <span lang="EN-US">
+                <span lang="fi">
                       <img border="0" width="44" height="40" src="/image012.png" />
                        
                 </span>
-                <span lang="FI">
+                <span lang="fi">
                     <img
                         border="0"
                         width="61"
@@ -386,18 +385,9 @@ const FinnishPage = () => {
             </p>
 
             <p>
-                <span lang="EN-US">
+                <span lang="fi">
                     <a href="https://beyondbadapples.eu/">
                         <span lang="SV">Beyond Bad Apples</span>
-                    </a>
-                </span>
-            </p>
-
-            <p>
-                <span lang="SV">Linkki sovellukseen: </span>
-                <span lang="EN-US">
-                    <a href="https://reflection-compass.it.helsinki.fi">
-                        <span lang="SV">https://reflection-compass.it.helsinki.fi</span>
                     </a>
                 </span>
             </p>

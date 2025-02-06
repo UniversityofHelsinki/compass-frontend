@@ -5,28 +5,28 @@ const EstonianPage = () => {
         <div>
             <p>
                 <b>
-                    <span lang="FI">Lugupeetud </span>
+                    <span lang="et">Lugupeetud </span>
                 </b>
                 <b>
-                    <span lang="ET">õp</span>
-                    <span lang="FI">pej</span>
+                    <span lang="et">õp</span>
+                    <span lang="et">pej</span>
                 </b>
                 <b>
-                    <span lang="ET">õu</span>
-                    <span lang="FI">d!</span>
+                    <span lang="et">õu</span>
+                    <span lang="et">d!</span>
                 </b>
             </p>
 
             <p>
                 <b>
-                    <span lang="FI">
+                    <span lang="et">
                         Tere tulemast kasutama Refleksioonikompassi teaduseetika õpetamisel!
                     </span>
                 </b>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     Refleksioonikompassi rakendus on loodud toetama õpetajaid teaduseetika
                     õpetamisel ning toetama üliõpilasi refleksiooniülesannete täitmisel
                     teaduseetikas.
@@ -34,14 +34,14 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     Paljudesse kursustesse on integreeritud teaduseetika elemendid – näiteks
                     teadusseminarid, metoodikakursused, akadeemiline kirjutamine, retsenseerimine
                     või publitseerimisega seotud seminarid. Lisaks on refleksioon oluline eetilise
                     tundlikkuse t
                 </span>
-                <span lang="ET">õ</span>
-                <span lang="FI">
+                <span lang="et">õ</span>
+                <span lang="et">
                     stmisel. Teaduseetika ja refleksioonioskuste hindamine võib olla keeruline, et
                     teha kindlaks, mida ja kuidas üliõpilased õpivad. Lisaks võivad üliõpilased
                     tugineda AI-tööriistadele ülesannete täitmisel, mis on sageli aktsepteeritav,
@@ -54,12 +54,12 @@ const EstonianPage = () => {
 
             <p>
                 <b>
-                    <span lang="FI">Mis rakendus see on? </span>
+                    <span lang="et">Mis rakendus see on? </span>
                 </b>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     Tutvustame teaduspõhist tööriista ülikooliõpetajatele, kes käsitlevad oma
                     õpetamises teaduseetikat. Rakenduse on välja töötanud teaduseetika eksperdid ja
                     pedagoogid, et aidata õpetajaid …
@@ -67,57 +67,57 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="FI">
+                <span lang="et">
                     selgitada, mida üliõpilased õpivad ja kas õpetamine on tõhus;{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="FI">
+                <span lang="et">
                     jälgida, kuidas üliõpilased mõistavad kursusel käsitletud eetikateemasid;{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="FI">
+                <span lang="et">
                     rakendada formaalset hindamist ja anda üliõpilastele tagasisidet kursuse ajal;{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="FI">
+                <span lang="et">
                     julgustada üliõpilasi mõtlema oma õppimisele ja toetada üliõpilaste
                     refleksioonioskuste arendamist;{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="FI">toetada üliõpilasi oma arusaamise hindamise õppimisel.</span>
+                <span lang="et">toetada üliõpilasi oma arusaamise hindamise õppimisel.</span>
             </p>
 
             <p>
                 <b>
-                    <span lang="FI">Kuidas rakendus töötab? </span>
+                    <span lang="et">Kuidas rakendus töötab? </span>
                 </b>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     Rakendus juhendab õpetajat looma kursust ülesannetega, mis nõuavad üliõpilaste
                     refleksiooni. Pärast kursuse ja ülesannete looist (on hea mõte lisada ühte
                     kursusesse mitu ülesannet, ülesande aeg näitab, millal üliõpilased saavad neid
@@ -129,7 +129,7 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     Üliõpilased logivad sisse oma tunnustega ja saavad minna ülesandele, mille
                     õpetaja on kutselingis märkinud. Üliõpilased teevad kaks ülesannet – esmalt
                     reflekteerivad nad ülesandes märgitud teemat, kirjutades lõigu vastavalt
@@ -144,41 +144,41 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     Rakendus analüüsib märgitud arusaamise tasemeid ja esitab tulemused õpetajale
                     sektordiagrammina (vt joonis 1).
                 </span>
             </p>
 
             <p align="center">
-                <span lang="FI">
+                <span lang="et">
                     <img border="0" width="363" height="269" src="/image003.png" />
                 </span>
             </p>
 
             <p>
-                <span lang="FI">Joonis 1. Sektordiagramm ülesande tulemustega.</span>
+                <span lang="et">Joonis 1. Sektordiagramm ülesande tulemustega.</span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     Lisaks saavad nii õpetaja kui üliõpilased näha õppimise edenemist
                     lineaardiagrammis (vt joonis 2).
                 </span>
             </p>
 
             <p align="center">
-                <span lang="FI">
+                <span lang="et">
                     <img border="0" width="352" height="163" src="/image004.png" />
                 </span>
             </p>
 
             <p>
-                <span lang="FI">Joonis 2. Lineaardiagramm üliõpilaste edusammudega.</span>
+                <span lang="et">Joonis 2. Lineaardiagramm üliõpilaste edusammudega.</span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     Õpetaja saab lugeda ka üliõpilaste refleksioone ja anda isiklikumat tagasisidet
                     (kirjaliku tekstina või märkides õpetaja hinnangu arusaamise tasemele, mida
                     üliõpilase kirjutatud lõik näitab).
@@ -186,15 +186,15 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     Rakenduse kasutamine toetab peamiselt üliõpilaste reflektiivset õppimist ja
                     kujundavat hindamist kursuse ajal, kuid õppeprotsessi kuvamine diagrammis toimib
                     hästi järgneva 'refleksioonipäeviku' alusena. Diagrammi saab üliõpilane v
                 </span>
-                <span lang="ET">õtta aluseks</span>
-                <span lang="FI">, kui ta oma õppeprotsessi refleksioonipäevikus kokku v</span>
-                <span lang="ET">õ</span>
-                <span lang="FI">
+                <span lang="et">õtta aluseks</span>
+                <span lang="et">, kui ta oma õppeprotsessi refleksioonipäevikus kokku v</span>
+                <span lang="et">õ</span>
+                <span lang="et">
                     tavad. Refleksioonipäevikut saab kasutada summatiivse hindamise eesmärgil, st
                     hindamistegevusena, mis aitab kaasa kursuse lõplikule hindamisele, mis vïb olla
                     hindeline.
@@ -202,7 +202,7 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     Rakenduse korduv kasutamine annab õpetajatele ülevaate, kuidas üliõpilased
                     edenevad, millised teemad tunduvad olevat keerulisemad ja millised on omandatud.
                     Üliõpilased saavad ka oma edusamme diagrammis näha ning rakenduse ja õpetaja
@@ -211,23 +211,23 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="FI">&nbsp;</span>
+                <span lang="et">&nbsp;</span>
             </p>
 
             <p>
-                <span lang="FI">&nbsp;</span>
+                <span lang="et">&nbsp;</span>
             </p>
 
             <p>
-                <span lang="FI">Arusaamise tasemed põhinevad SOLO taksonoomial: </span>
+                <span lang="et">Arusaamise tasemed põhinevad SOLO taksonoomial: </span>
             </p>
 
             <p>
-                <span lang="FI">Sümbol </span>
-                <span lang="FI">
+                <span lang="et">Sümbol </span>
+                <span lang="et">
                     <img border="0" width="12" height="12" src="/image005.png" />
                 </span>
-                <span lang="FI">
+                <span lang="et">
                      näitab vajadust abi mõistmiseks. Oma arusaamise taseme parandamiseks võib
                     õppija parandada oma eetilist pädevust, konsulteerides asjakohaste
                     käitumisjuhenditega ja arutades kogenud teadlastega, kuidas nad mõtlevad õigete
@@ -236,11 +236,11 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="FI">Sümbol </span>
-                <span lang="EN-GB">
+                <span lang="et">Sümbol </span>
+                <span lang="et">
                     <img border="0" width="13" height="13" src="/image006.png" />
                 </span>
-                <span lang="FI">
+                <span lang="et">
                      näitab arenevat arusaamist. Õppijat julgustatakse mõtlema seotud küsimustele
                     või uutele küsimustele, mis võivad tuleneda algsest probleemist, on hea mõte
                     kaardistada, kes on olukorrast huvitatud ja milliseid erinevaid küsimusi nad
@@ -249,11 +249,11 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="FI">Sümbol </span>
-                <span lang="EN-GB">
+                <span lang="et">Sümbol </span>
+                <span lang="et">
                     <img border="0" width="17" height="17" src="/image007.png" />
                 </span>
-                <span lang="FI">
+                <span lang="et">
                      näitab mõõdukat arusaamist. Õppija peaks püüdma näha seoseid erinevate
                     eetiliste aspektide vahel teadustöös ja mõtlema näidetele nende seoste
                     kirjeldamiseks.{' '}
@@ -261,8 +261,8 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="FI">Sümbol </span>
-                <span lang="EN-GB">
+                <span lang="et">Sümbol </span>
+                <span lang="et">
                     <img
                         border="0"
                         width="16"
@@ -271,14 +271,14 @@ const EstonianPage = () => {
                         alt="A black and purple square with circlesDescription automatically generated"
                     />
                 </span>
-                <span lang="FI">
+                <span lang="et">
                      näitab sidusat arusaamist. Õppijale soovitatakse rakendada oma teadmisi
                     erinevates kontekstides ja aidata teisi.{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     Sümbol <img border="0" width="19" height="19" src="/image016.png" />
                      näitab sügavat arusaamist. Õppija võib olla mõelnud endale kui eeskujule hea
                     teadusliku praktika edendamisel laiemalt teadlaskonnas ja aitamisel luua
@@ -288,16 +288,16 @@ const EstonianPage = () => {
 
             <p>
                 <b>
-                    <span lang="FI">Millistel uuringutel rakendus tugineb? </span>
+                    <span lang="et">Millistel uuringutel rakendus tugineb? </span>
                 </b>
             </p>
 
             <p>
-                <span lang="FI">Refleksioonikompass on üles ehitatud uurimis- ja disainip</span>
-                <span lang="ET">õ</span>
-                <span lang="FI">him</span>
-                <span lang="ET">õ</span>
-                <span lang="FI">
+                <span lang="et">Refleksioonikompass on üles ehitatud uurimis- ja disainip</span>
+                <span lang="et">õ</span>
+                <span lang="et">him</span>
+                <span lang="et">õ</span>
+                <span lang="et">
                     tetele ning kasutab <i>Structure of Observed Learning Outcomes</i> (SOLO)
                     taksonoomiat, et pakkuda kindlat alust tulemustele. Kombineerides rakenduse
                     tulemusi, jälgides üliõpilaste tööd klassis ja erinevatel ajahetkedel kursuse
@@ -307,14 +307,14 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     Kui olete huvitatud SOLO taksonoomiast või uurimistööst, millele rakendus
                     tugineb, külastage järgmisi linke:{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     SOLO taksonoomia:{' '}
                     <a href="https://www.johnbiggs.com.au/academic/solo-taxonomy/">
                         https://www.johnbiggs.com.au/academic/solo-taxonomy/
@@ -331,19 +331,19 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="SV">Link artiklile: </span>
-                <span lang="FI">
+                <span lang="et">Link artiklile: </span>
+                <span lang="et">
                     <a href="https://www.tandfonline.com/doi/pdf/10.1080/0729436990180105">
-                        <span lang="SV">
+                        <span lang="et">
                             https://www.tandfonline.com/doi/pdf/10.1080/0729436990180105
                         </span>
                     </a>
                 </span>
-                <span lang="FI"> </span>
+                <span lang="et"> </span>
             </p>
 
             <p>
-                <span lang="FI">Uurimistöö refleksioonirakenduse arendamise kohta: </span>
+                <span lang="et">Uurimistöö refleksioonirakenduse arendamise kohta: </span>
             </p>
 
             <p>
@@ -356,15 +356,15 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="SV">Link artiklile: </span>
-                <span lang="FI">
+                <span lang="et">Link artiklile: </span>
+                <span lang="et">
                     <a href="https://www.tandfonline.com/doi/pdf/10.1080/10508422.2023.2266073">
-                        <span lang="SV">
+                        <span lang="et">
                             https://www.tandfonline.com/doi/pdf/10.1080/10508422.2023.2266073
                         </span>
                     </a>
                 </span>
-                <span lang="SV"> </span>
+                <span lang="et"> </span>
             </p>
 
             <p>
@@ -372,15 +372,14 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <img width="106" height="106" src="/image010.jpg" align="left" hspace="9" />
-                <span lang="FI">
+                <span lang="et">
                     <img border="0" width="114" height="43" src="/image011.png" />
                 </span>
                 <span lang="EN-US">
                       <img border="0" width="44" height="40" src="/image012.png" />
                        
                 </span>
-                <span lang="FI">
+                <span lang="et">
                     <img
                         border="0"
                         width="61"
@@ -392,18 +391,9 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="et">
                     <a href="https://beyondbadapples.eu/">
-                        <span lang="EN-GB">Beyond Bad Apples</span>
-                    </a>
-                </span>
-            </p>
-
-            <p>
-                <span lang="EN-US">Link rakendusele: </span>
-                <span lang="FI">
-                    <a href="https://reflection-compass.it.helsinki.fi">
-                        <span lang="EN-US">https://reflection-compass.it.helsinki.fi</span>
+                        <span lang="et">Beyond Bad Apples</span>
                     </a>
                 </span>
             </p>

@@ -43,40 +43,41 @@ const renderContent = (language) => {
 const Instructions = () => {
     const { t, i18n } = useTranslation();
     return (
-        <Container>
-            <Row className="justify-content-center mb-4">
-                <Col className="col-auto">
-                    <DownloadLink
-                        fileUrl="/instructions.pdf"
-                        fileName="instructions.pdf"
-                        linkText={t('download_instructions')}
-                    />
-                </Col>
+        <div className="responsive-margins">
+            <Container>
+                <Row>
+                    <Col>
+                        <TopBar heading={t('instructions_heading')} />
+                        {renderContent(i18n.language)}
+                    </Col>
+                </Row>
+                <Row className="justify-content-center mb-4">
+                    <Col className="col-auto">
+                        <DownloadLink
+                            fileUrl="/instructions.pdf"
+                            fileName="instructions.pdf"
+                            linkText={t('download_instructions')}
+                        />
+                    </Col>
 
-                <Col className="col-auto">
-                    <DownloadLink
-                        fileUrl="/slides.pdf"
-                        fileName="slides.pdf"
-                        linkText={t('download_slides')}
-                    />
-                </Col>
+                    <Col className="col-auto">
+                        <DownloadLink
+                            fileUrl="/slides.pdf"
+                            fileName="slides.pdf"
+                            linkText={t('download_slides')}
+                        />
+                    </Col>
 
-                <Col className="col-auto">
-                    <DownloadLink
-                        fileUrl="/slides.pptx"
-                        fileName="slides.pptx"
-                        linkText={t('download_slides_powerpoint')}
-                    />
-                </Col>
-            </Row>
-
-            <Row>
-                <Col>
-                    <TopBar heading={t('instructions_heading')} />
-                    {renderContent(i18n.language)}
-                </Col>
-            </Row>
-        </Container>
+                    <Col className="col-auto">
+                        <DownloadLink
+                            fileUrl="/slides.pptx"
+                            fileName="slides.pptx"
+                            linkText={t('download_slides_powerpoint')}
+                        />
+                    </Col>
+                </Row>
+            </Container>
+        </div>
     );
 };
 
