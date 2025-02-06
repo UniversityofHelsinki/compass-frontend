@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 import { useNotification } from '../../NotificationContext';
 
 import useClipboardCopy from '../../hooks/teacher/useClipboardCopy';
+import { Col, Row, Container } from 'react-bootstrap';
 
 const HeadingColumn = ({ children, onSortCriteriaChange, sorted, direction }) => {
     const { t } = useTranslation();
@@ -36,7 +37,7 @@ const HeadingColumn = ({ children, onSortCriteriaChange, sorted, direction }) =>
     );
 };
 
-const Row = ({ teacherForm }) => {
+const TableRow = ({ teacherForm }) => {
     const { t } = useTranslation();
     const { clipboardCopy } = useClipboardCopy(teacherForm.id);
     const { setNotification } = useNotification();
@@ -159,38 +160,44 @@ const TeacherFormsTable = ({ teacherForms = [], onSortCriteriaChange, sortOpts }
     const { t } = useTranslation();
 
     return (
-        <div className="responsive-margins">
-            <table className="teacher-forms-table">
-                <caption className="screenreader-only">
-                    {t('teacher_forms_table_description')}
-                </caption>
-                <thead>
-                    <tr>
-                        {['title', 'course_id', 'period'].map((property) => (
-                            <th key={property} scope="col">
-                                <HeadingColumn
-                                    sorted={property === sortOpts.criteria}
-                                    direction={sortOpts.direction}
-                                    onSortCriteriaChange={() => onSortCriteriaChange(property)}
-                                >
-                                    {t(`teacher_forms_table_${property}`)}
-                                </HeadingColumn>
-                            </th>
-                        ))}
-                        <th scope="col">
-                            <span className="screenreader-only">
-                                {t('teacher_forms_table_actions')}
-                            </span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {(teacherForms || []).map((teacherForm) => (
-                        <Row key={teacherForm.id} teacherForm={teacherForm} />
-                    ))}
-                </tbody>
-            </table>
-        </div>
+        <Container fluid className="responsive-margins">
+            <Row>
+                <Col>
+                    <table className="teacher-forms-table">
+                        <caption className="screenreader-only">
+                            {t('teacher_forms_table_description')}
+                        </caption>
+                        <thead>
+                            <tr>
+                                {['title', 'course_id', 'period'].map((property) => (
+                                    <th key={property} scope="col">
+                                        <HeadingColumn
+                                            sorted={property === sortOpts.criteria}
+                                            direction={sortOpts.direction}
+                                            onSortCriteriaChange={() =>
+                                                onSortCriteriaChange(property)
+                                            }
+                                        >
+                                            {t(`teacher_forms_table_${property}`)}
+                                        </HeadingColumn>
+                                    </th>
+                                ))}
+                                <th scope="col">
+                                    <span className="screenreader-only">
+                                        {t('teacher_forms_table_actions')}
+                                    </span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {(teacherForms || []).map((teacherForm) => (
+                                <TableRow key={teacherForm.id} teacherForm={teacherForm} />
+                            ))}
+                        </tbody>
+                    </table>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 

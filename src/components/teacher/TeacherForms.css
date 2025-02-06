@@ -1,13 +1,12 @@
-.teacher-forms {
-}
-
 .teacher-forms-content {
     display: flex;
 }
 
 .teacher-forms-new-form {
     display: flex;
-    flex-direction: row-reverse;
+    width: 100%;
+    align-self: center;
+    justify-content: flex-end;
 }
 
 .teacher-forms-no-forms {
@@ -40,4 +39,11 @@
 .teacher-forms-new-form a:hover {
     text-decoration: underline;
     color: var(--huds-brand-main-light) !important;
+}
+
+@media (max-width: 768px) {
+    .teacher-forms-new-form {
+        align-content: center;
+        justify-content: center;
+    }
 }
