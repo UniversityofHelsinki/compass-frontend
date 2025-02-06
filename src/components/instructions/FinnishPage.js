@@ -149,7 +149,12 @@ const FinnishPage = () => {
 
             <p align="center">
                 <span lang="fi">
-                    <img border="0" width="500" height="auto" src="/image003.png" />
+                    <img
+                        alt=">Kuvio 1. Opettajan näkymä suoritetuista tehtävistä."
+                        width="500"
+                        height="auto"
+                        src="/image003.png"
+                    />
                 </span>
             </p>
 
@@ -170,7 +175,13 @@ const FinnishPage = () => {
 
             <p align="center">
                 <span lang="fi">
-                    <img border="0" width="700" height="auto" src="/image004.png" />
+                    <img
+                        alt=" Kuvio 2. Lineaarinen kaavio opiskelijoiden edistymisestä (esimerkki kahden
+                    tehtävän tuloksista)."
+                        width="700"
+                        height="auto"
+                        src="/image004.png"
+                    />
                 </span>
             </p>
 
@@ -228,7 +239,12 @@ const FinnishPage = () => {
             <p>
                 <span lang="fi">Symboli </span>
                 <span lang="fi">
-                    <img border="0" width="12" height="12" src="/image005.png" />
+                    <img
+                        alt="tarvitsee apua ymmärryksen muodostamiseen"
+                        width="12"
+                        height="12"
+                        src="/image005.png"
+                    />
                 </span>
                 <span lang="fi">
                      merkitsee, että opiskelija tarvitsee apua ymmärryksen muodostamiseen
@@ -242,7 +258,7 @@ const FinnishPage = () => {
             <p>
                 <span lang="fi">Symboli </span>
                 <span lang="EN-GB">
-                    <img border="0" width="13" height="13" src="/image006.png" />
+                    <img alt="Orastava ymmärtäminen" width="13" height="13" src="/image006.png" />
                 </span>
                 <span lang="EN-GB"> </span>
                 <span lang="fi">
@@ -257,10 +273,10 @@ const FinnishPage = () => {
 
             <p>
                 <span lang="fi">Symboli </span>
-                <span lang="EN-GB">
-                    <img border="0" width="17" height="17" src="/image007.png" />
+                <span lang="fi">
+                    <img alt="Asioiden ymmärtäminen" width="17" height="17" src="/image007.png" />
                 </span>
-                <span lang="EN-GB"> </span>
+                <span lang="fi"> </span>
                 <span lang="fi">
                     merkitsee kohtalaisen ymmärryksen tasoa. Oppijalla on ymmärrystä monista
                     aiheeseen liittyvistä seikoista, ja seuraava askel on kehittää ymmärrystä
@@ -270,16 +286,15 @@ const FinnishPage = () => {
 
             <p>
                 <span lang="fi">Symboli </span>
-                <span lang="EN-GB">
+                <span lang="fi">
                     <img
-                        border="0"
                         width="16"
                         height="16"
                         src="/image008.png"
-                        alt="A black and purple square with circlesDescription automatically generated"
+                        alt="Asioiden välisten suhteiden ymmärtäminen"
                     />
                 </span>
-                <span lang="EN-GB"> </span>
+                <span lang="fi"> </span>
                 <span lang="fi">
                     merkitsee asioiden välisten suhteiden ymmärtämistä. Tällä tasolla oppija kykenee
                     soveltamaan tietojaan uusissa tai erilaisissa yhteyksissä ja myös neuvomaan
@@ -290,7 +305,7 @@ const FinnishPage = () => {
             <p>
                 <span lang="fi">Symboli </span>
                 <span lang="EN-GB">
-                    <img border="0" width="19" height="19" src="/image009.png" />
+                    <img alt="Syvällinen ymmärtäminen" width="19" height="19" src="/image009.png" />
                 </span>
                 <span lang="EN-GB"> </span>
                 <span lang="fi">
@@ -367,10 +382,17 @@ const FinnishPage = () => {
 
             <p>
                 <span lang="fi">
-                    <img border="0" width="214" height="auto" src="/image011.png" />
+                    <img
+                        alt="Beyond apples logo"
+                        border="0"
+                        width="214"
+                        height="auto"
+                        src="/image011.png"
+                    />
                 </span>
                 <span lang="fi">
-                      <img border="0" width="117" height="auto" src="/image012.png" />
+                     {' '}
+                    <img alt="European union logo" width="117" height="auto" src="/image012.png" />
                        
                 </span>
                 <span lang="fi">

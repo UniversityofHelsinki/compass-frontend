@@ -147,7 +147,13 @@ const SwedishPage = () => {
 
             <p align="center">
                 <span lang="sv">
-                    <img border="0" width="500" height="auto" src="/image003.png" />
+                    <img
+                        alt=" Figur 1. Lärarens vy över de av studenterna indikerade nivåerna för förståelse
+                    av kursinnehåll."
+                        width="500"
+                        height="auto"
+                        src="/image003.png"
+                    />
                 </span>
             </p>
 
@@ -171,7 +177,12 @@ const SwedishPage = () => {
 
             <p align="center">
                 <span lang="sv">
-                    <img border="0" width="700" height="auto" src="/image004.png" />
+                    <img
+                        alt="Figur 2. Linjediagram över en students självutvärdering av två uppgifter."
+                        width="700"
+                        height="auto"
+                        src="/image004.png"
+                    />
                 </span>
             </p>
 
@@ -227,7 +238,12 @@ const SwedishPage = () => {
             <p>
                 <span lang="sv">Symbolen </span>
                 <span lang="sv">
-                    <img border="0" width="12" height="12" src="/image005.png" />
+                    <img
+                        alt="Behöver hjälp för att utveckla förståelse"
+                        width="12"
+                        height="12"
+                        src="/image005.png"
+                    />
                 </span>
                 <span lang="sv">
                      indikerar studentens behov av hjälp för att förstå. Studenten kan behöva
@@ -238,8 +254,8 @@ const SwedishPage = () => {
 
             <p>
                 <span lang="sv">Symbolen </span>
-                <span lang="EN-GB">
-                    <img border="0" width="13" height="13" src="/image006.png" />
+                <span lang="sv">
+                    <img alt="Spirande förståelse" width="13" height="13" src="/image006.png" />
                 </span>
                 <span lang="sv">
                      indikerar spirande förståelse. Studenten uppmuntras att tänka på andra
@@ -253,7 +269,7 @@ const SwedishPage = () => {
             <p>
                 <span lang="sv">Symbolen </span>
                 <span lang="EN-GB">
-                    <img border="0" width="17" height="17" src="/image007.png" />
+                    <img alt="Måttlig förståelse" width="17" height="17" src="/image007.png" />
                 </span>
                 <span lang="sv">
                      indikerar måttlig förståelse. Studenten gynnas av stöd i att försöka se samband
@@ -270,7 +286,7 @@ const SwedishPage = () => {
                         width="16"
                         height="16"
                         src="/image008.png"
-                        alt="A black and purple square with circlesDescription automatically generated"
+                        alt="Förståelse för samband"
                     />
                 </span>
                 <span lang="sv">
@@ -283,7 +299,7 @@ const SwedishPage = () => {
             <p>
                 <span lang="sv">Symbolen </span>
                 <span lang="EN-GB">
-                    <img border="0" width="19" height="19" src="/image009.png" />
+                    <img alt="Djuplodande förståelse" width="19" height="19" src="/image009.png" />
                 </span>
                 <span lang="sv">
                      indikerar djuplodande förståelse. Studenten uppfattar sin roll i att främja god
@@ -380,10 +396,11 @@ const SwedishPage = () => {
 
             <p>
                 <span lang="sv">
-                    <img border="0" width="214" height="auto" src="/image011.png" />
+                    <img alt="Beyond apples logo" width="214" height="auto" src="/image011.png" />
                 </span>
                 <span lang="sv">
-                      <img border="0" width="117" height="auto" src="/image012.png" />
+                     {' '}
+                    <img alt="European union logo" width="117" height="auto" src="/image012.png" />
                        
                 </span>
                 <span lang="sv">

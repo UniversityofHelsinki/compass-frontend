@@ -145,7 +145,12 @@ const EnglishPage = () => {
 
             <p align="center">
                 <span lang="en">
-                    <img width="500" height="auto" src="/image003.png" />
+                    <img
+                        alt="Figure 1. Pie-chart with the assignment results."
+                        width="500"
+                        height="auto"
+                        src="/image003.png"
+                    />
                 </span>
             </p>
 
@@ -162,7 +167,12 @@ const EnglishPage = () => {
 
             <p align="center">
                 <span lang="en">
-                    <img width="700" height="auto" src="/image004.png" />
+                    <img
+                        alt="Figure 2. Linear graph with student progress in two assignments."
+                        width="700"
+                        height="auto"
+                        src="/image004.png"
+                    />
                 </span>
             </p>
 
@@ -215,7 +225,7 @@ const EnglishPage = () => {
                 <span lang="en">Symbol</span>
                 <span lang="en">  </span>
                 <span lang="FI">
-                    <img width="12" height="12" src="/image005.png" />
+                    <img alt="Need help to understand" width="12" height="12" src="/image005.png" />
                 </span>
                 <span lang="en">  </span>
                 <span lang="en">
@@ -230,7 +240,7 @@ const EnglishPage = () => {
                 <span lang="en">Symbol</span>
                 <span lang="en"> </span>
                 <span lang="en">
-                    <img width="13" height="13" src="/image006.png" />
+                    <img alt="Emerging understanding" width="13" height="13" src="/image006.png" />
                 </span>
                 <span lang="en">  </span>
                 <span lang="en">
@@ -245,7 +255,7 @@ const EnglishPage = () => {
                 <span lang="en">Symbol</span>
                 <span lang="en"> </span>
                 <span lang="en">
-                    <img width="17" height="17" src="/image007.png" />
+                    <img alt="Moderate understanding" width="17" height="17" src="/image007.png" />
                 </span>
                 <span lang="en"> </span>
                 <span lang="en">
@@ -259,12 +269,7 @@ const EnglishPage = () => {
                 <span lang="en">Symbol</span>
                 <span lang="en"></span>
                 <span lang="en">
-                    <img
-                        width="16"
-                        height="16"
-                        src="/image008.png"
-                        alt="A black and purple square with circlesDescription automatically generated"
-                    />
+                    <img alt="Coherent understanding" width="16" height="16" src="/image008.png" />
                 </span>
                 <span lang="en"> </span>
                 <span lang="en">
@@ -277,7 +282,8 @@ const EnglishPage = () => {
             <p>
                 <span lang="en">Symbol</span>
                 <span lang="en">
-                      <img width="19" height="19" src="/image009.png" />
+                     {' '}
+                    <img alt="In-depth understanding" width="19" height="19" src="/image009.png" />
                       
                 </span>
                 <span lang="en">
@@ -374,10 +380,11 @@ const EnglishPage = () => {
 
             <p>
                 <span lang="en">
-                    <img border="0" width="214" height="auto" src="/image011.png" />
+                    <img alt="Beyond apples logo" width="214" height="auto" src="/image011.png" />
                 </span>
                 <span lang="en">
-                      <img border="0" width="117" height="auto" src="/image012.png" />
+                     {' '}
+                    <img alt="European union logo" width="117" height="auto" src="/image012.png" />
                        
                 </span>
                 <span lang="en">

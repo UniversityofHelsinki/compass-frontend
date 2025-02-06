@@ -152,7 +152,12 @@ const EstonianPage = () => {
 
             <p align="center">
                 <span lang="et">
-                    <img border="0" width="500" height="auto" src="/image003.png" />
+                    <img
+                        alt="Joonis 1. Sektordiagramm ülesande tulemustega."
+                        width="500"
+                        height="auto"
+                        src="/image003.png"
+                    />
                 </span>
             </p>
 
@@ -169,7 +174,12 @@ const EstonianPage = () => {
 
             <p align="center">
                 <span lang="et">
-                    <img border="0" width="700" height="auto" src="/image004.png" />
+                    <img
+                        alt="Joonis 2. Lineaardiagramm üliõpilaste edusammudega."
+                        width="700"
+                        height="auto"
+                        src="/image004.png"
+                    />
                 </span>
             </p>
 
@@ -225,7 +235,7 @@ const EstonianPage = () => {
             <p>
                 <span lang="et">Sümbol </span>
                 <span lang="et">
-                    <img border="0" width="12" height="12" src="/image005.png" />
+                    <img alt="Vajan abi arusaamiseks" width="12" height="12" src="/image005.png" />
                 </span>
                 <span lang="et">
                      näitab vajadust abi mõistmiseks. Oma arusaamise taseme parandamiseks võib
@@ -238,7 +248,7 @@ const EstonianPage = () => {
             <p>
                 <span lang="et">Sümbol </span>
                 <span lang="et">
-                    <img border="0" width="13" height="13" src="/image006.png" />
+                    <img alt="Ilmnev arusaamine" width="13" height="13" src="/image006.png" />
                 </span>
                 <span lang="et">
                      näitab arenevat arusaamist. Õppijat julgustatakse mõtlema seotud küsimustele
@@ -251,7 +261,7 @@ const EstonianPage = () => {
             <p>
                 <span lang="et">Sümbol </span>
                 <span lang="et">
-                    <img border="0" width="17" height="17" src="/image007.png" />
+                    <img alt="Mõõdukas arusaamine" width="17" height="17" src="/image007.png" />
                 </span>
                 <span lang="et">
                      näitab mõõdukat arusaamist. Õppija peaks püüdma näha seoseid erinevate
@@ -263,13 +273,7 @@ const EstonianPage = () => {
             <p>
                 <span lang="et">Sümbol </span>
                 <span lang="et">
-                    <img
-                        border="0"
-                        width="16"
-                        height="16"
-                        src="/image008.png"
-                        alt="A black and purple square with circlesDescription automatically generated"
-                    />
+                    <img alt="Sidus arusaamine" width="16" height="16" src="/image008.png" />
                 </span>
                 <span lang="et">
                      näitab sidusat arusaamist. Õppijale soovitatakse rakendada oma teadmisi
@@ -279,7 +283,8 @@ const EstonianPage = () => {
 
             <p>
                 <span lang="et">
-                    Sümbol <img border="0" width="19" height="19" src="/image016.png" />
+                    Sümbol{' '}
+                    <img alt="Sügavuti arusaamine" width="19" height="19" src="/image009.png" />
                      näitab sügavat arusaamist. Õppija võib olla mõelnud endale kui eeskujule hea
                     teadusliku praktika edendamisel laiemalt teadlaskonnas ja aitamisel luua
                     eetiliselt jätkusuutlik teaduskultuur.
@@ -373,10 +378,11 @@ const EstonianPage = () => {
 
             <p>
                 <span lang="et">
-                    <img border="0" width="214" height="auto" src="/image011.png" />
+                    <img alt="Beyond apples logo" width="214" height="auto" src="/image011.png" />
                 </span>
                 <span lang="et">
-                      <img border="0" width="117" height="auto" src="/image012.png" />
+                     {' '}
+                    <img alt="European union logo" width="117" height="auto" src="/image012.png" />
                        
                 </span>
                 <span lang="et">
