@@ -144,8 +144,8 @@ const EnglishPage = () => {
             </p>
 
             <p align="center">
-                <span lang="FI">
-                    <img width="363" height="269" src="/image003.png" />
+                <span lang="en">
+                    <img width="500" height="auto" src="/image003.png" />
                 </span>
             </p>
 
@@ -161,8 +161,8 @@ const EnglishPage = () => {
             </p>
 
             <p align="center">
-                <span lang="FI">
-                    <img width="352" height="163" src="/image004.png" />
+                <span lang="en">
+                    <img width="700" height="auto" src="/image004.png" />
                 </span>
             </p>
 
@@ -373,19 +373,19 @@ const EnglishPage = () => {
             </p>
 
             <p>
-                <span lang="FI">
-                    <img border="0" width="114" height="43" src="/image011.png" />
+                <span lang="en">
+                    <img border="0" width="214" height="auto" src="/image011.png" />
                 </span>
                 <span lang="en">
-                      <img border="0" width="44" height="40" src="/image012.png" />
+                      <img border="0" width="117" height="auto" src="/image012.png" />
                        
                 </span>
-                <span lang="FI">
+                <span lang="en">
                     <img
                         border="0"
-                        width="61"
-                        height="46"
-                        src="/image013.jpg"
+                        width="200"
+                        height="auto"
+                        src="/image013.png"
                         alt="Reimagining Teachers and Teacher Education for our Futures | University of  Helsinki"
                     />
                 </span>

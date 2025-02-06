@@ -149,7 +149,7 @@ const FinnishPage = () => {
 
             <p align="center">
                 <span lang="fi">
-                    <img border="0" width="347" height="253" src="/image014.png" />
+                    <img border="0" width="500" height="auto" src="/image003.png" />
                 </span>
             </p>
 
@@ -170,7 +170,7 @@ const FinnishPage = () => {
 
             <p align="center">
                 <span lang="fi">
-                    <img border="0" width="343" height="163" src="/image015.png" />
+                    <img border="0" width="700" height="auto" src="/image004.png" />
                 </span>
             </p>
 
@@ -367,28 +367,20 @@ const FinnishPage = () => {
 
             <p>
                 <span lang="fi">
-                    <img border="0" width="114" height="43" src="/image011.png" />
+                    <img border="0" width="214" height="auto" src="/image011.png" />
                 </span>
                 <span lang="fi">
-                      <img border="0" width="44" height="40" src="/image012.png" />
+                      <img border="0" width="117" height="auto" src="/image012.png" />
                        
                 </span>
                 <span lang="fi">
                     <img
                         border="0"
-                        width="61"
-                        height="46"
-                        src="/image013.jpg"
+                        width="200"
+                        height="auto"
+                        src="/image013.png"
                         alt="Reimagining Teachers and Teacher Education for our Futures | University of  Helsinki"
                     />
-                </span>
-            </p>
-
-            <p>
-                <span lang="fi">
-                    <a href="https://beyondbadapples.eu/">
-                        <span lang="SV">Beyond Bad Apples</span>
-                    </a>
                 </span>
             </p>
         </div>

@@ -152,7 +152,7 @@ const EstonianPage = () => {
 
             <p align="center">
                 <span lang="et">
-                    <img border="0" width="363" height="269" src="/image003.png" />
+                    <img border="0" width="500" height="auto" src="/image003.png" />
                 </span>
             </p>
 
@@ -169,7 +169,7 @@ const EstonianPage = () => {
 
             <p align="center">
                 <span lang="et">
-                    <img border="0" width="352" height="163" src="/image004.png" />
+                    <img border="0" width="700" height="auto" src="/image004.png" />
                 </span>
             </p>
 
@@ -323,7 +323,7 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="EN-US">
+                <span lang="et">
                     Artikkel: John Biggs (1999) What the Student Does: teaching for enhanced
                     learning, Higher Education Research &amp; Development, 18:1, 57-75, DOI:
                     10.1080/0729436990180105
@@ -347,7 +347,7 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="EN-US">
+                <span lang="et">
                     Artikkel: Anu Tammeleht &amp; Erika Löfström (2024) Learners’ self-assessment as
                     a measure to evaluate the effectiveness of research ethics and integrity
                     training: can we rely on self-reports?, <i>Ethics &amp; Behavior</i>, 34:8,
@@ -368,33 +368,25 @@ const EstonianPage = () => {
             </p>
 
             <p>
-                <span lang="EN-US">Rakenduse arendamist toetas: </span>
+                <span lang="et">Rakenduse arendamist toetas: </span>
             </p>
 
             <p>
                 <span lang="et">
-                    <img border="0" width="114" height="43" src="/image011.png" />
+                    <img border="0" width="214" height="auto" src="/image011.png" />
                 </span>
-                <span lang="EN-US">
-                      <img border="0" width="44" height="40" src="/image012.png" />
+                <span lang="et">
+                      <img border="0" width="117" height="auto" src="/image012.png" />
                        
                 </span>
                 <span lang="et">
                     <img
                         border="0"
-                        width="61"
-                        height="46"
-                        src="/image013.jpg"
+                        width="200"
+                        height="auto"
+                        src="/image013.png"
                         alt="Reimagining Teachers and Teacher Education for our Futures | University of  Helsinki"
                     />
-                </span>
-            </p>
-
-            <p>
-                <span lang="et">
-                    <a href="https://beyondbadapples.eu/">
-                        <span lang="et">Beyond Bad Apples</span>
-                    </a>
                 </span>
             </p>
         </div>

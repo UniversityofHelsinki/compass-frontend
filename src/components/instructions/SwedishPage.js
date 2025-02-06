@@ -4,18 +4,18 @@ const SwedishPage = () => {
     return (
         <div>
             <p>
-                <span lang="SV">&nbsp;</span>
+                <span lang="sv">&nbsp;</span>
             </p>
 
             <p>
                 <b>
-                    <span lang="SV">Bästa universitetslärare!</span>
+                    <span lang="sv">Bästa universitetslärare!</span>
                 </b>
             </p>
 
             <p>
                 <b>
-                    <span lang="SV">
+                    <span lang="sv">
                         Välkommen att använda Reflektionskompassen i undervisningen om
                         forskningsetik!
                     </span>
@@ -23,7 +23,7 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Reflektionskompassen är en applikation för att stödja lärare i undervisningen om
                     forskningsetik, och för att stödja studenter i reflekterande lärande med
                     uppgifter relaterade till forskningsetik.
@@ -31,7 +31,7 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Forskningsetik behandlas inom många olika kurser, till exempel
                     forskningsseminarier, metodikkurser, vetenskapligt skrivande, och seminarier om
                     referentgranskning och publicering. Dessutom är reflektion viktigt i sammanhang
@@ -48,12 +48,12 @@ const SwedishPage = () => {
 
             <p>
                 <b>
-                    <span lang="SV">Vad gör applikationen? </span>
+                    <span lang="sv">Vad gör applikationen? </span>
                 </b>
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Vi introducerar ett forskningsbaserat verktyg för universitetslärare som
                     undervisar i forskningsetik. Applikationen är utvecklad av experter på
                     forskningsetik och pedagoger för att hjälpa lärare att{' '}
@@ -61,45 +61,45 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="SV">
+                <span lang="sv">
                     ta reda på vad studenterna lär sig och om deras undervisning är ändamålsenlig;{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="SV">övervaka hur studenterna förstår kursinnehållet; </span>
+                <span lang="sv">övervaka hur studenterna förstår kursinnehållet; </span>
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="SV">
+                <span lang="sv">
                     genomföra formativ bedömning och ge feedback till studenter under kursens gång;{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="SV">
+                <span lang="sv">
                     uppmuntra studenter att vara medvetna om sitt lärande och stödja utvecklingen av
                     deras reflektionsförmåga;{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     •<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </span>
-                <span lang="SV">
+                <span lang="sv">
                     stödja studenter i att lära sig att utvärdera sin egen förståelse och sitt
                     lärande.
                 </span>
@@ -107,12 +107,12 @@ const SwedishPage = () => {
 
             <p>
                 <b>
-                    <span lang="SV">Hur fungerar applikationen? </span>
+                    <span lang="sv">Hur fungerar applikationen? </span>
                 </b>
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Applikationen vägleder läraren att sätta upp en kurs med uppgifter, varpå
                     läraren kopierar en inbjudan som delas med studenterna. Det är en bra idé att
                     inkludera flera uppgifter i en kurs. Uppgifterna utförs under en tid som bestäms
@@ -124,7 +124,7 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Studenter loggar in med sina inloggningsuppgifter och slår upp den kurs och
                     uppgift som läraren har angett i inbjudningslänken. Uppgifterna består av två
                     moment: först skriver studenten en relativt kort text som svar på lärarens
@@ -139,54 +139,54 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Applikationen analyserar de av studenterna själva angivna nivåerna för
                     förståelse och anger resultaten i ett cirkeldiagram till läraren (se figur 1).
                 </span>
             </p>
 
             <p align="center">
-                <span lang="FI">
-                    <img border="0" width="363" height="269" src="/image003.png" />
+                <span lang="sv">
+                    <img border="0" width="500" height="auto" src="/image003.png" />
                 </span>
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Figur 1. Lärarens vy över de av studenterna indikerade nivåerna för förståelse
                     av kursinnehåll.
                 </span>
             </p>
 
             <p>
-                <span lang="SV">&nbsp;</span>
+                <span lang="sv">&nbsp;</span>
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Dessutom kan både lärare och studenter se utvecklingen i ett linjediagram (se
                     figur 2).
                 </span>
             </p>
 
             <p align="center">
-                <span lang="FI">
-                    <img border="0" width="352" height="163" src="/image004.png" />
+                <span lang="sv">
+                    <img border="0" width="700" height="auto" src="/image004.png" />
                 </span>
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Figur 2. Linjediagram över en students självutvärdering av två uppgifter.
                 </span>
             </p>
 
             <p>
-                <span lang="SV">&nbsp;</span>
+                <span lang="sv">&nbsp;</span>
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Utöver den automatiserade feedbacken som student får via applikationen kan
                     läraren ge mer personligt anpassad feedback i form av skriven text eller genom
                     att ange sin uppskattning av den förståelsenivå som hen anser att studentens
@@ -195,7 +195,7 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Användningen av appen stöder främst studenternas reflekterande lärande och
                     formativ bedömning under kursens gång, men diagrammet som visar den enskilda
                     studentens lärandeprocess (se figur 2) fungerar väl som en grund för
@@ -207,7 +207,7 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Upprepad användning av applikationen ger lärare insikter om hur studenterna
                     utvecklas, vilka teman inom forskningsetik som verkar vara mer utmanande och
                     vilka som har bemästrats. Studenterna kan också se sin egen utveckling i
@@ -217,19 +217,19 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">&nbsp;</span>
+                <span lang="sv">&nbsp;</span>
             </p>
 
             <p>
-                <span lang="SV">Förståelsenivåer baserade på SOLO-taxonomin: </span>
+                <span lang="sv">Förståelsenivåer baserade på SOLO-taxonomin: </span>
             </p>
 
             <p>
-                <span lang="SV">Symbolen </span>
-                <span lang="FI">
+                <span lang="sv">Symbolen </span>
+                <span lang="sv">
                     <img border="0" width="12" height="12" src="/image005.png" />
                 </span>
-                <span lang="SV">
+                <span lang="sv">
                      indikerar studentens behov av hjälp för att förstå. Studenten kan behöva
                     bekanta sig med central forskningsetiska regelverk och diskutera med erfarna
                     forskare om hur de tänker kring att göra rätt val i forskningen.{' '}
@@ -237,11 +237,11 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">Symbolen </span>
+                <span lang="sv">Symbolen </span>
                 <span lang="EN-GB">
                     <img border="0" width="13" height="13" src="/image006.png" />
                 </span>
-                <span lang="SV">
+                <span lang="sv">
                      indikerar spirande förståelse. Studenten uppmuntras att tänka på andra
                     perspektiv som kan tänkas relatera till det studenten redan känner till.
                     Studenten kan till exempel uppmuntras att identifiera vilka som berörs av frågan
@@ -251,11 +251,11 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">Symbolen </span>
+                <span lang="sv">Symbolen </span>
                 <span lang="EN-GB">
                     <img border="0" width="17" height="17" src="/image007.png" />
                 </span>
-                <span lang="SV">
+                <span lang="sv">
                      indikerar måttlig förståelse. Studenten gynnas av stöd i att försöka se samband
                     mellan olika etiska aspekter i forskningen och tänka på exempel för att beskriva
                     dessa samband.{' '}
@@ -263,7 +263,7 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">Symbolen </span>
+                <span lang="sv">Symbolen </span>
                 <span lang="EN-GB">
                     <img
                         border="0"
@@ -273,7 +273,7 @@ const SwedishPage = () => {
                         alt="A black and purple square with circlesDescription automatically generated"
                     />
                 </span>
-                <span lang="SV">
+                <span lang="sv">
                      indikerar förståelse för samband. På den här nivån kan studenten med fördel
                     rekommenderas att tillämpa sina kunskaper i olika sammanhang och stöda/
                     instruera andra.{' '}
@@ -281,26 +281,26 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">Symbolen </span>
+                <span lang="sv">Symbolen </span>
                 <span lang="EN-GB">
                     <img border="0" width="19" height="19" src="/image009.png" />
                 </span>
-                <span lang="SV">
+                <span lang="sv">
                      indikerar djuplodande förståelse. Studenten uppfattar sin roll i att främja god
                     vetenskaplig praxis och i att upprätthålla en etiskt hållbar handlingskultur.
                 </span>
             </p>
 
             <p>
-                <span lang="SV">&nbsp;</span>
+                <span lang="sv">&nbsp;</span>
             </p>
 
             <p>
-                <span lang="SV">Vilken forskning bygger applikationen på? </span>
+                <span lang="sv">Vilken forskning bygger applikationen på? </span>
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Reflektionskompassen bygger på designprinciper baserade på forsknings samt
                     forskningsresultat. Applikationen utnyttjar{' '}
                     <i>Structure of Observed Learning Outcomes</i> (SOLO) -taxonomin i beskrivningen
@@ -313,14 +313,14 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Genom följande länkar får du mera information om SOLO-taxonomin och forskningen
                     bakom applikationen:{' '}
                 </span>
             </p>
 
             <p>
-                <span lang="FI">
+                <span lang="sv">
                     SOLO-taxonomin:{' '}
                     <a href="https://www.johnbiggs.com.au/academic/solo-taxonomy/">
                         https://www.johnbiggs.com.au/academic/solo-taxonomy/
@@ -337,10 +337,10 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">Länk till artikeln:</span>
-                <span lang="FI">
+                <span lang="sv">Länk till artikeln:</span>
+                <span lang="sv">
                     <a href="https://www.tandfonline.com/doi/pdf/10.1080/0729436990180105">
-                        <span lang="SV">
+                        <span lang="sv">
                             https://www.tandfonline.com/doi/pdf/10.1080/0729436990180105
                         </span>
                     </a>
@@ -348,7 +348,7 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">
+                <span lang="sv">
                     Forskning om självutvärdering och utvecklingen av reflektionsapplikationen:{' '}
                 </span>
             </p>
@@ -363,47 +363,37 @@ const SwedishPage = () => {
             </p>
 
             <p>
-                <span lang="SV">Länk till artikeln:</span>
-                <span lang="FI">
+                <span lang="sv">Länk till artikeln:</span>
+                <span lang="sv">
                     <a href="https://www.tandfonline.com/doi/pdf/10.1080/10508422.2023.2266073">
-                        <span lang="SV">
+                        <span lang="sv">
                             https://www.tandfonline.com/doi/pdf/10.1080/10508422.2023.2266073
                         </span>
                     </a>
                 </span>
-                <span lang="FI"> </span>
+                <span lang="sv"> </span>
             </p>
 
             <p>
-                <span lang="SV">Utvecklingen av applikationen har fått stöd av: </span>
+                <span lang="sv">Utvecklingen av applikationen har fått stöd av: </span>
             </p>
 
             <p>
-                <img width="106" height="106" src="/image010.jpg" align="left" hspace="9" />
-                <span lang="FI">
-                    <img border="0" width="114" height="43" src="/image011.png" />
+                <span lang="sv">
+                    <img border="0" width="214" height="auto" src="/image011.png" />
                 </span>
-                <span lang="SV">  </span>
-                <span lang="EN-US">
-                    <img border="0" width="44" height="40" src="/image012.png" />
+                <span lang="sv">
+                      <img border="0" width="117" height="auto" src="/image012.png" />
+                       
                 </span>
-                <span lang="SV">   </span>
-                <span lang="FI">
+                <span lang="sv">
                     <img
                         border="0"
-                        width="61"
-                        height="46"
-                        src="/image013.jpg"
+                        width="200"
+                        height="auto"
+                        src="/image013.png"
                         alt="Reimagining Teachers and Teacher Education for our Futures | University of  Helsinki"
                     />
-                </span>
-            </p>
-
-            <p>
-                <span lang="FI">
-                    <a href="https://beyondbadapples.eu/">
-                        <span lang="SV">Beyond Bad Apples</span>
-                    </a>
                 </span>
             </p>
         </div>
