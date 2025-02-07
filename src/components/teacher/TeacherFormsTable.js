@@ -104,6 +104,9 @@ const Row = ({ teacherForm }) => {
                 to={`/teacher/studentsincourse/${teacherForm.title}/${teacherForm.course_id}`}
                 title={t('teacher_students_in_course')}
             >
+                <span className="screenreader-only">
+                    {t('teacher_forms_table_row_student_list', { title: teacherForm.title })}
+                </span>
                 <ListIcon className="student-list-icon" aria-hidden />
             </Link>
         </div>
@@ -123,7 +126,7 @@ const Row = ({ teacherForm }) => {
         </div>
     );
 
-    const actions = [<Edit />, <Copy />, <Delete />, <Statistics />, <Share />, <StudentList />];
+    const actions = [<Edit />, <Statistics />, <Share />, <StudentList />, <Copy />, <Delete />];
 
     const period = (startDate, endDate) => {
         return (

@@ -96,6 +96,8 @@
     "teacher_forms_table_row_copy": "teacher_forms_table_row_copy",
     "teacher_forms_table_row_edit": "teacher_forms_table_row_edit",
     "teacher_forms_table_row_delete": "teacher_forms_table_row_delete",
+    "teacher_forms_table_row_statistics": "teacher_forms_table_row_statistics",
+    "teacher_forms_table_row_student_list": "teacher_forms_table_row_student_list",
     "teacher_forms_table_description": "teacher_forms_table_description",
     "teacher_forms_table_actions": "teacher_forms_table_actions",
     "teacher_forms_table_sort_1": "teacher_forms_table_sort_1",

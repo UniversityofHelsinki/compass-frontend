@@ -96,6 +96,8 @@
     "teacher_forms_table_row_copy": "Kopeerige kursus {{title}} uue kursuse aluseks",
     "teacher_forms_table_row_edit": "Muuda kursust {{title}}",
     "teacher_forms_table_row_delete": "Kustuta kursus {{title}}",
+    "teacher_forms_table_row_statistics": "teacher_forms_table_row_statistics",
+    "teacher_forms_table_row_student_list": "teacher_forms_table_row_student_list",
     "teacher_forms_table_description": "Juhendaja kursused",
     "teacher_forms_table_actions": "Tegevused",
     "teacher_forms_table_sort_1": "Sorteeritud kasvavalt",
