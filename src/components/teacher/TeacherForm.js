@@ -8,7 +8,6 @@ import useValidation from '../../hooks/validation/useTeacherFormValidation';
 import { Col, Form } from 'react-bootstrap';
 import HyButton from '../utilities/HyButton';
 import RadioButtonGroup from '../../form/RadioButtonGroup';
-import Message from '../../form/Message';
 import ExternalLink from '../utilities/ExternalLink';
 
 const FormField = ({ children, field, fieldId }) => {
@@ -106,13 +105,7 @@ Identifier.propTypes = {
     disabled: PropTypes.bool,
 };
 
-const CheckBoxes = ({
-    radioButtonClicked,
-    onChange,
-    value,
-    validationError,
-    disableCheckBoxes,
-}) => {
+const CheckBoxes = ({ radioButtonClicked, onChange, value, validationError }) => {
     const { t } = useTranslation();
     const validationErrorId = useId();
     const validationAttributes = validationError
@@ -143,16 +136,12 @@ const CheckBoxes = ({
                     value={value !== null ? String(value) : ''}
                     field="research_authorization"
                     aria-label={answerLevelMap[value]?.text}
-                    disabled={disableCheckBoxes}
                 ></RadioButtonGroup>
                 <ExternalLink to={'/researchpermission'} label={t('research_permission')} />
             </div>
             <ValidationMessage id={validationErrorId}>
-                {t(validationError) ? t(validationError) : t(disableCheckBoxes) ? null : <br></br>}
+                {t(validationError) ? t(validationError) : <br></br>}
             </ValidationMessage>
-            <Message id={`${validationErrorId}-message`} type={'info'}>
-                {t(disableCheckBoxes)}
-            </Message>
         </div>
     );
 };
@@ -389,23 +378,11 @@ const TeacherForm = ({ teacherForm, onSave, isNew }) => {
     const { t } = useTranslation();
     const [modified, setModified] = useState(teacherForm);
 
-    const [disableSave] = useValidation(
-        {
-            research_authorization_disable: [
-                () =>
-                    modified.start_date &&
-                    new Date(today) > new Date(modified.start_date) &&
-                    'teacher_form_research_authorization_can_not_be_changed',
-            ],
-        },
-        [modified],
-    );
     const [validationErrors] = useValidation(
         {
             research_authorization: [
                 (research_authorization) =>
-                    new Date(today) <= new Date(modified.start_date) &&
-                    !research_authorization &&
+                    (!research_authorization || research_authorization === null) &&
                     'teacher_form_research_authorization_can_not_be_empty',
             ],
             title: [
@@ -453,7 +430,6 @@ const TeacherForm = ({ teacherForm, onSave, isNew }) => {
 
     const isValid = (ve) => Object.values(ve).every((value) => !value);
     const formIsValid = isValid(validationErrors);
-    const researchAuthValid = isValid(disableSave);
     const assignmentsAreValid = assignmentValidationErrors.map(isValid).every((value) => value);
 
     const [radioButtonClicked, setRadioButtonClicked] = useState(true);
@@ -523,7 +499,6 @@ const TeacherForm = ({ teacherForm, onSave, isNew }) => {
                     radioButtonClicked={radioButtonClicked}
                     value={modified?.research_authorization}
                     validationError={validationErrors.research_authorization}
-                    disableCheckBoxes={disableSave.research_authorization_disable}
                 />
                 <Title
                     onChange={(event) => onChange('title', event.target.value, event.target)}

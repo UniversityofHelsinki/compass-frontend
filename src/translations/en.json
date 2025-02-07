@@ -118,7 +118,6 @@
     "teacher_form_research_authorization_allowed": "teacher_form_research_authorization_allowed",
     "teacher_form_research_authorization_denied": "teacher_form_research_authorization_denied",
     "teacher_form_research_authorization_can_not_be_empty": "teacher_form_research_authorization_can_not_be_empty",
-    "teacher_form_research_authorization_can_not_be_changed": "teacher_form_research_authorization_can_not_be_changed",
     "research_permission": "research_permission",
     "teacher_form_title_can_not_be_empty": "Course title cannot be empty.",
     "teacher_form_course_id_can_not_be_empty": "Course id cannot be empty.",
