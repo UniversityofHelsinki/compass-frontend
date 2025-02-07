@@ -17,6 +17,7 @@
     margin: 0px;
     font-weight: 600;
     font-size: 1.6em;
+    word-break: break-all;
 }
 
 .logo:hover {
