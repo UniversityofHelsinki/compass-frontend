@@ -40,10 +40,3 @@
     text-decoration: underline;
     color: var(--huds-brand-main-light) !important;
 }
-
-@media (max-width: 768px) {
-    .teacher-forms-new-form {
-        align-content: center;
-        justify-content: center;
-    }
-}
