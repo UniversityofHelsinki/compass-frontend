@@ -1,21 +1,38 @@
 .top-bar {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+
+    margin-left: 12px;
+    margin-right: 12px;
+
+    margin-bottom: 48px;
+}
+
+.top-bar-logo {
+}
+
+.top-bar-left {
+    flex: 0 1 50%;
+    display: flex;
+    flex-direction: column;
 }
 
 .top-bar-back-btn {
-    flex-grow: 1;
-    flex-basis: 100%;
 }
 
 .top-bar-heading {
-    flex-grow: 0;
-    min-width: fit-content;
+    flex: 2 1 100%;
+}
+
+.top-bar-heading > h2 {
+    width: 100%;
+    text-align: center;
+    word-break: break-all;
 }
 
 .top-bar-children {
-    flex-grow: 1;
-    flex-basis: 100%;
+    flex: 0 1 50%;
+    align-self: start;
+    word-break: break-all;
 }
