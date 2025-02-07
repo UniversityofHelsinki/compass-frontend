@@ -40,6 +40,11 @@ const renderContent = (language) => {
     }
 };
 
+const getFileDetails = (baseName, currentLanguage, type) => ({
+    fileUrl: `/${baseName}_${currentLanguage}.${type}`,
+    fileName: `${baseName}_${currentLanguage}.${type}`,
+});
+
 const Instructions = () => {
     const { t, i18n } = useTranslation();
     return (
@@ -54,24 +59,21 @@ const Instructions = () => {
                 <Row className="justify-content-center mb-4">
                     <Col className="col-auto">
                         <DownloadLink
-                            fileUrl="/instructions.pdf"
-                            fileName="instructions.pdf"
+                            {...getFileDetails('instructions', i18n.language, 'pdf')}
                             linkText={t('download_instructions')}
                         />
                     </Col>
 
                     <Col className="col-auto">
                         <DownloadLink
-                            fileUrl="/slides.pdf"
-                            fileName="slides.pdf"
+                            {...getFileDetails('slides', i18n.language, 'pdf')}
                             linkText={t('download_slides')}
                         />
                     </Col>
 
                     <Col className="col-auto">
                         <DownloadLink
-                            fileUrl="/slides.pptx"
-                            fileName="slides.pptx"
+                            {...getFileDetails('slides', i18n.language, 'pptx')}
                             linkText={t('download_slides_powerpoint')}
                         />
                     </Col>
