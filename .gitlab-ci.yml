@@ -37,6 +37,7 @@ generate-sbom:
     tags:
         - ohtu-build-4
     script:
+        - npm ci
         - npx @cyclonedx/cyclonedx-npm --output-file sbom.xml
     artifacts:
         expire_in: 1h
