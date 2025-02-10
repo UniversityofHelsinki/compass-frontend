@@ -110,7 +110,6 @@ build_stage:
         - main
     tags:
         - ohtu-build-4
-    extends: .dependencies_cache
     script:
         - npm ci --omit=dev
         - yes | cp -f -v .env.test .env.production || true
@@ -128,7 +127,6 @@ build_stage-prod:
         - prod
     tags:
         - ohtu-build-4
-    extends: .dependencies_cache
     script:
         - npm ci --omit=dev
         - CI=false NODE_ENV=production npm run build
