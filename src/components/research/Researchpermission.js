@@ -44,35 +44,9 @@ const Researchpermission = () => {
     const { t, i18n } = useTranslation();
     return (
         <Container>
-            <Row className="justify-content-center mb-4">
-                <Col className="col-auto">
-                    <DownloadLink
-                        fileUrl="/instructions.pdf"
-                        fileName="instructions.pdf"
-                        linkText={t('download_instructions')}
-                    />
-                </Col>
-
-                <Col className="col-auto">
-                    <DownloadLink
-                        fileUrl="/slides.pdf"
-                        fileName="slides.pdf"
-                        linkText={t('download_slides')}
-                    />
-                </Col>
-
-                <Col className="col-auto">
-                    <DownloadLink
-                        fileUrl="/slides.pptx"
-                        fileName="slides.pptx"
-                        linkText={t('download_slides_powerpoint')}
-                    />
-                </Col>
-            </Row>
-
             <Row>
                 <Col>
-                    <TopBar heading={t('instructions_heading')} />
+                    <TopBar heading={t('research_permission')} />
                     {renderContent(i18n.language)}
                 </Col>
             </Row>
