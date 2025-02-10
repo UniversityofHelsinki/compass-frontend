@@ -163,44 +163,38 @@ const TeacherFormsTable = ({ teacherForms = [], onSortCriteriaChange, sortOpts }
     const { t } = useTranslation();
 
     return (
-        <Container fluid className="responsive-margins">
-            <Row>
-                <Col>
-                    <table className="teacher-forms-table">
-                        <caption className="screenreader-only">
-                            {t('teacher_forms_table_description')}
-                        </caption>
-                        <thead>
-                            <tr>
-                                {['title', 'course_id', 'period'].map((property) => (
-                                    <th key={property} scope="col">
-                                        <HeadingColumn
-                                            sorted={property === sortOpts.criteria}
-                                            direction={sortOpts.direction}
-                                            onSortCriteriaChange={() =>
-                                                onSortCriteriaChange(property)
-                                            }
-                                        >
-                                            {t(`teacher_forms_table_${property}`)}
-                                        </HeadingColumn>
-                                    </th>
-                                ))}
-                                <th scope="col">
-                                    <span className="screenreader-only">
-                                        {t('teacher_forms_table_actions')}
-                                    </span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {(teacherForms || []).map((teacherForm) => (
-                                <TableRow key={teacherForm.id} teacherForm={teacherForm} />
-                            ))}
-                        </tbody>
-                    </table>
-                </Col>
-            </Row>
-        </Container>
+        <div className="teacher-forms-table-container responsive-margins">
+            <table className="teacher-forms-table">
+                <caption className="screenreader-only">
+                    {t('teacher_forms_table_description')}
+                </caption>
+                <thead>
+                    <tr>
+                        {['title', 'course_id', 'period'].map((property) => (
+                            <th key={property} scope="col">
+                                <HeadingColumn
+                                    sorted={property === sortOpts.criteria}
+                                    direction={sortOpts.direction}
+                                    onSortCriteriaChange={() => onSortCriteriaChange(property)}
+                                >
+                                    {t(`teacher_forms_table_${property}`)}
+                                </HeadingColumn>
+                            </th>
+                        ))}
+                        <th scope="col">
+                            <span className="screenreader-only">
+                                {t('teacher_forms_table_actions')}
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {(teacherForms || []).map((teacherForm) => (
+                        <TableRow key={teacherForm.id} teacherForm={teacherForm} />
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 };
 
