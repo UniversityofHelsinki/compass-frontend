@@ -1,5 +1,6 @@
 image: docker:stable
 
+
 stages:
     - test
     - build
@@ -25,6 +26,8 @@ variables:
     # `/certs/client` to share between the service and job
     # container, thanks to volume mount from config.toml
     DOCKER_TLS_CERTDIR: '/certs'
+    PROJECT_NAME: "compass-frontend"
+    PROJECT_VERSION: "1.0.0"
 
 services:
     - docker:dind
@@ -33,7 +36,7 @@ generate-sbom:
     stage: dependency-track-sbom
     image: node:22-alpine
     only:
-        - main
+        - scheduled
     tags:
         - ohtu-build-4
     script:
@@ -48,7 +51,7 @@ submit-sbom:
     image: alpine:latest
     stage: dependency-track-submit
     only:
-        - main
+        - scheduled
     tags:
         - ohtu-build-4
     dependencies:
