@@ -1,13 +1,14 @@
 image: docker:stable
 
 stages:
-    - test
     - setup
+    - test
+    - build
     - dependency-track-sbom
     - dependency-track-submit
     - dependency-check
     - sonarqube-check
-    - build
+    - build-image
 
 variables:
     # When you use the dind service, you must instruct Docker to talk with
@@ -113,7 +114,7 @@ dependency-check:
             - dependency-check-report.html
 
 setup_stage:
-    stage: setup
+    stage: build
     only:
         - main
     tags:
@@ -130,7 +131,7 @@ setup_stage:
         expire_in: 1 hour
 
 setup_stage-prod:
-    stage: setup
+    stage: build
     only:
         - prod
     tags:
@@ -145,16 +146,28 @@ setup_stage-prod:
             - build
         expire_in: 1 hour
 
-test:
-    stage: test
+setup:
+    stage: setup
     image: node:22-alpine
     tags:
         - ohtu-build-4
+    script:
+        - npm ci
     extends: .dependencies_cache
     cache:
         policy: pull-push
+    artifacts:
+        name: $CI_COMMIT_REF_NAME
+        expire_in: 1h
+        paths:
+            - node_modules
+
+test:
+    stage: test
+    tags:
+        - ohtu-build-4
+    extends: .dependencies_cache
     script:
-        - npm ci
         - npm run coverage
     artifacts:
         name: coverage-test
@@ -162,7 +175,7 @@ test:
             - coverage/
 
 build_image:
-    stage: build
+    stage: build-image
     only:
         - main
     tags:
@@ -178,7 +191,7 @@ build_image:
         - docker push quay.io/tike/compass-frontend:test
 
 build_image-prod:
-    stage: build
+    stage: build-image
     only:
         - prod
     tags:
