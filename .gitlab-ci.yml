@@ -3,6 +3,8 @@ image: docker:stable
 stages:
     - test
     - setup
+    - dependency-track-sbom
+    - dependency-track-submit
     - dependency-check
     - sonarqube-check
     - build
@@ -26,6 +28,43 @@ variables:
 
 services:
     - docker:dind
+
+.dependencies_cache:
+    cache:
+        key:
+            files:
+                - package-lock.json
+        paths:
+            - .npm
+        policy: pull
+
+generate-sbom:
+    stage: dependency-track-sbom
+    only:
+        - main
+    extends: .dependencies_cache
+    tags:
+        - ohtu-build-4
+    script:
+        - npx @cyclonedx/cyclonedx-npm --output-file sbom.xml
+    artifacts:
+        expire_in: 1h
+        paths:
+            - sbom.xml
+
+submit-sbom:
+    image: alpine:latest
+    stage: dependency-track-submit
+    only:
+        - main
+    tags:
+        - ohtu-build-4
+    dependencies:
+        - generate-sbom
+    before_script:
+        - apk add --no-cache curl
+    script:
+        - "curl -X POST ${DTRACK_API_URL} -H 'Content-Type: multipart/form-data' -H 'X-Api-Key: '${DTRACK_API_KEY} -F 'projectName='${PROJECT_NAME} -F 'autoCreate=true' -F 'projectVersion='${PROJECT_VERSION} -F 'bom=@sbom.xml'"
 
 sonarqube-check:
     stage: sonarqube-check
@@ -79,7 +118,7 @@ setup_stage:
         - main
     tags:
         - ohtu-build-4
-    image: node:20-alpine
+    extends: .dependencies_cache
     script:
         - npm ci --omit=dev
         - yes | cp -f -v .env.test .env.production || true
@@ -96,7 +135,7 @@ setup_stage-prod:
         - prod
     tags:
         - ohtu-build-4
-    image: node:20-alpine
+    extends: .dependencies_cache
     script:
         - npm ci --omit=dev
         - CI=false NODE_ENV=production npm run build
@@ -108,9 +147,12 @@ setup_stage-prod:
 
 test:
     stage: test
-    image: node:20-alpine
+    image: node:22-alpine
     tags:
         - ohtu-build-4
+    extends: .dependencies_cache
+    cache:
+        policy: pull-push
     script:
         - npm ci
         - npm run coverage
