@@ -1,7 +1,6 @@
 image: docker:stable
 
 stages:
-    - setup
     - test
     - build
     - dependency-track-sbom
@@ -30,20 +29,11 @@ variables:
 services:
     - docker:dind
 
-.dependencies_cache:
-    cache:
-        key:
-            files:
-                - package-lock.json
-        paths:
-            - .npm
-        policy: pull
-
 generate-sbom:
     stage: dependency-track-sbom
+    image: node:22-alpine
     only:
         - main
-    extends: .dependencies_cache
     tags:
         - ohtu-build-4
     script:
@@ -113,8 +103,9 @@ dependency-check:
         paths:
             - dependency-check-report.html
 
-setup_stage:
+build_stage:
     stage: build
+    image: node:22-alpine
     only:
         - main
     tags:
@@ -130,8 +121,9 @@ setup_stage:
             - build
         expire_in: 1 hour
 
-setup_stage-prod:
+build_stage-prod:
     stage: build
+    image: node:22-alpine
     only:
         - prod
     tags:
@@ -146,28 +138,13 @@ setup_stage-prod:
             - build
         expire_in: 1 hour
 
-setup:
-    stage: setup
+test:
+    stage: test
     image: node:22-alpine
     tags:
         - ohtu-build-4
     script:
         - npm ci
-    extends: .dependencies_cache
-    cache:
-        policy: pull-push
-    artifacts:
-        name: $CI_COMMIT_REF_NAME
-        expire_in: 1h
-        paths:
-            - node_modules
-
-test:
-    stage: test
-    tags:
-        - ohtu-build-4
-    extends: .dependencies_cache
-    script:
         - npm run coverage
     artifacts:
         name: coverage-test
