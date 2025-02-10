@@ -70,7 +70,7 @@ const DatePicker = React.forwardRef(
 );
 
 DatePicker.propTypes = {
-    date: PropTypes.object,
+    date: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     onChange: PropTypes.func,
     locale: PropTypes.string,
 };
