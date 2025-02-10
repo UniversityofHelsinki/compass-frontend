@@ -36,7 +36,7 @@ generate-sbom:
     stage: dependency-track-sbom
     image: node:22-alpine
     only:
-        - scheduled
+        - schedules
     tags:
         - ohtu-build-4
     script:
@@ -51,7 +51,7 @@ submit-sbom:
     image: alpine:latest
     stage: dependency-track-submit
     only:
-        - scheduled
+        - schedules
     tags:
         - ohtu-build-4
     dependencies:
