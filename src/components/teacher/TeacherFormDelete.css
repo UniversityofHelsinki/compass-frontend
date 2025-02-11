@@ -7,3 +7,7 @@
     display: flex;
     justify-content: end;
 }
+
+.teacher-form-delete-content > h3 {
+    word-break: break-all;
+}
