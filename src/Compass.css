@@ -27,6 +27,7 @@
     max-width: fit-content;
     bottom: 2dvh;
     left: 2dvw;
+    z-index: 1;
 }
 
 @media (max-width: 576px) {
