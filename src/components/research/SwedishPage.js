@@ -66,6 +66,8 @@ const SwedishPage = () => {
                 </b>
             </p>
 
+            <p>Jag förstår att</p>
+
             <p>
                 <span lang="FI" className="p">
                     deltagande i forskning är frivilligt, och jag kan när som helst avsluta mitt

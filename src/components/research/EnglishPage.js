@@ -67,6 +67,8 @@ const EnglishPage = () => {
                 </b>
             </p>
 
+            <p>I understand that</p>
+
             <p>
                 <span lang="EN-US" className="p">
                     participation in research is voluntary, and I may terminate my participation at

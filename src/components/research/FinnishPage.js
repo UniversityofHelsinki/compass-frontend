@@ -64,6 +64,8 @@ const FinnishPage = () => {
                 </b>
             </p>
 
+            <p>Ymmärrän, että</p>
+
             <p>
                 <span lang="FI" className="p">
                     tutkimukseen osallistuminen on vapaaehtoista ja voin lopettaa osallistumiseni
