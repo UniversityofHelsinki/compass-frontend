@@ -27,8 +27,15 @@
     fill: var(--huds-grayscale-black);
 }
 
+.teacher-forms-table-container {
+    overflow: auto;
+}
+
+.teacher-forms-table {
+    width: 100%;
+}
+
 .teacher-forms-table-row {
-    max-width: 20em;
     border-bottom: 1px solid var(--huds-grayscale-black);
 }
 
@@ -54,8 +61,9 @@
     max-width: 8em !important;
 }
 
-.teacher-forms-table-row-period span {
+.teacher-forms-table-row-period {
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -66,6 +74,8 @@
 .teacher-forms-table-actions {
     display: flex;
     justify-content: space-between;
+    margin-right: 10px;
+    flex-wrap: wrap;
 }
 
 .teacher-forms-table-action button {
@@ -84,4 +94,20 @@
 
 .student-list-icon * {
     fill: black !important;
+}
+
+.responsive-margins {
+    margin: 0 auto;
+    max-width: 80%;
+    width: 80%;
+}
+
+@media (max-width: 768px) {
+    .teacher-forms-table-row-period :nth-child(2) {
+        display: block;
+        align-self: center;
+    }
+    .responsive-margins {
+        min-width: 100%;
+    }
 }

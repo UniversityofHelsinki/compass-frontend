@@ -13,22 +13,18 @@ const Header = () => {
     } = useAuth();
 
     return (
-        <header className="header">
-            <Container>
-                <Row className="align-items-center">
-                    <Col md={4} xs={12} className="header-left">
-                        <Logo />
-                    </Col>
-                    <Col md={4} xs={6} className="header-center mx-auto text-center">
-                        <Navigation isTeacher={isTeacher} />
-                    </Col>
-                    <Col md={4} xs={6} className="header-right text-md-end text-center">
-                        <Languages />
-                        <User />
-                    </Col>
-                </Row>
-            </Container>
-        </header>
+        <div className="header">
+            <div className="header-left">
+                <Logo />
+            </div>
+            <div className="header-center">
+                <Navigation isTeacher={isTeacher} />
+            </div>
+            <div className="header-right">
+                <Languages />
+                <User />
+            </div>
+        </div>
     );
 };
 

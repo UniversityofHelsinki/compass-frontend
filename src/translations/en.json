@@ -1,4 +1,5 @@
 {
+    "reflection_compass_hy_logo": "Reflection Compass",
     "language_select_fi": "Suomi",
     "language_select_en": "English",
     "language_select_sv": "Svenska",
@@ -93,9 +94,11 @@
     "teacher_forms_table_title": "Course",
     "teacher_forms_table_course_id": "Course id",
     "teacher_forms_table_period": "Period",
-    "teacher_forms_table_row_copy": "Copy the {{title}} tag of the course to the clipboard",
+    "teacher_forms_table_row_copy": "Open the course creation page with the course {{title}} as a template",
     "teacher_forms_table_row_edit": "Edit course {{title}}",
     "teacher_forms_table_row_delete": "Delete the course {{title}}",
+    "teacher_forms_table_row_statistics": "View and compare assignment statistics for {{title}}",
+    "teacher_forms_table_row_student_list": "{{title}} list of students",
     "teacher_forms_table_description": "Teacher's courses",
     "teacher_forms_table_actions": "Activities",
     "teacher_forms_table_sort_1": "Sorted in ascending order",
@@ -237,5 +240,6 @@
     "download_slides_powerpoint": "???download_slides_powerpoint???",
     "answer_dialog_teacher_level_feedback": "Teacher's evaluation for level of understanding:",
     "reflection_compass_logo_alt_text": "Reflection Compass logo",
-    "course_statistics_no_assignments_to_display": "No assignments to display."
+    "course_statistics_no_assignments_to_display": "No assignments to display.",
+    "footer_hy_maintenance": "The Reflection Compass maintenance window is every Monday between 2 and 4 P.M. Disruptions in the service may occur during the maintenance window!"
 }

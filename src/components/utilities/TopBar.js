@@ -3,18 +3,25 @@ import BackButton, { propTypes as BackButtonPropTypes } from './BackButton';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
+import LogoImage from '../logo/LogoImage';
 
 const TopBar = ({ showBackBtn = false, backBtnLabels, backBtnHref = '', heading, children }) => {
     return (
-        <Row className="top-bar">
-            <Col className="top-bar-back-btn">
-                {showBackBtn && <BackButton labels={backBtnLabels} href={backBtnHref} />}
-            </Col>
-            <Col as="h2" className="top-bar-heading">
-                {heading}
-            </Col>
-            <Col className="top-bar-children">{children}</Col>
-        </Row>
+        <div className="top-bar">
+            <div className="top-bar-left">
+                <div className="top-bar-logo">
+                    <LogoImage />
+                </div>
+                {showBackBtn && <div className="my-1"></div>}
+                <div className="top-bar-back-btn">
+                    {showBackBtn && <BackButton labels={backBtnLabels} href={backBtnHref} />}
+                </div>
+            </div>
+            <div className="top-bar-heading">
+                <h2>{heading}</h2>
+            </div>
+            <div className="top-bar-children">{children}</div>
+        </div>
     );
 };
 

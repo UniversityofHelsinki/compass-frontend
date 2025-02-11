@@ -1,4 +1,5 @@
 {
+    "reflection_compass_hy_logo": "Refleksioonikompass",
     "language_select_fi": "Suomi",
     "language_select_en": "English",
     "language_select_sv": "Svenska",
@@ -96,6 +97,8 @@
     "teacher_forms_table_row_copy": "Kopeerige kursus {{title}} uue kursuse aluseks",
     "teacher_forms_table_row_edit": "Muuda kursust {{title}}",
     "teacher_forms_table_row_delete": "Kustuta kursus {{title}}",
+    "teacher_forms_table_row_statistics": "teacher_forms_table_row_statistics",
+    "teacher_forms_table_row_student_list": "teacher_forms_table_row_student_list",
     "teacher_forms_table_description": "Juhendaja kursused",
     "teacher_forms_table_actions": "Tegevused",
     "teacher_forms_table_sort_1": "Sorteeritud kasvavalt",
@@ -236,5 +239,6 @@
     "opens_in_new_tab": "Avaneb uues vahekaardis",
     "answer_dialog_teacher_level_feedback": "Arusaamise tase:",
     "reflection_compass_logo_alt_text": "Reflection Compass logo",
-    "course_statistics_no_assignments_to_display": "Ülesandeid pole kuvada"
+    "course_statistics_no_assignments_to_display": "Ülesandeid pole kuvada",
+    "footer_hy_maintenance": "footer_hy_maintenance"
 }

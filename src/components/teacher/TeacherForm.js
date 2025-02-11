@@ -288,11 +288,9 @@ const Assignment = ({
                     {...validationAttributes[0]}
                     disabled={type === 'past' || type === 'current'}
                 />
-                {validationError.topic && (
-                    <ValidationMessage id={`${validationErrorId}-topic`}>
-                        {t(validationError.topic)}
-                    </ValidationMessage>
-                )}
+                <ValidationMessage id={`${validationErrorId}-topic`}>
+                    {t(validationError.topic)}
+                </ValidationMessage>
             </div>
             <div className="m-1"></div>
             <label className="screenreader-only" htmlFor={`assignment-start-date-${ordinal}`}>
@@ -309,11 +307,9 @@ const Assignment = ({
                     {...validationAttributes[1]}
                     disabled={type === 'past'}
                 />
-                {validationError.start_date && (
-                    <ValidationMessage id={`${validationErrorId}-start-date`}>
-                        {t(validationError.start_date)}
-                    </ValidationMessage>
-                )}
+                <ValidationMessage id={`${validationErrorId}-start-date`}>
+                    {t(validationError.start_date)}
+                </ValidationMessage>
             </div>
             <div className="m-1"></div>
             <label className="screenreader-only" htmlFor={`assignment-end-date-${ordinal}`}>
@@ -329,11 +325,9 @@ const Assignment = ({
                     {...validationAttributes[2]}
                     disabled={type === 'past'}
                 />
-                {validationError.end_date && (
-                    <ValidationMessage id={`${validationErrorId}-end-date`}>
-                        {t(validationError.end_date)}
-                    </ValidationMessage>
-                )}
+                <ValidationMessage id={`${validationErrorId}-end-date`}>
+                    {t(validationError.end_date)}
+                </ValidationMessage>
             </div>
             <div className="m-1"></div>
             <div className="teacher-form-assignment-delete">
