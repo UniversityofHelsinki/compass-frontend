@@ -27,6 +27,10 @@
     fill: var(--huds-grayscale-black);
 }
 
+.teacher-forms-table-container {
+    overflow: auto;
+}
+
 .teacher-forms-table {
     width: 100%;
 }

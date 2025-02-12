@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import useStudentAssignmentsForStudent from '../../hooks/teacher/useStudentAssignmentsForStudent';
 import { Container, Modal } from 'react-bootstrap';
 import './StudentSummaryDialog.css';
+import SummaryTable from './SummaryTable';
 
 const StudentSummaryDialog = ({ courseId, studentId, studentName }) => {
     const [showDialog, setShowDialog] = useState(false);
@@ -53,6 +54,14 @@ const StudentSummaryDialog = ({ courseId, studentId, studentName }) => {
                                 </h4>
                                 <div>
                                     <SummaryChart assignments={assignments} />
+                                </div>
+                                <div>
+                                    <SummaryTable
+                                        course={courseId}
+                                        reload={reload}
+                                        assignments={assignments}
+                                        showAnswerColumn={false}
+                                    />
                                 </div>
                             </div>
                         </Container>

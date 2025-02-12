@@ -12,15 +12,12 @@ const Logo = () => {
         <div className="logo">
             <HyLogo width={48} height={48} fill={HyColors.black} />
             <Link to="/">
-                <h1>
-                    {t('Reflection Compass')}
-                </h1>
+                <h1>{t('reflection_compass_hy_logo')}</h1>
             </Link>
         </div>
     );
 };
 
-Logo.propTypes = {
-};
+Logo.propTypes = {};
 
 export default Logo;
