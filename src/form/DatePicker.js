@@ -11,7 +11,7 @@ import './DatePicker.css';
 registerLocale('fi', fi);
 registerLocale('en', enGB);
 registerLocale('sv', sv);
-registerLocale('ee', et);
+registerLocale('et', et);
 
 const DatePicker = React.forwardRef(
     (
