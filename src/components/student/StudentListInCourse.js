@@ -10,7 +10,7 @@ import Table from 'react-bootstrap/Table';
 const StudentListInCourse = () => {
     const { title, courseId } = useParams();
     const { t } = useTranslation();
-    const [students, reload] = useStudentsInCourse(courseId);
+    const [students, _error, reload] = useStudentsInCourse(courseId);
 
     const listStudents = () => {
         return (
