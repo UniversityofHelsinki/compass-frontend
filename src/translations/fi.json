@@ -231,10 +231,12 @@
     "footer_accessibility_statement_link": "footer_accessibility_statement_link",
     "opens_in_new_tab": "Avautuu uuteen välilehteen",
     "answer_dialog_teacher_level_feedback": "Ymmärtämisen taso:",
-    "download_instructions": "???download_instructions???",
-    "download_slides": "???download_slides???",
-    "download_slides_powerpoint": "???download_slides_powerpoint???",
+    "download_instructions": "Lataa esittely (.pdf)",
+    "download_slides": "Lataa ohjeet (.pdf)",
+    "download_slides_powerpoint": "Lataa ohjeet (.pptx)",
     "reflection_compass_logo_alt_text": "Reflection Compass logo",
     "course_statistics_no_assignments_to_display": "Ei näytettäviä tehtäviä.",
-    "footer_hy_maintenance": "Reflektiokompassin huoltoikkuna on maanantaisin klo 14-16. Palvelussa saattaa tuolloin ilmetä häiriöitä!"
+    "footer_hy_maintenance": "Reflektiokompassin huoltoikkuna on maanantaisin klo 14-16. Palvelussa saattaa tuolloin ilmetä häiriöitä!",
+    "error_generating_signed_url": "Fel när du skapar en webbadress",
+    "error_copying_to_clipboard": "Fel vid kopiering av en kurslänk"
 }

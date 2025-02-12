@@ -230,11 +230,13 @@
     "footer_compass_data_protection_statement_link": "https://www.helsinki.fi/en/about-us/processing-data-university/data-protection",
     "footer_accessibility_statement_link": "accessibility-statement",
     "opens_in_new_tab": "Opens in new tab",
-    "download_instructions": "???download_instructions???",
-    "download_slides": "???download_slides???",
-    "download_slides_powerpoint": "???download_slides_powerpoint???",
+    "download_instructions": "Download introduction (.pdf)",
+    "download_slides": "Download instructions (.pdf)",
+    "download_slides_powerpoint": "Download instructions (.pptx)",
     "answer_dialog_teacher_level_feedback": "Teacher's evaluation for level of understanding:",
     "reflection_compass_logo_alt_text": "Reflection Compass logo",
     "course_statistics_no_assignments_to_display": "No assignments to display.",
-    "footer_hy_maintenance": "The Reflection Compass maintenance window is every Monday between 2 and 4 P.M. Disruptions in the service may occur during the maintenance window!"
+    "footer_hy_maintenance": "The Reflection Compass maintenance window is every Monday between 2 and 4 P.M. Disruptions in the service may occur during the maintenance window!",
+    "error_generating_signed_url": "Error creating URL",
+    "error_copying_to_clipboard": "Error copying course link"
 }
