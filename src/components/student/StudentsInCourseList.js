@@ -1,17 +1,9 @@
-import { useTranslation } from 'react-i18next';
 import React from 'react';
 import './StudentListInCourse.css';
 import StudentFromCourseDeleteDialog from './StudentFromCourseDeleteDialog';
 import PropTypes from 'prop-types';
 
 const StudentsInCourseList = ({ student, courseId, reload }) => {
-    const { t } = useTranslation();
-
-    const handleRemoval = (event) => {
-        event.preventDefault();
-        //onAssignmentRemove();
-    };
-
     return (
         <div className="studentlist-in-course-student-item">
             <div className="studentlist-in-course-column-1">{student.display_name}</div>

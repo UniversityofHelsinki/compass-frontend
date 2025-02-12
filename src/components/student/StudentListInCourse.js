@@ -3,10 +3,9 @@ import { useTranslation } from 'react-i18next';
 import React from 'react';
 import TopBar from '../utilities/TopBar';
 import useStudentsInCourse from '../../hooks/student/useStudentsInCourse';
-import StudentsInCourseList from './StudentsInCourseList';
 import { useParams } from 'react-router-dom';
-import './StudentListInCourse.css';
 import StudentFromCourseDeleteDialog from './StudentFromCourseDeleteDialog';
+import Table from 'react-bootstrap/Table';
 
 const StudentListInCourse = () => {
     const { title, courseId } = useParams();
@@ -16,7 +15,7 @@ const StudentListInCourse = () => {
     const listStudents = () => {
         return (
             <div className="responsive-margins">
-                <table className="student-list-table">
+                <Table borderless size="sm" responsive="xl" className="student-list-table">
                     <caption className="screenreader-only">
                         {t('student_list_table_description')}
                     </caption>
@@ -25,7 +24,7 @@ const StudentListInCourse = () => {
                             {[
                                 'teacher_student_in_course_name',
                                 'teacher_student_in_course_user_name',
-                                'teacher_student_in_course_assignment_count',
+                                'teacher_student_in_course_answer_count',
                                 'teacher_student_in_course_delete_student',
                             ].map((headerColumn) => {
                                 return (
@@ -54,7 +53,7 @@ const StudentListInCourse = () => {
                             );
                         })}
                     </tbody>
-                </table>
+                </Table>
             </div>
         );
     };
