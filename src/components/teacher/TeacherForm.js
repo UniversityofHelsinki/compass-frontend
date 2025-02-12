@@ -127,6 +127,11 @@ const CheckBoxes = ({ radioButtonClicked, onChange, value, validationError }) =>
 
     return (
         <div>
+            <div>
+                <label id="teacher-form-research-authorization-header">
+                    {t('teacher_form_research_authorization_header')}
+                </label>
+            </div>
             <div className="teacher-form-buttons-with-link">
                 <RadioButtonGroup
                     inline

@@ -121,6 +121,7 @@
     "teacher_form_research_authorization_allowed": "Tutkimuslupa sallittu",
     "teacher_form_research_authorization_denied": "Tutkimuslupa kielletty",
     "teacher_form_research_authorization_can_not_be_empty": "Tutkimuslupa on sallittava tai kiellettävä.",
+    "teacher_form_research_authorization_header": "Tutkimuslupa",
     "research_permission": "Tutkimustiedote",
     "teacher_form_title_can_not_be_empty": "Kurssin nimi ei voi olla tyhjä.",
     "teacher_form_course_id_can_not_be_empty": "Kurssin tunniste ei voi olla tyhjä.",

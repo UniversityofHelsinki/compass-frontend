@@ -123,7 +123,7 @@ const AssignmentAnswersDialog = ({
                         id="answer-dialog-written-response-header"
                         className="written-response-header"
                     >
-                        {t('answer_dialog_written_feedback_header')}:
+                        {t('answer_dialog_written_feedback_header')}:ccc
                     </Col>
                 </Row>
                 <Row className="divBelow">
