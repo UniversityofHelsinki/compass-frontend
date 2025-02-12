@@ -132,7 +132,7 @@
     "teacher_form_course_id_too_long": "Kursens id är för långt.",
     "teacher_student_in_course_name": "Student",
     "teacher_student_in_course_user_name": "Användarnamn",
-    "teacher_student_in_course_assignment_count": "Antal uppgifter",
+    "teacher_student_in_course_answer_count": "Antal svar",
     "teacher_students_in_course": "Studenterna på kursen",
     "teacher_students_empty_course": "Det finns inga studenter i kursen ännu",
     "teacher_student_in_course_delete_student": "Ta bort student",
