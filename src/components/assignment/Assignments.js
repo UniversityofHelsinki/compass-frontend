@@ -187,15 +187,7 @@ const Assignments = () => {
             ></TopBar>
             <div className="m-3"></div>
             <div className="responsive-margins">
-                <Row>
-                    <Col
-                        as="h5"
-                        id="answer-dialog-written-response-header"
-                        className="written-response-header"
-                    >
-                        {t('answer_dialog_written_response_header')}:
-                    </Col>
-                </Row>
+                <h3>{t('assignments_research_permission')}</h3>
                 <CheckBoxes
                     className="teacher-form-checkbox"
                     onChange={(field, value) => onChange('research_authorization', value, null)}
