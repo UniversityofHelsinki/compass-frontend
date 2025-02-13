@@ -1,13 +1,14 @@
 import { usePUT } from '../useHttp';
 import message from '../../form/Message';
 
-const useUserCourseUpdate = () => {
+const useUserCourseUpdate = (course) => {
+    const course_id = course?.course_id;
     let style = '';
     let message = '';
 
     const put = usePUT({
         path: `/api/student/updateResearchAuthorization`,
-        invalidates: ['USER_COURSE'],
+        invalidates: [`USER_COURSE_${course_id}`],
     });
 
     const updateUserCourse = async (userCourse) => {

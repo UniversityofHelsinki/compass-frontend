@@ -66,7 +66,7 @@ const Assignments = () => {
     const { t } = useTranslation();
     let [course] = useStudentCourse(id);
     let [userCourse] = useUserCourse(course);
-    const [updateUserCourse] = useUserCourseUpdate();
+    const [updateUserCourse] = useUserCourseUpdate(course);
     const [dueAssignments, previousAssignments, errMsg, courseDate] =
         useStudentCourseAssignmentAnswer(course?.course_id, signature, id);
     const backBtnHref = '/student/courses';
@@ -76,22 +76,12 @@ const Assignments = () => {
     };
     let [message, setMessage] = useState('');
     let [style, setStyle] = useState('');
-    let researchAuth = userCourse?.research_authorization
-        ? userCourse.research_authorization === true
-            ? '1'
-            : '0'
-        : null;
 
-    const [modified, setModified] = useState({ research_authorization: researchAuth });
-
+    const [researchAuthorization, setResearchAuthorization] = useState(null);
     useEffect(() => {
-        let researchAuth =
-            userCourse?.research_authorization === null
-                ? null
-                : userCourse?.research_authorization === true
-                  ? '1'
-                  : '0';
-        setModified({ research_authorization: researchAuth });
+        if (researchAuthorization === null && userCourse) {
+            setResearchAuthorization(userCourse?.research_authorization);
+        }
     }, [userCourse]);
 
     const [radioButtonClicked, setRadioButtonClicked] = useState(true);
@@ -100,11 +90,11 @@ const Assignments = () => {
         {
             research_authorization: [
                 (research_authorization) =>
-                    (!research_authorization || research_authorization === null) &&
+                    research_authorization === null &&
                     'teacher_form_research_authorization_can_not_be_empty',
             ],
         },
-        [modified],
+        [{ research_authorization: researchAuthorization }],
     );
 
     if (errMsg) {
@@ -151,7 +141,7 @@ const Assignments = () => {
     const updateResearchAuthorization = async () => {
         const updatedCourse = {
             ...course,
-            research_authorization: modified.research_authorization,
+            research_authorization: researchAuthorization,
         };
         let [resp_message, resp_style] = await updateUserCourse(updatedCourse);
         setMessage(resp_message);
@@ -165,9 +155,7 @@ const Assignments = () => {
     const theButtonSave = (
         <HyButton
             variant="primary"
-            disabled={
-                !modified.research_authorization || modified.research_authorization === researchAuth
-            }
+            disabled={researchAuthorization === null}
             onClick={onButtonClick}
             className="assignments-send-button"
         >
@@ -193,15 +181,15 @@ const Assignments = () => {
             : {};
 
         const answerLevelMap = {
-            0: { text: t('teacher_form_research_authorization_denied'), value: '0' },
-            1: { text: t('teacher_form_research_authorization_allowed'), value: '1' },
+            false: { text: t('teacher_form_research_authorization_denied'), value: '0' },
+            true: { text: t('teacher_form_research_authorization_allowed'), value: '1' },
         };
 
         const answerLevelArray = [
-            { label: t('teacher_form_research_authorization_denied'), value: '0' },
-            { label: t('teacher_form_research_authorization_allowed'), value: '1' },
+            { label: t('teacher_form_research_authorization_denied'), value: 'false' },
+            { label: t('teacher_form_research_authorization_allowed'), value: 'true' },
         ];
-
+        console.log('value', value);
         return (
             <div>
                 <div className="teacher-form-buttons-with-link">
@@ -236,12 +224,9 @@ const Assignments = () => {
         validationError: PropTypes.string,
     };
 
-    const onChange = (property, value, element) => {
+    const onChange = (value) => {
         setRadioButtonClicked(true);
-        setModified({
-            ...modified,
-            [property]: value,
-        });
+        setResearchAuthorization(value);
     };
 
     return (
@@ -257,9 +242,9 @@ const Assignments = () => {
                 <h3>{t('assignments_research_permission')}</h3>
                 <CheckBoxes
                     className="teacher-form-checkbox"
-                    onChange={(field, value) => onChange('research_authorization', value, null)}
+                    onChange={(field, value) => onChange(value)}
                     radioButtonClicked={radioButtonClicked}
-                    value={modified?.research_authorization}
+                    value={researchAuthorization}
                     validationError={validationErrors.research_authorization}
                     message={message}
                     style={style}
@@ -272,12 +257,12 @@ const Assignments = () => {
                         <li key={assignment.id} className="mb-3">
                             <AssignmentListItem
                                 previous={false}
-                                style={modified.research_authorization === null ? 'disabled' : ''}
+                                style={researchAuthorization === null ? 'disabled' : ''}
                                 assignment={assignment}
                                 href={
                                     assignment.answered === true
                                         ? `/student/feedback/${assignment?.id}/${course?.course_id}/${course?.id}`
-                                        : `/student/assignment/${assignment?.id}/${course?.id}/${modified?.research_authorization}`
+                                        : `/student/assignment/${assignment?.id}/${course?.id}/${researchAuthorization}`
                                 }
                             />
                         </li>
@@ -291,7 +276,7 @@ const Assignments = () => {
                         <li key={assignment.id} className="mb-3">
                             <AssignmentListItem
                                 previous={true}
-                                style={modified.research_authorization === null ? 'disabled' : null}
+                                style={researchAuthorization === null ? 'disabled' : null}
                                 key={assignment.id}
                                 assignment={assignment}
                                 href={`/student/feedback/${assignment?.id}/${course?.course_id}/${course?.id}`}
@@ -304,7 +289,7 @@ const Assignments = () => {
                 <div className="assignments-list-item">
                     <div className="assignments-list-item-link">
                         <Link
-                            className={modified.research_authorization === null ? 'disabled' : null}
+                            className={researchAuthorization === null ? 'disabled' : null}
                             to={`/student/courses/${course?.course_id}/summary`}
                         >
                             {t('assignments_summary')}
