@@ -243,5 +243,7 @@
     "download_slides_powerpoint": "???download_slides_powerpoint???",
     "reflection_compass_logo_alt_text": "Reflection Compass logo",
     "course_statistics_no_assignments_to_display": "Inga uppgifter att visa.",
-    "footer_hy_maintenance": "Underhållsfönstret för Reflektionskompass är varje måndag mellan kl. 14.00 och 16.00. Störningar i tjänsten kan förekomma under underhållsfönstret!"
+    "footer_hy_maintenance": "Underhållsfönstret för Reflektionskompass är varje måndag mellan kl. 14.00 och 16.00. Störningar i tjänsten kan förekomma under underhållsfönstret!",
+    "student_user_course_message": "student_user_course_message",
+    "student_user_course_err_message": "student_user_course_err_message"
 }
