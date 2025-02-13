@@ -1,9 +1,6 @@
-.student-list-table {
-    width: 100%;
-}
-
-.student-list-table tbody > :nth-child(even) {
-    background-color: var(--huds-grayscale-light);
+.table > tbody > tr:nth-child(even) > td,
+tr.found {
+    background-color: var(--hy-light-silver);
 }
 
 .student-list-table tbody tr {
