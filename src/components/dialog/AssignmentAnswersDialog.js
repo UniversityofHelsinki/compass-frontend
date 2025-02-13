@@ -163,6 +163,7 @@ const AssignmentAnswersDialog = ({
                             value={
                                 stored?.order_nbr !== undefined ? String(stored?.order_nbr) : '0'
                             }
+                            field={'order_nbr'}
                             aria-label={
                                 answerLevelMap[
                                     stored?.order_nbr !== undefined ? stored.order_nbr : 0

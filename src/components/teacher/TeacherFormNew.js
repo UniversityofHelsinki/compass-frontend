@@ -24,6 +24,8 @@ const EmptyForm = ({ handleSave, teacherForm }) => {
         description: '',
         start_date: new Date(today - (today % oneDay)).toISOString(),
         end_date: new Date(today - (today % oneDay) + threeMonths).toISOString(),
+        research_authorization: false,
+        created: new Date(),
     };
 
     return <TeacherForm isNew={true} onSave={handleSave} teacherForm={teacherForm || empty} />;
@@ -43,6 +45,8 @@ const TemplateForm = ({ id, handleSave, teacherForm }) => {
         description: '',
         start_date: null,
         end_date: null,
+        research_authorization: course.research_authorization,
+        created: new Date(),
         assignments: course.assignments.map((assignment) => ({
             start_date: null,
             end_date: null,
@@ -80,7 +84,7 @@ const TeacherFormNew = () => {
     const save = useTeacherFormSave();
 
     const handleSave = async (teacherForm) => {
-        const saved = await save(teacherForm);
+        const saved = await save({ ...teacherForm, created: new Date() });
         if (saved.ok) {
             setSaved(await saved.json());
             setNotification(t(`teacher_form_new_saved_notification_success`), 'success', true);

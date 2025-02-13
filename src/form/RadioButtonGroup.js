@@ -10,6 +10,7 @@ const RadioButtonGroup = ({
     validationMessage = { type: 'neutral', content: '' },
     onChange,
     value = null,
+    field,
     ...rest
 }) => {
     const id = useId();
@@ -42,7 +43,7 @@ const RadioButtonGroup = ({
                                 value={optionValue || ''}
                                 id={`compass-${optionValue || 'unknown'}-${id}`}
                                 label={optionLabel || ''}
-                                onClick={(e) => handleClick('order_nbr', e.target.value)}
+                                onClick={(e) => handleClick(field, e.target.value)}
                                 {...rest}
                             />
                         );

@@ -1,0 +1,13 @@
+.p {
+    text-indent: -0.8em;
+    padding-left: 1.5em;
+    text-align: justify;
+    line-height: 1.5;
+    display: block;
+}
+
+.p:before {
+    content: '• ';
+    padding-right: 0.8em;
+    display: inline-block;
+}
