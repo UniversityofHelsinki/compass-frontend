@@ -5,10 +5,9 @@ import { useTranslation } from 'react-i18next';
 import DatePicker from '../../form/DatePicker';
 import { ReactComponent as TrashIcon } from '../utilities/icons/trash.svg';
 import useValidation from '../../hooks/validation/useTeacherFormValidation';
-import { Col, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import HyButton from '../utilities/HyButton';
 import RadioButtonGroup from '../../form/RadioButtonGroup';
-import ExternalLink from '../utilities/ExternalLink';
 
 const FormField = ({ children, field, fieldId }) => {
     const { t } = useTranslation();
@@ -127,10 +126,18 @@ const CheckBoxes = ({ radioButtonClicked, onChange, value, validationError }) =>
 
     return (
         <div>
-            <div>
-                <label id="teacher-form-research-authorization-header">
-                    {t('teacher_form_research_authorization_header')}
-                </label>
+            <div className="teacher-form-permission-header">
+                {t('teacher_form_research_authorization_header')}
+            </div>
+            <div className="teacher-forms-permission-link-label">
+                <a
+                    href={'/researchpermission'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={t('opens_in_new_tab')}
+                >
+                    {t('teacher_form_research_permission_link_label')}
+                </a>
             </div>
             <div className="teacher-form-buttons-with-link">
                 <RadioButtonGroup
@@ -142,7 +149,6 @@ const CheckBoxes = ({ radioButtonClicked, onChange, value, validationError }) =>
                     field="research_authorization"
                     aria-label={answerLevelMap[value]?.text}
                 ></RadioButtonGroup>
-                <ExternalLink to={'/researchpermission'} label={t('research_permission')} />
             </div>
             <ValidationMessage id={validationErrorId}>
                 {t(validationError) ? t(validationError) : <br></br>}
