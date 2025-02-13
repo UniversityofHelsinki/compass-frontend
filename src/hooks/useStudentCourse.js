@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 const useStudentCourse = (id) => {
     const dispatch = useDispatch();
     const [course, setCourse] = useState(null);
+    //let [userCourse] = useUserCourse(course);
     const COMPASS_BACKEND_SERVER = process.env.REACT_APP_COMPASS_BACKEND_SERVER || '';
 
     const get = async () => {

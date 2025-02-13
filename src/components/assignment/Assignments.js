@@ -1,5 +1,4 @@
-import './Assignments.css';
-import React, { useId, useState } from 'react';
+import React, { useEffect, useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import useStudentCourseAssignmentAnswer from '../../hooks/useStudentCourseAssignmentAnswer';
@@ -10,9 +9,15 @@ import { Col, Row } from 'react-bootstrap';
 import RadioButtonGroup from '../../form/RadioButtonGroup';
 import ExternalLink from '../utilities/ExternalLink';
 import useValidation from '../../hooks/validation/useTeacherFormValidation';
+import HyButton from '../utilities/HyButton';
+import useUserCourseUpdate from '../../hooks/student/useUserCourseUpdate';
+import useUserCourse from '../../hooks/student/useUserCourse';
+import './Assignments.css';
+import Message from '../../form/Message';
 
 const AssignmentListItem = ({ previous, assignment, href, style }) => {
     const { t } = useTranslation();
+
     let anwer =
         assignment?.answered === true ? t('assignments_answered') : t('assignments_not_answered');
     return (
@@ -60,6 +65,8 @@ const Assignments = () => {
     const signature = queryParams.get('signature');
     const { t } = useTranslation();
     let [course] = useStudentCourse(id);
+    let [userCourse] = useUserCourse(course);
+    const [updateUserCourse] = useUserCourseUpdate();
     const [dueAssignments, previousAssignments, errMsg, courseDate] =
         useStudentCourseAssignmentAnswer(course?.course_id, signature, id);
     const backBtnHref = '/student/courses';
@@ -67,8 +74,27 @@ const Assignments = () => {
         primary: t('assignments_back_to_course'),
         secondary: t('assignments_back_to_course_secondary'),
     };
+    let [message, setMessage] = useState('');
+    let [style, setStyle] = useState('');
 
-    const [modified, setModified] = useState({ research_authorization: null });
+    let researchAuth = userCourse?.research_authorization
+        ? userCourse.research_authorization === true
+            ? '1'
+            : '0'
+        : null;
+
+    const [modified, setModified] = useState({ research_authorization: researchAuth });
+
+    useEffect(() => {
+        let researchAuth =
+            userCourse?.research_authorization === null
+                ? null
+                : userCourse?.research_authorization === true
+                  ? '1'
+                  : '0';
+        setModified({ research_authorization: researchAuth });
+    }, [userCourse]);
+
     const [radioButtonClicked, setRadioButtonClicked] = useState(true);
 
     const [validationErrors] = useValidation(
@@ -117,12 +143,47 @@ const Assignments = () => {
             </div>
         );
     };
+
     ValidationMessage.propTypes = {
         children: PropTypes.node,
         id: PropTypes.string,
     };
 
-    const CheckBoxes = ({ radioButtonClicked, onChange, value, validationError }) => {
+    const updateResearchAuthorization = async () => {
+        const updatedCourse = {
+            ...course,
+            research_authorization: modified.research_authorization,
+        };
+        let [resp_message, resp_style] = await updateUserCourse(updatedCourse);
+        setMessage(resp_message);
+        setStyle(resp_style);
+    };
+    const onButtonClick = async (event) => {
+        event.preventDefault();
+        await updateResearchAuthorization();
+    };
+
+    const theButtonSave = (
+        <HyButton
+            variant="primary"
+            disabled={
+                !modified.research_authorization || modified.research_authorization === researchAuth
+            }
+            onClick={onButtonClick}
+            className="assignments-send-button"
+        >
+            {t('form_submit')}
+        </HyButton>
+    );
+
+    const CheckBoxes = ({
+        radioButtonClicked,
+        onChange,
+        value,
+        validationError,
+        message,
+        style,
+    }) => {
         const { t } = useTranslation();
         const validationErrorId = useId();
         const validationAttributes = validationError
@@ -155,6 +216,13 @@ const Assignments = () => {
                         aria-label={answerLevelMap[value]?.text}
                     ></RadioButtonGroup>
                     <ExternalLink to={'/researchpermission'} label={t('research_permission')} />
+                    {theButtonSave}
+                    <Message
+                        type={['light', 'neutral', 'warning'].includes(style) ? style : 'neutral'}
+                        aria-live="assertive"
+                    >
+                        {t(`${message}`)}
+                    </Message>
                 </div>
                 <ValidationMessage id={validationErrorId}>
                     {t(validationError) ? t(validationError) : <br></br>}
@@ -194,6 +262,8 @@ const Assignments = () => {
                     radioButtonClicked={radioButtonClicked}
                     value={modified?.research_authorization}
                     validationError={validationErrors.research_authorization}
+                    message={message}
+                    style={style}
                 />
                 <h3>{t('assignments_due')}</h3>
                 {noDueAssignments()}
