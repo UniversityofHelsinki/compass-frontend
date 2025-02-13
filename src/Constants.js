@@ -1,5 +1,5 @@
 export const DEFAULT_LANGUAGE = 'fi';
-export const LANGUAGES = ['fi', 'sv', 'en', 'ee'];
+export const LANGUAGES = ['fi', 'sv', 'en', 'et'];
 
 export const FIELD_IS_VALID = false;
 export const ASSIGNMENT_VALID_FOR_EDIT = 'valid';

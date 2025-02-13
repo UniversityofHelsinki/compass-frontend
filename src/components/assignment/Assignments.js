@@ -76,7 +76,6 @@ const Assignments = () => {
     };
     let [message, setMessage] = useState('');
     let [style, setStyle] = useState('');
-
     let researchAuth = userCourse?.research_authorization
         ? userCourse.research_authorization === true
             ? '1'

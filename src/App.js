@@ -58,7 +58,7 @@ i18n.use(initReactI18next).init({
     resources: translations,
     lng: defaultLanguage(),
     fallbackLng: 'cimode',
-    supportedLngs: ['fi', 'en', 'sv', 'ee'],
+    supportedLngs: ['fi', 'en', 'sv', 'et'],
 });
 
 const App = () => {

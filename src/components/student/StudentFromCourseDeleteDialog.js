@@ -3,7 +3,7 @@ import Dialog from '../../components/dialog/Dialog';
 import { useTranslation } from 'react-i18next';
 import useDeleteStudentFromCourse from '../../hooks/teacher/useDeleteStudentFromCourse';
 import { ReactComponent as TrashIcon } from '../utilities/icons/trash.svg';
-import { Container, Modal } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import './StudentFromCourseDeleteDialog.css';
 import Message from '../../form/Message';
 import HyButton from '../utilities/HyButton';
@@ -35,8 +35,18 @@ const StudentFromCourseDeleteDialog = ({ student, courseId, reload }) => {
 
     return (
         <div>
-            <button className="student-from-course-delete-dialog-button" onClick={handleOpenDialog}>
-                <TrashIcon aria-hidden />
+            <button
+                className="student-from-course-delete-dialog-button"
+                onClick={handleOpenDialog}
+                aria-haspopup="dialog"
+                aria-label={t('teacher_student_in_course_delete_student_button_aria_label', {
+                    student: student.user_name,
+                })}
+            >
+                <TrashIcon
+                    title={t('teacher_student_in_course_delete_student_button_title')}
+                    aria-hidden
+                />
             </button>
             {showDialog && (
                 <Dialog

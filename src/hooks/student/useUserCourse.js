@@ -20,12 +20,12 @@ const useUserCourse = (course) => {
             });
         }
     }, [usercourse, response, dispatch]);
-    console.log(
+    /*console.log(
         'usercourse',
         usercourse?.course_id,
         usercourse?.user_name,
         usercourse?.research_authorization,
-    );
+    );*/
     return [usercourse || [], error, reload];
 };
 export default useUserCourse;
