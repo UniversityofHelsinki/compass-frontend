@@ -127,6 +127,7 @@ const TableData = ({ courseTitle, assignmentTopic, answersAndFeedbacks, reload }
                                                 id={courseId}
                                                 answer_value={entry.answer_value}
                                                 userName={entry.answer_user_name}
+                                                student={entry.answer_user_id}
                                                 displayName={entry.name}
                                                 courseTitle={courseTitle}
                                                 assignmentTopic={assignmentTopic}
