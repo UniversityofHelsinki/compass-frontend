@@ -5,13 +5,18 @@ import HyLogo from '../utilities/HyLogo';
 import { Link } from 'react-router-dom';
 import './Logo.css';
 
-const Logo = () => {
+const Logo = ({ isTeacher }) => {
     const { t } = useTranslation();
+
+    const targets = {
+        true: '/teacher/forms',
+        false: '/student/courses',
+    };
 
     return (
         <div className="logo">
             <HyLogo width={48} height={48} fill={HyColors.black} />
-            <Link to="/">
+            <Link to={targets[Boolean(isTeacher)]}>
                 <h1>{t('reflection_compass_hy_logo')}</h1>
             </Link>
         </div>
