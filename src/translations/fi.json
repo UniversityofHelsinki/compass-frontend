@@ -249,5 +249,7 @@
     "error_generating_signed_url": "Fel när du skapar en webbadress",
     "error_copying_to_clipboard": "Fel vid kopiering av en kurslänk",
     "student_user_course_message": "Tutkimuslupa tallennettu",
-    "student_user_course_err_message": "Tutkimusluvan tallennus epäonnistui"
+    "student_user_course_err_message": "Tutkimusluvan tallennus epäonnistui",
+    "student_user_course_notification_success": "Tutkimuslupa tallennettu",
+    "student_user_course_notification_error": "Virhe tutkimusluvan tallentamisessa."
 }

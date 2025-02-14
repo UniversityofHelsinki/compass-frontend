@@ -9,11 +9,11 @@ import { Col, Row } from 'react-bootstrap';
 import RadioButtonGroup from '../../form/RadioButtonGroup';
 import ExternalLink from '../utilities/ExternalLink';
 import useValidation from '../../hooks/validation/useTeacherFormValidation';
-import HyButton from '../utilities/HyButton';
 import useUserCourseUpdate from '../../hooks/student/useUserCourseUpdate';
 import useUserCourse from '../../hooks/student/useUserCourse';
+import useUser from '../../hooks/useUser';
 import './Assignments.css';
-import Message from '../../form/Message';
+import { useNotification } from '../../NotificationContext';
 
 const AssignmentListItem = ({ previous, assignment, href, style }) => {
     const { t } = useTranslation();
@@ -61,6 +61,8 @@ const AssignmentListItem = ({ previous, assignment, href, style }) => {
 const Assignments = () => {
     const { id } = useParams();
     const location = useLocation();
+    const [user] = useUser();
+    const { setNotification } = useNotification();
     const queryParams = new URLSearchParams(location.search);
     const signature = queryParams.get('signature');
     const { t } = useTranslation();
@@ -74,7 +76,6 @@ const Assignments = () => {
         primary: t('assignments_back_to_course'),
         secondary: t('assignments_back_to_course_secondary'),
     };
-    let [message, setMessage] = useState('');
     let [style, setStyle] = useState('');
 
     const [researchAuthorization, setResearchAuthorization] = useState(null);
@@ -138,39 +139,27 @@ const Assignments = () => {
         id: PropTypes.string,
     };
 
-    const updateResearchAuthorization = async () => {
+    const updateResearchAuthorization = async (value) => {
         const updatedCourse = {
             ...course,
-            research_authorization: researchAuthorization,
+            research_authorization: value,
+            user_name: user.eppn,
         };
-        let [resp_message, resp_style] = await updateUserCourse(updatedCourse);
-        setMessage(resp_message);
-        setStyle(resp_style);
-    };
-    const onButtonClick = async (event) => {
-        event.preventDefault();
-        await updateResearchAuthorization();
+        let response = await updateUserCourse(updatedCourse);
+        if (response.ok) {
+            setNotification(t(`student_user_course_notification_success`), 'success', true);
+        } else {
+            const reason = (await response.json())?.reason;
+            setNotification(
+                t(`student_user_course_notification_error`),
+                'error',
+                false,
+                t(reason) || '',
+            );
+        }
     };
 
-    const theButtonSave = (
-        <HyButton
-            variant="primary"
-            disabled={researchAuthorization === null}
-            onClick={onButtonClick}
-            className="assignments-send-button"
-        >
-            {t('form_submit')}
-        </HyButton>
-    );
-
-    const CheckBoxes = ({
-        radioButtonClicked,
-        onChange,
-        value,
-        validationError,
-        message,
-        style,
-    }) => {
+    const CheckBoxes = ({ radioButtonClicked, onChange, value, validationError }) => {
         const { t } = useTranslation();
         const validationErrorId = useId();
         const validationAttributes = validationError
@@ -189,7 +178,7 @@ const Assignments = () => {
             { label: t('teacher_form_research_authorization_denied'), value: 'false' },
             { label: t('teacher_form_research_authorization_allowed'), value: 'true' },
         ];
-        console.log('value', value);
+
         return (
             <div>
                 <div className="teacher-form-buttons-with-link">
@@ -203,13 +192,6 @@ const Assignments = () => {
                         aria-label={answerLevelMap[value]?.text}
                     ></RadioButtonGroup>
                     <ExternalLink to={'/researchpermission'} label={t('research_permission')} />
-                    {theButtonSave}
-                    <Message
-                        type={['light', 'neutral', 'warning'].includes(style) ? style : 'neutral'}
-                        aria-live="assertive"
-                    >
-                        {t(`${message}`)}
-                    </Message>
                 </div>
                 <ValidationMessage id={validationErrorId}>
                     {t(validationError) ? t(validationError) : <br></br>}
@@ -224,9 +206,12 @@ const Assignments = () => {
         validationError: PropTypes.string,
     };
 
-    const onChange = (value) => {
+    const onChange = async (value) => {
         setRadioButtonClicked(true);
         setResearchAuthorization(value);
+        if (value) {
+            await updateResearchAuthorization(value);
+        }
     };
 
     return (
@@ -246,8 +231,6 @@ const Assignments = () => {
                     radioButtonClicked={radioButtonClicked}
                     value={researchAuthorization}
                     validationError={validationErrors.research_authorization}
-                    message={message}
-                    style={style}
                 />
                 <h3>{t('assignments_due')}</h3>
                 {noDueAssignments()}
