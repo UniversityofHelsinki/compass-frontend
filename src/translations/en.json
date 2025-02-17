@@ -34,7 +34,7 @@
     "navigation_teacher/forms": "Teacher",
     "navigation_student/courses": "Student",
     "teacher_forms_heading": "Course list",
-    "student_no_courses": "No courses yet... ask your teacher for more information or use the application as a teacher",
+    "student_no_courses": "No courses yet... ask your teacher for more information",
     "student_courses_heading": "Course list",
     "course_ended": "The course has ended",
     "user_not_in_course": "The student is not in the course",
