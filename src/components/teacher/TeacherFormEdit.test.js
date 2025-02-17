@@ -55,6 +55,10 @@ describe('TeacherFormEdit', () => {
             const saveButton = component.getByRole('button', { name: 'teacher_form_save_button' });
             expect(saveButton).toBeInTheDocument();
             const title = component.getByLabelText('teacher_form_title');
+            const researchPermissionRadioBtn = component.getByRole('radio', {
+                name: 'teacher_form_research_authorization_allowed',
+            });
+            await component.user.click(researchPermissionRadioBtn);
             await component.user.type(title, 'A');
             await component.user.click(saveButton);
             const notification = await screen.findByText(
@@ -72,6 +76,10 @@ describe('TeacherFormEdit', () => {
             const saveButton = component.getByRole('button', { name: 'teacher_form_save_button' });
             expect(saveButton).toBeInTheDocument();
             const title = component.getByLabelText('teacher_form_title');
+            const researchPermissionRadioBtn = component.getByRole('radio', {
+                name: 'teacher_form_research_authorization_allowed',
+            });
+            await component.user.click(researchPermissionRadioBtn);
             await component.user.type(title, 'A');
             await component.user.click(saveButton);
             const notification = await screen.findByText(

@@ -59,17 +59,17 @@ const TableData = ({ courseTitle, assignmentTopic, answersAndFeedbacks, reload }
             case null:
                 return <></>;
             case 0:
-                return <Level0Icon fill={style} />;
+                return <Level0Icon aria-label={t('level_0')} fill={style} />;
             case 1:
-                return <Level1Icon fill={style} />;
+                return <Level1Icon aria-label={t('level_1')} fill={style} />;
             case 2:
-                return <Level2Icon fill={style} />;
+                return <Level2Icon aria-label={t('level_2')} fill={style} />;
             case 3:
-                return <Level3Icon fill={style} />;
+                return <Level3Icon aria-label={t('level_3')} fill={style} />;
             case 4:
-                return <Level4Icon fill={style} />;
+                return <Level4Icon aria-label={t('level_4')} fill={style} />;
             default:
-                return <Level0Icon fill={style} />;
+                return <Level0Icon aria-label={t('level_0')} fill={style} />;
         }
     };
 
@@ -127,6 +127,7 @@ const TableData = ({ courseTitle, assignmentTopic, answersAndFeedbacks, reload }
                                                 id={courseId}
                                                 answer_value={entry.answer_value}
                                                 userName={entry.answer_user_name}
+                                                student={entry.answer_user_id}
                                                 displayName={entry.name}
                                                 courseTitle={courseTitle}
                                                 assignmentTopic={assignmentTopic}

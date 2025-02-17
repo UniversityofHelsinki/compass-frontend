@@ -148,6 +148,7 @@ const Assignment = ({ showBackBtn = true, levels = LEVELS }) => {
                                             ? String(modifiedObject?.order_nbr)
                                             : '0'
                                     }
+                                    field={'order_nbr'}
                                     aria-required
                                 />
                             </Col>

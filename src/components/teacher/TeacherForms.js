@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import useTeacherForms from '../../hooks/teacher/useTeacherForms';
 import TeacherFormsTable from './TeacherFormsTable';
 import { Link } from 'react-router-dom';
+import { Col, Row } from 'react-bootstrap';
 
 const NoTeacherForms = () => {
     const { t } = useTranslation();
@@ -68,17 +69,19 @@ const TeacherForms = () => {
     })();
 
     return (
-        <div className="teacher-forms">
-            <div>
-                <TopBar heading={t('teacher_forms_heading')}>
-                    <div className="teacher-forms-new-form">
-                        <Link to="new">{t('teacher_forms_new_course')}</Link>
-                    </div>
-                </TopBar>
-            </div>
-            <div className="m-3"></div>
-            <div className="teacher-forms-content">{content}</div>
-        </div>
+        <Row>
+            <Col className="teacher-forms">
+                <div>
+                    <TopBar heading={t('teacher_forms_heading')}>
+                        <div className="teacher-forms-new-form">
+                            <Link to="new">{t('teacher_forms_new_course')}</Link>
+                        </div>
+                    </TopBar>
+                </div>
+                <div className="m-3"></div>
+                <div className="teacher-forms-content">{content}</div>
+            </Col>
+        </Row>
     );
 };
 

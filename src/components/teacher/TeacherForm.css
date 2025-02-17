@@ -47,6 +47,7 @@
 
 .teacher-form-assignment-marker {
     margin-right: 10px;
+    padding-top: 10px;
 }
 
 .teacher-form-assignments ol > li {
@@ -54,6 +55,7 @@
 }
 
 .teacher-form-assignment-delete {
+    padding-top: 10px;
 }
 
 .teacher-form-assignment-delete svg {
@@ -75,4 +77,27 @@
 
 .validation-message {
     color: var(--hy-red);
+    min-height: 1.5em;
+}
+
+.teacher-form-buttons-with-link {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.teacher-forms-permission-link-label a {
+    color: var(--huds-brand-main);
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+.teacher-forms-permission-link-label a:hover {
+    text-decoration: underline;
+    color: var(--huds-brand-main-light);
+}
+
+.teacher-forms-permission-link-label {
+    display: flex;
+    flex-direction: row;
 }

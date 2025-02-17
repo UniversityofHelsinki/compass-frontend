@@ -20,17 +20,32 @@ const getIcon = (entry, t) => {
 
     switch (parseInt(entry)) {
         case 0:
-            return { icon: <Level0Icon fill={style} />, text: t('level_0') };
+            return {
+                icon: <Level0Icon aria-label={t('level_0')} fill={style} />,
+                text: t('level_0'),
+            };
         case 1:
-            return { icon: <Level1Icon fill={style} />, text: t('level_1') };
+            return {
+                icon: <Level1Icon aria-label={t('level_1')} fill={style} />,
+                text: t('level_1'),
+            };
         case 2:
-            return { icon: <Level2Icon fill={style} />, text: t('level_2') };
+            return {
+                icon: <Level2Icon aria-label={t('level_2')} fill={style} />,
+                text: t('level_2'),
+            };
         case 3:
-            return { icon: <Level3Icon fill={style} />, text: t('level_3') };
+            return {
+                icon: <Level3Icon aria-label={t('level_3')} fill={style} />,
+                text: t('level_3'),
+            };
         case 4:
-            return { icon: <Level4Icon fill={style} />, text: t('level_4') };
+            return {
+                icon: <Level4Icon aria-label={t('level_4')} fill={style} />,
+                text: t('level_4'),
+            };
         default:
-            return { icon: <Level0Icon fill={style} />, text: '' };
+            return { icon: <Level0Icon aria-label={t('level_0')} fill={style} />, text: '' };
     }
 };
 

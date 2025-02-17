@@ -15,12 +15,14 @@ import useTeacherFeedbackSave from '../../hooks/teacher/useTeacherFeedbackSave';
 import RadioButtonGroup from '../../form/RadioButtonGroup';
 import { useAuth } from '../../AuthContext';
 import Message from '../../form/Message';
+import { invalidate } from '../../hooks/useHttp';
 const AssignmentAnswersDialog = ({
     reload,
     id,
     answer_value,
     order_nbr,
     userName,
+    student,
     displayName,
     courseTitle,
     assignmentTopic,
@@ -55,6 +57,10 @@ const AssignmentAnswersDialog = ({
 
     const saveFeedback = async () => {
         await addFeedback(userName, course_id, assignment_id, feedback_id);
+        invalidate([
+            `COURSE_STATISTICS_OR_ASSIGNMENTS_${id}_FOR_STUDENT_${student}`,
+            `COURSE_STATISTICS_OR_ASSIGNMENTS_${course_id}`,
+        ]);
         reload();
     };
 
@@ -163,6 +169,7 @@ const AssignmentAnswersDialog = ({
                             value={
                                 stored?.order_nbr !== undefined ? String(stored?.order_nbr) : '0'
                             }
+                            field={'order_nbr'}
                             aria-label={
                                 answerLevelMap[
                                     stored?.order_nbr !== undefined ? stored.order_nbr : 0
@@ -295,6 +302,7 @@ AssignmentAnswersDialog.propTypes = {
     value: PropTypes.string,
     courseTitle: PropTypes.string,
     userName: PropTypes.string,
+    student: PropTypes.number,
     assignmentTopic: PropTypes.string,
     studentTab: PropTypes.bool,
     reload: PropTypes.func.isRequired,
