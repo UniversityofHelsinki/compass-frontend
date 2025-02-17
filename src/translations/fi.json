@@ -34,7 +34,7 @@
     "navigation_teacher/forms": "Opettaja",
     "navigation_student/courses": "Opiskelija",
     "teacher_forms_heading": "Lomakkeet",
-    "student_no_courses": "Ei kursseja vielä... kysy opettajalta lisätietoa tai käytä sovellusta opettajan tunnuksella",
+    "student_no_courses": "Ei kursseja vielä... kysy opettajalta lisätietoa",
     "student_courses_heading": "Kurssit",
     "course_ended": "Kurssi on päättynyt",
     "user_not_in_course": "Oppilas ei ole kurssilla",

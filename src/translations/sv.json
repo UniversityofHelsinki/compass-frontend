@@ -34,7 +34,7 @@
     "navigation_teacher/forms": "Lärare",
     "navigation_student/courses": "Student",
     "teacher_forms_heading": "Kurslista",
-    "student_no_courses": "Inga kurser än... fråga din läräre om mer information eller änvänd appen som lärare",
+    "student_no_courses": "Inga kurser än... fråga din läräre om mer information",
     "student_courses_heading": "Kurslista",
     "course_ended": "Kursen har avslutats",
     "user_not_in_course": "Studenten är inte med i kursen",
