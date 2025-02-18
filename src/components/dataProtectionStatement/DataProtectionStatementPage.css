@@ -1,0 +1,36 @@
+.data-protection-statement-page-main-container {
+    margin: 0 auto;
+    max-width: 80%;
+    width: 80%;
+    list-style: inside;
+    word-break: break-word;
+}
+
+.data-protection-statement-page-main-container > div :last-child {
+    margin-bottom: 18px;
+}
+
+.main-info-heading {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.main-info-heading-1 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.main-info > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.accordion-header > * {
+    font-weight: bold;
+    font-size: 22px;
+}
