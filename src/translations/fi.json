@@ -325,5 +325,7 @@
     "item_7_line_33": "Postiosoite: PL 800, 00531 Helsinki",
     "item_7_line_34": "Vaihde: 029 56 66700",
     "item_7_line_35": "Kirjaamo: 029 566 6768",
-    "item_7_line_36": "Sähköposti: tietosuoja@om.fi"
+    "item_7_line_36": "Sähköposti: tietosuoja@om.fi",
+    "data_protection_info_link_label": "Lue lisää  Helsingin yliopiston tietosuojasta",
+    "data_protection_info_link": "https://www.helsinki.fi/fi/tutustu-meihin/tietojen-kasittely-yliopistolla/tietosuoja"
 }

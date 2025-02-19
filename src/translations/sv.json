@@ -324,5 +324,7 @@
     "item_7_line_33": "Postadress: Box 800, 00531 Helsingfors",
     "item_7_line_34": "Växel: 029 56 66700",
     "item_7_line_35": "Registreringskontor: 029566 6768",
-    "item_7_line_36": "E-post: tietosuoja@om.fi"
+    "item_7_line_36": "E-post: tietosuoja@om.fi",
+    "data_protection_info_link_label": "Läs mer om dataskydd vid Helsingfors universitet",
+    "data_protection_info_link": "https://www.helsinki.fi/sv/om-oss/behandling-av-uppgifter-vid-universitetet/dataskydd"
 }

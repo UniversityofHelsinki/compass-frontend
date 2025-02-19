@@ -151,6 +151,15 @@ const DataProtectionStatementPage = () => {
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
+                <Col className="data-protection-info-link mt-3">
+                    <a
+                        href={t('data_protection_info_link')}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                    >
+                        {t('data_protection_info_link_label')}
+                    </a>
+                </Col>
             </Row>
         </Container>
     );
