@@ -57,6 +57,7 @@
     "assignments_back_to_course_secondary": "Tagasi kursuste nimekirja",
     "assignments_answered": "Vastatud",
     "assignments_not_answered": "Pole veel vastatud",
+    "assignments_research_permission": "assignments_research_permission",
     "assignment_feedback_answer": "Vastus",
     "assignment_feedback_choice": "Arusaamise tase",
     "assignment_feedback_edit": "Muuda vastust",
@@ -244,5 +245,7 @@
     "answer_dialog_teacher_level_feedback": "Arusaamise tase:",
     "reflection_compass_logo_alt_text": "Reflection Compass logo",
     "course_statistics_no_assignments_to_display": "Ülesandeid pole kuvada",
-    "footer_hy_maintenance": "footer_hy_maintenance"
+    "footer_hy_maintenance": "footer_hy_maintenance",
+    "student_user_course_message": "student_user_course_message",
+    "student_user_course_err_message": "student_user_course_err_message"
 }
