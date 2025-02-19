@@ -34,7 +34,7 @@
     "navigation_teacher/forms": "Lärare",
     "navigation_student/courses": "Student",
     "teacher_forms_heading": "Kurslista",
-    "student_no_courses": "Inga kurser än... fråga din läräre om mer information eller änvänd appen som lärare",
+    "student_no_courses": "Inga kurser än... fråga din läräre om mer information",
     "student_courses_heading": "Kurslista",
     "course_ended": "Kursen har avslutats",
     "user_not_in_course": "Studenten är inte med i kursen",
@@ -57,6 +57,7 @@
     "assignments_back_to_course_secondary": "Tillbaka till kurslistan",
     "assignments_answered": "Besvarad",
     "assignments_not_answered": "Ej besvarat",
+    "assignments_research_permission": "assignments_research_permission",
     "assignment_feedback_answer": "Svar",
     "assignment_feedback_choice": "Val",
     "assignment_feedback_edit": "Redigera svar",
@@ -149,6 +150,7 @@
     "student_from_course_delete_dialog_cancel": "Avbryt",
     "student_from_course_delete_ok": "Borttagen",
     "student_from_course_delete_failed": "Radering misslyckades",
+    "teacher_student_in_course_assignment_count": "teacher_student_in_course_assignment_count",
     "summary_heading": "Sammandrag av svar",
     "summary_back_to_forms": "Kurs",
     "summary_back_to_forms_secondary": "Tillbaka till kurslistan",
@@ -247,5 +249,7 @@
     "course_statistics_no_assignments_to_display": "Inga uppgifter att visa.",
     "footer_hy_maintenance": "Underhållsfönstret för Reflektionskompass är varje måndag mellan kl. 14.00 och 16.00. Störningar i tjänsten kan förekomma under underhållsfönstret!",
     "error_generating_signed_url": "Fel när du skapar en webbadress",
-    "error_copying_to_clipboard": "Fel vid kopiering av en kurslänk"
+    "error_copying_to_clipboard": "Fel vid kopiering av en kurslänk",
+    "student_user_course_message": "student_user_course_message",
+    "student_user_course_err_message": "student_user_course_err_message"
 }
