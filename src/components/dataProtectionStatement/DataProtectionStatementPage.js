@@ -14,9 +14,9 @@ const DataProtectionStatementPage = () => {
                 </Col>
             </Row>
             <Row>
-                <Col as="h3" className="main-info-heading">
-                    <div className="main-info-heading-1 me-lg-1">{t('main_info_heading_1')}</div>
-                    <div>{t('main_info_heading_2')}</div>
+                <Col as="h3" className="main-info-headings">
+                    <div className="main-info-heading-1 me-2">{t('main_info_heading_1')}</div>-
+                    <div className="main-info-heading-2 ms-lg-2">{t('main_info_heading_2')}</div>
                 </Col>
             </Row>
             <Row className="main-info">
@@ -33,13 +33,11 @@ const DataProtectionStatementPage = () => {
             </Row>
             <Row className="item-1-text mx-lg-4">
                 <Col>
-                    <div>{t('item_1_line_1')}</div>
-                    <br></br>
+                    <div className="mb-3">{t('item_1_line_1')}</div>
                     <div>{t('item_1_line_2')}</div>
                     <div>{t('item_1_line_3')}</div>
                     <div>{t('item_1_line_4')}</div>
-                    <div>{t('item_1_line_5')}</div>
-                    <br></br>
+                    <div className="mb-3">{t('item_1_line_5')}</div>
                     <div>{t('item_1_line_6')}</div>
                     <div>{t('item_1_line_7')}</div>
                 </Col>
@@ -63,16 +61,13 @@ const DataProtectionStatementPage = () => {
                 </Col>
             </Row>
             <Row>
-                <Accordion>
+                <Accordion flush className="mt-lg-4">
                     <Accordion.Item eventKey="0">
                         <Accordion.Header as="h4">{t('item_3_heading')}</Accordion.Header>
                         <Accordion.Body>
-                            <div>{t('item_3_line_1')}</div>
-                            <br></br>
-                            <div>{t('item_3_line_2')}</div>
-                            <br></br>
-                            <div>{t('item_3_line_3')}</div>
-                            <br></br>
+                            <div className="mb-2">{t('item_3_line_1')}</div>
+                            <div className="mb-2">{t('item_3_line_2')}</div>
+                            <div className="mb-2">{t('item_3_line_3')}</div>
                             <div>{t('item_3_line_4')}</div>
                             <ul>
                                 <li>{t('item_3_line_5')}</li>
@@ -81,7 +76,7 @@ const DataProtectionStatementPage = () => {
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="1">
-                        <Accordion.Header>{t('item_4_heading')}</Accordion.Header>
+                        <Accordion.Header as="h4">{t('item_4_heading')}</Accordion.Header>
                         <Accordion.Body>
                             <div>{t('item_4_line_1')}</div>
                             <ul>
@@ -97,19 +92,19 @@ const DataProtectionStatementPage = () => {
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="2">
-                        <Accordion.Header>{t('item_5_heading')}</Accordion.Header>
+                        <Accordion.Header as="h4">{t('item_5_heading')}</Accordion.Header>
                         <Accordion.Body>
                             <div>{t('item_5_line_1')}</div>
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="3">
-                        <Accordion.Header>{t('item_6_heading')}</Accordion.Header>
+                        <Accordion.Header as="h4">{t('item_6_heading')}</Accordion.Header>
                         <Accordion.Body>
                             <div>{t('item_6_line_1')}</div>
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="4">
-                        <Accordion.Header>{t('item_7_heading')}</Accordion.Header>
+                        <Accordion.Header as="h4">{t('item_7_heading')}</Accordion.Header>
                         <Accordion.Body className="item-7-body">
                             <div className="mb-3">{t('item_7_line_1')}</div>
                             <div className="fw-bold mb-2 mt-3">{t('item_7_line_2')}</div>
@@ -144,7 +139,7 @@ const DataProtectionStatementPage = () => {
                             </ol>
                             <div className="mb-lg-2 fw-bold">{t('item_7_line_26')}</div>
                             <div>{t('item_7_line_27')}</div>
-                            <div className="mb-lg-2 mt-lg-2 fw-bold">{t('item_7_line_28')}</div>
+                            <div className="mb-lg-2 mt-lg-3 fw-bold">{t('item_7_line_28')}</div>
                             <div>{t('item_7_line_29')}</div>
                             <div className="mb-lg-4 mt-lg-4">{t('item_7_line_30')}</div>
                             <div>{t('item_7_line_31')}</div>

@@ -10,15 +10,32 @@
     margin-bottom: 18px;
 }
 
-.main-info-heading {
+.main-info-headings {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
+    line-height: 52px;
 }
+
 .main-info-heading-1 {
     text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: -1.4px;
+}
+
+.item-1-heading {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.4px;
+    font-weight: bold;
+}
+
+.item-2-heading {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.4px;
     font-weight: bold;
 }
 
@@ -30,7 +47,32 @@
     flex-wrap: wrap;
 }
 
+.accordion {
+    border: 1px solid var(--hy-medium-silver);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: transparent !important;
+    color: inherit;
+}
+
 .accordion-header > * {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.4px;
     font-weight: bold;
-    font-size: 22px;
+}
+
+.accordion-item > * {
+    outline-color: var(--hy-light-silver);
+}
+
+.data-protection-statement-page-main-container a {
+    color: var(--huds-brand-main);
+    text-decoration: none;
+}
+
+.data-protection-statement-page-main-container a:hover {
+    text-decoration: underline;
+    color: var(--huds-brand-main-light);
 }
