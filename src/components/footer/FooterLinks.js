@@ -28,7 +28,7 @@ const FooterLinks = () => {
             )}
             <li>
                 <ExternalLink
-                    to={t('footer_compass_data_protection_statement_link')}
+                    to={'/data-protection-statement'}
                     label={t('footer_compass_data_protection_statement_link_label')}
                 />
             </li>

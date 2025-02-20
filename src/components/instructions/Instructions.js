@@ -33,7 +33,7 @@ const renderContent = (language) => {
             return <EnglishPage />;
         case 'sv':
             return <SwedishPage />;
-        case 'ee':
+        case 'et':
             return <EstonianPage />;
         default:
             return <EnglishPage />; // Default to English
