@@ -238,14 +238,16 @@
     "footer_contact_info_link": "https://helpdesk.it.helsinki.fi/en/help/7003",
     "footer_compass_data_protection_statement_link": "https://www.helsinki.fi/en/about-us/processing-data-university/data-protection",
     "footer_accessibility_statement_link": "footer_accessibility_statement_link",
-    "download_instructions": "???download_instructions???",
-    "download_slides": "???download_slides???",
-    "download_slides_powerpoint": "???download_slides_powerpoint???",
+    "download_instructions": "Lae alla tutvustus",
+    "download_slides": "Lae alla kasutusjuhend",
+    "download_slides_powerpoint": "Lae alla kasutusjuhend",
     "opens_in_new_tab": "Avaneb uues vahekaardis",
     "answer_dialog_teacher_level_feedback": "Arusaamise tase:",
     "reflection_compass_logo_alt_text": "Reflection Compass logo",
     "course_statistics_no_assignments_to_display": "Ülesandeid pole kuvada",
     "footer_hy_maintenance": "footer_hy_maintenance",
     "student_user_course_message": "student_user_course_message",
-    "student_user_course_err_message": "student_user_course_err_message"
+    "student_user_course_err_message": "student_user_course_err_message",
+    "data_protection_info_link_label": "Lisateave andmekaitse kohta Helsingi Ülikoolis",
+    "data_protection_info_link": "https://www.helsinki.fi/en/about-us/processing-data-university/data-protection"
 }
