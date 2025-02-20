@@ -164,3 +164,19 @@ ul.assignments-list {
     min-height: 1.5em;
     margin-bottom: 5px;
 }
+
+.assignments-permission-link-label a {
+    color: var(--huds-brand-main);
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+.assignments-permission-link-label a:hover {
+    text-decoration: underline;
+    color: var(--huds-brand-main-light);
+}
+
+.assignments-permission-link-label {
+    display: flex;
+    flex-direction: row;
+}

@@ -7,7 +7,6 @@ import TopBar from '../utilities/TopBar';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
 import RadioButtonGroup from '../../form/RadioButtonGroup';
-import ExternalLink from '../utilities/ExternalLink';
 import useValidation from '../../hooks/validation/useTeacherFormValidation';
 import useUserCourseUpdate from '../../hooks/student/useUserCourseUpdate';
 import useUserCourse from '../../hooks/student/useUserCourse';
@@ -181,6 +180,15 @@ const Assignments = () => {
 
         return (
             <div>
+                <div className="assignments-permission-header">
+                    <h3>{t('assignments_research_permission')}</h3>
+                </div>
+                <div className="assignments-permission-link-label">
+                    <a href={'/researchpermission'} target="_blank" rel="noopener noreferrer">
+                        <div className="screenreader-only">{t('opens_in_new_tab')}</div>
+                        {t('student_assignments_research_permission_link_label')}
+                    </a>
+                </div>
                 <div className="teacher-form-buttons-with-link">
                     <RadioButtonGroup
                         inline
@@ -191,7 +199,6 @@ const Assignments = () => {
                         field="research_authorization"
                         aria-label={answerLevelMap[value]?.text}
                     ></RadioButtonGroup>
-                    <ExternalLink to={'/researchpermission'} label={t('research_permission')} />
                 </div>
                 <ValidationMessage id={validationErrorId}>
                     {t(validationError) ? t(validationError) : <br></br>}
@@ -224,7 +231,6 @@ const Assignments = () => {
             ></TopBar>
             <div className="m-3"></div>
             <div className="responsive-margins">
-                <h3>{t('assignments_research_permission')}</h3>
                 <CheckBoxes
                     className="teacher-form-checkbox"
                     onChange={(field, value) => onChange(value)}

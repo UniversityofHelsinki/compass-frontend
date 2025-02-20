@@ -325,5 +325,6 @@
     "item_7_line_35": "Kirjaamo: 029 566 6768",
     "item_7_line_36": "Sähköposti: tietosuoja@om.fi",
     "data_protection_info_link_label": "Lue lisää  Helsingin yliopiston tietosuojasta",
-    "data_protection_info_link": "https://www.helsinki.fi/fi/tutustu-meihin/tietojen-kasittely-yliopistolla/tietosuoja"
+    "data_protection_info_link": "https://www.helsinki.fi/fi/tutustu-meihin/tietojen-kasittely-yliopistolla/tietosuoja",
+    "student_assignments_research_permission_link_label": "Osallistumisen tiedot (tutkimustiedote)"
 }
