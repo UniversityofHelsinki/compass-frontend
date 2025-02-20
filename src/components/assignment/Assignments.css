@@ -162,6 +162,5 @@ ul.assignments-list {
 .validation-message {
     color: var(--hy-red);
     min-height: 1.5em;
-    margin-top: -10px;
     margin-bottom: 5px;
 }
