@@ -247,5 +247,7 @@
     "course_statistics_no_assignments_to_display": "Ülesandeid pole kuvada",
     "footer_hy_maintenance": "footer_hy_maintenance",
     "student_user_course_message": "student_user_course_message",
-    "student_user_course_err_message": "student_user_course_err_message"
+    "student_user_course_err_message": "student_user_course_err_message",
+    "data_protection_info_link_label": "Lisateave andmekaitse kohta Helsingi Ülikoolis",
+    "data_protection_info_link": "https://www.helsinki.fi/en/about-us/processing-data-university/data-protection"
 }

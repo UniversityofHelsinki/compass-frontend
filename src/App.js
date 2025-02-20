@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { thunk } from 'redux-thunk';
 import reducer from './reducers';
-import { DEFAULT_LANGUAGE, LEVELS } from './Constants';
+import { DEFAULT_LANGUAGE } from './Constants';
 import Compass from './Compass';
 import { AuthProvider } from './AuthContext';
 import ProtectedRoute from './ProtectedRoute';
