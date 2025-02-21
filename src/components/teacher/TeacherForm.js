@@ -130,12 +130,8 @@ const CheckBoxes = ({ radioButtonClicked, onChange, value, validationError }) =>
                 {t('teacher_form_research_authorization_header')}
             </div>
             <div className="teacher-forms-permission-link-label">
-                <a
-                    href={'/researchpermission'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={t('opens_in_new_tab')}
-                >
+                <a href={'/researchpermission'} target="_blank" rel="noopener noreferrer">
+                    <div className="screenreader-only">{t('opens_in_new_tab')}</div>
                     {t('teacher_form_research_permission_link_label')}
                 </a>
             </div>

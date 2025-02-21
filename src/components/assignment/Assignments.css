@@ -162,6 +162,21 @@ ul.assignments-list {
 .validation-message {
     color: var(--hy-red);
     min-height: 1.5em;
-    margin-top: -10px;
     margin-bottom: 5px;
+}
+
+.assignments-permission-link-label a {
+    color: var(--huds-brand-main);
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+.assignments-permission-link-label a:hover {
+    text-decoration: underline;
+    color: var(--huds-brand-main-light);
+}
+
+.assignments-permission-link-label {
+    display: flex;
+    flex-direction: row;
 }
