@@ -11,9 +11,13 @@ import SwedishPage from './SwedishPage';
 import EstonianPage from './EstonianPage';
 
 const DownloadLink = ({ fileUrl, fileName, linkText }) => {
+    const { t } = useTranslation();
     return (
-        <a href={fileUrl} download={fileName} aria-label={`Download ${fileName}`}>
+        <a href={fileUrl} download={fileName}>
             {linkText}
+            <span className="screenreader-only">
+                {t('instructions_page_download_links_aria_label', { fileName: fileName })}
+            </span>
             <DownloadIcon
                 className="ms-2"
                 width="16"

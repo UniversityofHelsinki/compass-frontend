@@ -241,6 +241,7 @@
     "footer_compass_data_protection_statement_link": "https://www.helsinki.fi/sv/om-oss/behandling-av-uppgifter-vid-universitetet/dataskydd",
     "footer_accessibility_statement_link": "footer_accessibility_statement_link",
     "opens_in_new_tab": "Öppnas i ny flik",
+    "instructions_page_download_links_aria_label": "Ladda ner fil {{fileName}}",
     "answer_dialog_teacher_level_feedback": "Nivå av förståelse:",
     "download_introduction": "Ladda ner introduktioner (.pdf)",
     "download_slides": "Ladda ner instruktioner (.pdf)",
