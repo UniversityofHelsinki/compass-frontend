@@ -240,7 +240,7 @@
     "footer_compass_data_protection_statement_link": "https://www.helsinki.fi/en/about-us/processing-data-university/data-protection",
     "footer_accessibility_statement_link": "accessibility-statement",
     "opens_in_new_tab": "Opens in new tab",
-    "download_instructions": "Download introduction (.pdf)",
+    "download_introduction": "Download introduction (.pdf)",
     "download_slides": "Download instructions (.pdf)",
     "download_slides_powerpoint": "Download instructions (.pptx)",
     "answer_dialog_teacher_level_feedback": "Teacher's evaluation for level of understanding:",

@@ -59,8 +59,8 @@ const Instructions = () => {
                 <Row className="justify-content-center mb-4">
                     <Col className="col-auto">
                         <DownloadLink
-                            {...getFileDetails('instructions', i18n.language, 'pdf')}
-                            linkText={t('download_instructions')}
+                            {...getFileDetails('introduction', i18n.language, 'pdf')}
+                            linkText={t('download_introduction')}
                         />
                     </Col>
 
