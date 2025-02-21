@@ -6,8 +6,14 @@ const ProtectedRoute = ({ children }) => {
 
     useEffect(() => {
         const loginPath = '/Shibboleth.sso/Login';
+        const dataProtectionStatement = '/data-protection-statement';
 
-        if (!loading && !user && window.location.pathname !== loginPath) {
+        if (
+            !loading &&
+            !user &&
+            window.location.pathname !== loginPath &&
+            window.location.pathname !== dataProtectionStatement
+        ) {
             // Capture the current path and query parameters
             const target = encodeURIComponent(window.location.pathname + window.location.search);
             // Redirect to login with the target URL included
