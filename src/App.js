@@ -92,7 +92,7 @@ const App = () => {
                 </Route>
                 <Route path="instructions" element={<Instructions />} />
                 <Route path="data-protection-statement" element={<DataProtectionStatementPage />} />
-                <Route path="researchpermission" element={<Researchpermission />}></Route>
+                <Route path="research-information" element={<Researchpermission />}></Route>
             </Route>,
         ),
     );

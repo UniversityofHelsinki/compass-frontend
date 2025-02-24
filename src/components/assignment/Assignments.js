@@ -184,7 +184,7 @@ const Assignments = () => {
                     <h3>{t('assignments_research_permission')}</h3>
                 </div>
                 <div className="assignments-permission-link-label">
-                    <a href={'/researchpermission'} target="_blank" rel="noopener noreferrer">
+                    <a href={'/research-information'} target="_blank" rel="noopener noreferrer">
                         <div className="screenreader-only">{t('opens_in_new_tab')}</div>
                         {t('student_assignments_research_permission_link_label')}
                     </a>
