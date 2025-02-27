@@ -14,23 +14,25 @@ import useUser from '../../hooks/useUser';
 import './Assignments.css';
 import { useNotification } from '../../NotificationContext';
 
-const AssignmentListItem = ({ previous, assignment, href }) => {
+const AssignmentListItem = ({ previous, assignment, href, researchAuthorization }) => {
     const { t } = useTranslation();
 
     let anwer =
         assignment?.answered === true ? t('assignments_answered') : t('assignments_not_answered');
+
+    const assignmentListLinkStyle =
+        researchAuthorization === null ? 'disabled' : 'assignments-list-item-link';
+
     return (
         <Row className="assignments-list-item">
             <Col className="assignments-list-item-link">
                 <Link
                     to={href}
-                    className={
-                        previous === true && assignment?.answered === false
-                            ? 'disabled'
-                            : 'assignments-list-item-link'
-                    }
+                    className={assignmentListLinkStyle}
+                    onClick={(e) => researchAuthorization === null && e.preventDefault()}
+                    aria-disabled={researchAuthorization === null}
                 >
-                    {assignment?.topic}{' '}
+                    {assignment?.topic}
                 </Link>
                 <Col className="assignments-list-item-answer-status text-md-end">
                     <span
@@ -53,6 +55,18 @@ const AssignmentListItem = ({ previous, assignment, href }) => {
             </div>
         </Row>
     );
+};
+AssignmentListItem.propTypes = {
+    previous: PropTypes.bool.isRequired,
+    assignment: PropTypes.shape({
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        topic: PropTypes.string,
+        answered: PropTypes.bool,
+        start_date: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+        end_date: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
+    }).isRequired,
+    href: PropTypes.string.isRequired,
+    researchAuthorization: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired,
 };
 
 const Assignments = () => {
@@ -154,6 +168,11 @@ const Assignments = () => {
             );
         }
     };
+    Assignments.propTypes = {
+        assignment: PropTypes.object,
+        href: PropTypes.string,
+        previous: PropTypes.bool,
+    };
 
     const CheckBoxes = ({ radioButtonClicked, onChange, value, validationError }) => {
         const { t } = useTranslation();
@@ -204,9 +223,9 @@ const Assignments = () => {
         );
     };
     CheckBoxes.propTypes = {
-        radioButtonClicked: PropTypes.bool,
-        onChange: PropTypes.func,
-        value: PropTypes.string,
+        radioButtonClicked: PropTypes.bool.isRequired,
+        onChange: PropTypes.func.isRequired,
+        value: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]).isRequired,
         validationError: PropTypes.string,
     };
 
@@ -254,6 +273,7 @@ const Assignments = () => {
                                         ? `/student/feedback/${assignment?.id}/${course?.course_id}/${course?.id}`
                                         : `/student/assignment/${assignment?.id}/${course?.id}`
                                 }
+                                researchAuthorization={researchAuthorization}
                             />
                         </li>
                     ))}
@@ -274,6 +294,7 @@ const Assignments = () => {
                                 key={assignment.id}
                                 assignment={assignment}
                                 href={`/student/feedback/${assignment?.id}/${course?.course_id}/${course?.id}`}
+                                researchAuthorization={researchAuthorization}
                             />
                         </li>
                     ))}
@@ -285,6 +306,8 @@ const Assignments = () => {
                         <Link
                             className={researchAuthorization === null ? 'disabled' : ''}
                             to={`/student/courses/${course?.course_id}/summary`}
+                            onClick={(e) => researchAuthorization === null && e.preventDefault()}
+                            aria-disabled={researchAuthorization === null}
                         >
                             {t('assignments_summary')}
                         </Link>
