@@ -10,10 +10,6 @@ const useUserCourseUpdate = (course) => {
 
     const updateUserCourse = async (userCourse) => {
         const response = await put({ userCourse });
-        if (!response.ok) {
-            const resp = response;
-            console.log('resp:', resp);
-        }
         return response;
     };
 
