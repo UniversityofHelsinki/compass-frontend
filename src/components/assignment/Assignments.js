@@ -14,7 +14,7 @@ import useUser from '../../hooks/useUser';
 import './Assignments.css';
 import { useNotification } from '../../NotificationContext';
 
-const AssignmentListItem = ({ previous, assignment, href, style }) => {
+const AssignmentListItem = ({ previous, assignment, href }) => {
     const { t } = useTranslation();
 
     let anwer =
@@ -27,7 +27,7 @@ const AssignmentListItem = ({ previous, assignment, href, style }) => {
                     className={
                         previous === true && assignment?.answered === false
                             ? 'disabled'
-                            : style || 'assignments-list-item-link'
+                            : 'assignments-list-item-link'
                     }
                 >
                     {assignment?.topic}{' '}
@@ -73,7 +73,6 @@ const Assignments = () => {
         primary: t('assignments_back_to_course'),
         secondary: t('assignments_back_to_course_secondary'),
     };
-    let [style, setStyle] = useState('');
 
     const [researchAuthorization, setResearchAuthorization] = useState(null);
     useEffect(() => {
@@ -244,7 +243,11 @@ const Assignments = () => {
                         <li key={assignment.id} className="mb-3">
                             <AssignmentListItem
                                 previous={false}
-                                style={researchAuthorization === null ? 'disabled' : ''}
+                                className={
+                                    researchAuthorization === null
+                                        ? 'disabled'
+                                        : 'assignments-list-item'
+                                }
                                 assignment={assignment}
                                 href={
                                     assignment.answered === true
@@ -263,7 +266,11 @@ const Assignments = () => {
                         <li key={assignment.id} className="mb-3">
                             <AssignmentListItem
                                 previous={true}
-                                style={researchAuthorization === null ? 'disabled' : null}
+                                className={
+                                    researchAuthorization === null
+                                        ? 'disabled'
+                                        : 'assignments-list-item'
+                                }
                                 key={assignment.id}
                                 assignment={assignment}
                                 href={`/student/feedback/${assignment?.id}/${course?.course_id}/${course?.id}`}
@@ -276,7 +283,7 @@ const Assignments = () => {
                 <div className="assignments-list-item">
                     <div className="assignments-list-item-link">
                         <Link
-                            className={researchAuthorization === null ? 'disabled' : null}
+                            className={researchAuthorization === null ? 'disabled' : ''}
                             to={`/student/courses/${course?.course_id}/summary`}
                         >
                             {t('assignments_summary')}
