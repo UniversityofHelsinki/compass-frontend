@@ -14,15 +14,8 @@ import useUser from '../../hooks/useUser';
 import './Assignments.css';
 import { useNotification } from '../../NotificationContext';
 
-const AssignmentListItem = ({ previous, assignment, href, style, disabled }) => {
+const AssignmentListItem = ({ previous, assignment, href, style }) => {
     const { t } = useTranslation();
-    const isDisabled = previous || disabled;
-
-    const handleLinkNavigation = (e) => {
-        if (isDisabled) {
-            e.preventDefault();
-        }
-    };
 
     let anwer =
         assignment?.answered === true ? t('assignments_answered') : t('assignments_not_answered');
@@ -31,13 +24,11 @@ const AssignmentListItem = ({ previous, assignment, href, style, disabled }) => 
             <Col className="assignments-list-item-link">
                 <Link
                     to={href}
-                    onClick={handleLinkNavigation}
                     className={
                         previous === true && assignment?.answered === false
                             ? 'disabled'
                             : style || 'assignments-list-item-link'
                     }
-                    aria-disabled={isDisabled}
                 >
                     {assignment?.topic}{' '}
                 </Link>
@@ -255,11 +246,10 @@ const Assignments = () => {
                                 previous={false}
                                 style={researchAuthorization === null ? 'disabled' : ''}
                                 assignment={assignment}
-                                disabled={!researchAuthorization}
                                 href={
                                     assignment.answered === true
                                         ? `/student/feedback/${assignment?.id}/${course?.course_id}/${course?.id}`
-                                        : `/student/assignment/${assignment?.id}/${course?.id}/${researchAuthorization}`
+                                        : `/student/assignment/${assignment?.id}/${course?.id}`
                                 }
                             />
                         </li>
@@ -276,7 +266,6 @@ const Assignments = () => {
                                 style={researchAuthorization === null ? 'disabled' : null}
                                 key={assignment.id}
                                 assignment={assignment}
-                                disabled={!researchAuthorization}
                                 href={`/student/feedback/${assignment?.id}/${course?.course_id}/${course?.id}`}
                             />
                         </li>
@@ -289,8 +278,6 @@ const Assignments = () => {
                         <Link
                             className={researchAuthorization === null ? 'disabled' : null}
                             to={`/student/courses/${course?.course_id}/summary`}
-                            onClick={(e) => researchAuthorization === null && e.preventDefault()}
-                            aria-disabled={researchAuthorization === null}
                         >
                             {t('assignments_summary')}
                         </Link>
