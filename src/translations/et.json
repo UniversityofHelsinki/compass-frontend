@@ -254,5 +254,6 @@
     "error_copying_to_clipboard": "Viga kursuse lingi kopeerimisel",
     "data_protection_info_link_label": "Lisateave andmekaitse kohta Helsingi Ülikoolis",
     "data_protection_info_link": "https://www.helsinki.fi/en/about-us/processing-data-university/data-protection",
-    "student_assignments_research_permission_link_label": "Osalemise info"
+    "student_assignments_research_permission_link_label": "Osalemise info",
+    "error_research_authorization_missing": "Puudub uuringus osalemine"
 }
