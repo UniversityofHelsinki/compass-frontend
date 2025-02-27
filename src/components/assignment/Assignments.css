@@ -142,8 +142,8 @@ ul.assignments-list {
 .disabled {
     pointer-events: none;
     cursor: default;
-    text-decoration: line-through !important;
     opacity: 0.9;
+    text-decoration: line-through !important;
 }
 
 .assignments-message {
