@@ -15,10 +15,7 @@ const RadioButtonGroup = ({
 }) => {
     const id = useId();
     const handleClick = (field, newValue) => {
-        if (value === newValue) {
-            // Uncheck the radio button when current value was previously selected
-            onChange(field, null);
-        } else {
+        if (value !== newValue) {
             onChange(field, newValue);
         }
     };
