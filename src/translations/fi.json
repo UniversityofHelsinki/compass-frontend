@@ -328,5 +328,6 @@
     "data_protection_info_link_label": "Lue lisää  Helsingin yliopiston tietosuojasta",
     "data_protection_info_link": "https://www.helsinki.fi/fi/tutustu-meihin/tietojen-kasittely-yliopistolla/tietosuoja",
     "student_assignments_research_permission_link_label": "Osallistumisen tiedot (tutkimustiedote)",
-    "error_research_authorization_missing": "Tutkimukseen osallistuminen tieto puuttuu"
+    "error_research_authorization_missing": "Tutkimukseen osallistuminen tieto puuttuu",
+    "assignment_list_item_period": "Tehtävän ajanjakso: "
 }

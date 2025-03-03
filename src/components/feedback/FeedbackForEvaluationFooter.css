@@ -19,6 +19,19 @@
     margin-left: auto;
 }
 
+.feedback-for-evaluation-footer-buttons a:last-child:hover {
+    color: var(--huds-brand-main-light) !important;
+}
+
 .feedback-for-evaluation-footer a {
     color: var(--huds-brand-main) !important;
+}
+
+@media (max-width: 576px) {
+    .feedback-for-evaluation-footer-buttons a:last-child {
+        margin: 10px;
+    }
+    .feedback-for-evaluation-footer-buttons {
+        justify-content: space-evenly;
+    }
 }
