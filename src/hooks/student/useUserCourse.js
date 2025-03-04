@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useGET } from '../useHttp';
+import { invalidate, useGET } from '../useHttp';
 
 const useUserCourse = (course) => {
     const course_id = course?.course_id;
@@ -13,13 +13,13 @@ const useUserCourse = (course) => {
     });
 
     useEffect(() => {
-        if (response !== usercourse) {
+        if (response) {
             dispatch({
                 type: 'GET_USER_COURSE',
                 payload: response,
             });
         }
-    }, [usercourse, response, dispatch]);
+    }, [course, usercourse, response, dispatch]);
 
     return [usercourse, error, reload];
 };

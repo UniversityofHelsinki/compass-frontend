@@ -14,6 +14,7 @@ import { ReactComponent as Level2Icon } from '../utilities/icons/three-dots-vert
 import { ReactComponent as Level3Icon } from '../utilities/icons/bounding-box-circles.svg';
 import { ReactComponent as Level4Icon } from '../utilities/icons/diagram-3.svg';
 import useGetSignature from '../../hooks/useGetSignature';
+import { invalidate } from '../../hooks/useHttp';
 
 const Level = ({ level = 4 }) => {
     let IconComponent;
@@ -52,6 +53,9 @@ const FeedbackForEvaluation = () => {
     let answer_evaluation_form_header = 'answer_evaluation_form_header_';
     let answer_evaluation_form_text = 'answer_evaluation_form_text_';
     let assignment_feedback_level = 'assignment_feedback_level_';
+
+    invalidate([`USER_COURSE_${course?.course_id}`]);
+
     const backBtnLabels = {
         primary: t('assignment_feedback_back_to_course'),
         secondary: t('assignment_feedback_back_to_course_secondary'),

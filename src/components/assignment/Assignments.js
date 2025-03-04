@@ -89,7 +89,7 @@ const Assignments = () => {
 
     const [researchAuthorization, setResearchAuthorization] = useState(null);
     useEffect(() => {
-        if (researchAuthorization === null && userCourse) {
+        if (userCourse) {
             setResearchAuthorization(userCourse?.research_authorization);
         }
     }, [userCourse]);
