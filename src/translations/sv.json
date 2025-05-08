@@ -241,8 +241,9 @@
     "footer_compass_data_protection_statement_link": "https://www.helsinki.fi/sv/om-oss/behandling-av-uppgifter-vid-universitetet/dataskydd",
     "footer_accessibility_statement_link": "footer_accessibility_statement_link",
     "opens_in_new_tab": "Öppnas i ny flik",
+    "instructions_page_download_links_aria_label": "Ladda ner fil {{fileName}}",
     "answer_dialog_teacher_level_feedback": "Nivå av förståelse:",
-    "download_instructions": "Ladda ner introduktioner (.pdf)",
+    "download_introduction": "Ladda ner introduktioner (.pdf)",
     "download_slides": "Ladda ner instruktioner (.pdf)",
     "download_slides_powerpoint": "Ladda ner instruktioner (.pptx)",
     "reflection_compass_logo_alt_text": "Reflection Compass logo",
@@ -329,5 +330,7 @@
     "item_7_line_36": "E-post: tietosuoja@om.fi",
     "data_protection_info_link_label": "Läs mer om dataskydd vid Helsingfors universitet",
     "data_protection_info_link": "https://www.helsinki.fi/sv/om-oss/behandling-av-uppgifter-vid-universitetet/dataskydd",
-    "student_assignments_research_permission_link_label": "Information om deltagande (Information om forskningen)"
+    "student_assignments_research_permission_link_label": "Information om deltagande (Information om forskningen)",
+    "error_research_authorization_missing": "Deltagande i forskning saknas",
+    "assignment_list_item_period": "Uppgifts tidsperiod: "
 }

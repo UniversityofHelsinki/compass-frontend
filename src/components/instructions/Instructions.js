@@ -11,9 +11,13 @@ import SwedishPage from './SwedishPage';
 import EstonianPage from './EstonianPage';
 
 const DownloadLink = ({ fileUrl, fileName, linkText }) => {
+    const { t } = useTranslation();
     return (
-        <a href={fileUrl} download={fileName} aria-label={`Download ${fileName}`}>
+        <a href={fileUrl} download={fileName}>
             {linkText}
+            <span className="screenreader-only">
+                {t('instructions_page_download_links_aria_label', { fileName: fileName })}
+            </span>
             <DownloadIcon
                 className="ms-2"
                 width="16"
@@ -59,8 +63,8 @@ const Instructions = () => {
                 <Row className="justify-content-center mb-4">
                     <Col className="col-auto">
                         <DownloadLink
-                            {...getFileDetails('instructions', i18n.language, 'pdf')}
-                            linkText={t('download_instructions')}
+                            {...getFileDetails('introduction', i18n.language, 'pdf')}
+                            linkText={t('download_introduction')}
                         />
                     </Col>
 

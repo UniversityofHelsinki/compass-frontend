@@ -40,7 +40,7 @@ const FooterLinks = () => {
             </li>
             <li>
                 <Feedback
-                    to="mailto:self-reflection-compass@helsinki.fi"
+                    to="mailto:reflectioncompass@helsinki.fi"
                     label={t('footer_compass_feedback')}
                 />
             </li>

@@ -1,16 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './DataProtectionStatementPage.css';
 import { useTranslation } from 'react-i18next';
 import TopBar from '../utilities/TopBar';
 import { Accordion, Col, Container, Row } from 'react-bootstrap';
-import i18n from 'i18next';
 
 const DataProtectionStatementPage = () => {
     const { t } = useTranslation();
-
-    if (i18n.language === 'et') {
-        i18n.changeLanguage('en'); // Change language to 'en'
-    }
 
     return (
         <Container className="data-protection-statement-page-main-container">

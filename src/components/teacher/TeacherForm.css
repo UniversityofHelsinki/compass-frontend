@@ -69,6 +69,7 @@
 .teacher-form-assignment-delete button {
     border: unset;
     background-color: unset;
+    display: flex;
 }
 
 .teacher-form-assignment-delete button:disabled svg {
@@ -100,4 +101,25 @@
 .teacher-forms-permission-link-label {
     display: flex;
     flex-direction: row;
+}
+
+@media (max-width: 768px) {
+    .teacher-form-dates {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .teacher-form-assignments ol {
+        display: flex;
+        padding-left: 0;
+    }
+    .teacher-form-assignment {
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
+    }
+    .teacher-form-assignment-delete {
+        align-self: flex-start;
+        justify-self: flex-start;
+        padding-top: 0;
+    }
 }

@@ -240,8 +240,9 @@
     "footer_compass_data_protection_statement_link": "https://www.helsinki.fi/fi/tutustu-meihin/tietojen-kasittely-yliopistolla/tietosuoja",
     "footer_accessibility_statement_link": "footer_accessibility_statement_link",
     "opens_in_new_tab": "Avautuu uuteen välilehteen",
+    "instructions_page_download_links_aria_label": "Lataa tiedosto {{fileName}}",
     "answer_dialog_teacher_level_feedback": "Ymmärtämisen taso:",
-    "download_instructions": "Lataa esittely (.pdf)",
+    "download_introduction": "Lataa esittely (.pdf)",
     "download_slides": "Lataa ohjeet (.pdf)",
     "download_slides_powerpoint": "Lataa ohjeet (.pptx)",
     "reflection_compass_logo_alt_text": "Reflection Compass logo",
@@ -326,5 +327,7 @@
     "item_7_line_36": "Sähköposti: tietosuoja@om.fi",
     "data_protection_info_link_label": "Lue lisää  Helsingin yliopiston tietosuojasta",
     "data_protection_info_link": "https://www.helsinki.fi/fi/tutustu-meihin/tietojen-kasittely-yliopistolla/tietosuoja",
-    "student_assignments_research_permission_link_label": "Osallistumisen tiedot (tutkimustiedote)"
+    "student_assignments_research_permission_link_label": "Osallistumisen tiedot (tutkimustiedote)",
+    "error_research_authorization_missing": "Tutkimukseen osallistuminen tieto puuttuu",
+    "assignment_list_item_period": "Tehtävän ajanjakso: "
 }
