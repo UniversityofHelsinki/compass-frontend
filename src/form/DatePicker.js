@@ -11,7 +11,7 @@ import './DatePicker.css';
 registerLocale('fi', fi);
 registerLocale('en', enGB);
 registerLocale('sv', sv);
-registerLocale('ee', et);
+registerLocale('et', et);
 
 const DatePicker = React.forwardRef(
     (
@@ -70,7 +70,7 @@ const DatePicker = React.forwardRef(
 );
 
 DatePicker.propTypes = {
-    date: PropTypes.object,
+    date: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     onChange: PropTypes.func,
     locale: PropTypes.string,
 };

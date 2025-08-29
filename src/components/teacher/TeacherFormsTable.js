@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 import { useNotification } from '../../NotificationContext';
 
 import useClipboardCopy from '../../hooks/teacher/useClipboardCopy';
+import { Col, Row, Container } from 'react-bootstrap';
 
 const HeadingColumn = ({ children, onSortCriteriaChange, sorted, direction }) => {
     const { t } = useTranslation();
@@ -36,7 +37,7 @@ const HeadingColumn = ({ children, onSortCriteriaChange, sorted, direction }) =>
     );
 };
 
-const Row = ({ teacherForm }) => {
+const TableRow = ({ teacherForm }) => {
     const { t } = useTranslation();
     const { clipboardCopy } = useClipboardCopy(teacherForm.id);
     const { setNotification } = useNotification();
@@ -104,6 +105,9 @@ const Row = ({ teacherForm }) => {
                 to={`/teacher/studentsincourse/${teacherForm.title}/${teacherForm.course_id}`}
                 title={t('teacher_students_in_course')}
             >
+                <span className="screenreader-only">
+                    {t('teacher_forms_table_row_student_list', { title: teacherForm.title })}
+                </span>
                 <ListIcon className="student-list-icon" aria-hidden />
             </Link>
         </div>
@@ -123,7 +127,7 @@ const Row = ({ teacherForm }) => {
         </div>
     );
 
-    const actions = [<Edit />, <Copy />, <Delete />, <Statistics />, <Share />, <StudentList />];
+    const actions = [<Edit />, <Statistics />, <Share />, <StudentList />, <Copy />, <Delete />];
 
     const period = (startDate, endDate) => {
         return (
@@ -159,7 +163,7 @@ const TeacherFormsTable = ({ teacherForms = [], onSortCriteriaChange, sortOpts }
     const { t } = useTranslation();
 
     return (
-        <div>
+        <div className="teacher-forms-table-container responsive-margins">
             <table className="teacher-forms-table">
                 <caption className="screenreader-only">
                     {t('teacher_forms_table_description')}
@@ -186,7 +190,7 @@ const TeacherFormsTable = ({ teacherForms = [], onSortCriteriaChange, sortOpts }
                 </thead>
                 <tbody>
                     {(teacherForms || []).map((teacherForm) => (
-                        <Row key={teacherForm.id} teacherForm={teacherForm} />
+                        <TableRow key={teacherForm.id} teacherForm={teacherForm} />
                     ))}
                 </tbody>
             </table>

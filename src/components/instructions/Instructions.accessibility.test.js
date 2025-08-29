@@ -7,6 +7,6 @@ describe('Instructions', () => {
     it('has no accessibility violations', async () => {
         const { container, rerender } = render(<Instructions />);
         const results = await axe(container);
-        //expect(results).toHaveNoViolations();
+        expect(results).toHaveNoViolations();
     });
 });

@@ -11,9 +11,13 @@ import SwedishPage from './SwedishPage';
 import EstonianPage from './EstonianPage';
 
 const DownloadLink = ({ fileUrl, fileName, linkText }) => {
+    const { t } = useTranslation();
     return (
-        <a href={fileUrl} download={fileName} aria-label={`Download ${fileName}`}>
+        <a href={fileUrl} download={fileName}>
             {linkText}
+            <span className="screenreader-only">
+                {t('instructions_page_download_links_aria_label', { fileName: fileName })}
+            </span>
             <DownloadIcon
                 className="ms-2"
                 width="16"
@@ -33,50 +37,53 @@ const renderContent = (language) => {
             return <EnglishPage />;
         case 'sv':
             return <SwedishPage />;
-        case 'ee':
+        case 'et':
             return <EstonianPage />;
         default:
             return <EnglishPage />; // Default to English
     }
 };
 
+const getFileDetails = (baseName, currentLanguage, type) => ({
+    fileUrl: `/${baseName}_${currentLanguage}.${type}`,
+    fileName: `${baseName}_${currentLanguage}.${type}`,
+});
+
 const Instructions = () => {
     const { t, i18n } = useTranslation();
     return (
-        <Container>
-            <Row className="justify-content-center mb-4">
-                <Col className="col-auto">
-                    <DownloadLink
-                        fileUrl="/instructions.pdf"
-                        fileName="instructions.pdf"
-                        linkText={t('download_instructions')}
-                    />
-                </Col>
+        <div className="responsive-margins">
+            <Container>
+                <Row>
+                    <Col>
+                        <TopBar heading={t('instructions_heading')} />
+                        {renderContent(i18n.language)}
+                    </Col>
+                </Row>
+                <Row className="justify-content-center mb-4">
+                    <Col className="col-auto">
+                        <DownloadLink
+                            {...getFileDetails('introduction', i18n.language, 'pdf')}
+                            linkText={t('download_introduction')}
+                        />
+                    </Col>
 
-                <Col className="col-auto">
-                    <DownloadLink
-                        fileUrl="/slides.pdf"
-                        fileName="slides.pdf"
-                        linkText={t('download_slides')}
-                    />
-                </Col>
+                    <Col className="col-auto">
+                        <DownloadLink
+                            {...getFileDetails('slides', i18n.language, 'pdf')}
+                            linkText={t('download_slides')}
+                        />
+                    </Col>
 
-                <Col className="col-auto">
-                    <DownloadLink
-                        fileUrl="/slides.pptx"
-                        fileName="slides.pptx"
-                        linkText={t('download_slides_powerpoint')}
-                    />
-                </Col>
-            </Row>
-
-            <Row>
-                <Col>
-                    <TopBar heading={t('instructions_heading')} />
-                    {renderContent(i18n.language)}
-                </Col>
-            </Row>
-        </Container>
+                    <Col className="col-auto">
+                        <DownloadLink
+                            {...getFileDetails('slides', i18n.language, 'pptx')}
+                            linkText={t('download_slides_powerpoint')}
+                        />
+                    </Col>
+                </Row>
+            </Container>
+        </div>
     );
 };
 

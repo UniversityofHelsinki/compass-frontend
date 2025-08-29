@@ -1,11 +1,14 @@
 image: docker:stable
 
+
 stages:
     - test
-    - setup
+    - build
+    - dependency-track-sbom
+    - dependency-track-submit
     - dependency-check
     - sonarqube-check
-    - build
+    - build-image
 
 variables:
     # When you use the dind service, you must instruct Docker to talk with
@@ -23,9 +26,40 @@ variables:
     # `/certs/client` to share between the service and job
     # container, thanks to volume mount from config.toml
     DOCKER_TLS_CERTDIR: '/certs'
+    PROJECT_NAME: "compass-frontend"
+    PROJECT_VERSION: "1.0.0"
 
 services:
     - docker:dind
+
+generate-sbom:
+    stage: dependency-track-sbom
+    image: node:22-alpine
+    only:
+        - schedules
+    tags:
+        - ohtu-build-4
+    script:
+        - npm ci
+        - npx @cyclonedx/cyclonedx-npm --output-file sbom.xml
+    artifacts:
+        expire_in: 1h
+        paths:
+            - sbom.xml
+
+submit-sbom:
+    image: alpine:latest
+    stage: dependency-track-submit
+    only:
+        - schedules
+    tags:
+        - ohtu-build-4
+    dependencies:
+        - generate-sbom
+    before_script:
+        - apk add --no-cache curl
+    script:
+        - "curl -X POST ${DTRACK_API_URL} -H 'Content-Type: multipart/form-data' -H 'X-Api-Key: '${DTRACK_API_KEY} -F 'projectName='${PROJECT_NAME} -F 'autoCreate=true' -F 'projectVersion='${PROJECT_VERSION} -F 'bom=@sbom.xml'"
 
 sonarqube-check:
     stage: sonarqube-check
@@ -73,13 +107,13 @@ dependency-check:
         paths:
             - dependency-check-report.html
 
-setup_stage:
-    stage: setup
+build_stage:
+    stage: build
+    image: node:22-alpine
     only:
         - main
     tags:
         - ohtu-build-4
-    image: node:20-alpine
     script:
         - npm ci --omit=dev
         - yes | cp -f -v .env.test .env.production || true
@@ -90,13 +124,13 @@ setup_stage:
             - build
         expire_in: 1 hour
 
-setup_stage-prod:
-    stage: setup
+build_stage-prod:
+    stage: build
+    image: node:22-alpine
     only:
         - prod
     tags:
         - ohtu-build-4
-    image: node:20-alpine
     script:
         - npm ci --omit=dev
         - CI=false NODE_ENV=production npm run build
@@ -108,7 +142,7 @@ setup_stage-prod:
 
 test:
     stage: test
-    image: node:20-alpine
+    image: node:22-alpine
     tags:
         - ohtu-build-4
     script:
@@ -120,7 +154,7 @@ test:
             - coverage/
 
 build_image:
-    stage: build
+    stage: build-image
     only:
         - main
     tags:
@@ -136,7 +170,7 @@ build_image:
         - docker push quay.io/tike/compass-frontend:test
 
 build_image-prod:
-    stage: build
+    stage: build-image
     only:
         - prod
     tags:

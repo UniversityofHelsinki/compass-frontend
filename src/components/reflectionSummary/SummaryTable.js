@@ -39,7 +39,7 @@ const Level = ({ level = 4 }) => {
     return IconComponent ? <IconComponent /> : null;
 };
 
-const SummaryRow = ({ course, reload, assignment }) => {
+const SummaryRow = ({ course, reload, assignment, showAnswerColumn = true }) => {
     const { t } = useTranslation();
     const date = new Date(assignment?.answer_created);
     let day = String(date.getDate()).padStart(2, '0');
@@ -77,48 +77,43 @@ const SummaryRow = ({ course, reload, assignment }) => {
                     ? t('summary_no_feedback')
                     : ''}
             </td>
-            <td>
-                <AssignmentAnswersDialog
-                    reload={reload}
-                    id={course}
-                    assignmentTopic={assignment?.assignment_topic}
-                    answer_value={assignment?.answer_value}
-                    userName={assignment?.answer_user_name}
-                    order_nbr={assignment?.answer_order_nbr}
-                    courseTitle={assignment?.course_title}
-                    course_id={assignment?.course_id}
-                    assignment_id={assignment?.assignment_id}
-                    feedback_value={assignment?.feedback_value}
-                    feedback_order_nbr={assignment?.feedback_order_nbr}
-                    feedback_id={assignment?.feedbackid}
-                    feedbackAllowed={false}
-                    studentTab={true}
-                />
-            </td>
+            {showAnswerColumn && (
+                <td>
+                    <AssignmentAnswersDialog
+                        reload={reload}
+                        id={course}
+                        assignmentTopic={assignment?.assignment_topic}
+                        answer_value={assignment?.answer_value}
+                        userName={assignment?.answer_user_name}
+                        order_nbr={assignment?.answer_order_nbr}
+                        courseTitle={assignment?.course_title}
+                        course_id={assignment?.course_id}
+                        assignment_id={assignment?.assignment_id}
+                        feedback_value={assignment?.feedback_value}
+                        feedback_order_nbr={assignment?.feedback_order_nbr}
+                        feedback_id={assignment?.feedbackid}
+                        feedbackAllowed={false}
+                        studentTab={true}
+                    />
+                </td>
+            )}
         </tr>
     );
 };
 
 SummaryRow.propTypes = {
     assignment: PropTypes.shape({
-        assignmentId: PropTypes.number.isRequired,
+        assignment_id: PropTypes.number.isRequired,
         assignment_topic: PropTypes.string.isRequired,
         answer_created: PropTypes.string,
         answer_order_nbr: PropTypes.number,
         answer_value: PropTypes.string,
         answer_user_name: PropTypes.string,
         course_title: PropTypes.string,
-        /*answer: PropTypes.shape({
-            created: PropTypes.string,
-            order_nbr: PropTypes.number,
-            value: PropTypes.string,
-            user_name: PropTypes.string,
-            title: PropTypes.string,
-        }),*/
     }).isRequired,
 };
 
-const SummaryTable = ({ course, reload, assignments }) => {
+const SummaryTable = ({ course, reload, assignments, showAnswerColumn = true }) => {
     const { t } = useTranslation();
 
     return (
@@ -133,16 +128,17 @@ const SummaryTable = ({ course, reload, assignments }) => {
                                     <th>{t('summary_topic')}</th>
                                     <th>{t('summary_level')}</th>
                                     <th>{t('summary_feedback_header')}</th>
-                                    <th>{t('summary_answers_header')}</th>
+                                    {showAnswerColumn && <th>{t('summary_answers_header')}</th>}
                                 </tr>
                             </thead>
                             <tbody>
                                 {(assignments || []).map((assignment) => (
                                     <SummaryRow
+                                        key={assignment.assignment_id}
                                         course={course}
                                         reload={reload}
                                         assignment={assignment}
-                                        key={assignment.assignmentId}
+                                        showAnswerColumn={showAnswerColumn}
                                     />
                                 ))}
                             </tbody>
@@ -157,20 +153,13 @@ const SummaryTable = ({ course, reload, assignments }) => {
 SummaryTable.propTypes = {
     assignments: PropTypes.arrayOf(
         PropTypes.shape({
-            assignmentId: PropTypes.number.isRequired,
+            assignment_id: PropTypes.number.isRequired,
             assignment_topic: PropTypes.string.isRequired,
             answer_created: PropTypes.string,
             answer_order_nbr: PropTypes.number,
             answer_value: PropTypes.string,
             answer_user_name: PropTypes.string,
             course_title: PropTypes.string,
-            /*answer: PropTypes.shape({
-                created: PropTypes.string,
-                order_nbr: PropTypes.number,
-                value: PropTypes.string,
-                user_name: PropTypes.string,
-                title: PropTypes.string,
-            }),*/
         }),
     ).isRequired,
 };

@@ -4,6 +4,7 @@ import Course from './Course';
 import React from 'react';
 import useStudentCourses from '../hooks/student/useStudentCourses';
 import useGetSignatures from '../hooks/useGetSignatures';
+import { invalidate } from '../hooks/useHttp';
 
 const CourseList = () => {
     const { t } = useTranslation();
@@ -11,15 +12,22 @@ const CourseList = () => {
     const courseIds = courses?.map((course) => course.id);
     const [signatures] = useGetSignatures(courseIds || []);
 
+    const invalidateCourseList = (course_id) => {
+        invalidate([`USER_COURSE_${course_id}`]);
+    };
+
     const listCourses = () => {
         return (
             <div>
                 <ul className="course-list">
-                    {courses.map((course) => (
-                        <li key={course.course_id}>
-                            <Course course={course} signature={signatures[course.id]} />
-                        </li>
-                    ))}
+                    {courses.map((course) => {
+                        invalidateCourseList(course.course_id);
+                        return (
+                            <li key={course.course_id}>
+                                <Course course={course} signature={signatures[course.id]} />
+                            </li>
+                        );
+                    })}
                 </ul>
             </div>
         );

@@ -143,6 +143,7 @@ ul.assignments-list {
     pointer-events: none;
     cursor: default;
     opacity: 0.9;
+    text-decoration: line-through !important;
 }
 
 .assignments-message {
@@ -152,4 +153,31 @@ ul.assignments-list {
     color: #c21f39;
     font-weight: bold;
     background-color: var(--huds-grayscale-light);
+}
+
+.assignments-send-button {
+    margin-top: -10px;
+    padding-right: 10px;
+}
+
+.validation-message {
+    color: var(--hy-red);
+    min-height: 1.5em;
+    margin-bottom: 5px;
+}
+
+.assignments-permission-link-label a {
+    color: var(--huds-brand-main);
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+.assignments-permission-link-label a:hover {
+    text-decoration: underline;
+    color: var(--huds-brand-main-light);
+}
+
+.assignments-permission-link-label {
+    display: flex;
+    flex-direction: row;
 }

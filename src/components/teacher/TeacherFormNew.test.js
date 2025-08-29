@@ -88,9 +88,13 @@ describe('TeacherFormNew', () => {
         const courseId = screen.getByLabelText('teacher_form_course_id');
         const startDate = screen.getByLabelText('teacher_form_start_date');
         const endDate = screen.getByLabelText('teacher_form_end_date');
+        const researchPermissionRadioBtn = component.getByRole('radio', {
+            name: 'teacher_form_research_authorization_allowed',
+        });
         await component.user.type(courseId, 'A-123');
         await component.user.type(startDate, '27.1.2023');
         await component.user.type(endDate, '27.1.2024');
+        await component.user.click(researchPermissionRadioBtn);
         await component.user.click(saveButton);
         const notification = screen.getByText('teacher_form_new_saved_notification_success');
         expect(notification).toBeInTheDocument();
@@ -134,6 +138,10 @@ describe('TeacherFormNew', () => {
         const courseId = screen.getByLabelText('teacher_form_course_id');
         const startDate = screen.getByLabelText('teacher_form_start_date');
         const endDate = screen.getByLabelText('teacher_form_end_date');
+        const researchPermissionRadioBtn = component.getByRole('radio', {
+            name: 'teacher_form_research_authorization_allowed',
+        });
+        await component.user.click(researchPermissionRadioBtn);
         await component.user.type(courseId, 'A-123');
         await component.user.type(startDate, '27.1.2023');
         await component.user.type(endDate, '27.1.2024');

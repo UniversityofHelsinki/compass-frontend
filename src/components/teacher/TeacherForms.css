@@ -1,14 +1,12 @@
-.teacher-forms {
-}
-
 .teacher-forms-content {
     display: flex;
-    justify-content: center;
 }
 
 .teacher-forms-new-form {
     display: flex;
-    flex-direction: row-reverse;
+    width: 100%;
+    align-self: center;
+    justify-content: flex-end;
 }
 
 .teacher-forms-no-forms {

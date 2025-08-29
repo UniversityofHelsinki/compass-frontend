@@ -47,6 +47,7 @@
 
 .teacher-form-assignment-marker {
     margin-right: 10px;
+    padding-top: 10px;
 }
 
 .teacher-form-assignments ol > li {
@@ -54,6 +55,7 @@
 }
 
 .teacher-form-assignment-delete {
+    padding-top: 10px;
 }
 
 .teacher-form-assignment-delete svg {
@@ -67,6 +69,7 @@
 .teacher-form-assignment-delete button {
     border: unset;
     background-color: unset;
+    display: flex;
 }
 
 .teacher-form-assignment-delete button:disabled svg {
@@ -75,4 +78,48 @@
 
 .validation-message {
     color: var(--hy-red);
+    min-height: 1.5em;
+}
+
+.teacher-form-buttons-with-link {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.teacher-forms-permission-link-label a {
+    color: var(--huds-brand-main);
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+.teacher-forms-permission-link-label a:hover {
+    text-decoration: underline;
+    color: var(--huds-brand-main-light);
+}
+
+.teacher-forms-permission-link-label {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 768px) {
+    .teacher-form-dates {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .teacher-form-assignments ol {
+        display: flex;
+        padding-left: 0;
+    }
+    .teacher-form-assignment {
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
+    }
+    .teacher-form-assignment-delete {
+        align-self: flex-start;
+        justify-self: flex-start;
+        padding-top: 0;
+    }
 }

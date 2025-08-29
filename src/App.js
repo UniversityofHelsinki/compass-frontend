@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { thunk } from 'redux-thunk';
 import reducer from './reducers';
-import { DEFAULT_LANGUAGE, LEVELS } from './Constants';
+import { DEFAULT_LANGUAGE } from './Constants';
 import Compass from './Compass';
 import { AuthProvider } from './AuthContext';
 import ProtectedRoute from './ProtectedRoute';
@@ -33,9 +33,10 @@ import DeleteStudentAnswer from './components/delete/DeleteStudentAnswer';
 import Assignments from './components/assignment/Assignments';
 import CourseStatistics from './components/course/CourseStatistics';
 import TeacherFormDelete from './components/teacher/TeacherFormDelete';
-import StudentSummaryDialog from './components/reflectionSummary/StudentSummaryDialog';
 import Instructions from './components/instructions/Instructions';
 import StudentListInCourse from './components/student/StudentListInCourse';
+import Researchpermission from './components/research/Researchpermission';
+import DataProtectionStatementPage from './components/dataProtectionStatement/DataProtectionStatementPage';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -57,7 +58,7 @@ i18n.use(initReactI18next).init({
     resources: translations,
     lng: defaultLanguage(),
     fallbackLng: 'cimode',
-    supportedLngs: ['fi', 'en', 'sv', 'ee'],
+    supportedLngs: ['fi', 'en', 'sv', 'et'],
 });
 
 const App = () => {
@@ -89,7 +90,9 @@ const App = () => {
                     ></Route>
                     <Route path="delete/:answer/:id" element={<DeleteStudentAnswer />}></Route>
                 </Route>
-                <Route path="instructions" element={<Instructions />}></Route>
+                <Route path="instructions" element={<Instructions />} />
+                <Route path="data-protection-statement" element={<DataProtectionStatementPage />} />
+                <Route path="research-information" element={<Researchpermission />}></Route>
             </Route>,
         ),
     );

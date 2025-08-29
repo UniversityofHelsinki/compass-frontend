@@ -10,14 +10,12 @@ const RadioButtonGroup = ({
     validationMessage = { type: 'neutral', content: '' },
     onChange,
     value = null,
+    field,
     ...rest
 }) => {
     const id = useId();
     const handleClick = (field, newValue) => {
-        if (value === newValue) {
-            // Uncheck the radio button when current value was previously selected
-            onChange(field, null);
-        } else {
+        if (value !== newValue) {
             onChange(field, newValue);
         }
     };
@@ -42,7 +40,7 @@ const RadioButtonGroup = ({
                                 value={optionValue || ''}
                                 id={`compass-${optionValue || 'unknown'}-${id}`}
                                 label={optionLabel || ''}
-                                onClick={(e) => handleClick('order_nbr', e.target.value)}
+                                onClick={(e) => handleClick(field, e.target.value)}
                                 {...rest}
                             />
                         );

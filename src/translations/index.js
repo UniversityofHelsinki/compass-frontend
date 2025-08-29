@@ -1,21 +1,21 @@
 import fi from './fi.json';
 import en from './en.json';
 import sv from './sv.json';
-import ee from './ee.json';
+import et from './et.json';
 
 const translations = {
-    'fi': {
-        translation: fi
+    fi: {
+        translation: fi,
     },
-    'en': {
-        translation: en
+    en: {
+        translation: en,
     },
-    'sv': {
-        translation: sv
+    sv: {
+        translation: sv,
     },
-    'ee': {
-        translation: ee
-    }
+    et: {
+        translation: et,
+    },
 };
 
 export default translations;
