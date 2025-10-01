@@ -37,6 +37,7 @@ import Instructions from './components/instructions/Instructions';
 import StudentListInCourse from './components/student/StudentListInCourse';
 import Researchpermission from './components/research/Researchpermission';
 import DataProtectionStatementPage from './components/dataProtectionStatement/DataProtectionStatementPage';
+import AuthenticationPage from './components/AuthenticationPage';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -64,45 +65,58 @@ i18n.use(initReactI18next).init({
 const App = () => {
     const router = createBrowserRouter(
         createRoutesFromElements(
-            <Route path="/" element={<Compass />} errorElement={<ErrorPage />}>
-                <Route path="teacher" element={<Teacher />}>
-                    <Route path="forms" element={<TeacherForms />}></Route>
-                    <Route path="forms/new" element={<TeacherFormNew />}></Route>
-                    <Route path="forms/new/:course" element={<TeacherFormNew />}></Route>
-                    <Route path="forms/edit/:course" element={<TeacherFormEdit />}></Route>
-                    <Route path="forms/delete/:course" element={<TeacherFormDelete />}></Route>
-                    <Route path="statistics/course/:courseId" element={<CourseStatistics />} />
-                    <Route
-                        path="studentsincourse/:title/:courseId"
-                        element={<StudentListInCourse />}
-                    />
-                </Route>
-                <Route path="student" element={<Student />}>
-                    <Route path="courses" element={<StudentCourses />}></Route>
-                    <Route path="courses/:course" element={<Outlet />}>
-                        <Route path="summary" element={<SummaryPage />}></Route>
+            <>
+                <Route path="/login" element={<AuthenticationPage />} />
+                <Route
+                    path="/"
+                    element={
+                        <ProtectedRoute>
+                            <Compass />
+                        </ProtectedRoute>
+                    }
+                    errorElement={<ErrorPage />}
+                >
+                    <Route path="teacher" element={<Teacher />}>
+                        <Route path="forms" element={<TeacherForms />}></Route>
+                        <Route path="forms/new" element={<TeacherFormNew />}></Route>
+                        <Route path="forms/new/:course" element={<TeacherFormNew />}></Route>
+                        <Route path="forms/edit/:course" element={<TeacherFormEdit />}></Route>
+                        <Route path="forms/delete/:course" element={<TeacherFormDelete />}></Route>
+                        <Route path="statistics/course/:courseId" element={<CourseStatistics />} />
+                        <Route
+                            path="studentsincourse/:title/:courseId"
+                            element={<StudentListInCourse />}
+                        />
                     </Route>
-                    <Route path="assignments/:id" element={<Assignments />}></Route>
-                    <Route path="assignment/:assignment/:id" element={<Assignment />}></Route>
+                    <Route path="student" element={<Student />}>
+                        <Route path="courses" element={<StudentCourses />}></Route>
+                        <Route path="courses/:course" element={<Outlet />}>
+                            <Route path="summary" element={<SummaryPage />}></Route>
+                        </Route>
+                        <Route path="assignments/:id" element={<Assignments />}></Route>
+                        <Route path="assignment/:assignment/:id" element={<Assignment />}></Route>
+                        <Route
+                            path="feedback/:answer/:course/:id"
+                            element={<FeedbackForEvaluation />}
+                        ></Route>
+                        <Route path="delete/:answer/:id" element={<DeleteStudentAnswer />}></Route>
+                    </Route>
+                    <Route path="instructions" element={<Instructions />} />
                     <Route
-                        path="feedback/:answer/:course/:id"
-                        element={<FeedbackForEvaluation />}
-                    ></Route>
-                    <Route path="delete/:answer/:id" element={<DeleteStudentAnswer />}></Route>
+                        path="data-protection-statement"
+                        element={<DataProtectionStatementPage />}
+                    />
+                    <Route path="research-information" element={<Researchpermission />}></Route>
                 </Route>
-                <Route path="instructions" element={<Instructions />} />
-                <Route path="data-protection-statement" element={<DataProtectionStatementPage />} />
-                <Route path="research-information" element={<Researchpermission />}></Route>
-            </Route>,
+                ,
+            </>,
         ),
     );
 
     return (
         <Provider store={store}>
             <AuthProvider>
-                <ProtectedRoute>
-                    <RouterProvider router={router} />
-                </ProtectedRoute>
+                <RouterProvider router={router} />
             </AuthProvider>
         </Provider>
     );

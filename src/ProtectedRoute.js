@@ -1,29 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useAuth } from './AuthContext';
+import { useLocation, Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }) => {
     const { user, loading } = useAuth();
-
-    useEffect(() => {
-        const loginPath = '/Shibboleth.sso/Login';
-
-        if (!loading && !user && window.location.pathname !== loginPath) {
-            // Capture the current path and query parameters
-            const target = encodeURIComponent(window.location.pathname + window.location.search);
-            // Redirect to login with the target URL included
-            window.location.replace(`${loginPath}?target=${target}`);
-        }
-    }, [loading, user]);
+    const location = useLocation();
 
     if (loading) {
-        return <div>Loading...</div>; // or a loading spinner
+        return <div>Loading...</div>;
     }
 
-    if (user) {
-        return children;
+    if (!user) {
+        // Redirect to /login, preserving the current path in the query param "target"
+        const target = encodeURIComponent(location.pathname + location.search);
+        return <Navigate to={`/login?target=${target}`} replace />;
     }
 
-    return null;
+    return children;
 };
 
 export default ProtectedRoute;
