@@ -2,8 +2,8 @@ import React from 'react';
 import { useAuth } from '../AuthContext';
 import { Navigate } from 'react-router-dom';
 
-import uhLogo from './logo/login-uh.gif';
-import eduGAINLogo from './logo/login-edugain.gif';
+import uhLogo from './logo/hy.jpg';
+import eduGAINLogo from './logo/eduGain.png';
 import hyLogo from './logo/HY_logo.png';
 import './AuthenticationPage.css';
 
@@ -12,6 +12,8 @@ const AuthenticationPage = () => {
     const currentPath = window.location.pathname + window.location.search;
     const modifiedPath = currentPath.replace(/login/g, '');
     const encodedTarget = encodeURIComponent(modifiedPath);
+
+    console.log(encodedTarget);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -37,18 +39,17 @@ const AuthenticationPage = () => {
         <div className="login-container">
             <div className="login-box">
                 <div className="login-left">
-                    <img src={hyLogo} alt="HY logo" className="login-logo" />
                     <h1>Login</h1>
                     <p>Please select your login method by clicking a logo on the right.</p>
                 </div>
                 <div className="login-right">
                     <div className="login-section">
                         <h2>University of Helsinki account</h2>
-                        <a href="/Shibboleth.sso/Login" onClick={handleHYLogin}>
+                        <a href="#" onClick={handleHYLogin}>
                             <img
-                                src={uhLogo}
+                                src={hyLogo}
                                 alt="University of Helsinki login"
-                                className="login-logo-link"
+                                className="login-logo-link-hy"
                             />
                         </a>
                     </div>
@@ -59,7 +60,7 @@ const AuthenticationPage = () => {
                             <img
                                 src={eduGAINLogo}
                                 alt="eduGAIN login"
-                                className="login-logo-link"
+                                className="login-logo-link-eduGain"
                             />
                         </a>
                     </div>
