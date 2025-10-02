@@ -7,10 +7,12 @@ import './AuthenticationPage.css';
 
 const AuthenticationPage = () => {
     const { user, loading } = useAuth();
-    const currentPath = window.location.pathname + window.location.search;
-    const modifiedPath = currentPath.replace(/login/g, '');
 
-    console.log(modifiedPath);
+    const targetFromQuery = new URLSearchParams(window.location.search).get('target');
+    const currentPath = window.location.pathname + window.location.search;
+
+    const modifiedPath = targetFromQuery || currentPath.replace(/login/g, '');
+    const encodedTarget = encodeURIComponent(modifiedPath);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -22,7 +24,7 @@ const AuthenticationPage = () => {
 
     const handleHYLogin = (e) => {
         e.preventDefault();
-        const loginUrl = `/Shibboleth.sso/Login?target=${modifiedPath}`;
+        const loginUrl = `/Shibboleth.sso/Login?target=${encodedTarget}`;
         window.location.replace(loginUrl);
     };
 
