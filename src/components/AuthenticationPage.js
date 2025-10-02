@@ -1,8 +1,6 @@
 import React from 'react';
 import { useAuth } from '../AuthContext';
 import { Navigate } from 'react-router-dom';
-
-import uhLogo from './logo/hy.jpg';
 import eduGAINLogo from './logo/eduGain.png';
 import hyLogo from './logo/HY_logo.png';
 import './AuthenticationPage.css';
@@ -11,9 +9,8 @@ const AuthenticationPage = () => {
     const { user, loading } = useAuth();
     const currentPath = window.location.pathname + window.location.search;
     const modifiedPath = currentPath.replace(/login/g, '');
-    const encodedTarget = encodeURIComponent(modifiedPath);
 
-    console.log(encodedTarget);
+    console.log(modifiedPath);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -25,7 +22,7 @@ const AuthenticationPage = () => {
 
     const handleHYLogin = (e) => {
         e.preventDefault();
-        const loginUrl = `/Shibboleth.sso/Login?target=${encodedTarget}`;
+        const loginUrl = `/Shibboleth.sso/Login?target=${modifiedPath}`;
         window.location.replace(loginUrl);
     };
 
