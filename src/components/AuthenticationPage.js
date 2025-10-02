@@ -5,7 +5,8 @@ import { Navigate } from 'react-router-dom';
 const AuthenticationPage = () => {
     const { user, loading } = useAuth();
     const currentPath = window.location.pathname + window.location.search;
-    const encodedTarget = encodeURIComponent(currentPath);
+    const modifiedPath = currentPath.replace(/login/g, '');
+    const encodedTarget = encodeURIComponent(modifiedPath);
 
     if (loading) {
         return <div>Loading...</div>;
