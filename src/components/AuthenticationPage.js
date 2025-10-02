@@ -2,6 +2,11 @@ import React from 'react';
 import { useAuth } from '../AuthContext';
 import { Navigate } from 'react-router-dom';
 
+import uhLogo from './logo/login-uh.gif';
+import eduGAINLogo from './logo/login-edugain.gif';
+import hyLogo from './logo/HY_logo.png';
+import './AuthenticationPage.css';
+
 const AuthenticationPage = () => {
     const { user, loading } = useAuth();
     const currentPath = window.location.pathname + window.location.search;
@@ -13,7 +18,7 @@ const AuthenticationPage = () => {
     }
 
     if (user) {
-        return <Navigate to={`/`} />;
+        return <Navigate to="/" />;
     }
 
     const handleHYLogin = (e) => {
@@ -29,13 +34,36 @@ const AuthenticationPage = () => {
     };
 
     return (
-        <div style={{ padding: 40, textAlign: 'center' }}>
-            <h1>Select Login Method</h1>
-            <div style={{ marginTop: 20 }}>
-                <button onClick={handleHYLogin} style={{ marginRight: 20 }}>
-                    HY Login
-                </button>
-                <button onClick={handleEduGAINLogin}>eduGAIN Login</button>
+        <div className="login-container">
+            <div className="login-box">
+                <div className="login-left">
+                    <img src={hyLogo} alt="HY logo" className="login-logo" />
+                    <h1>Login</h1>
+                    <p>Please select your login method by clicking a logo on the right.</p>
+                </div>
+                <div className="login-right">
+                    <div className="login-section">
+                        <h2>University of Helsinki account</h2>
+                        <a href="/Shibboleth.sso/Login" onClick={handleHYLogin}>
+                            <img
+                                src={uhLogo}
+                                alt="University of Helsinki login"
+                                className="login-logo-link"
+                            />
+                        </a>
+                    </div>
+
+                    <div className="login-section">
+                        <h2>Other methods</h2>
+                        <a href="/Shibboleth.sso/eduGAINLogin" onClick={handleEduGAINLogin}>
+                            <img
+                                src={eduGAINLogo}
+                                alt="eduGAIN login"
+                                className="login-logo-link"
+                            />
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     );
