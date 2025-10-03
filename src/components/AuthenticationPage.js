@@ -39,7 +39,7 @@ const AuthenticationPage = () => {
             <div className="login-box">
                 <div className="login-left">
                     <h1>Login</h1>
-                    <p>Please select your login method by clicking a logo on the right.</p>
+                    <p>Please select your login method by clicking a logo</p>
                 </div>
                 <div className="login-right">
                     <div className="login-section">
@@ -55,7 +55,7 @@ const AuthenticationPage = () => {
 
                     <div className="login-section">
                         <h2>Other methods</h2>
-                        <a href="/Shibboleth.sso/eduGAINLogin" onClick={handleEduGAINLogin}>
+                        <a href="#" onClick={handleEduGAINLogin}>
                             <img
                                 src={eduGAINLogo}
                                 alt="eduGAIN login"
