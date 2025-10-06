@@ -122,3 +122,10 @@ body, html, #root {
 .login-footer a:hover {
     text-decoration: underline;
 }
+
+.login-logo-link-hy,
+.login-logo-link-eduGain {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 10px;
+}
