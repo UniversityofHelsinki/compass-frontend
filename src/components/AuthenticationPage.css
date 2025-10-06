@@ -126,6 +126,5 @@ body, html, #root {
 .login-logo-link-hy,
 .login-logo-link-eduGain {
     border: 2px solid black;
-    border-radius: 8px;
     padding: 10px;
 }
