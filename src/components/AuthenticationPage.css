@@ -1,0 +1,130 @@
+/* Base / Reset styles */
+body, html, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Container centers everything */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* The main white login box */
+.login-box {
+    display: flex;
+    width: 1000px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Left side: logo, title, and instructions */
+.login-left {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.login-logo {
+    max-width: 350px;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.login-left h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.login-left p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* Right side: login methods */
+.login-right {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+/* Individual login sections */
+.login-section {
+    margin-bottom: 2.5rem;
+    max-width: 300px; /* Controls the width for cleaner alignment */
+}
+
+.login-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #222;
+}
+
+.login-section p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 0.5rem;
+}
+
+/* Clickable login logo images */
+.login-logo-link-hy {
+    height: 100px;
+    width: auto;
+    display: block;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Clickable login logo images */
+.login-logo-link-eduGain {
+    height: 52px;
+    width: auto;
+    display: block;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.login-logo-link:hover {
+    transform: scale(1.05);
+    opacity: 0.85;
+}
+
+/* Optional: login footer (if needed later) */
+.login-footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #888;
+    text-align: center;
+}
+
+.login-footer a {
+    color: #0078d4;
+    text-decoration: none;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+.login-logo-link-hy,
+.login-logo-link-eduGain {
+    border: 2px solid black;
+    padding: 10px;
+}
