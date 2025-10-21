@@ -14,7 +14,8 @@ const RadioButtonGroup = ({
     ...rest
 }) => {
     const id = useId();
-    const handleClick = (field, newValue) => {
+    const handleChange = (event) => {
+        const newValue = event.target.value;
         if (value !== newValue) {
             onChange(field, newValue);
         }
@@ -40,7 +41,7 @@ const RadioButtonGroup = ({
                                 value={optionValue || ''}
                                 id={`compass-${optionValue || 'unknown'}-${id}`}
                                 label={optionLabel || ''}
-                                onClick={(e) => handleClick(field, e.target.value)}
+                                onChange={handleChange}
                                 {...rest}
                             />
                         );
