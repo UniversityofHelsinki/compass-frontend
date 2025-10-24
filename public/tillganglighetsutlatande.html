@@ -3,6 +3,194 @@
     <head>
         <meta charset="UTF-8" />
         <title>Tillgänglighetsutlåtande – Reflektionskompass</title>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+
+            .row {
+                margin: 25px 0;
+            }
+
+            .row .deficiency-section {
+                margin: 15px;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                margin: 10px 0 5px;
+            }
+
+            .statement__section {
+                margin-bottom: 4em;
+            }
+
+            .statement__inaccessible {
+                margin-bottom: 2em;
+            }
+
+            .flaws {
+                padding-left: 0;
+            }
+
+            .flaw {
+                margin-bottom: 1em;
+                list-style: none;
+                background-color: #f0f0f0;
+                padding: 0.5em;
+            }
+
+            .flaw p {
+                margin-bottom: 1em;
+            }
+
+            .flaw ul {
+                margin-bottom: 1em;
+            }
+
+            .flaw__wcag li {
+                margin: 0;
+            }
+
+            .screen-reader-text {
+                position: absolute;
+                width: 1px;
+                clip: rect(0 0 0 0);
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        </style>
     </head>
-    <body></body>
+    <body>
+        <article>
+            <header>
+                <h1>Tillgänglighetsutlåtande</h1>
+            </header>
+            <section class="statement__section">
+                <p>
+                    Detta tillgänglighetsutlåtande gäller Helsingfors universitets webbplats
+                    Reflektionskompass (https://reflection-compass.it.helsinki.fi/) och har skapats
+                    24.10.2025. Tjänsten omfattas av lagen om tillhandahållande av digitala tjänster
+                    och dess krav på att offentliga webbplatser måste vara tillgängliga.
+                </p>
+                <p>Vi har själva granskat hur tillgänglig tjänsten är.</p>
+            </section>
+
+            <section class="statement__section">
+                <h2>Tillgänglighetsstatus för den digitala tjänsten</h2>
+                <p>Uppfyller delvis tillgänglighetskraven.</p>
+            </section>
+
+            <h2>Icke-tillgängligt innehåll</h2>
+
+            <section class="statement__section">
+                <section class="statement__inaccessible">
+                    <h3>Webbplatsen uppfyller ännu inte alla krav</h3>
+
+                    <ul class="flaws">
+                        <li class="flaw">
+                            <h4 class="flaw__title">
+                                Inte allt innehåll på instruktionssidan i lärarvyn är tillgängligt
+                                med skärmläsare.
+                            </h4>
+                            <h5 class="flaw__subtitle">
+                                Innehåll som inte är tillgängligt och dess brister
+                            </h5>
+                            <p>
+                                Bilderna på instruktionssidan saknar beskrivande textalternativ.
+                                Listan är inte programmässigt märkt som en lista. Språket för
+                                avsnitt på andra språk har inte definierats.
+                            </p>
+                            <h5>Tillgänglighetskrav som inte uppfylls</h5>
+                            <ul class="flaw__wcag">
+                                <li>1.1.1 Innehåll som inte är text</li>
+                                <li>1.3.1 Information och relationer</li>
+                                <li>3.1.2 Språk för del av sida</li>
+                            </ul>
+                        </li>
+                        <li class="flaw">
+                            <h4 class="flaw__title">
+                                Filer delade på instruktionssidan i lärarvyn är inte tillgängliga.
+                            </h4>
+                            <h5 class="flaw__subtitle">
+                                Innehåll som inte är tillgängligt och dess brister
+                            </h5>
+                            <p>
+                                Det är möjligt att läsa introduktions- och instruktionsfiler med
+                                skärmläsare, men till exempel har inte rubriknivåer eller språk
+                                definierats. Dessutom saknar bilderna beskrivande textalternativ.
+                                Innan bristerna åtgärdas kan tillgängliga versioner fås på begäran
+                                via e-post: reflectioncompass@helsinki.fi.
+                            </p>
+                            <h5>Tillgänglighetskrav som inte uppfylls</h5>
+                            <ul class="flaw__wcag">
+                                <li>1.1.1 Innehåll som inte är text</li>
+                                <li>1.3.1 Information och relationer</li>
+                                <li>3.1.1 Sidans språk</li>
+                                <li>3.1.2 Språk för del av sida</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+
+            <section class="statement__section">
+                <h2>
+                    Upptäckte du en tillgänglighetsbrist i vår digitala tjänst? Beskriv den för oss
+                    och vi ska göra vårt bästa för att åtgärda den
+                </h2>
+
+                <h3>Per e-post</h3>
+                <p>
+                    <a href="mailto:reflectioncompass@helsinki.fi">
+                        reflectioncompass@helsinki.fi
+                        <span class="screen-reader-text">Öppnas i e-postprogram</span>
+                    </a>
+                </p>
+            </section>
+
+            <section class="statement__section">
+                <h2>Tillsynsmyndigheten</h2>
+                <p>
+                    Kontakta oss om du vill påtala brister i tillgängligheten på vår webbplats. Det
+                    kan ta 14 dagar innan du får ett svar. Om du inte är nöjd med det svar du har
+                    fått eller inte får något svar alls inom två veckor kan du lämna in en anmälan
+                    om bristande tillgänglighet till Transport- och kommunikationsverket Traficom.
+                    <a
+                        href="https://saavutettavuusvaatimukset.fi/sv/dina-rattigheter-0"
+                        rel="noopener"
+                        target="_blank"
+                    >
+                        På Traficoms webbplats<span class="screen-reader-text"
+                            >Öppnas i ett nytt fönster</span
+                        ></a
+                    >
+                    finns det beskrivet hur du kan lämna in en anmälan och hur ärendet behandlas.
+                </p>
+
+                <h2>Tillsynsmyndighetens kontaktuppgifter</h2>
+                <p>
+                    Transport- och kommunikationsverket Traficom<br />
+                    Enheten för tillsyn över digital tillgänglighet<br />
+                    <a href="https://www.tillgänglighetskrav.fi" rel="noopener" target="_blank">
+                        www.tillgänglighetskrav.fi
+                        <span class="screen-reader-text">Öppnas i ett nytt fönster</span> </a
+                    ><br />
+                    <a href="mailto:tillganglighet@traficom.fi">
+                        tillganglighet@traficom.fi
+                        <span class="screen-reader-text">Öppnas i e-postprogram</span> </a
+                    ><br />
+                    telefonnummer växeln
+                    <a href="tel:+358295345000">
+                        029 534 5000
+                        <span class="screen-reader-text">Öppna länk för att ringa</span>
+                    </a>
+                </p>
+            </section>
+        </article>
+    </body>
 </html>
