@@ -238,7 +238,7 @@
     "footer_hy_phone_switchboard": "Puhelinvaihde: 02941 911",
     "footer_contact_info_link": "https://helpdesk.it.helsinki.fi/help/7003",
     "footer_compass_data_protection_statement_link": "https://www.helsinki.fi/fi/tutustu-meihin/tietojen-kasittely-yliopistolla/tietosuoja",
-    "footer_accessibility_statement_link": "footer_accessibility_statement_link",
+    "footer_accessibility_statement_link": "/saavutettavuusseloste.html",
     "opens_in_new_tab": "Avautuu uuteen välilehteen",
     "instructions_page_download_links_aria_label": "Lataa tiedosto {{fileName}}",
     "answer_dialog_teacher_level_feedback": "Ymmärtämisen taso:",
