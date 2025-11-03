@@ -14,7 +14,7 @@ import useUser from '../../hooks/useUser';
 import './Assignments.css';
 import { useNotification } from '../../NotificationContext';
 
-const AssignmentListItem = ({ assignment, href, researchAuthorization }) => {
+const AssignmentListItem = ({ previous, assignment, href, researchAuthorization }) => {
     const { t } = useTranslation();
 
     let anwer =
@@ -28,7 +28,11 @@ const AssignmentListItem = ({ assignment, href, researchAuthorization }) => {
             <Col className="assignments-list-item-link">
                 <Link
                     to={href}
-                    className={assignmentListLinkStyle}
+                    className={
+                        previous === true && assignment?.answered === false
+                            ? 'disabled'
+                            : 'assignments-list-item-link'
+                    }
                     onClick={(e) => researchAuthorization === null && e.preventDefault()}
                     aria-disabled={researchAuthorization === null}
                 >
@@ -57,6 +61,7 @@ const AssignmentListItem = ({ assignment, href, researchAuthorization }) => {
     );
 };
 AssignmentListItem.propTypes = {
+    previous: PropTypes.bool.isRequired,
     assignment: PropTypes.shape({
         id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         topic: PropTypes.string,
@@ -170,6 +175,7 @@ const Assignments = () => {
     Assignments.propTypes = {
         assignment: PropTypes.object,
         href: PropTypes.string,
+        previous: PropTypes.bool,
     };
 
     const CheckBoxes = ({ radioButtonClicked, onChange, value, validationError }) => {
@@ -259,6 +265,7 @@ const Assignments = () => {
                     {dueAssignments.map((assignment) => (
                         <li key={assignment.id} className="mb-3">
                             <AssignmentListItem
+                                previous={false}
                                 className={
                                     researchAuthorization === null
                                         ? 'disabled'
@@ -282,6 +289,7 @@ const Assignments = () => {
                     {previousAssignments.map((assignment) => (
                         <li key={assignment.id} className="mb-3">
                             <AssignmentListItem
+                                previous={true}
                                 className={
                                     researchAuthorization === null
                                         ? 'disabled'
@@ -317,6 +325,7 @@ const Assignments = () => {
 Assignments.propTypes = {
     assignment: PropTypes.object,
     href: PropTypes.string,
+    previous: PropTypes.bool,
 };
 
 export default Assignments;
