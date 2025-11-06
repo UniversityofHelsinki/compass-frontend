@@ -2,26 +2,27 @@ import './TopBar.css';
 import BackButton, { propTypes as BackButtonPropTypes } from './BackButton';
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Col, Row } from 'react-bootstrap';
 import LogoImage from '../logo/LogoImage';
 
 const TopBar = ({ showBackBtn = false, backBtnLabels, backBtnHref = '', heading, children }) => {
     return (
-        <div className="top-bar">
-            <div className="top-bar-left">
-                <div className="top-bar-logo">
-                    <LogoImage />
+        <>
+            <div className="top-bar">
+                <div className="top-bar-left">
+                    <div className="top-bar-logo">
+                        <LogoImage />
+                    </div>
                 </div>
-                {showBackBtn && <div className="my-1"></div>}
-                <div className="top-bar-back-btn">
-                    {showBackBtn && <BackButton labels={backBtnLabels} href={backBtnHref} />}
+                <div className="top-bar-heading">
+                    <h2>{heading}</h2>
                 </div>
+                <div className="top-bar-children">{children}</div>
             </div>
-            <div className="top-bar-heading">
-                <h2>{heading}</h2>
+            {showBackBtn && <div className="my-1"></div>}
+            <div className="top-bar-back-btn">
+                {showBackBtn && <BackButton labels={backBtnLabels} href={backBtnHref} />}
             </div>
-            <div className="top-bar-children">{children}</div>
-        </div>
+        </>
     );
 };
 

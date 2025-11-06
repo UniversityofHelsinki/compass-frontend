@@ -1,12 +1,10 @@
+
 .top-bar {
     display: flex;
     flex-direction: row;
-    justify-content: start;
-
     margin-left: 12px;
     margin-right: 12px;
-
-    margin-bottom: 48px;
+    margin-bottom: 20px;
 }
 
 .top-bar-logo {
@@ -35,4 +33,17 @@
     flex: 0 1 50%;
     align-self: start;
     word-break: break-all;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        margin-right: 0;
+    }
+
+    .top-bar-heading > h2 {
+        text-align: left;
+        margin-top: 10px;
+    }
 }
