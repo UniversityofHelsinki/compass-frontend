@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import useUser from './hooks/useUser';
-import { ROLE_TEACHER } from '../src/Constants'; // Assuming your hook fetches and handles user logic
+import { ROLE_TEACHER } from './Constants';
 
 const AuthContext = createContext(null);
 
@@ -27,10 +27,20 @@ export const AuthProvider = ({ children }) => {
         fetchUser();
     }, []);
 
-    const value = useMemo(() => {
-        const isTeacher = user?.eduPersonAffiliation?.includes(ROLE_TEACHER);
-        return { user: (user && { ...user, isTeacher }) || null, loading };
-    }, [user, loading]);
+    const value = useMemo(
+        () => ({
+            user: user
+                ? {
+                      ...user,
+                      isTeacher: ROLE_TEACHER.some((role) =>
+                          user.eduPersonAffiliation?.includes(role),
+                      ),
+                  }
+                : null,
+            loading,
+        }),
+        [user, loading],
+    );
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
