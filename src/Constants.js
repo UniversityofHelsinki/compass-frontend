@@ -29,6 +29,6 @@ export const LEVELS = [
     },
 ];
 
-export const ROLE_TEACHER = ['affiliate', 'faculty'];
+export const ROLE_TEACHER = 'faculty';
 
 export const COURSE_ONGOING = 'course_ongoing';

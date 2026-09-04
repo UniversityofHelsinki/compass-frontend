@@ -27,20 +27,10 @@ export const AuthProvider = ({ children }) => {
         fetchUser();
     }, []);
 
-    const value = useMemo(
-        () => ({
-            user: user
-                ? {
-                      ...user,
-                      isTeacher: ROLE_TEACHER.some((role) =>
-                          user.eduPersonAffiliation?.includes(role),
-                      ),
-                  }
-                : null,
-            loading,
-        }),
-        [user, loading],
-    );
+    const value = useMemo(() => {
+        const isTeacher = user?.eduPersonAffiliation?.includes(ROLE_TEACHER);
+        return { user: (user && { ...user, isTeacher }) || null, loading };
+    }, [user, loading]);
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
